@@ -3,7 +3,7 @@ name: New component
 about: Add new component to the library
 title: Develop [COMPONENT NAME] component
 labels: feature
-assignees: equinusocio, SRFeesha
+assignees: equinusocio
 
 ---
 
