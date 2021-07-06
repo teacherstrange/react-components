@@ -34,7 +34,8 @@
     "prepare": "husky install",
     "release": "semantic-release",
     "update:cssdb": "npx browserslist@latest --update-db",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "@wonderflow/tokens": "1.1.0",
