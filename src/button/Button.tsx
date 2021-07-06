@@ -4,14 +4,14 @@ import styles from './button.module.css'
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
+export const Button = ({ ...props }) => {
   return (
     <button
       type="button"
       className={styles.Button}
       {...props}
     >
-      <span>{label}</span>
+      <span>BUTTON</span>
     </button>
   )
 }
