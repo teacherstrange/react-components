@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "@/components/*": ["src/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "src/Icons"
+  ],
+  "include": [
+    "types/*",
+    "**/*.ts",
+    "**/*.tsx",
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "stylelint.enable": true,
+  "css.validate": false,
+  "editor.formatOnSave": false,
+  "cssVarriablesAutocomplete.files": [ "./node_modules/@wonderflow/tokens/platforms/web/tokens.css" ],
+  "cssVarriablesAutocomplete.languageModes": [ "css", "postcss" ],
+  "cssVarriablesAutocomplete.propertyPrefixes": {},
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
