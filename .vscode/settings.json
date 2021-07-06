@@ -5,6 +5,7 @@
   "cssVarriablesAutocomplete.files": [ "./node_modules/@wonderflow/tokens/platforms/web/tokens.css" ],
   "cssVarriablesAutocomplete.languageModes": [ "css", "postcss" ],
   "cssVarriablesAutocomplete.propertyPrefixes": {},
+  "typescript.tsdk": "node_modules/typescript/lib",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
@@ -19,5 +20,5 @@
   "[markdown]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
 }

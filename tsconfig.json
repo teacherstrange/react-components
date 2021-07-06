@@ -1,21 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
     "module": "esnext",
+    "target": "es6",
+    "lib": ["es6", "dom", "es2016", "esnext"],
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
+    "declaration": true,
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
@@ -23,19 +19,16 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "jsx": "preserve",
+    "esModuleInterop": true,
     "baseUrl": "./",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "paths": {
       "@/components/*": ["src/*"]
-    }
+    },
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
-  "exclude": [
-    "node_modules",
-    "src/Icons"
-  ],
-  "include": [
-    "types/*",
-    "**/*.ts",
-    "**/*.tsx",
-  ]
+  "include": ["src", "types/*"],
+  "exclude": ["node_modules", "build", "dist"]
 }
