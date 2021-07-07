@@ -5,7 +5,6 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "cssEnvVarsAutocomplete.varFiles": [ ],
   "cssEnvVarsAutocomplete.envFiles": [ "./node_modules/@wonderflow/tokens/platforms/web/tokens.css" ],
-  "cssVarriablesAutocomplete.languageModes": [ "css", "postcss" ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
@@ -19,6 +18,8 @@
   },
   "[markdown]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.wordWrap": "wordWrapColumn",
   },
 }
