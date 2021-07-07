@@ -2,10 +2,10 @@
   "stylelint.enable": true,
   "css.validate": false,
   "editor.formatOnSave": false,
-  "cssVarriablesAutocomplete.files": [ "./node_modules/@wonderflow/tokens/platforms/web/tokens.css" ],
-  "cssVarriablesAutocomplete.languageModes": [ "css", "postcss" ],
-  "cssVarriablesAutocomplete.propertyPrefixes": {},
   "typescript.tsdk": "node_modules/typescript/lib",
+  "cssEnvVarsAutocomplete.varFiles": [ ],
+  "cssEnvVarsAutocomplete.envFiles": [ "./node_modules/@wonderflow/tokens/platforms/web/tokens.css" ],
+  "cssVarriablesAutocomplete.languageModes": [ "css", "postcss" ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
