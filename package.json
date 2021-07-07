@@ -2,9 +2,14 @@
   "name": "@wonderflow/react-components",
   "description": "UI components from Wonderflow's Wanda design system",
   "version": "0.0.0",
-  "private": true,
   "author": "Wonderflow",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wonderflow-bv/react-components.git"
