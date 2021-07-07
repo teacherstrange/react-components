@@ -1,0 +1,92 @@
+{
+  "name": "@wonderflow/react-components",
+  "description": "UI components from Wonderflow's Wanda design system",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Wonderflow",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wonderflow-bv/react-components.git"
+  },
+  "keywords": [
+    "design-system",
+    "wonderflow",
+    "components",
+    "react"
+  ],
+  "bugs": {
+    "url": "https://github.com/wonderflow-bv/react-components/issues"
+  },
+  "homepage": "https://github.com/wonderflow-bv/react-components#readme",
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 1 Safari versions",
+    "last 2 Edge versions"
+  ],
+  "scripts": {
+    "start": "start-storybook -p 6006 --quiet",
+    "lint": "npm run lint:scripts && npm run lint:styles",
+    "lint:scripts": "eslint \"src/**/*.{jsx,js}\"",
+    "lint:styles": "stylelint src/**/*.css",
+    "lint:commits": "commitlint --edit",
+    "prepare": "husky install",
+    "release": "semantic-release",
+    "update:cssdb": "npx browserslist@latest --update-db",
+    "prebuild": "rimraf dist",
+    "build": "npm run copy:source",
+    "copy:source": "copyfiles -u 1 src/* src/**/* dist/"
+  },
+  "dependencies": {
+    "@wonderflow/tokens": "1.1.0",
+    "clsx": "1.1.1",
+    "cssnano": "5.0.6",
+    "cssnano-preset-default": "5.1.3",
+    "flat": "5.0.2",
+    "postcss": "8.3.5",
+    "postcss-easy-import": "3.0.0",
+    "postcss-inset": "1.0.0",
+    "postcss-preset-env": "6.7.0"
+  },
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.14.6",
+    "@commitlint/cli": "12.1.4",
+    "@commitlint/config-conventional": "12.1.4",
+    "@semantic-release/commit-analyzer": "8.0.1",
+    "@semantic-release/git": "9.0.0",
+    "@semantic-release/github": "7.2.3",
+    "@semantic-release/npm": "7.1.3",
+    "@semantic-release/release-notes-generator": "9.0.3",
+    "@storybook/addon-actions": "6.3.2",
+    "@storybook/addon-essentials": "6.3.2",
+    "@storybook/addon-links": "6.3.2",
+    "@storybook/addon-postcss": "2.0.0",
+    "@storybook/react": "6.3.2",
+    "babel-loader": "8.2.2",
+    "commitizen": "4.2.4",
+    "copyfiles": "2.4.1",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "7.30.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "5.1.0",
+    "eslint-plugin-react": "7.24.0",
+    "husky": "7.0.1",
+    "rimraf": "3.0.2",
+    "semantic-release": "17.4.4",
+    "storybook-css-modules-preset": "1.1.1",
+    "stylelint": "13.13.1",
+    "stylelint-config-equinusocio": "1.0.5",
+    "stylelint-design-tokens-plugin": "0.0.12"
+  }
+}
