@@ -4,9 +4,10 @@
     "target": "es6",
     "lib": ["es6", "dom", "es2016", "esnext"],
     "skipLibCheck": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "allowJs": false,
     "jsx": "react",
+    "removeComments": true,
     "declaration": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -21,14 +22,19 @@
     "noUnusedParameters": true,
     "esModuleInterop": true,
     "baseUrl": "./",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "paths": {
-      "@/components/*": ["src/*"]
-    },
     "typeRoots": [
       "node_modules/@types"
     ]
   },
-  "include": ["src", "types/*"],
-  "exclude": ["node_modules", "build", "dist"]
+  "exclude": [
+    "node_modules",
+    "src/Icons",
+    "**/*.stories.tsx",
+    "dist"
+  ],
+  "include": [
+    "types/*",
+    "**/*.ts",
+    "**/*.tsx",
+  ]
 }
