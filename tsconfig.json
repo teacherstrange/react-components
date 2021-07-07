@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es6",
+    "lib": ["es6", "dom", "es2016", "esnext"],
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "allowJs": false,
+    "jsx": "react",
+    "removeComments": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "src/Icons",
+    "**/*.stories.tsx",
+    "dist"
+  ],
+  "include": [
+    "types/*",
+    "**/*.ts",
+    "**/*.tsx",
+  ]
+}

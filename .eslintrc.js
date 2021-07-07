@@ -1,4 +1,5 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
   extends: ['standard', 'plugin:react/recommended'],
   env: {
     browser: true,
@@ -11,8 +12,12 @@ module.exports = {
       jsx: true
     }
   },
-  plugins: ['jsx-a11y'],
+  plugins: ['jsx-a11y', '@typescript-eslint'],
   rules: {
+    "no-shadow": 'off',
+    "no-undef": 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
