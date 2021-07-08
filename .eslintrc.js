@@ -14,8 +14,8 @@ module.exports = {
   },
   plugins: ['jsx-a11y', '@typescript-eslint'],
   rules: {
-    "no-shadow": 'off',
-    "no-undef": 'off',
+    'no-shadow': 'off',
+    'no-undef': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'jsx-a11y/anchor-is-valid': [

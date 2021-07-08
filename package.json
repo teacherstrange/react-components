@@ -29,7 +29,8 @@
     "last 2 Edge versions"
   ],
   "scripts": {
-    "start": "start-storybook --quiet -p 6006",
+    "start": "run-s build storybook",
+    "storybook": "start-storybook --quiet -p 6006",
     "lint": "run-s lint:scripts && run-s lint:styles",
     "lint:scripts": "eslint \"src/**/*.{tsx,ts}\"",
     "lint:styles": "stylelint src/**/*.css",
@@ -39,11 +40,12 @@
     "update:cssdb": "npx browserslist@latest --update-db",
     "prebuild": "rimraf dist",
     "copy:css": "copyfiles -u 1 src/**/*.css dist/",
-    "build": "run-s -s build:ts copy:css",
-    "build:ts": "tsc --outDir dist",
+    "build": "run-s -s build:components copy:css",
+    "build:components": "tsc",
     "postbuild": "copyfiles package.json dist"
   },
   "dependencies": {
+    "@wonderflow/config": "1.0.0",
     "@wonderflow/tokens": "1.1.0",
     "clsx": "1.1.1",
     "cssnano": "5.0.6",
@@ -73,6 +75,7 @@
     "@storybook/addon-links": "6.3.2",
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/react": "6.3.2",
+    "@types/flat": "5.0.2",
     "@types/react-dom": "17.0.8",
     "@typescript-eslint/eslint-plugin": "4.28.2",
     "@typescript-eslint/parser": "4.28.2",

@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "dist",
     "module": "esnext",
     "target": "es6",
     "lib": ["es6", "dom", "es2016", "esnext"],
@@ -21,7 +23,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
-    "baseUrl": "./",
     "typeRoots": [
       "node_modules/@types"
     ]
@@ -29,6 +30,7 @@
   "exclude": [
     "node_modules",
     "src/Icons",
+    "src/config",
     "**/*.stories.tsx",
     "dist"
   ],
