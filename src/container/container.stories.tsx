@@ -13,17 +13,10 @@ export default {
       table: {
         disable: true
       }
-    },
-    children: {
-      table: {
-        disable: true
-      }
     }
   },
   args: {
-    size: 'full',
-    padding: true,
-    className: 'ContainerEx'
+    size: 'full'
   }
 }
 
@@ -31,18 +24,23 @@ const Template = (args) => <Container {...args} />
 
 export const Medium = Template.bind({})
 Medium.args = {
-  size: 'medium'
+  size: 'medium',
+  className: 'ContainerEx'
 }
 
 export const Large = Template.bind({})
 Large.args = {
-  size: 'large'
+  size: 'large',
+  className: 'ContainerEx'
 }
 
 export const FullWidth = Template.bind({})
+FullWidth.args = {
+  className: 'ContainerEx'
+}
 
 export const NoPadding = Template.bind({})
 NoPadding.args = {
   padding: false,
-  children: 'No Padding'
+  className: 'ContainerEx'
 }
