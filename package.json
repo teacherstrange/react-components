@@ -45,19 +45,12 @@
     "postbuild": "copyfiles package.json dist"
   },
   "dependencies": {
-    "@wonderflow/config": "1.3.1",
+    "@wonderflow/config": "1.3.3",
     "@wonderflow/eslint-config": "1.0.1",
     "@wonderflow/stylelint-config": "1.0.1",
     "clsx": "1.1.1",
-    "cssnano": "5.0.6",
-    "cssnano-preset-default": "5.1.3",
     "flat": "5.0.2",
     "postcss": "8.3.5",
-    "postcss-easy-import": "3.0.0",
-    "postcss-inset": "1.0.0",
-    "postcss-preset-env": "6.7.0"
-  },
-  "peerDependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -71,11 +64,11 @@
     "@semantic-release/github": "7.2.3",
     "@semantic-release/npm": "7.1.3",
     "@semantic-release/release-notes-generator": "9.0.3",
-    "@storybook/addon-actions": "6.3.2",
-    "@storybook/addon-essentials": "6.3.2",
-    "@storybook/addon-links": "6.3.2",
+    "@storybook/addon-actions": "6.3.4",
+    "@storybook/addon-essentials": "6.3.4",
+    "@storybook/addon-links": "6.3.4",
     "@storybook/addon-postcss": "2.0.0",
-    "@storybook/react": "6.3.2",
+    "@storybook/react": "6.3.4",
     "@types/flat": "5.0.2",
     "@types/react-dom": "17.0.8",
     "@typescript-eslint/eslint-plugin": "4.28.2",
