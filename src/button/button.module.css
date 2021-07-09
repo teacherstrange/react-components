@@ -1,7 +1,0 @@
-.Button {
-  border: 5px solid hsl(env(--color-green-20));
-
-  & > * {
-    border: 5px solid blue;
-  }
-}

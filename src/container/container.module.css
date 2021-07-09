@@ -1,0 +1,35 @@
+@import '../core/media.css';
+
+.Container {
+  padding: 0 env(--space-16);
+  margin: 0 auto;
+  flex-grow: 1;
+
+  &[data-container-size='medium'] {
+    max-width: env(--container-medium);
+
+    @media (--from-small) {
+      padding: 0 env(--space-32);
+    }
+  }
+
+  &[data-container-size='large'] {
+    max-width: env(--container-large);
+
+    @media (--from-small) {
+      padding: 0 env(--space-32);
+    }
+  }
+
+  &[data-container-size='full'] {
+    max-width: 100%;
+
+    @media (--from-small) {
+      padding: 0 env(--space-32);
+    }
+  }
+
+  &[data-container-padding='false'] {
+    padding: 0;
+  }
+}

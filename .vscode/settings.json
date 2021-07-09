@@ -13,7 +13,7 @@
   "files.associations": {
     "*.css": "postcss"
   },
-  "[json]": {
+  "[yaml]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -23,4 +23,8 @@
     "editor.rulers": [80],
     "editor.wordWrap": "wordWrapColumn",
   },
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

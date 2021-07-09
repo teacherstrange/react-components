@@ -29,7 +29,8 @@
     "last 2 Edge versions"
   ],
   "scripts": {
-    "start": "start-storybook --quiet -p 6006",
+    "start": "run-s build storybook",
+    "storybook": "start-storybook --quiet -p 6006",
     "lint": "run-s lint:scripts && run-s lint:styles",
     "lint:scripts": "eslint \"src/**/*.{tsx,ts}\"",
     "lint:styles": "stylelint src/**/*.css",
@@ -39,22 +40,17 @@
     "update:cssdb": "npx browserslist@latest --update-db",
     "prebuild": "rimraf dist",
     "copy:css": "copyfiles -u 1 src/**/*.css dist/",
-    "build": "run-s -s build:ts copy:css",
-    "build:ts": "tsc --outDir dist",
+    "build": "run-s -s build:components copy:css",
+    "build:components": "tsc",
     "postbuild": "copyfiles package.json dist"
   },
   "dependencies": {
-    "@wonderflow/tokens": "1.1.0",
+    "@wonderflow/config": "1.3.4",
+    "@wonderflow/eslint-config": "1.0.1",
+    "@wonderflow/stylelint-config": "1.0.1",
     "clsx": "1.1.1",
-    "cssnano": "5.0.6",
-    "cssnano-preset-default": "5.1.3",
     "flat": "5.0.2",
     "postcss": "8.3.5",
-    "postcss-easy-import": "3.0.0",
-    "postcss-inset": "1.0.0",
-    "postcss-preset-env": "6.7.0"
-  },
-  "peerDependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -68,11 +64,12 @@
     "@semantic-release/github": "7.2.3",
     "@semantic-release/npm": "7.1.3",
     "@semantic-release/release-notes-generator": "9.0.3",
-    "@storybook/addon-actions": "6.3.2",
-    "@storybook/addon-essentials": "6.3.2",
-    "@storybook/addon-links": "6.3.2",
+    "@storybook/addon-actions": "6.3.4",
+    "@storybook/addon-essentials": "6.3.4",
+    "@storybook/addon-links": "6.3.4",
     "@storybook/addon-postcss": "2.0.0",
-    "@storybook/react": "6.3.2",
+    "@storybook/react": "6.3.4",
+    "@types/flat": "5.0.2",
     "@types/react-dom": "17.0.8",
     "@typescript-eslint/eslint-plugin": "4.28.2",
     "@typescript-eslint/parser": "4.28.2",
@@ -94,9 +91,8 @@
     "semantic-release": "17.4.4",
     "storybook-css-modules-preset": "1.1.1",
     "stylelint": "13.13.1",
-    "stylelint-config-equinusocio": "1.0.5",
-    "stylelint-design-tokens-plugin": "0.0.12",
     "typescript": "4.3.5",
-    "typescript-plugin-css-modules": "3.4.0"
+    "typescript-plugin-css-modules": "3.4.0",
+    "what-input": "5.2.10"
   }
 }
