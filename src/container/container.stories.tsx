@@ -44,3 +44,9 @@ NoPadding.args = {
   padding: false,
   className: 'ContainerEx'
 }
+
+export const AsSection = Template.bind({})
+NoPadding.args = {
+  as: 'section',
+  className: 'ContainerEx'
+}

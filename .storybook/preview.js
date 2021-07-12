@@ -1,6 +1,6 @@
+import '../dist/themes/light.css';
 import './overrides.css';
 import 'what-input';
-// import '../src/core/core.css';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
