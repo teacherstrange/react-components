@@ -5,7 +5,7 @@ import clsx from 'clsx'
 export interface IContainerProps extends HTMLAttributes<HTMLOrSVGElement> {
   size?: 'full' | 'medium' | 'large';
   padding?: boolean;
-  as?: keyof JSX.IntrinsicElements;
+  tag?: keyof JSX.IntrinsicElements;
 }
 
 export const Container = ({
@@ -13,17 +13,15 @@ export const Container = ({
   className,
   size = 'full',
   padding = true,
-  as: Tag = 'div',
+  tag: Tag = 'div',
   ...props
-}: IContainerProps) => {
-  return (
-    <Tag
-      className={clsx(styles.Container, className)}
-      data-container-size={size}
-      data-container-padding={padding}
-      {...props}
-    >
-      {children}
-    </Tag>
-  )
-}
+}: IContainerProps) => (
+  <Tag
+    className={clsx(styles.Container, className)}
+    data-container-size={size}
+    data-container-padding={padding}
+    {...props}
+  >
+    {children}
+  </Tag>
+)
