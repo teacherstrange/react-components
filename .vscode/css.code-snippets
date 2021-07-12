@@ -16,10 +16,19 @@
 	// 	"description": "Log output to console"
 	// }
   "Import Wanda css media queries from inside a component": {
-		"prefix": "cssmedia",
+		"prefix": "media",
 		"body": [
 			"@import '../core/media.css';"
 		],
+    "scope": "css, postcss",
+		"description": "Import Wanda css media queries from inside a component"
+	},
+  "Import Wanda css design tokens": {
+		"prefix": "tokens",
+		"body": [
+			"@import '@wonderflow/tokens/platforms/web/tokens.css';"
+		],
+    "scope": "css, postcss",
 		"description": "Import Wanda css media queries from inside a component"
 	}
 }

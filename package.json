@@ -40,8 +40,11 @@
     "update:cssdb": "npx browserslist@latest --update-db",
     "prebuild": "rimraf dist",
     "copy:css": "copyfiles -u 1 src/**/*.css dist/",
-    "build": "run-s -s build:components copy:css",
+    "build": "run-s -s build:components copy:css build:themes",
     "build:components": "tsc",
+    "build:themes": "run-p build:light build:dark",
+    "build:light": "node src/themes/index.js --name light",
+    "build:dark": "node src/themes/index.js --name dark",
     "postbuild": "copyfiles package.json dist"
   },
   "dependencies": {
@@ -52,7 +55,8 @@
     "flat": "5.0.2",
     "postcss": "8.3.5",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "style-dictionary": "3.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.14.6",
@@ -95,6 +99,7 @@
     "stylelint": "13.13.1",
     "typescript": "4.3.5",
     "typescript-plugin-css-modules": "3.4.0",
-    "what-input": "5.2.10"
+    "what-input": "5.2.10",
+    "yargs": "16.2.0"
   }
 }
