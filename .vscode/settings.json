@@ -4,8 +4,8 @@
   "editor.formatOnSave": false,
   "javascript.validate.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cssEnvVarsAutocomplete.varFiles": [ ],
-  "cssEnvVarsAutocomplete.envFiles": [ "./node_modules/@wonderflow/tokens/platforms/web/tokens.css" ],
+  "cssEnvVarsAutocomplete.varFiles": ["./dist/themes/light.css"],
+  "cssEnvVarsAutocomplete.envFiles": ["./node_modules/@wonderflow/tokens/platforms/web/tokens.css"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true

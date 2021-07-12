@@ -1,34 +1,17 @@
 /* eslint-disable */
 import React, { Fragment } from 'react'
 import { Container } from '../container'
+import { Separator } from '../separator'
 
 export default {
   title: 'Core/Typograhy'
 }
 
 export const Typography = () => (
-  <Fragment>
-    <h1 data-size="display">Display Title</h1>
-    <h1>H1 Heading</h1>
-    <h2>H2 Heading</h2>
-    <h3>H3 Heading</h3>
-    <h4 data-weight="medium" data-text-color="positive">H4 Heading</h4>
-    <h5 data-weight="regular">H5 Heading</h5>
-    <h6>H6 Heading</h6>
-
-    <p data-size="small">This is a small paragraph</p>
+  <Container size="medium">
     <p>This is a standard paragraph</p>
-    <p data-size="big">This is a big paragraph</p>
 
     <p><a href="#">Text link</a></p>
-    <p>
-      <a href="#" data-no-link-style>
-        Text link with
-        {' '}
-        {' '}
-        <code>data-no-link-style</code>
-      </a>
-    </p>
     <p>
       <a>
         This is a link without
@@ -171,29 +154,7 @@ export const Typography = () => (
       {' '}
       indicates a highlight.
     </p>
-
-    <p data-text-color="danger">Dangerous text</p>
-    <p data-text-color="warning">Attention text</p>
-    <p data-text-color="positive">Positive text</p>
-
-  </Fragment>
-)
-
-export const Rules = () => (
-  <Fragment>
-    <p>0pt spaced rule</p>
-    <hr />
-    <p>8pt spaced rule</p>
-    <hr data-spacing="8" />
-    <p>16pt spaced rule</p>
-    <hr data-spacing="16" />
-    <p>24pt spaced rule</p>
-    <hr data-spacing="24" />
-    <p>32pt spaced rule</p>
-    <hr data-spacing="32" />
-    <p>40pt spaced rule</p>
-    <hr data-spacing="40" />
-  </Fragment>
+  </Container>
 )
 
 export const Prose = () => (
@@ -212,7 +173,9 @@ export const Prose = () => (
         tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus
         consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!
       </p>
-      <hr data-spacing="48" />
+
+      <Separator />
+
       <h2>Sample H2 Title</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores,

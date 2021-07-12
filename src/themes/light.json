@@ -4,7 +4,7 @@
       "value": "hsl({color.primary.70})"
     },
     "background": {
-      "value": "#fff"
+      "value": "hsl({color.support.white})"
     },
     "interactive-text": {
       "value": "hsl({color.blue.40})"
@@ -13,7 +13,7 @@
       "value": "hsl({color.blue.60})"
     },
     "vibrancy-foreground": {
-      "value": "#000"
+      "value": "hsl({color.support.black})"
     },
     "vibrancy-background": {
       "value": "hsl({color.primary.10} / 30%)"
@@ -25,7 +25,7 @@
       "value": "hsl({color.primary.100} / 6%)"
     },
     "disabled-foreground": {
-      "value": "hsl(0 0% 0% / 20%)"
+      "value": "hsl({color.support.black} / 20%)"
     }
   },
   "cta": {
@@ -33,10 +33,10 @@
       "value": "hsl({color.support.brand})"
     },
     "dark": {
-      "value": "#D10000"
+      "value": "hsl(0 100% 41%)"
     },
     "foreground": {
-      "value": "#fff"
+      "value": "hsl({color.support.black})"
     }
   },
   "dimmed": {

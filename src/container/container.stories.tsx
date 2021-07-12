@@ -13,6 +13,9 @@ export default {
       table: {
         disable: true
       }
+    },
+    size: {
+      options: ['full', 'medium', 'large']
     }
   },
   args: {
@@ -46,7 +49,7 @@ NoPadding.args = {
 }
 
 export const AsSection = Template.bind({})
-NoPadding.args = {
-  as: 'section',
+AsSection.args = {
+  tag: 'section',
   className: 'ContainerEx'
 }

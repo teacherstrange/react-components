@@ -39,7 +39,7 @@
     "release": "semantic-release",
     "update:cssdb": "npx browserslist@latest --update-db",
     "prebuild": "rimraf dist",
-    "copy:css": "copyfiles -u 1 src/**/*.css dist/",
+    "copy:css": "copyfiles -u 1 src/**/*.css src/*.css dist/",
     "build": "run-s -s build:components copy:css build:themes",
     "build:components": "tsc",
     "build:themes": "run-p build:light",
@@ -98,7 +98,6 @@
     "stylelint": "13.13.1",
     "typescript": "4.3.5",
     "typescript-plugin-css-modules": "3.4.0",
-    "what-input": "5.2.10",
     "yargs": "16.2.0"
   }
 }

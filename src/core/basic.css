@@ -1,0 +1,59 @@
+html {
+  font-size: 112.5%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  line-height: 1.5;
+  color: var(--global-foreground, #000);
+  background-color: var(--global-background, hsl(221 10% 30%));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: hsl(var(--cta-default) / 20%);
+}
+
+*:focus-visible {
+  outline: 5px auto Highlight;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+[data-whatintent='mouse'] *:focus,
+[data-whatintent='touch'] *:focus {
+  outline: none;
+}
+
+body {
+  font-family: env(--font-family-sans);
+  font-feature-settings: 'calt' off;
+  scroll-padding: env(--space-80);
+  margin: 0;
+}
+
+::-moz-selection {
+  background-color: var(--dimmed-7);
+  color: var(--dimmed-1);
+  text-shadow: none;
+}
+
+::selection {
+  background-color: var(--dimmed-7);
+  color: var(--dimmed-1);
+  text-shadow: none;
+}
+
+img {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 100%;
+}
+
+svg:not([fill]) {
+  fill: currentColor;
+}
+
+fieldset {
+  border: 0;
+}
