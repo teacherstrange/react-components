@@ -1,7 +1,7 @@
 {
-  "globals": {
+  "global": {
     "cacca": {
-      "value": "cio"
+      "value": "{color.blue.0}"
     }
   }
 }

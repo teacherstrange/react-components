@@ -1,11 +1,13 @@
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
-
-console.log(argv.name)
+const tksn = require('@wonderflow/tokens/platforms/web/tokens.json')
 
 module.exports = {
   source: [`./src/themes/${argv.name}.json`],
+  tokens: {
+    ...tksn
+  },
   platforms: {
     web: {
       buildPath: 'dist/themes/',
