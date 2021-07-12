@@ -42,9 +42,8 @@
     "copy:css": "copyfiles -u 1 src/**/*.css dist/",
     "build": "run-s -s build:components copy:css build:themes",
     "build:components": "tsc",
-    "build:themes": "run-p build:light build:dark",
+    "build:themes": "run-p build:light",
     "build:light": "node src/themes/index.js --name light",
-    "build:dark": "node src/themes/index.js --name dark",
     "postbuild": "copyfiles package.json dist"
   },
   "dependencies": {
