@@ -18,7 +18,7 @@ export default {
 }
 
 export const Default = () => (
-  <Container size="medium">
+  <Container>
     <Title tag="h1" level="display">Sample title</Title>
     <Title tag="h1" level="1">Sample title</Title>
     <Title tag="h2" level="2">Sample title</Title>

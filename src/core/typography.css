@@ -3,8 +3,8 @@
   min-height: 0;
   font-size:
     clamp(
-      var(--fluid-type-min, env(--font-size-14)),
-      calc(1rem + var(--fluid-type-target, 3vw)),
+      var(--fluid-type-min, env(--font-size-16)),
+      calc(0.6rem + 0.92vw),
       var(--fluid-type-max, 1rem)
     );
 }
