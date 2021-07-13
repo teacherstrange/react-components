@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from 'react'
+import React, { HTMLAttributes, ComponentType } from 'react'
 import styles from './container.module.css'
 import clsx from 'clsx'
 
 export interface IContainerProps extends HTMLAttributes<HTMLOrSVGElement> {
   size?: 'full' | 'medium' | 'large';
   padding?: boolean;
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: ComponentType | keyof JSX.IntrinsicElements;
 }
 
 export const Container = ({

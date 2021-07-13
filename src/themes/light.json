@@ -79,7 +79,7 @@
       "value": "hsl({color.green.0})"
     },
     "green-foreground": {
-      "value": "hsl({color.green.70})"
+      "value": "hsl({color.green.60})"
     },
     "blue-background": {
       "value": "hsl({color.blue.0})"

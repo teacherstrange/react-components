@@ -1,13 +1,15 @@
 /* eslint-disable */
 import React, { Fragment } from 'react'
 import { Container } from '../container'
-import { Separator } from '../separator'
 
 export default {
-  title: 'Core/Typograhy'
+  title: 'Core/Typograhy',
+  parameters: {
+    controls: { hideNoControlsWarning: true }
+  }
 }
 
-export const Typography = () => (
+export const Basic = () => (
   <Container size="medium">
     <p>This is a standard paragraph</p>
 
@@ -103,7 +105,21 @@ export const Typography = () => (
       The time element:
       <time dateTime="2013-04-06T12:32+00:00">2 weeks ago</time>
     </p>
+    <p>
+      The
+      <mark>mark element</mark>
+      {' '}
+      indicates a highlight.
+    </p>
+  </Container>
+)
+
+export const List = () => (
+  <Container size="medium">
     <dl>
+      <dt>Definition List Title</dt>
+      <dd>This is a definition list division.</dd>
+
       <dt>Definition List Title</dt>
       <dd>This is a definition list division.</dd>
     </dl>
@@ -134,6 +150,11 @@ export const Typography = () => (
       <li>Item 19</li>
       <li>Item 20</li>
     </ol>
+  </Container>
+)
+
+export const Code = () => (
+  <Container size="medium">
     <p>
       <code>&lt;kbd&gt;</code>
       {' '}
@@ -148,64 +169,5 @@ export const Typography = () => (
       </a>
     </p>
     <p><samp>This is sample output from a computer program.</samp></p>
-    <p>
-      The
-      <mark>mark element</mark>
-      {' '}
-      indicates a highlight.
-    </p>
-  </Container>
-)
-
-export const Prose = () => (
-  <Container size="medium">
-    <article data-prose>
-      <h1>Sample Title</h1>
-      <p data-size="big">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores,
-        tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus
-        consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!
-      </p>
-      <h2>Sample H2 Title</h2>
-      <img style={{ width: '100%' }} src="https://images.unsplash.com/photo-1593963171957-d87a6279226d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-      <p data-size="medium">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores,
-        tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus
-        consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!
-      </p>
-
-      <Separator />
-
-      <h2>Sample H2 Title</h2>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores,
-        tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus
-        consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!
-      </p>
-      <img style={{ width: '100%' }} src="https://images.unsplash.com/photo-1593963171957-d87a6279226d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores,
-        tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus
-        consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!
-      </p>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores,
-        tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus
-        consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!
-      </p>
-      <h3>Sample H3 Title</h3>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores,
-        tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus
-        consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!
-      </p>
-      <h4>Sample H4 Title</h4>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores,
-        tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus
-        consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!
-      </p>
-
-    </article>
   </Container>
 )

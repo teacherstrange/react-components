@@ -1,32 +1,24 @@
-@custom-selector :--headings h1, h2, h3, h4, h5, h6, .H1, .H2, .H3, .H4, .H5, .H6;
-@custom-selector :--blocks h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dd, p, figure, img, pre, table, fieldset, blockquote;
-
-[data-prose] {
-  & > :--blocks {
-    margin-block-start: 2em;
-    margin-block-end: 2em;
-  }
-
-  & > :--headings {
-    margin-block-end: 0;
-  }
-
-  & > :--headings + * {
-    margin-block-start: 0.8em;
-  }
+:where(p) {
+  line-height: 1.5;
+  min-height: 0;
+  font-size:
+    clamp(
+      var(--fluid-type-min, env(--font-size-14)),
+      calc(1rem + var(--fluid-type-target, 3vw)),
+      var(--fluid-type-max, 1rem)
+    );
 }
 
 small {
   font-size: 0.7em;
 }
 
-
 strong,
 b {
-  font-weight: 600;
+  font-weight: 500;
 }
 
-a:not([class]) {
+:where(a:not([class])) {
   color: var(--global-interactive-text);
   text-decoration: none;
   background-image: linear-gradient(currentColor, currentColor);
@@ -39,14 +31,6 @@ a:not([class]) {
   &:hover,
   &:focus {
     background-size: 100% 1px;
-  }
-
-  &[data-no-link-style] {
-    background-image: unset;
-    background-position: unset;
-    background-repeat: unset;
-    background-size: unset;
-    color: unset;
   }
 }
 
@@ -74,7 +58,7 @@ address {
 }
 
 dt {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 dd {
@@ -91,7 +75,7 @@ ul {
   & li::marker {
     font-size: inherit;
     text-align: right;
-    font-weight: 600;
+    font-weight: 500;
     min-inline-size: env(--space-32);
   }
 }
@@ -99,7 +83,7 @@ ul {
 ol {
   & li::marker {
     font-size: inherit;
-    font-weight: 600;
+    font-weight: 500;
     min-inline-size: env(--space-32);
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
@@ -111,7 +95,7 @@ kbd {
   padding: 2px 4px;
   box-shadow: 0 2px 0 var(--dimmed-2);
   border-radius: env(--radius-4);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 mark {
@@ -126,7 +110,7 @@ abbr {
 
 label,
 legend {
-  font-weight: 600;
+  font-weight: 500;
   font-size: inherit;
 }
 

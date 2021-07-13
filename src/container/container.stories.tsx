@@ -9,6 +9,11 @@ export default {
       options: [true, false],
       control: { type: 'radio' }
     },
+    tag: {
+      table: {
+        disable: true
+      }
+    },
     className: {
       table: {
         disable: true
