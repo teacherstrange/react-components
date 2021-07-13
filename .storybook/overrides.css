@@ -67,3 +67,6 @@
   box-shadow: none;
 }
 
+.DivEx {
+  background-color: var(--dimmed-2);
+}

@@ -1,0 +1,23 @@
+.Stack {
+  display: flex;
+  grid-gap: var(--rGap, env(--space-24)) var(--cGap, env(--space-24));
+  flex-direction: column;
+  align-items: var(--vAlign);
+  justify-content: var(--hAlign);
+
+  &[data-stack-fill='true'] > * {
+    flex-grow: 1;
+  }
+
+  &[data-stack-direction='row'] {
+    flex-direction: row;
+  }
+
+  &[data-stack-inline='true'] {
+    display: inline-flex;
+  }
+
+  &[data-stack-wrap='true'] {
+    flex-wrap: wrap;
+  }
+}
