@@ -4,7 +4,7 @@
     display: block;
     line-height: env(--font-lh-small);
     color: var(--heading-foreground);
-    min-height: 0;
+    min-height: 0.01vh;
     font-size:
       clamp(
         var(--fluid-type-min, env(--font-size-16)),

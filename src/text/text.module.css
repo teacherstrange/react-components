@@ -1,6 +1,6 @@
 .Text {
   line-height: 1.5;
-  min-height: 0;
+  min-height: 0.01vh;
   font-size:
     clamp(
       var(--fluid-type-min, env(--font-size-16)),
