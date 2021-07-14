@@ -2,8 +2,9 @@
 
 const svgstore = require('svgstore')
 const path = require('path')
-const fs = require('fs')
+const fs = require('fs-extra')
 const dt = require('directory-tree')
+const ora = require('ora')
 
 const generateTypes = jsonStructure => `
 export type IconNames = '${jsonStructure.iconNames.join('\' |\n\'')}';
@@ -11,8 +12,9 @@ export type IconTypes = '${jsonStructure.iconTypes.join('\' |\n\'')}';
 `
 
 const run = () => {
+  const spinner = ora('Processing icons...').start()
   const directories = dt(path.join('src', 'icons', 'svgs'))
-  fs.mkdirSync(path.join('dist', 'icons'))
+  fs.ensureDirSync('dist/icons')
 
   const jsonStructure = {
     svgs: {},
@@ -38,12 +40,11 @@ const run = () => {
   fs.writeFileSync(path.join('dist', 'icons', 'structure.json'), JSON.stringify(jsonStructure, null, 2))
   fs.writeFileSync(path.join('dist', 'icons', 'types.d.ts'), generateTypes(jsonStructure))
   fs.writeFileSync(path.join('src', 'icons', 'types.d.ts'), generateTypes(jsonStructure))
+  spinner.succeed('Icons and types generated')
 }
 
 try {
-  console.log('۞ Building sprites...')
   run()
-  console.log('✅ Sprites built.')
   process.exit(0)
 } catch (error) {
   console.error('⚠️ Something went wrong:', error)
