@@ -43,7 +43,7 @@
     "copy:css": "copyfiles -u 1 src/**/*.css src/*.css dist/",
     "optimize:svg": "svgo ./src/icons/svgs/**/* --config=src/icons/svgo.config.js",
     "generate:sprites": "node src/icons/sprites.js",
-    "build": "run-p build:components copy:css build:themes build:icons",
+    "build": "run-p build:icons build:components copy:css build:themes",
     "build:components": "tsc",
     "build:themes": "run-p build:light",
     "build:light": "node src/themes/index.js --name light",
