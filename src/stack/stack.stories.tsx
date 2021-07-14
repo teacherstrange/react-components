@@ -12,6 +12,10 @@ export default {
     wrap: {
       options: [true],
       control: { type: 'check' }
+    },
+    fill: {
+      options: [true],
+      control: { type: 'check' }
     }
   }
 }
