@@ -48,7 +48,7 @@
     background-color: var(--cta-default);
     color: var(--cta-foreground);
 
-    &:is(:hover, :focus) {
+    &:is(:active) {
       background-color: var(--cta-dark);
     }
   }
