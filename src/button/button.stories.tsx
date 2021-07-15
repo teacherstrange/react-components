@@ -7,7 +7,8 @@ export default {
   args: {
     size: 'regular',
     type: 'primary',
-    children: 'Click me'
+    children: 'Click me',
+    fullWidth: false
   },
   argTypes: {
     onClick: { action: 'clicked' },
@@ -31,11 +32,6 @@ const Template = (args) => <Button {...args} />
 export const Default = Template.bind({})
 Default.args = {
   disabled: false
-}
-
-export const Fullwidth = Template.bind({})
-Fullwidth.args = {
-  fullWidth: true
 }
 
 export const Link = Template.bind({})
