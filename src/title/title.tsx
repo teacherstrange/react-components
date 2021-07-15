@@ -1,30 +1,30 @@
-import React, { HTMLAttributes, ComponentType } from 'react'
+import React, { ElementType } from 'react'
 import styles from './title.module.css'
 import clsx from 'clsx'
 
-export interface ITitleProps extends HTMLAttributes<HTMLOrSVGElement> {
-  tag?: ComponentType | keyof JSX.IntrinsicElements;
+export interface ITitleProps<T> {
+  as: T | keyof JSX.IntrinsicElements;
   level?: '1' | '2' | '3' | '4' | '5' | '6' | 'display';
   lineHeignt?: 'none' | 'small' | 'large';
 }
 
-export const Title = ({
+export const Title = <T extends ElementType>({
   children,
   className,
-  tag: Tag = 'span',
+  as: As,
   lineHeignt = 'small',
   level = '1',
   ...props
-}: ITitleProps) => {
+}: OverwritableType<ITitleProps<T>, T>) => {
   const computedLevel = level.match(/\d/g) ? `H${level}` : level.charAt(0).toUpperCase() + level.slice(1)
 
   return (
-    <Tag
+    <As
       data-title-line-height={lineHeignt}
       className={clsx(styles.Title, styles[computedLevel], className)}
       {...props}
     >
       {children}
-    </Tag>
+    </As>
   )
 }

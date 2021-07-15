@@ -1,0 +1,91 @@
+.Button {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  min-width: min-content;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 0;
+  appearance: none;
+  font-weight: 600;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: env(--radius-4);
+  background: none;
+  grid-gap: env(--space-8);
+
+  /* Sizes */
+
+  &[data-button-size='big'] {
+    padding: 0.55rem env(--space-24) 0.66rem;
+    font-size: env(--font-size-18);
+    height: env(--space-48);
+  }
+
+  &[data-button-size='regular'] {
+    padding: 0.33rem env(--space-16) env(--space-8);
+    font-size: env(--font-size-16);
+    height: env(--space-40);
+  }
+
+  &[data-button-size='small'] {
+    font-size: env(--font-size-14);
+    padding: 0 env(--space-4) 0.11rem;
+    height: env(--space-24);
+    grid-gap: env(--space-4);
+  }
+
+  /* Types */
+
+  &[data-button-type='primary'] {
+    background-color: var(--cta-default);
+    color: var(--cta-foreground);
+
+    &:is(:hover, :focus) {
+      background-color: var(--cta-dark);
+    }
+  }
+
+  &[data-button-type='secondary'] {
+    color: var(--global-vibrancy-foreground);
+    backdrop-filter: blur(32px);
+    background-color: var(--global-vibrancy-background);
+
+    &:is(:hover, :focus) {
+      background-color: var(--global-vibrancy-background-hover);
+    }
+  }
+
+  &[data-button-type='flat'] {
+    color: var(--global-foreground);
+
+    &:is(:hover, :focus) {
+      backdrop-filter: blur(32px);
+      background-color: var(--global-vibrancy-background);
+    }
+  }
+
+  /* Styles */
+
+  &[data-button-fullwidth='true'] {
+    width: 100%;
+  }
+
+  &[data-button-icon-position='right'] {
+    flex-direction: row-reverse;
+  }
+
+  &[data-button-disabled='true'],
+  &[data-button-disabled='true']:is(:hover, :focus) {
+    background-color: var(--global-disabled-background);
+    color: var(--global-disabled-foreground);
+    cursor: not-allowed;
+  }
+}

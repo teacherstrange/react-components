@@ -1,10 +1,10 @@
-import React, { HTMLAttributes, ComponentType, CSSProperties } from 'react'
+import React, { ElementType, CSSProperties } from 'react'
 import styles from './stack.module.css'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import clsx from 'clsx'
 
-export interface IStackProps extends HTMLAttributes<HTMLOrSVGElement> {
-  tag?: ComponentType | keyof JSX.IntrinsicElements;
+export interface IStackProps<T> {
+  as?: T | keyof JSX.IntrinsicElements;
   rowGap?: keyof typeof tksn.space;
   columnGap?: keyof typeof tksn.space;
   inline?: boolean;
@@ -15,12 +15,12 @@ export interface IStackProps extends HTMLAttributes<HTMLOrSVGElement> {
   direction?: 'row' | 'column';
 }
 
-export const Stack = ({
+export const Stack = <T extends ElementType>({
   children,
   className,
   rowGap = '24',
   columnGap = '24',
-  tag: Tag = 'div',
+  as: As = 'div',
   inline = false,
   direction = 'column',
   wrap = false,
@@ -29,7 +29,7 @@ export const Stack = ({
   horizontalAlign,
   style,
   ...props
-}: IStackProps) => {
+}: OverwritableType<IStackProps<T>, T>) => {
   const computedStyle: CSSProperties = {
     '--rGap': tksn.space[rowGap],
     '--cGap': tksn.space[columnGap],
@@ -38,7 +38,7 @@ export const Stack = ({
   }
 
   return (
-    <Tag
+    <As
       style={{ ...computedStyle, ...style }}
       data-stack-inline={inline}
       data-stack-wrap={wrap}
@@ -48,6 +48,6 @@ export const Stack = ({
       {...props}
     >
       {children}
-    </Tag>
+    </As>
   )
 }

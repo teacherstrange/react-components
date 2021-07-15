@@ -2,14 +2,16 @@
   display: flex;
   grid-gap: var(--rGap, env(--space-24)) var(--cGap, env(--space-24));
   flex-direction: column;
-  align-items: var(--vAlign);
-  justify-content: var(--hAlign);
+  align-items: var(--hAlign);
+  justify-content: var(--vAlign);
 
   &[data-stack-fill='true'] > * {
     flex-grow: 1;
   }
 
   &[data-stack-direction='row'] {
+    align-items: var(--vAlign);
+    justify-content: var(--hAlign);
     flex-direction: row;
   }
 

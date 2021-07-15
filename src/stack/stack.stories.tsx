@@ -6,17 +6,22 @@ export default {
   component: Stack,
   argTypes: {
     inline: {
-      options: [true],
-      control: { type: 'check' }
+      options: [true, false],
+      control: { type: 'inline-radio' }
     },
     wrap: {
-      options: [true],
-      control: { type: 'check' }
+      options: [true, false],
+      control: { type: 'inline-radio' }
     },
     fill: {
-      options: [true],
-      control: { type: 'check' }
+      options: [true, false],
+      control: { type: 'inline-radio' }
     }
+  },
+  args: {
+    direction: 'row',
+    wrap: 1,
+    as: 'div'
   }
 }
 

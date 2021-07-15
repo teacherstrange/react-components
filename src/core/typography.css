@@ -15,7 +15,7 @@ small {
 
 strong,
 b {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 :where(a:not([class])) {
@@ -58,7 +58,7 @@ address {
 }
 
 dt {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 dd {
@@ -75,7 +75,7 @@ ul {
   & li::marker {
     font-size: inherit;
     text-align: right;
-    font-weight: 500;
+    font-weight: 600;
     min-inline-size: env(--space-32);
   }
 }
@@ -83,7 +83,7 @@ ul {
 ol {
   & li::marker {
     font-size: inherit;
-    font-weight: 500;
+    font-weight: 600;
     min-inline-size: env(--space-32);
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
@@ -95,7 +95,7 @@ kbd {
   padding: 2px 4px;
   box-shadow: 0 2px 0 var(--dimmed-2);
   border-radius: env(--radius-4);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 mark {
@@ -110,7 +110,7 @@ abbr {
 
 label,
 legend {
-  font-weight: 500;
+  font-weight: 600;
   font-size: inherit;
 }
 

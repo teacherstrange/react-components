@@ -36,7 +36,7 @@
       "value": "hsl(0 100% 41%)"
     },
     "foreground": {
-      "value": "hsl({color.support.black})"
+      "value": "hsl({color.support.white})"
     }
   },
   "dimmed": {

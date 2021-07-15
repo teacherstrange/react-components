@@ -1,21 +1,21 @@
-import React, { HTMLAttributes, ComponentType } from 'react'
+import React, { ElementType } from 'react'
 import styles from './prose.module.css'
 import clsx from 'clsx'
 
-export interface IProseProps extends HTMLAttributes<HTMLOrSVGElement> {
-  tag?: ComponentType | keyof JSX.IntrinsicElements;
+export interface IProseProps<T> {
+  as?: T | keyof JSX.IntrinsicElements;
 }
 
-export const Prose = ({
+export const Prose = <T extends ElementType>({
   children,
   className,
-  tag: Tag = 'div',
+  as: As = 'div',
   ...props
-}: IProseProps) => (
-  <Tag
+}: OverwritableType<IProseProps<T>, T>) => (
+  <As
     className={clsx(styles.Prose, className)}
     {...props}
   >
     {children}
-  </Tag>
-)
+  </As>
+  )

@@ -5,13 +5,6 @@ import { Container } from '../container'
 export default {
   title: 'Components/Text',
   component: Text,
-  argTypes: {
-    tag: {
-      table: {
-        disable: true
-      }
-    }
-  },
   args: {
     children: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores, tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!'
   }

@@ -8,18 +8,14 @@ import { Title } from '../title'
 export default {
   title: 'Components/Prose',
   component: Prose,
-  argTypes: {
-    tag: {
-      table: {
-        disable: true
-      }
-    }
+  args: {
+    as: 'section'
   }
 }
 
-export const Default = () => (
+export const Default = (args) => (
   <Container size="medium">
-    <Prose>
+    <Prose {...args}>
       <Title level="display">Title</Title>
       <Text size={28}>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores,

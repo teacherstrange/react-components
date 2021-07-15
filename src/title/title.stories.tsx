@@ -7,13 +7,6 @@ export default {
   component: Title,
   parameters: {
     controls: { hideNoControlsWarning: true }
-  },
-  argTypes: {
-    tag: {
-      table: {
-        disable: true
-      }
-    }
   }
 }
 
@@ -33,6 +26,6 @@ const Template = (args) => <Container size="medium"><Title {...args}>Sample titl
 
 export const Single = Template.bind({})
 Single.args = {
-  tag: 'h1',
+  as: 'span',
   level: '1'
 }

@@ -7,7 +7,7 @@ export default {
   argTypes: {
     padding: {
       options: [true, false],
-      control: { type: 'radio' }
+      control: { type: 'inline-radio' }
     },
     tag: {
       table: {
@@ -55,6 +55,6 @@ NoPadding.args = {
 
 export const AsSection = Template.bind({})
 AsSection.args = {
-  tag: 'section',
+  as: 'section',
   className: 'ContainerEx'
 }
