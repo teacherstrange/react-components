@@ -33,11 +33,7 @@ export const Button = forwardRef(<T extends ElementType>({
     <As
       ref={ref}
       type={As === 'button' ? 'button' : undefined}
-      className={clsx(styles.Button,
-        className,
-        type === 'secondary' && 'Vibrancy VibrancyHover',
-        type === 'flat' && 'VibrancyHover'
-      )}
+      className={clsx(styles.Button, className)}
       data-button-icon-position={iconPosition}
       data-button-size={size}
       data-button-type={type}
