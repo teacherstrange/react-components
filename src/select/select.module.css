@@ -1,0 +1,104 @@
+.Select {
+  appearance: none;
+  position: relative;
+  padding: 0;
+
+  &[data-select-size='small'] {
+    --field-height: env(--space-24);
+    --field-padding: 0.33rem;
+    --font-size: env(--font-size-14);
+  }
+
+  &[data-select-size='regular'] {
+    --field-height: env(--space-40);
+    --field-padding: env(--space-16);
+    --font-size: env(--font-size-16);
+  }
+
+  &[data-select-size='big'] {
+    --field-height: env(--space-48);
+    --field-padding: env(--space-16);
+    --font-size: env(--font-size-18);
+  }
+}
+
+.FieldContainer {
+  position: relative;
+  color: var(--global-vibrancy-foreground);
+
+  @nest .Select[aria-disabled='true'] & {
+    color: var(--global-disabled-foreground);
+  }
+}
+
+.Field {
+  margin: 0;
+  border: 0;
+  text-overflow: ellipsis;
+  font-size: var(--font-size);
+  border-radius: env(--radius-4);
+  font-family: inherit;
+  line-height: 1;
+  appearance: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  backdrop-filter: blur(32px);
+  color: inherit;
+  background-color: var(--global-vibrancy-background);
+  height: var(--field-height);
+  padding:
+    0
+    calc(var(--field-padding) + env(--space-16))
+    0
+    var(--field-padding);
+
+  /* stylelint-disable property-no-vendor-prefix */
+  -moz-padding-start: 12px;
+
+  &:-moz-focusring {
+    transition: none;
+    color: transparent;
+    text-shadow: 0 0 0 var(--global-vibrancy-foreground);
+  }
+
+  &:disabled {
+    color: var(--global-disabled-foreground);
+    background: var(--global-disabled-background);
+    cursor: not-allowed;
+  }
+
+  &[multiple] {
+    height: auto;
+    padding: env(--space-8) env(--space-16) env(--space-8) env(--space-16);
+    overflow: auto;
+
+    & option {
+      padding: calc(var(--field-padding) / 2) var(--field-padding);
+    }
+
+    & option:checked {
+      color: var(--dimmed-1);
+      background: var(--dimmed-4) -webkit-linear-gradient(bottom, var(--dimmed-4) 0%, var(--dimmed-4) 100%);
+      background-color: var(--dimmed-4);
+    }
+
+    & optgroup {
+      margin: 0 0 1rem 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+}
+
+.Icon {
+  border-radius: env(--radius-4);
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(var(--field-padding) - calc(var(--field-padding) / 3));
+  z-index: 1;
+}

@@ -12,7 +12,7 @@ This package provides multiple tools useful to build Wonderflow's digital produc
 
 ## Styles and themes
 
-Alongside the core styles, inside the package you can find all the Wanda UI themes which you can import you your application entry point, as global css.
+In order to work with the components you have to import all the required styles inside your application's entry point, as global styles:
 
 ```jsx
 import "@wonderflow/react-components/core.css";
