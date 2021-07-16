@@ -16,6 +16,10 @@ export default {
     fill: {
       options: [true, false],
       control: { type: 'inline-radio' }
+    },
+    direction: {
+      options: ['row', 'column'],
+      control: { type: 'inline-radio' }
     }
   },
   args: {

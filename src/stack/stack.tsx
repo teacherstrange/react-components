@@ -18,8 +18,8 @@ export interface IStackProps<T> {
 export const Stack = <T extends ElementType>({
   children,
   className,
-  rowGap = '24',
-  columnGap = '24',
+  rowGap,
+  columnGap,
   as: As = 'div',
   inline = false,
   direction = 'column',
@@ -31,8 +31,8 @@ export const Stack = <T extends ElementType>({
   ...props
 }: OverwritableType<IStackProps<T>, T>) => {
   const computedStyle: CSSProperties = {
-    '--rGap': tksn.space[rowGap],
-    '--cGap': tksn.space[columnGap],
+    '--rGap': rowGap && tksn.space[rowGap],
+    '--cGap': columnGap && tksn.space[columnGap],
     '--vAlign': verticalAlign,
     '--hAlign': horizontalAlign
   }
