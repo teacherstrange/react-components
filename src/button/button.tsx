@@ -12,7 +12,7 @@ export interface IButtonProps<T> {
   disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
   children: ReactNode;
-  as?: T | keyof JSX.IntrinsicElements;
+  as?: T;
 }
 
 export const Button = forwardRef(<T extends ElementType>({
@@ -25,28 +25,31 @@ export const Button = forwardRef(<T extends ElementType>({
   disabled,
   iconPosition = 'left',
   onClick,
-  as: As = 'button',
+  as,
   ...props
-}: OverwritableType<IButtonProps<T>, T>, ref: any) => (
-  <As
-    ref={ref}
-    type={As === 'button' ? 'button' : undefined}
-    className={clsx(styles.Button,
-      className,
-      type === 'secondary' && 'Vibrancy VibrancyHover',
-      type === 'flat' && 'VibrancyHover'
-    )}
-    data-button-icon-position={iconPosition}
-    data-button-size={size}
-    data-button-type={type}
-    data-button-fullwidth={fullWidth}
-    data-button-disabled={disabled}
-    aria-disabled={disabled}
-    onClick={disabled ? undefined : onClick}
-    {...props}
-  >
-    {icon && <Icon name={icon} size={size === 'small' ? 16 : 24} />}
-    {children}
-  </As>
-  ))
+}: OverwritableType<IButtonProps<T>, T>, ref: any) => {
+  const As: ElementType = as || 'button'
+  return (
+    <As
+      ref={ref}
+      type={As === 'button' ? 'button' : undefined}
+      className={clsx(styles.Button,
+        className,
+        type === 'secondary' && 'Vibrancy VibrancyHover',
+        type === 'flat' && 'VibrancyHover'
+      )}
+      data-button-icon-position={iconPosition}
+      data-button-size={size}
+      data-button-type={type}
+      data-button-fullwidth={fullWidth}
+      data-button-disabled={disabled}
+      aria-disabled={disabled}
+      onClick={disabled ? undefined : onClick}
+      {...props}
+    >
+      {icon && <Icon name={icon} size={size === 'small' ? 16 : 24} />}
+      {children}
+    </As>
+  )
+})
 Button.displayName = 'Button'
