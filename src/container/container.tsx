@@ -8,7 +8,7 @@ export interface IContainerProps<T> {
   as?: T | keyof JSX.IntrinsicElements;
 }
 
-export const Container = <T extends ElementType>({
+export const Container = <T extends ElementType = 'div'>({
   children,
   className,
   size = 'full',
