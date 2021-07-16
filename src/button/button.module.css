@@ -58,7 +58,7 @@
     backdrop-filter: blur(32px);
     background-color: var(--global-vibrancy-background);
 
-    &:is(:hover, :focus) {
+    &:is(:active) {
       background-color: var(--global-vibrancy-background-hover);
     }
   }

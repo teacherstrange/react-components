@@ -11,7 +11,12 @@ export default {
     fullWidth: false
   },
   argTypes: {
-    onClick: { action: 'clicked' },
+    onClick: {
+      action: 'clicked',
+      table: {
+        disable: true
+      }
+    },
     size: {
       options: ['small', 'regular', 'big'],
       control: { type: 'radio' }

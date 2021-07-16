@@ -10,7 +10,7 @@ export interface IButtonProps<T> {
   icon?: IconNames,
   iconPosition?: 'left' | 'right',
   disabled?: boolean;
-  onClick?: (event: MouseEvent<HTMLOrSVGElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
   children: ReactNode;
   as?: T | keyof JSX.IntrinsicElements;
 }
@@ -31,7 +31,11 @@ export const Button = forwardRef(<T extends ElementType>({
   <As
     ref={ref}
     type={As === 'button' ? 'button' : undefined}
-    className={clsx(styles.Button, className)}
+    className={clsx(styles.Button,
+      className,
+      type === 'secondary' && 'Vibrancy VibrancyHover',
+      type === 'flat' && 'VibrancyHover'
+    )}
     data-button-icon-position={iconPosition}
     data-button-size={size}
     data-button-type={type}
