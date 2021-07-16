@@ -13,7 +13,7 @@ html {
 *::after {
   margin: 0;
   box-sizing: inherit;
-  -webkit-tap-highlight-color: hsl(var(--cta-default) / 20%);
+  -webkit-tap-highlight-color: hsl(env(--color-support-brand) / 20%);
 }
 
 *:focus-visible {
