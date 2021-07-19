@@ -1,2 +1,2 @@
 export { Icon } from './icon'
-export { IIconProps } from './icon'
+export type { IIconProps } from './icon'

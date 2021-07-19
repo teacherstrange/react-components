@@ -1,10 +1,15 @@
 import clsx from 'clsx'
-import React, { ElementType, forwardRef, MouseEvent } from 'react'
+import React, { ElementType, forwardRef, ForwardedRef, MouseEvent } from 'react'
+import type {
+  PolymorphicForwardRefExoticComponent,
+  PolymorphicPropsWithoutRef,
+  PolymorphicPropsWithRef
+} from 'react-polymorphic-types'
 import { IconNames } from 'src/icons/types'
 import { Icon } from '../icon'
 import styles from './button.module.css'
 
-type IButtonProps<As extends keyof JSX.IntrinsicElements> = {
+type ButtonOwnProps = {
   type?: 'primary' | 'secondary' | 'flat';
   size?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
@@ -12,22 +17,38 @@ type IButtonProps<As extends keyof JSX.IntrinsicElements> = {
   iconPosition?: 'left' | 'right',
   disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-  as?: ElementType | keyof JSX.IntrinsicElements;
-} & JSX.IntrinsicElements[As]
+}
 
-export const Button = forwardRef(<As extends keyof JSX.IntrinsicElements = 'button'>({
-  type = 'primary',
-  size = 'regular',
-  className,
-  children,
-  fullWidth,
-  icon,
-  disabled,
-  iconPosition = 'left',
-  onClick,
-  as: Wrapper = 'button',
-  ...props
-}: IButtonProps<As>, ref: any) => {
+const defaultElement = 'button'
+
+export type ButtonProps<
+  As extends ElementType = typeof defaultElement
+> = PolymorphicPropsWithRef<ButtonOwnProps, As>;
+
+export const Button: PolymorphicForwardRefExoticComponent<
+ButtonOwnProps,
+typeof defaultElement
+> = forwardRef(<
+  As extends ElementType = typeof defaultElement
+>(
+    {
+      type = 'primary',
+      size = 'regular',
+      className,
+      children,
+      fullWidth,
+      icon,
+      disabled,
+      iconPosition = 'left',
+      onClick,
+      as,
+      ...props
+    }:
+  PolymorphicPropsWithoutRef<ButtonOwnProps, As>,
+    ref: ForwardedRef<Element>
+  ) => {
+  const Wrapper: ElementType = as || defaultElement
+
   return (
     <Wrapper
       ref={ref}

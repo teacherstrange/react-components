@@ -1,9 +1,10 @@
 import React, { ElementType, CSSProperties } from 'react'
-import styles from './stack.module.css'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
+import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
+import styles from './stack.module.css'
 import clsx from 'clsx'
 
-type IStackProps<As extends keyof JSX.IntrinsicElements> = {
+type StackOwnProps = {
   rowGap?: keyof typeof tksn.space;
   columnGap?: keyof typeof tksn.space;
   inline?: boolean;
@@ -12,24 +13,33 @@ type IStackProps<As extends keyof JSX.IntrinsicElements> = {
   verticalAlign?: 'start' | 'center' | 'end';
   horizontalAlign?: 'start' | 'center' | 'end';
   direction?: 'row' | 'column';
-  as?: ElementType | keyof JSX.IntrinsicElements;
-} & JSX.IntrinsicElements[As]
+}
 
-export const Stack = <As extends keyof JSX.IntrinsicElements = 'div'>({
-  children,
-  className,
-  rowGap,
-  columnGap,
-  as: Wrapper = 'div',
-  inline = false,
-  direction = 'column',
-  wrap = false,
-  verticalAlign,
-  fill = true,
-  horizontalAlign,
-  style,
-  ...props
-}: IStackProps<As>) => {
+const defaultElement = 'div'
+
+export type StackProps<
+  As extends ElementType = typeof defaultElement
+> = PolymorphicPropsWithoutRef<StackOwnProps, As>;
+
+export const Stack = <
+  As extends ElementType = typeof defaultElement
+>({
+    children,
+    className,
+    rowGap,
+    columnGap,
+    as,
+    inline = false,
+    direction = 'column',
+    wrap = false,
+    verticalAlign,
+    fill = true,
+    horizontalAlign,
+    style,
+    ...props
+  }: StackProps<As>) => {
+  const Wrapper: ElementType = as || defaultElement
+
   const computedStyle: CSSProperties = {
     '--rGap': rowGap && tksn.space[rowGap],
     '--cGap': columnGap && tksn.space[columnGap],

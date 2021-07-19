@@ -9,11 +9,6 @@ export default {
       options: [true, false],
       control: { type: 'inline-radio' }
     },
-    tag: {
-      table: {
-        disable: true
-      }
-    },
     className: {
       table: {
         disable: true

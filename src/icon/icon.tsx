@@ -4,7 +4,7 @@ import React, {
 } from 'react'
 import sprite from '../icons/all.svg'
 
-export type IIconProps = {
+export type IconProps = {
   name: IconNames;
   size: 14 | 16 | 24 | 32 | 40 | 48 | 56;
 } & SVGAttributes<SVGElement>
@@ -15,7 +15,7 @@ export const Icon = ({
   size = 16,
   fill,
   ...props
-}: IIconProps) => {
+}: IconProps) => {
   const computedSize = size < 24 ? 16 : 24
 
   return (

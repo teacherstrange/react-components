@@ -1,21 +1,30 @@
 import React, { ElementType } from 'react'
+import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
 import styles from './prose.module.css'
 import clsx from 'clsx'
 
-type IProseProps<As extends keyof JSX.IntrinsicElements> = {
-  as?: ElementType | keyof JSX.IntrinsicElements;
-} & JSX.IntrinsicElements[As]
+type ProseOwnProps = {}
+
+const defaultElement = 'div'
+
+export type ProseProps<
+  As extends ElementType = typeof defaultElement
+> = PolymorphicPropsWithoutRef<ProseOwnProps, As>;
 
 export const Prose = <As extends keyof JSX.IntrinsicElements = 'div'>({
   children,
   className,
-  as: Wrapper = 'div',
+  as,
   ...props
-}: IProseProps<As>) => (
-  <Wrapper
-    className={clsx(styles.Prose, className)}
-    {...props}
-  >
-    {children}
-  </Wrapper>
+}: ProseProps<As>) => {
+  const Wrapper: ElementType = as || defaultElement
+
+  return (
+    <Wrapper
+      className={clsx(styles.Prose, className)}
+      {...props}
+    >
+      {children}
+    </Wrapper>
   )
+}
