@@ -9,7 +9,7 @@ import { IconNames } from 'src/icons/types'
 import { Icon } from '../icon'
 import styles from './button.module.css'
 
-type Props = {
+type ButtonOwnProps = {
   type?: 'primary' | 'secondary' | 'flat';
   size?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
@@ -21,26 +21,32 @@ type Props = {
 
 const defaultElement = 'button'
 
-export type ButtonProps<T extends ElementType = typeof defaultElement> = PolymorphicPropsWithRef<Props, T>;
+export type ButtonProps<
+  As extends ElementType = typeof defaultElement
+> = PolymorphicPropsWithRef<ButtonOwnProps, As>;
 
 export const Button: PolymorphicForwardRefExoticComponent<
-Props,
+ButtonOwnProps,
 typeof defaultElement
-> = forwardRef(function Heading<
-  T extends React.ElementType = typeof defaultElement
-> ({
-  type = 'primary',
-  size = 'regular',
-  className,
-  children,
-  fullWidth,
-  icon,
-  disabled,
-  iconPosition = 'left',
-  onClick,
-  as,
-  ...props
-}: PolymorphicPropsWithoutRef<Props, T>, ref: ForwardedRef<Element>) {
+> = forwardRef(<
+  As extends ElementType = typeof defaultElement
+>(
+    {
+      type = 'primary',
+      size = 'regular',
+      className,
+      children,
+      fullWidth,
+      icon,
+      disabled,
+      iconPosition = 'left',
+      onClick,
+      as,
+      ...props
+    }:
+  PolymorphicPropsWithoutRef<ButtonOwnProps, As>,
+    ref: ForwardedRef<Element>
+  ) => {
   const Wrapper: ElementType = as || defaultElement
 
   return (

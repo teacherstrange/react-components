@@ -1,27 +1,33 @@
 import React, { ElementType } from 'react'
+import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
 import styles from './text.module.css'
 import clsx from 'clsx'
 
-type Props<As extends ElementType> = {
-  as?: As
+type TextOwnProps = {
   size?: 14 | 16 | 18 | 22 | 28;
   color?: 'positive' | 'informative' | 'danger' | 'warning';
   weight?: 'thin' | 'bold';
 }
 
-type ITextProps<As extends ElementType> = Props<As> &
-  Omit<React.ComponentPropsWithRef<As>, keyof Props<As>>
+const defaultElement = 'p'
 
-export const Text = <As extends ElementType = 'p'>({
-  children,
-  className,
-  size,
-  color,
-  weight,
-  as,
-  ...props
-}: ITextProps<As>) => {
-  const Wrapper = as || 'span'
+export type TextProps<
+  As extends ElementType = typeof defaultElement
+> = PolymorphicPropsWithoutRef<TextOwnProps, As>;
+
+export const Text = <
+As extends ElementType = typeof defaultElement
+> ({
+    children,
+    className,
+    size,
+    color,
+    weight,
+    as,
+    ...props
+  }: TextProps<As>) => {
+  const Wrapper: ElementType = as || defaultElement
+
   return (
     <Wrapper
       data-text-size={size}

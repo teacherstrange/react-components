@@ -12,13 +12,13 @@ export default {
 
 export const Default = () => (
   <Container>
-    <Title tag="h1" level="display">Sample title</Title>
-    <Title tag="h1" level="1">Sample title</Title>
-    <Title tag="h2" level="2">Sample title</Title>
-    <Title tag="h3" level="3">Sample title</Title>
-    <Title tag="h4" level="4">Sample title</Title>
-    <Title tag="h5" level="5">Sample title</Title>
-    <Title tag="h6" level="6">Sample title</Title>
+    <Title as="h1" level="display">Sample title</Title>
+    <Title as="h1" level="1">Sample title</Title>
+    <Title as="h2" level="2">Sample title</Title>
+    <Title as="h3" level="3">Sample title</Title>
+    <Title as="h4" level="4">Sample title</Title>
+    <Title as="h5" level="5">Sample title</Title>
+    <Title as="h6" level="6">Sample title</Title>
   </Container>
 )
 

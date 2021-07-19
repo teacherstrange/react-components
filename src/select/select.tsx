@@ -6,7 +6,7 @@ import { Text } from '../text'
 import styles from './select.module.css'
 import clsx from 'clsx'
 
-type ISelectProps = {
+type SelectProps = {
   icon?: IconNames;
   label?: string;
   type?: 'single' | 'multiple';
@@ -15,7 +15,7 @@ type ISelectProps = {
   onChange?: (event: ChangeEvent<HTMLSelectElement>) => void
 } & HTMLAttributes<HTMLSelectElement>
 
-export const Select = forwardRef<HTMLSelectElement, ISelectProps>(({
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
   children,
   className,
   disabled = false,
@@ -26,7 +26,7 @@ export const Select = forwardRef<HTMLSelectElement, ISelectProps>(({
   size = 'regular',
   onChange,
   ...props
-}: ISelectProps, ref) => {
+}: SelectProps, ref) => {
   const iconSizes = {
     small: 14,
     regular: 16,

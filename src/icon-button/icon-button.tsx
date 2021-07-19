@@ -5,8 +5,7 @@ import clsx from 'clsx'
 
 export const IconButton = ({
   className,
-  children,
   ...props
-}: HTMLAttributes<HTMLOrSVGElement>) => (
+}: HTMLAttributes<HTMLButtonElement | HTMLAnchorElement>) => (
   <Button className={clsx(styles.IconButton, className)} {...props} />
 )

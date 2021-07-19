@@ -50,7 +50,7 @@ Default.args = {
 export const Link = Template.bind({})
 Link.args = {
   as: 'a',
-  href: 'https://equinusocio.dev',
+  href: 'https://design.wonderflow.ai',
   target: '_blank'
 }
 
