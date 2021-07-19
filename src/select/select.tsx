@@ -1,5 +1,5 @@
 import React, { ChangeEvent, forwardRef, HTMLAttributes } from 'react'
-import { Icon, IIconProps } from '../icon'
+import { Icon, IconProps } from '../icon'
 import { IconNames } from '../icons/types'
 import { Stack } from '../stack'
 import { Text } from '../text'
@@ -51,7 +51,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
           <Icon
             className={styles.Icon}
             name={icon}
-            size={iconSizes[size] as IIconProps['size']}
+            size={iconSizes[size] as IconProps['size']}
           />
         ) }
 

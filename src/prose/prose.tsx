@@ -11,12 +11,14 @@ export type ProseProps<
   As extends ElementType = typeof defaultElement
 > = PolymorphicPropsWithoutRef<ProseOwnProps, As>;
 
-export const Prose = <As extends keyof JSX.IntrinsicElements = 'div'>({
-  children,
-  className,
-  as,
-  ...props
-}: ProseProps<As>) => {
+export const Prose = <
+  As extends ElementType = typeof defaultElement
+>({
+    children,
+    className,
+    as,
+    ...props
+  }: ProseProps<As>) => {
   const Wrapper: ElementType = as || defaultElement
 
   return (
