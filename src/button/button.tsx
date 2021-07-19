@@ -12,10 +12,10 @@ type Props<As extends ElementType> = {
   iconPosition?: 'left' | 'right',
   disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-  as?: As | keyof JSX.IntrinsicElements;
+  as?: As;
 }
 
-type IButtonProps<As extends React.ElementType> = Props<As> &
+type IButtonProps<As extends ElementType> = Props<As> &
   Omit<React.ComponentPropsWithRef<As>, keyof Props<As>>
 
 export const Button = forwardRef(<As extends ElementType = 'button'>({
