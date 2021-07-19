@@ -44,7 +44,7 @@ export const Select = forwardRef<HTMLSelectElement, ISelectProps>(({
       aria-disabled={disabled}
       tabIndex={disabled ? 0 : undefined}
     >
-      {label && <Text<'label'> as="label" size={size === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
+      {label && <Text as="label" size={size === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
       <div className={styles.FieldContainer}>
 
         { type === 'single' && (

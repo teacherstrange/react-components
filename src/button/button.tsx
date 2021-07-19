@@ -4,7 +4,7 @@ import { IconNames } from 'src/icons/types'
 import { Icon } from '../icon'
 import styles from './button.module.css'
 
-type IButtonProps<As extends keyof JSX.IntrinsicElements> = {
+type Props<As extends ElementType> = {
   type?: 'primary' | 'secondary' | 'flat';
   size?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
@@ -12,10 +12,13 @@ type IButtonProps<As extends keyof JSX.IntrinsicElements> = {
   iconPosition?: 'left' | 'right',
   disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-  as?: ElementType | keyof JSX.IntrinsicElements;
-} & JSX.IntrinsicElements[As]
+  as?: As | keyof JSX.IntrinsicElements;
+}
 
-export const Button = forwardRef(<As extends keyof JSX.IntrinsicElements = 'button'>({
+type IButtonProps<As extends React.ElementType> = Props<As> &
+  Omit<React.ComponentPropsWithRef<As>, keyof Props<As>>
+
+export const Button = forwardRef(<As extends ElementType = 'button'>({
   type = 'primary',
   size = 'regular',
   className,
@@ -25,9 +28,11 @@ export const Button = forwardRef(<As extends keyof JSX.IntrinsicElements = 'butt
   disabled,
   iconPosition = 'left',
   onClick,
-  as: Wrapper = 'button',
+  as,
   ...props
 }: IButtonProps<As>, ref: any) => {
+  const Wrapper = as || 'button'
+
   return (
     <Wrapper
       ref={ref}
