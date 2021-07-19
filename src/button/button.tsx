@@ -1,10 +1,15 @@
 import clsx from 'clsx'
-import React, { ElementType, forwardRef, MouseEvent } from 'react'
+import React, { ElementType, forwardRef, ForwardedRef, MouseEvent } from 'react'
+import type {
+  PolymorphicForwardRefExoticComponent,
+  PolymorphicPropsWithoutRef,
+  PolymorphicPropsWithRef
+} from 'react-polymorphic-types'
 import { IconNames } from 'src/icons/types'
 import { Icon } from '../icon'
 import styles from './button.module.css'
 
-type Props<As extends ElementType> = {
+type Props = {
   type?: 'primary' | 'secondary' | 'flat';
   size?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
@@ -12,13 +17,18 @@ type Props<As extends ElementType> = {
   iconPosition?: 'left' | 'right',
   disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-  as?: As;
 }
 
-type IButtonProps<As extends ElementType> = Props<As> &
-  Omit<React.ComponentPropsWithRef<As>, keyof Props<As>>
+const defaultElement = 'button'
 
-export const Button = forwardRef(<As extends ElementType = 'button'>({
+export type ButtonProps<T extends ElementType = typeof defaultElement> = PolymorphicPropsWithRef<Props, T>;
+
+export const Button: PolymorphicForwardRefExoticComponent<
+Props,
+typeof defaultElement
+> = forwardRef(function Heading<
+  T extends React.ElementType = typeof defaultElement
+> ({
   type = 'primary',
   size = 'regular',
   className,
@@ -30,8 +40,8 @@ export const Button = forwardRef(<As extends ElementType = 'button'>({
   onClick,
   as,
   ...props
-}: IButtonProps<As>, ref: any) => {
-  const Wrapper = as || 'button'
+}: PolymorphicPropsWithoutRef<Props, T>, ref: ForwardedRef<Element>) {
+  const Wrapper: ElementType = as || defaultElement
 
   return (
     <Wrapper
