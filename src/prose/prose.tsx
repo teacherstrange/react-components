@@ -2,20 +2,20 @@ import React, { ElementType } from 'react'
 import styles from './prose.module.css'
 import clsx from 'clsx'
 
-export interface IProseProps<T> {
-  as?: T | keyof JSX.IntrinsicElements;
-}
+type IProseProps<As extends keyof JSX.IntrinsicElements> = {
+  as?: ElementType | keyof JSX.IntrinsicElements;
+} & JSX.IntrinsicElements[As]
 
-export const Prose = <T extends ElementType>({
+export const Prose = <As extends keyof JSX.IntrinsicElements = 'div'>({
   children,
   className,
-  as: As = 'div',
+  as: Wrapper = 'div',
   ...props
-}: OverwritableType<IProseProps<T>, T>) => (
-  <As
+}: IProseProps<As>) => (
+  <Wrapper
     className={clsx(styles.Prose, className)}
     {...props}
   >
     {children}
-  </As>
+  </Wrapper>
   )

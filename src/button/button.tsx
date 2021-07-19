@@ -1,9 +1,10 @@
 import clsx from 'clsx'
-import React, { ElementType, forwardRef, MouseEvent, ReactNode } from 'react'
+import React, { ElementType, forwardRef, MouseEvent } from 'react'
 import { IconNames } from 'src/icons/types'
 import { Icon } from '../icon'
 import styles from './button.module.css'
-export interface IButtonProps<T> {
+
+type IButtonProps<As extends keyof JSX.IntrinsicElements> = {
   type?: 'primary' | 'secondary' | 'flat';
   size?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
@@ -11,11 +12,10 @@ export interface IButtonProps<T> {
   iconPosition?: 'left' | 'right',
   disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-  children: ReactNode;
-  as?: T;
-}
+  as?: ElementType | keyof JSX.IntrinsicElements;
+} & JSX.IntrinsicElements[As]
 
-export const Button = forwardRef(<T extends ElementType>({
+export const Button = forwardRef(<As extends keyof JSX.IntrinsicElements = 'button'>({
   type = 'primary',
   size = 'regular',
   className,
@@ -25,14 +25,13 @@ export const Button = forwardRef(<T extends ElementType>({
   disabled,
   iconPosition = 'left',
   onClick,
-  as,
+  as: Wrapper = 'button',
   ...props
-}: OverwritableType<IButtonProps<T>, T>, ref: any) => {
-  const As: ElementType = as || 'button'
+}: IButtonProps<As>, ref: any) => {
   return (
-    <As
+    <Wrapper
       ref={ref}
-      type={As === 'button' ? 'button' : undefined}
+      type={Wrapper === 'button' ? 'button' : undefined}
       className={clsx(styles.Button, className)}
       data-button-icon-position={iconPosition}
       data-button-size={size}
@@ -45,7 +44,8 @@ export const Button = forwardRef(<T extends ElementType>({
     >
       {icon && <Icon name={icon} size={size === 'small' ? 16 : 24} />}
       {children}
-    </As>
+    </Wrapper>
   )
 })
+
 Button.displayName = 'Button'

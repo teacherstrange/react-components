@@ -6,14 +6,14 @@ import { Text } from '../text'
 import styles from './select.module.css'
 import clsx from 'clsx'
 
-export interface ISelectProps extends HTMLAttributes<HTMLSelectElement> {
+type ISelectProps = {
   icon?: IconNames;
   label?: string;
   type?: 'single' | 'multiple';
   size?: 'regular' | 'small' | 'big';
   disabled?: boolean;
   onChange?: (event: ChangeEvent<HTMLSelectElement>) => void
-}
+} & HTMLAttributes<HTMLSelectElement>
 
 export const Select = forwardRef<HTMLSelectElement, ISelectProps>(({
   children,
@@ -44,7 +44,7 @@ export const Select = forwardRef<HTMLSelectElement, ISelectProps>(({
       aria-disabled={disabled}
       tabIndex={disabled ? 0 : undefined}
     >
-      {label && <Text as="label" size={size === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
+      {label && <Text<'label'> as="label" size={size === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
       <div className={styles.FieldContainer}>
 
         { type === 'single' && (

@@ -3,8 +3,7 @@ import styles from './stack.module.css'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import clsx from 'clsx'
 
-export interface IStackProps<T> {
-  as?: T | keyof JSX.IntrinsicElements;
+type IStackProps<As extends keyof JSX.IntrinsicElements> = {
   rowGap?: keyof typeof tksn.space;
   columnGap?: keyof typeof tksn.space;
   inline?: boolean;
@@ -13,14 +12,15 @@ export interface IStackProps<T> {
   verticalAlign?: 'start' | 'center' | 'end';
   horizontalAlign?: 'start' | 'center' | 'end';
   direction?: 'row' | 'column';
-}
+  as?: ElementType | keyof JSX.IntrinsicElements;
+} & JSX.IntrinsicElements[As]
 
-export const Stack = <T extends ElementType>({
+export const Stack = <As extends keyof JSX.IntrinsicElements = 'div'>({
   children,
   className,
   rowGap,
   columnGap,
-  as: As = 'div',
+  as: Wrapper = 'div',
   inline = false,
   direction = 'column',
   wrap = false,
@@ -29,7 +29,7 @@ export const Stack = <T extends ElementType>({
   horizontalAlign,
   style,
   ...props
-}: OverwritableType<IStackProps<T>, T>) => {
+}: IStackProps<As>) => {
   const computedStyle: CSSProperties = {
     '--rGap': rowGap && tksn.space[rowGap],
     '--cGap': columnGap && tksn.space[columnGap],
@@ -38,7 +38,7 @@ export const Stack = <T extends ElementType>({
   }
 
   return (
-    <As
+    <Wrapper
       style={{ ...computedStyle, ...style }}
       data-stack-inline={inline}
       data-stack-wrap={wrap}
@@ -48,6 +48,6 @@ export const Stack = <T extends ElementType>({
       {...props}
     >
       {children}
-    </As>
+    </Wrapper>
   )
 }

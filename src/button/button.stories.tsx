@@ -28,6 +28,14 @@ export default {
     iconPosition: {
       options: ['left', 'right'],
       control: { type: 'inline-radio' }
+    },
+    disabled: {
+      options: [true, false],
+      control: { type: 'inline-radio' }
+    },
+    fullWidth: {
+      options: [true, false],
+      control: { type: 'inline-radio' }
     }
   }
 }

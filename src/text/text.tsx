@@ -2,23 +2,23 @@ import React, { ElementType } from 'react'
 import styles from './text.module.css'
 import clsx from 'clsx'
 
-export interface ITextProps<T> {
+type ITextProps<As extends keyof JSX.IntrinsicElements> = {
   size?: 14 | 16 | 18 | 22 | 28;
   color?: 'positive' | 'informative' | 'danger' | 'warning';
   weight?: 'thin' | 'bold';
-  as?: T | keyof JSX.IntrinsicElements;
-}
+  as?: ElementType | keyof JSX.IntrinsicElements;
+} & JSX.IntrinsicElements[As]
 
-export const Text = <T extends ElementType>({
+export const Text = <As extends keyof JSX.IntrinsicElements = 'p'>({
   children,
   className,
   size,
   color,
   weight,
-  as: As = 'p',
+  as: Wrapper = 'p',
   ...props
-}: OverwritableType<ITextProps<T>, T>) => (
-  <As
+}: ITextProps<As>) => (
+  <Wrapper
     data-text-size={size}
     data-text-weight={weight}
     data-text-color={color}
@@ -26,5 +26,5 @@ export const Text = <T extends ElementType>({
     {...props}
   >
     {children}
-  </As>
+  </Wrapper>
   )
