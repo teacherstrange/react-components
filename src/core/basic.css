@@ -21,11 +21,6 @@ html {
   outline: 5px auto -webkit-focus-ring-color;
 }
 
-[data-whatintent='mouse'] *:focus,
-[data-whatintent='touch'] *:focus {
-  outline: none;
-}
-
 body {
   font-family: env(--font-family-sans);
   font-feature-settings: 'calt' off;

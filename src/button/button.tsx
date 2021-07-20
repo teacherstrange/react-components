@@ -26,8 +26,8 @@ export type ButtonProps<
 > = PolymorphicPropsWithRef<ButtonOwnProps, As>;
 
 export const Button: PolymorphicForwardRefExoticComponent<
-ButtonOwnProps,
-typeof defaultElement
+  ButtonOwnProps,
+  typeof defaultElement
 > = forwardRef(<
   As extends ElementType = typeof defaultElement
 >(

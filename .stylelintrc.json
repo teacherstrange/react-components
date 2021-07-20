@@ -1,10 +1,4 @@
 {
   "extends": ["@wonderflow/stylelint-config"],
-  "ignoreFiles": [
-    "!**/*.css",
-    "**/*.jsx",
-    "**/*.tsx",
-    "**/*.ts",
-    "node_modules"
-  ]
+  "ignoreFiles": ["!**/*.css", "node_modules"]
 }
