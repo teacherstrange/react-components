@@ -67,7 +67,7 @@
   }
 
 
-  &[type='number'], {
+  &[type='number'] {
     appearance: textfield;
   }
 
