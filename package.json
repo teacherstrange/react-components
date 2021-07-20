@@ -40,7 +40,7 @@
     "update:cssdb": "npx browserslist@latest --update-db",
     "update:deps": "npx npm-check -u",
     "prebuild": "rimraf dist",
-    "copy:css": "copyfiles -u 1 src/**/*.css src/*.css dist/",
+    "copy:css": "copyfiles -u 1 \"src/**/*.css\" \"src/*.css\" dist/",
     "optimize:svg": "svgo ./src/icons/svgs/**/* --config=src/icons/svgo.config.js --quiet",
     "generate:sprites": "node src/icons/sprites.js",
     "build": "run-s build:icons build:components copy:css build:themes",
