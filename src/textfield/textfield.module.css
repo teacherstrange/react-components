@@ -27,11 +27,12 @@
 }
 
 .InputField {
+  --factor: 4;
 
   @nest [data-textfield-has-icon='true'][data-textfield-icon-position='right'] & {
     padding:
       0
-      calc(var(--field-padding) * 3)
+      calc(var(--field-padding) * var(--factor))
       0
       var(--field-padding);
   }
@@ -40,7 +41,11 @@
       0
       var(--field-padding)
       0
-      calc(var(--field-padding) * 3);
+      calc(var(--field-padding) * var(--factor));
+  }
+  @nest [data-textfield-size*='regular'] &,
+  [data-textfield-size*='big'] & {
+    --factor: 3;
   }
 }
 
