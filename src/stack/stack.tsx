@@ -11,8 +11,8 @@ type StackOwnProps = {
   inline?: boolean;
   wrap?: boolean;
   fill?: boolean;
-  verticalAlign?: 'start' | 'center' | 'end';
-  horizontalAlign?: 'start' | 'center' | 'end';
+  verticalAlign?: string;
+  horizontalAlign?: string;
   direction?: 'row' | 'column';
 }
 
