@@ -3,10 +3,11 @@ import React, {
   SVGAttributes
 } from 'react'
 import sprite from '../icons/all.svg'
+import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 export type IconProps = {
   name: IconNames;
-  size: 14 | 16 | 24 | 32 | 40 | 48 | 56;
+  size: TokensTypes['icon']['size'] | 32 | 40 | 48 | 56;
 } & SVGAttributes<SVGElement>
 
 export const Icon = ({

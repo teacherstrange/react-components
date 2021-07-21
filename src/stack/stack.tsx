@@ -3,10 +3,11 @@ import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
 import styles from './stack.module.css'
 import clsx from 'clsx'
+import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 type StackOwnProps = {
-  rowGap?: keyof typeof tksn.space;
-  columnGap?: keyof typeof tksn.space;
+  rowGap?: TokensTypes['space'];
+  columnGap?: TokensTypes['space'];
   inline?: boolean;
   wrap?: boolean;
   fill?: boolean;

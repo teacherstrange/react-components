@@ -36,7 +36,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
   return (
     <Stack
       as="fieldset"
-      rowGap="4"
+      rowGap={4}
       className={clsx(styles.Select, className)}
       data-select-is-multiple={type === 'multiple'}
       data-select-has-label={Boolean(label)}

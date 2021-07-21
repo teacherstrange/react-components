@@ -2,9 +2,10 @@ import React, { ElementType } from 'react'
 import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
 import styles from './text.module.css'
 import clsx from 'clsx'
+import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 type TextOwnProps = {
-  size?: 14 | 16 | 18 | 22 | 28;
+  size?: TokensTypes['font']['size'];
   color?: 'positive' | 'informative' | 'danger' | 'warning';
   weight?: 'thin' | 'bold';
 }

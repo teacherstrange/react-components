@@ -30,7 +30,7 @@ export default {
 }
 
 const Template = (args) => (
-  <Stack rowGap="80" {...args}>
+  <Stack rowGap={80} {...args}>
     <div className="DivEx">01</div>
     <div className="DivEx">02</div>
     <div className="DivEx">03</div>

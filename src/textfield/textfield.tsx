@@ -52,7 +52,7 @@ export const Textfield = forwardRef(({
   return (
     <Stack
       as="fieldset"
-      rowGap="4"
+      rowGap={4}
       className={clsx(styles.Textfield, className)}
       data-textfield-has-icon={Boolean(icon)}
       data-textfield-icon-position={iconPosition}

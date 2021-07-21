@@ -41,13 +41,13 @@ export default {
 }
 
 const SingleTemplate = (args) => (
-  <Stack rowGap="24">
+  <Stack rowGap={24}>
     <Textfield {...args} id="empty" label="Empty" placeholder="Placeholder" />
   </Stack>
 )
 
 const MultipleTemplate = (args) => (
-  <Stack rowGap="24">
+  <Stack rowGap={24}>
     <Textfield {...args} id="filled" label="Filled" defaultValue="Sample value" />
     <Textfield {...args} label="Filled read only" defaultValue="Sample value" readOnly />
     <Textfield {...args} label="Empty disbled" placeholder="Placeholder" disabled />

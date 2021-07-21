@@ -51,9 +51,10 @@
     "postbuild": "copyfiles package.json dist"
   },
   "dependencies": {
-    "@wonderflow/config": "1.4.0",
+    "@wonderflow/config": "1.4.4",
     "@wonderflow/eslint-config": "1.0.2",
     "@wonderflow/stylelint-config": "1.0.1",
+    "@wonderflow/tokens": "1.3.1",
     "clsx": "1.1.1",
     "flat": "5.0.2",
     "postcss": "8.3.5",
