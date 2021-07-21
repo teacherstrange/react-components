@@ -29,8 +29,8 @@ Once you have the core styles, which are not mandatory but **strongly** recommen
 import { Button } from "@wonderflow/react-components";
 
 const MyPage = () => (
-  <>
+  <div>
     <Button>Click me</Button>
-  </>
+  </div>
 );
 ```
