@@ -6,6 +6,7 @@ import clsx from 'clsx'
 type TitleOwnProps = {
   level?: '1' | '2' | '3' | '4' | '5' | '6' | 'display';
   lineHeignt?: 'none' | 'small' | 'large';
+  fluid?: boolean;
 }
 
 const defaultElement = 'span'
@@ -22,6 +23,7 @@ As extends ElementType = typeof defaultElement
     as,
     lineHeignt = 'small',
     level = '1',
+    fluid = true,
     ...props
   }: TitleProps<As>) => {
   const Wrapper: ElementType = as || defaultElement
@@ -30,6 +32,7 @@ As extends ElementType = typeof defaultElement
   return (
     <Wrapper
       data-title-line-height={lineHeignt}
+      data-title-is-fluid={fluid}
       className={clsx(styles.Title, styles[computedLevel], className)}
       {...props}
     >
