@@ -1,12 +1,16 @@
 .Text {
   line-height: 1.5;
   min-height: 0.01vh;
-  font-size:
-    clamp(
-      var(--fluid-type-min, env(--font-size-16)),
-      var(--fluid-type-factor, calc(0.6rem + 0.92vw)),
-      var(--fluid-type-max, 1rem)
-    );
+  font-size: var(--fluid-type-max);
+
+  &[data-text-is-fluid='true'] {
+    font-size:
+      clamp(
+        var(--fluid-type-min, env(--font-size-16)),
+        var(--fluid-type-factor, calc(0.6rem + 0.92vw)),
+        var(--fluid-type-max, 1rem)
+      );
+  }
 
   /* Colors */
 

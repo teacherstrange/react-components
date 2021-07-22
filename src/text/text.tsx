@@ -8,6 +8,7 @@ type TextOwnProps = {
   size?: TokensTypes['font']['size'];
   color?: 'positive' | 'informative' | 'danger' | 'warning';
   weight?: 'thin' | 'bold';
+  fluid?: boolean;
 }
 
 const defaultElement = 'p'
@@ -25,6 +26,7 @@ As extends ElementType = typeof defaultElement
     color,
     weight,
     as,
+    fluid = true,
     ...props
   }: TextProps<As>) => {
   const Wrapper: ElementType = as || defaultElement
@@ -34,6 +36,7 @@ As extends ElementType = typeof defaultElement
       data-text-size={size}
       data-text-weight={weight}
       data-text-color={color}
+      data-text-is-fluid={fluid}
       className={clsx(styles.Text, className)}
       {...props}
     >
