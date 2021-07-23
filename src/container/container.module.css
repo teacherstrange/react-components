@@ -4,6 +4,7 @@
   padding: 0 env(--space-16);
   margin: 0 auto;
   flex-grow: 1;
+  inline-size: 100%;
 
   &[data-container-size='medium'] {
     max-width: env(--container-medium);
