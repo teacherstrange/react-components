@@ -18,7 +18,7 @@ b {
   font-weight: 600;
 }
 
-:where(a:not([class])) {
+:where(a:any-link) {
   color: var(--global-interactive-text);
   text-decoration: none;
   background-image: linear-gradient(currentColor, currentColor);
