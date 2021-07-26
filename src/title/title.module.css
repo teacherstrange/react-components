@@ -7,7 +7,7 @@
     min-height: 0.01vh;
     font-size: var(--fluid-type-max);
 
-    &[data-text-is-fluid='true'] {
+    &[data-title-is-fluid='true'] {
       font-size:
         clamp(
           var(--fluid-type-min, env(--font-size-16)),
