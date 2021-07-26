@@ -1,0 +1,52 @@
+.Snackbar {
+  padding: env(--space-16) env(--space-24);
+  background-color: var(--snackbar-bg);
+  color: var(--snackbar-fg);
+  border-radius: env(--radius-4);
+  overflow: hidden;
+  box-shadow: inset 4px 0 0 var(--snackbar-fg);
+
+  & p {
+    font-size: env(--font-size-16);
+  }
+
+  &[data-snackbar-type='neutral'] {
+    --snackbar-bg: var(--highlight-gray-background);
+    --snackbar-fg: var(--highlight-gray-foreground);
+  }
+
+  &[data-snackbar-type='positive'] {
+    --snackbar-bg: var(--highlight-green-background);
+    --snackbar-fg: var(--highlight-green-foreground);
+  }
+
+  &[data-snackbar-type='warning'] {
+    --snackbar-bg: var(--highlight-yellow-background);
+    --snackbar-fg: var(--highlight-yellow-foreground);
+  }
+
+  &[data-snackbar-type='info'] {
+    --snackbar-bg: var(--highlight-blue-background);
+    --snackbar-fg: var(--highlight-blue-foreground);
+  }
+
+  &[data-snackbar-type='danger'] {
+    --snackbar-bg: var(--highlight-red-background);
+    --snackbar-fg: var(--highlight-red-foreground);
+  }
+
+  &[data-snackbar-elevated='true'] {
+    box-shadow:
+      inset 4px 0 0 var(--snackbar-fg),
+      0 33px 78px rgba(0, 0, 0, 0.14),
+      0 12.04px 28.47px rgba(0, 0, 0, 0.1),
+      0 5.84px 13.82px rgba(0, 0, 0, 0.09),
+      0 2.86px 6.77px rgba(0, 0, 0, 0.07),
+      0 1.13px 2.67px rgba(0, 0, 0, 0.06);
+  }
+}
+
+
+.Icon {
+  flex-shrink: 0;
+}

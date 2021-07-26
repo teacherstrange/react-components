@@ -5,7 +5,7 @@ import type {
   PolymorphicPropsWithoutRef,
   PolymorphicPropsWithRef
 } from 'react-polymorphic-types'
-import { IconNames } from 'src/icons/types'
+import { IconNames } from '../icons/types'
 import { Icon } from '../icon'
 import styles from './button.module.css'
 
