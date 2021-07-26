@@ -1,4 +1,4 @@
-import React, { ElementType } from 'react'
+import React, { ElementType, ReactNode } from 'react'
 import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
 import styles from './snackbar.module.css'
 import clsx from 'clsx'
