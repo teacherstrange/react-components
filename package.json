@@ -1,7 +1,7 @@
 {
   "name": "@wonderflow/react-components",
   "description": "UI components from Wonderflow's Wanda design system",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "author": "Wonderflow",
   "license": "MIT",
   "main": "index.js",
