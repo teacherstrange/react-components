@@ -11,6 +11,7 @@ type SnackbarOwnProps = {
   icon?: IconNames;
   title?: string;
   elevated?: boolean;
+  children: ReactNode;
   type?: 'info' | 'warning' | 'neutral' | 'positive' | 'danger';
 }
 
@@ -51,7 +52,7 @@ As extends ElementType = typeof defaultElement
       role="region"
       {...props}
     >
-      <Stack direction="row" columnGap={16}>
+      <Stack direction="row" columnGap={16} fill={false}>
         <Icon className={styles.Icon} name={icon || defaultIcons[type] as IconNames} size={24} />
         <Stack rowGap={8}>
           {title && <Title level="5">{title}</Title>}
