@@ -1,19 +1,19 @@
 /** Breakpoints
   *  Conversion Table (base 16px)
-  *  extraSmall = 30em → 480px
+  *  extra-small = 30em → 480px
   *  small = 48em → 768px
   *  medium = 60em → 960px
   *  large = 80em → 1280px
-  *  extraLarge = 100em → 1600px
+  *  extra-large = 100em → 1600px
   */
 
 /* Mobile First Media Queries */
 
-@custom-media --from-extraSmall (min-width: env(--breakpoint-extra-small));
+@custom-media --from-extra-small (min-width: env(--breakpoint-extra-small));
 @custom-media --from-small      (min-width: env(--breakpoint-small));
 @custom-media --from-medium     (min-width: env(--breakpoint-medium));
 @custom-media --from-large      (min-width: env(--breakpoint-large));
-@custom-media --from-extraLarge (min-width: env(--breakpoint-extra-large));
+@custom-media --from-extra-large (min-width: env(--breakpoint-extra-large));
 
 /* Orientation Media Queries */
 
