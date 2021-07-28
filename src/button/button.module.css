@@ -85,6 +85,7 @@
   &[data-button-disabled='true'],
   &[data-button-disabled='true']:is(:hover, :focus) {
     background-color: var(--global-disabled-background);
+    backdrop-filter: blur(32px);
     color: var(--global-disabled-foreground);
     cursor: not-allowed;
   }
