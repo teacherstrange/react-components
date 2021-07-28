@@ -66,6 +66,7 @@
   &:disabled {
     color: var(--global-disabled-foreground);
     background: var(--global-disabled-background);
+    backdrop-filter: blur(32px);
     cursor: not-allowed;
   }
 
