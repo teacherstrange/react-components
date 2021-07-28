@@ -1,1 +1,1 @@
-export { Prose } from './prose'
+export { Prose, ProseProps } from './prose'

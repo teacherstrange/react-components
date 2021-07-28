@@ -7,7 +7,7 @@ import { BaseField } from './base-field'
 import styles from './textfield.module.css'
 import clsx from 'clsx'
 
-type TextfieldProps = {
+export type TextfieldProps = {
   icon?: IconNames;
   label?: string;
   textarea?: boolean;

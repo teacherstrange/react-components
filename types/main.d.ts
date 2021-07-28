@@ -18,3 +18,8 @@ declare module '*.svg' {
   export default svgUrl
   export { svgComponent as ReactComponent }
 }
+
+type PropsWithClass = {
+  style?: Record<string, any>;
+  className?: string;
+}

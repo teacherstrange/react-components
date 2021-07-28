@@ -6,7 +6,7 @@ import { Text } from '../text'
 import styles from './select.module.css'
 import clsx from 'clsx'
 
-type SelectProps = {
+export type SelectProps = {
   icon?: IconNames;
   label?: string;
   type?: 'single' | 'multiple';

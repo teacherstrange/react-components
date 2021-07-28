@@ -1,2 +1,1 @@
-export { Button } from './button'
-export { ButtonProps } from './button'
+export { Button, ButtonProps } from './button'

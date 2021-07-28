@@ -1,1 +1,1 @@
-export { Snackbar } from './snackbar'
+export { Snackbar, SnackbarProps } from './snackbar'

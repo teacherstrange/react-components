@@ -1,1 +1,1 @@
-export { Textfield } from './textfield'
+export { Textfield, TextfieldProps } from './textfield'
