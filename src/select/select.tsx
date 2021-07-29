@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, HTMLAttributes } from 'react'
+import React, { ChangeEvent, forwardRef, HTMLAttributes, ReactNode } from 'react'
 import { Icon, IconProps } from '../icon'
 import { IconNames } from '../icons/types'
 import { Stack } from '../stack'
@@ -7,8 +7,9 @@ import styles from './select.module.css'
 import clsx from 'clsx'
 
 export type SelectProps = {
+  children: ReactNode;
   icon?: IconNames;
-  label?: string;
+  label?: ReactNode;
   type?: 'single' | 'multiple';
   size?: 'regular' | 'small' | 'big';
   disabled?: boolean;
