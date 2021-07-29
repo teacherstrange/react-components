@@ -6,8 +6,8 @@ import clsx from 'clsx'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 type StackOwnProps = {
-  rowGap?: TokensTypes['space'];
-  columnGap?: TokensTypes['space'];
+  rowGap?: 0 | TokensTypes['space'];
+  columnGap?: 0 | TokensTypes['space'];
   inline?: boolean;
   wrap?: boolean;
   fill?: boolean;
@@ -27,8 +27,8 @@ export const Stack = <
 >({
     children,
     className,
-    rowGap,
-    columnGap,
+    rowGap = 0,
+    columnGap = 0,
     as,
     inline = false,
     direction = 'column',
