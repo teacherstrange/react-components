@@ -17,6 +17,7 @@
 
   &[data-stack-inline='true'] {
     display: inline-flex;
+    flex-grow: 0;
   }
 
   &[data-stack-wrap='true'] {
