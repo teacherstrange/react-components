@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import styles from './icon-button.module.css'
 import { Button, ButtonProps } from '../button'
 import clsx from 'clsx'
@@ -12,9 +12,23 @@ export type IconButtonProps = {
   onClick?: ButtonProps['onClick'];
 } & PropsWithClass
 
-export const IconButton = ({
+export const IconButton = forwardRef(({
   className,
+  icon,
+  size,
+  type,
+  disabled,
   ...props
-}: IconButtonProps) => (
-  <Button className={clsx(styles.IconButton, className)} {...props} />
-)
+}: IconButtonProps, ref: any) => (
+  <Button
+    ref={ref}
+    icon={icon}
+    size={size}
+    type={type}
+    disabled={disabled}
+    className={clsx(styles.IconButton, className)}
+    {...props}
+  />
+))
+
+IconButton.displayName = 'IconButton'
