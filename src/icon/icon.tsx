@@ -7,7 +7,7 @@ import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 export type IconProps = {
   name: IconNames;
-  size: TokensTypes['icon']['size'] | 32 | 40 | 48 | 56;
+  size?: TokensTypes['icon']['size'] | 32 | 40 | 48 | 56;
 } & SVGAttributes<SVGElement>
 
 export const Icon = ({
