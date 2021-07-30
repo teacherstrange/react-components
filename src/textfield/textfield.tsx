@@ -59,7 +59,7 @@ export const Textfield = forwardRef(({
       data-textfield-size={size}
       data-textfield-invalid={invalid}
       aria-disabled={disabled}
-      horizontalAlign="start"
+      horizontalAlign="stretch"
       verticalAlign="start"
       tabIndex={disabled ? 0 : undefined}
     >
