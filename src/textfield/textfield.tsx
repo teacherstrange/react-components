@@ -59,6 +59,8 @@ export const Textfield = forwardRef(({
       data-textfield-size={size}
       data-textfield-invalid={invalid}
       aria-disabled={disabled}
+      horizontalAlign="start"
+      verticalAlign="start"
       tabIndex={disabled ? 0 : undefined}
     >
       {label && <Text as="label" size={size === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
