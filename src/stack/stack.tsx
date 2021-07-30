@@ -34,8 +34,8 @@ export const Stack = <
     direction = 'column',
     wrap = false,
     fill = true,
-    verticalAlign = 'start',
-    horizontalAlign = 'start',
+    verticalAlign,
+    horizontalAlign,
     style,
     ...props
   }: StackProps<As>) => {
