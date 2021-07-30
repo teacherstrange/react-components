@@ -55,7 +55,6 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: calc(var(--field-padding) - calc(var(--field-padding) / 3));
   z-index: 1;
 
   @nest [data-textfield-icon-position='left'] & {

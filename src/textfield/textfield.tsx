@@ -29,7 +29,7 @@ export const Textfield = forwardRef(({
   textarea,
   readOnly,
   invalid,
-  iconPosition,
+  iconPosition = 'right',
   size = 'regular',
   onChange,
   ...props
