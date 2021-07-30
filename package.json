@@ -45,8 +45,9 @@
     "generate:sprites": "node src/icons/sprites.js",
     "build": "run-s build:icons build:components copy:css build:themes",
     "build:components": "tsc",
-    "build:themes": "run-p build:light",
+    "build:themes": "run-p build:light build:dark",
     "build:light": "node src/themes/index.js --name light",
+    "build:dark": "node src/themes/index.js --name dark",
     "build:icons": "run-s optimize:svg generate:sprites",
     "postbuild": "copyfiles package.json dist"
   },
