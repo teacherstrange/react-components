@@ -43,6 +43,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
       data-select-has-label={Boolean(label)}
       data-select-size={size}
       aria-disabled={disabled}
+      horizontalAlign="start"
+      verticalAlign="start"
       tabIndex={disabled ? 0 : undefined}
     >
       {label && <Text as="label" size={size === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
