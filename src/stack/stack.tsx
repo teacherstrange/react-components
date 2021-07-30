@@ -40,12 +40,18 @@ export const Stack = <
     ...props
   }: StackProps<As>) => {
   const Wrapper: ElementType = as || defaultElement
+  const alignmentTemplate = (prop: string) => {
+    if (prop.includes('start') || prop.includes('end')) {
+      return `flex-${prop}`
+    }
+    return prop
+  }
 
   const computedStyle: CSSProperties = {
     '--rGap': rowGap && tksn.space[rowGap],
     '--cGap': columnGap && tksn.space[columnGap],
-    '--vAlign': verticalAlign,
-    '--hAlign': horizontalAlign
+    '--vAlign': verticalAlign && alignmentTemplate(verticalAlign),
+    '--hAlign': horizontalAlign && alignmentTemplate(horizontalAlign)
   }
 
   return (
