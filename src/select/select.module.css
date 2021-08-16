@@ -46,7 +46,12 @@
   overflow: hidden;
   backdrop-filter: blur(32px);
   color: inherit;
-  background-color: var(--global-vibrancy-background);
+  background:
+    linear-gradient(
+      to bottom,
+      var(--global-vibrancy-background),
+      var(--global-vibrancy-background)
+    );
   height: var(--field-height);
   padding:
     0
