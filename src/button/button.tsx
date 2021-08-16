@@ -7,7 +7,7 @@ import type {
 } from 'react-polymorphic-types'
 import { IconNames } from '../icons/types'
 import { Icon } from '../icon'
-import styles from './button.module.css'
+import { Button as ButtonClass } from './button.module.css'
 
 type ButtonOwnProps = {
   type?: 'primary' | 'secondary' | 'flat';
@@ -55,7 +55,7 @@ export const Button: PolymorphicForwardRefExoticComponent<
     <Wrapper
       ref={ref}
       type={Wrapper === 'button' ? htmlType : undefined}
-      className={clsx(styles.Button, className)}
+      className={clsx(ButtonClass, className)}
       data-button-icon-position={iconPosition}
       data-button-size={size}
       data-button-type={type}

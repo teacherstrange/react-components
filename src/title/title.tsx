@@ -1,6 +1,6 @@
 import React, { ElementType } from 'react'
 import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
-import styles from './title.module.css'
+import * as styles from './title.module.css'
 import clsx from 'clsx'
 
 type TitleOwnProps = {

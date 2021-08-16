@@ -1,6 +1,6 @@
 import React, { ElementType } from 'react'
 import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
-import styles from './container.module.css'
+import { Container as ContainerClass } from './container.module.css'
 import clsx from 'clsx'
 
 type ContainerOwnProps = {
@@ -28,7 +28,7 @@ export const Container = <
 
   return (
     <Wrapper
-      className={clsx(styles.Container, className)}
+      className={clsx(ContainerClass, className)}
       data-container-size={size}
       data-container-padding={padding}
       {...props}

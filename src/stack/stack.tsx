@@ -1,7 +1,7 @@
 import React, { ElementType, CSSProperties } from 'react'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
-import styles from './stack.module.css'
+import { Stack as StackClass } from './stack.module.css'
 import clsx from 'clsx'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
@@ -61,7 +61,7 @@ export const Stack = <
       data-stack-wrap={wrap}
       data-stack-direction={direction}
       data-stack-fill={fill}
-      className={clsx(styles.Stack, className)}
+      className={clsx(StackClass, className)}
       {...props}
     >
       {children}

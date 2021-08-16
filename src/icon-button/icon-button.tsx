@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import styles from './icon-button.module.css'
+import { IconButton as IconButtonClass } from './icon-button.module.css'
 import { Button, ButtonProps } from '../button'
 import clsx from 'clsx'
 import { IconNames } from 'src/icons/types'
@@ -26,7 +26,7 @@ export const IconButton = forwardRef(({
     size={size}
     type={type}
     disabled={disabled}
-    className={clsx(styles.IconButton, className)}
+    className={clsx(IconButtonClass, className)}
     {...props}
   />
 ))

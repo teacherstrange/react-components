@@ -2,7 +2,7 @@ import React, { CSSProperties, ElementType, ReactNode } from 'react'
 import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
 import clsx from 'clsx'
 
-import style from './clamp-text.module.css'
+import { ClampText as ClampTextClass } from './clamp-text.module.css'
 
 type ClampTextOwnProps = {
   children: ReactNode;
@@ -33,7 +33,7 @@ As extends ElementType = typeof defaultElement
   return (
     <Wrapper
       style={dynamicStyle}
-      className={clsx(style.ClampText, className)}
+      className={clsx(ClampTextClass, className)}
       {...props}
     >
       {children}

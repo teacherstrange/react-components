@@ -1,6 +1,6 @@
 import React, { ElementType } from 'react'
 import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
-import styles from './prose.module.css'
+import { Prose as ProseClass } from './prose.module.css'
 import clsx from 'clsx'
 
 type ProseOwnProps = {}
@@ -23,7 +23,7 @@ export const Prose = <
 
   return (
     <Wrapper
-      className={clsx(styles.Prose, className)}
+      className={clsx(ProseClass, className)}
       {...props}
     >
       {children}

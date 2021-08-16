@@ -1,10 +1,7 @@
 /**
  * Default CSS definition for typescript
  */
- declare module '*.css' {
-  const content: { [className: string]: string }
-  export default content
-}
+ declare module '*.css'
 
 declare module 'csstype' {
   interface Properties {

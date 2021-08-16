@@ -1,6 +1,6 @@
 import React, { ElementType } from 'react'
 import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
-import styles from './text.module.css'
+import { Text as TextClass } from './text.module.css'
 import clsx from 'clsx'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
@@ -37,7 +37,7 @@ As extends ElementType = typeof defaultElement
       data-text-weight={weight}
       data-text-color={color}
       data-text-is-fluid={fluid}
-      className={clsx(styles.Text, className)}
+      className={clsx(TextClass, className)}
       {...props}
     >
       {children}

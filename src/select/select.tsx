@@ -3,7 +3,7 @@ import { Icon, IconProps } from '../icon'
 import { IconNames } from '../icons/types'
 import { Stack } from '../stack'
 import { Text } from '../text'
-import styles from './select.module.css'
+import { Select as SelectClass, FieldContainer, Icon as IconClass, Field } from './select.module.css'
 import clsx from 'clsx'
 
 export type SelectProps = {
@@ -38,7 +38,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
     <Stack
       as="fieldset"
       rowGap={4}
-      className={clsx(styles.Select, className)}
+      className={clsx(SelectClass, className)}
       data-select-is-multiple={type === 'multiple'}
       data-select-has-label={Boolean(label)}
       data-select-size={size}
@@ -48,11 +48,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
       tabIndex={disabled ? 0 : undefined}
     >
       {label && <Text as="label" size={size === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
-      <div className={styles.FieldContainer}>
+      <div className={FieldContainer}>
 
         { type === 'single' && (
           <Icon
-            className={styles.Icon}
+            className={IconClass}
             name={icon}
             size={iconSizes[size] as IconProps['size']}
           />
@@ -60,7 +60,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
 
         <select
           disabled={disabled}
-          className={styles.Field}
+          className={Field}
           id={id}
           multiple={type === 'multiple'}
           onChange={onChange}

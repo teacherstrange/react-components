@@ -4,7 +4,7 @@ import { IconNames } from '../icons/types'
 import { Stack } from '../stack'
 import { Text } from '../text'
 import { BaseField } from './base-field'
-import styles from './textfield.module.css'
+import { Textfield as TextfieldClass, FieldContainer, InputField, Icon as IconClass } from './textfield.module.css'
 import clsx from 'clsx'
 
 export type TextfieldProps = {
@@ -53,7 +53,7 @@ export const Textfield = forwardRef(({
     <Stack
       as="fieldset"
       rowGap={4}
-      className={clsx(styles.Textfield, className)}
+      className={clsx(TextfieldClass, className)}
       data-textfield-has-icon={Boolean(icon)}
       data-textfield-icon-position={iconPosition}
       data-textfield-size={size}
@@ -64,7 +64,7 @@ export const Textfield = forwardRef(({
       tabIndex={disabled ? 0 : undefined}
     >
       {label && <Text as="label" size={size === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
-      <div className={styles.FieldContainer}>
+      <div className={FieldContainer}>
 
         {textarea
           ? (
@@ -77,7 +77,7 @@ export const Textfield = forwardRef(({
             )
           : (
             <BaseField
-              className={styles.InputField}
+              className={InputField}
               ref={ref as Ref<HTMLInputElement>}
               {...commonProps}
               {...props}
@@ -87,7 +87,7 @@ export const Textfield = forwardRef(({
 
         { !textarea && icon && (
           <Icon
-            className={styles.Icon}
+            className={IconClass}
             name={icon}
             size={iconSizes[size] as IconProps['size']}
           />

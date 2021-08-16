@@ -4,7 +4,7 @@ import type {
   PolymorphicPropsWithoutRef,
   PolymorphicPropsWithRef
 } from 'react-polymorphic-types'
-import styles from './base-field.module.css'
+import { BaseField as BaseFieldClass } from './base-field.module.css'
 import clsx from 'clsx'
 
 type BaseFieldOwnProps = {
@@ -38,7 +38,7 @@ export const BaseField: PolymorphicForwardRefExoticComponent<
     <Wrapper
       ref={ref}
       data-basefield-invalid={invalid}
-      className={clsx(styles.BaseField, className)}
+      className={clsx(BaseFieldClass, className)}
       {...props}
     />
   )
