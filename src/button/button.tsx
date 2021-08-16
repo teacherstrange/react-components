@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { ElementType, forwardRef, ForwardedRef, MouseEvent } from 'react'
+import React, { ElementType, forwardRef, ForwardedRef, MouseEvent, useCallback } from 'react'
 import type {
   PolymorphicForwardRefExoticComponent,
   PolymorphicPropsWithoutRef,
@@ -51,6 +51,14 @@ export const Button: PolymorphicForwardRefExoticComponent<
   ) => {
   const Wrapper: ElementType = as || defaultElement
 
+  const handleClick = useCallback(
+    () => (event: any) => {
+      if (!disabled && onClick) onClick(event)
+      if (disabled) event.preventDefault()
+    },
+    [disabled, onClick]
+  )
+
   return (
     <Wrapper
       ref={ref}
@@ -62,7 +70,7 @@ export const Button: PolymorphicForwardRefExoticComponent<
       data-button-fullwidth={fullWidth}
       data-button-disabled={disabled}
       aria-disabled={disabled}
-      onClick={disabled ? undefined : onClick}
+      onClick={handleClick()}
       {...props}
     >
       {icon && <Icon name={icon} size={size === 'small' ? 16 : 24} />}
