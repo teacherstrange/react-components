@@ -16,6 +16,7 @@ type ButtonOwnProps = {
   icon?: IconNames,
   iconPosition?: 'left' | 'right',
   disabled?: boolean;
+  htmlType?: 'submit' | 'reset' | 'button';
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 }
 
@@ -40,6 +41,7 @@ export const Button: PolymorphicForwardRefExoticComponent<
       icon,
       disabled,
       iconPosition = 'left',
+      htmlType = 'button',
       onClick,
       as,
       ...props
@@ -52,7 +54,7 @@ export const Button: PolymorphicForwardRefExoticComponent<
   return (
     <Wrapper
       ref={ref}
-      type={Wrapper === 'button' ? 'button' : undefined}
+      type={Wrapper === 'button' ? htmlType : undefined}
       className={clsx(styles.Button, className)}
       data-button-icon-position={iconPosition}
       data-button-size={size}
