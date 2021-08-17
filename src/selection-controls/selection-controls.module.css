@@ -68,7 +68,7 @@
   /* stylelint-disable-next-line value-keyword-case */
   composes: Radio;
   border-radius: 200px;
-  color: var(--dimmed-4);
+  color: var(--dimmed-7);
 
   &:checked {
     color: var(--global-background);
