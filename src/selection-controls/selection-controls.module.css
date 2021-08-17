@@ -1,6 +1,6 @@
 .Checkbox {
-  --w: env(--space-24);
-  --h: env(--space-24);
+  --w: 24px;
+  --h: 24px;
 
   appearance: none;
   inline-size: var(--w);
@@ -39,8 +39,8 @@
   }
 
   &[data-control-size='small'] {
-    --w: env(--space-16);
-    --h: env(--space-16);
+    --w: 16px;
+    --h: 16px;
   }
 }
 
@@ -61,8 +61,8 @@
 }
 
 .Toggle {
-  --w: 2.44rem;
-  --h: env(--space-24);
+  --w: 44px;
+  --h: 24px;
   --p: 2px;
 
   /* stylelint-disable-next-line value-keyword-case */
@@ -97,7 +97,7 @@
   }
 
   &[data-control-size='small'] {
-    --w: 1.55rem;
+    --w: 28px;
     --h: 16px;
   }
 }
