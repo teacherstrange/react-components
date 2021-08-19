@@ -27,8 +27,8 @@
 
   &:is(.H6) {
     --fluid-type-min: env(--font-size-14);
-    --fluid-type-factor: calc(0.69rem + 0.44vw);
-    --fluid-type-max: 0.88rem;
+    --fluid-type-factor: calc(env(--font-size-16) + 0.44vw);
+    --fluid-type-max: env(--font-size-18);
 
     font-weight: 700;
   }
