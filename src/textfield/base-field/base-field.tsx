@@ -9,7 +9,7 @@ import clsx from 'clsx'
 
 type BaseFieldOwnProps = {
   invalid?: boolean;
-  size?: 'small' | 'regular' | 'big'
+  htmlSize?: number;
 }
 
 const defaultElement = 'input'
@@ -27,6 +27,7 @@ export const BaseField: PolymorphicForwardRefExoticComponent<
     as,
     invalid,
     className,
+    htmlSize,
     ...props
   }:
   PolymorphicPropsWithoutRef<BaseFieldOwnProps, As>,
@@ -37,6 +38,7 @@ export const BaseField: PolymorphicForwardRefExoticComponent<
   return (
     <Wrapper
       ref={ref}
+      size={htmlSize}
       data-basefield-invalid={invalid}
       className={clsx(BaseFieldClass, className)}
       {...props}

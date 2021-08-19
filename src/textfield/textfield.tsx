@@ -16,6 +16,7 @@ export type TextfieldProps = {
   iconPosition?: 'left' | 'right';
   disabled?: boolean;
   invalid?: boolean;
+  htmlSize?: number;
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
 } & HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>
 
@@ -31,6 +32,7 @@ export const Textfield = forwardRef(({
   invalid,
   iconPosition = 'right',
   size = 'regular',
+  htmlSize,
   onChange,
   ...props
 }: TextfieldProps, ref) => {
@@ -45,8 +47,7 @@ export const Textfield = forwardRef(({
     readOnly,
     invalid,
     disabled,
-    onChange,
-    size
+    onChange
   }
 
   return (
@@ -79,6 +80,7 @@ export const Textfield = forwardRef(({
             <BaseField
               className={InputField}
               ref={ref as Ref<HTMLInputElement>}
+              htmlSize={htmlSize}
               {...commonProps}
               {...props}
             />
