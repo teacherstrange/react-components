@@ -5,6 +5,8 @@
   appearance: none;
   inline-size: var(--w);
   block-size: var(--h);
+  max-inline-size: var(--w);
+  max-block-size: var(--h);
   backdrop-filter: blur(32px);
   background-color: var(--global-vibrancy-background);
   color: var(--global-background);
