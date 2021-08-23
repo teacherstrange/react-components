@@ -37,7 +37,7 @@ const run = () => {
   })
   fs.writeFileSync(path.join('dist', 'icons', 'all.svg'), sprite)
   fs.writeFileSync(path.join('src', 'icons', 'all.svg'), sprite)
-  fs.writeFileSync(path.join('dist', 'icons', 'structure.json'), JSON.stringify(jsonStructure.iconNames, null, 2))
+  fs.writeFileSync(path.join('dist', 'icons', 'structure.json'), JSON.stringify([...new Set(jsonStructure.iconNames)], null, 2))
   fs.writeFileSync(path.join('dist', 'icons', 'types.d.ts'), generateTypes(jsonStructure))
   fs.writeFileSync(path.join('src', 'icons', 'types.d.ts'), generateTypes(jsonStructure))
   spinner.succeed('Icons and types generated')
