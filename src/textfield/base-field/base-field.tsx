@@ -1,4 +1,4 @@
-import React, { forwardRef, ElementType, ForwardedRef } from 'react'
+import React, { forwardRef, ElementType, ForwardedRef, HTMLAttributes } from 'react'
 import type {
   PolymorphicForwardRefExoticComponent,
   PolymorphicPropsWithoutRef,
@@ -10,7 +10,7 @@ import clsx from 'clsx'
 type BaseFieldOwnProps = {
   invalid?: boolean;
   htmlSize?: number;
-}
+} & HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>
 
 const defaultElement = 'input'
 

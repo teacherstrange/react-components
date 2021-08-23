@@ -8,7 +8,7 @@ export type ToggleProps = {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 } & HTMLAttributes<HTMLInputElement>
 
-export const Toggle = forwardRef(({
+export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(({
   className,
   disabled,
   size = 'regular',

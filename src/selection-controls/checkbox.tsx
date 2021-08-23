@@ -8,7 +8,7 @@ export type CheckboxProps = {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 } & HTMLAttributes<HTMLInputElement>
 
-export const Checkbox = forwardRef(({
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
   className,
   disabled,
   size = 'regular',

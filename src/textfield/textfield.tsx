@@ -20,7 +20,7 @@ export type TextfieldProps = {
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
 } & HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>
 
-export const Textfield = forwardRef(({
+export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, TextfieldProps>(({
   children,
   className,
   disabled = false,

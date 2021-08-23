@@ -8,7 +8,7 @@ export type RadioProps = {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 } & HTMLAttributes<HTMLInputElement>
 
-export const Radio = forwardRef(({
+export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
   className,
   disabled,
   size = 'regular',
