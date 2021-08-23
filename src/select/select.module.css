@@ -75,6 +75,14 @@
     cursor: not-allowed;
   }
 
+  & option {
+    color: black;
+  }
+
+  & optgroup {
+    color: initial;
+  }
+
   &[multiple] {
     height: auto;
     padding: env(--space-8) env(--space-16) env(--space-8) env(--space-16);
