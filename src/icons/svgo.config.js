@@ -19,20 +19,20 @@ module.exports = {
             rgb2hex: true
           },
           removeViewBox: false,
-          removeMetadata: false,
-          removeStyleElement: true,
-          removeTitle: true,
-          removeUselessStrokeAndFill: true,
-          removeAttrs: {
-            attrs: [
-              '*:fill:#000000',
-              '*:fill:black',
-              '*:fill:#000',
-              '*:fill:none'
-            ]
-          },
-          inlineStyles: true
+          removeMetadata: false
         }
+      }
+    },
+    'removeStyleElement',
+    {
+      name: 'removeAttrs',
+      params: {
+        attrs: [
+          '*:fill:#000000',
+          '*:fill:black',
+          '*:fill:#000',
+          '*:fill:none'
+        ]
       }
     }
   ]
