@@ -33,7 +33,7 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
   dimension = 'regular',
   onChange,
   ...props
-}: TextfieldProps, ref) => {
+}: TextfieldProps, forwardedRef) => {
   const iconSizes = {
     small: 14,
     regular: 16,
@@ -68,7 +68,7 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
         {textarea
           ? (
             <BaseField
-              ref={ref as Ref<HTMLTextAreaElement>}
+              ref={forwardedRef as Ref<HTMLTextAreaElement>}
               as="textarea"
               {...commonProps}
               {...props}
@@ -77,7 +77,7 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
           : (
             <BaseField
               className={InputField}
-              ref={ref as Ref<HTMLInputElement>}
+              ref={forwardedRef as Ref<HTMLInputElement>}
               {...commonProps}
               {...props}
             />

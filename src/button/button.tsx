@@ -5,7 +5,7 @@ import { IconNames } from '../icons/types'
 import { Icon } from '../icon'
 import { Button as ButtonClass } from './button.module.css'
 
-export type ButtonOwnProps = PropsWithClass & {
+export type ButtonProps = PropsWithClass & {
   kind?: 'primary' | 'secondary' | 'flat';
   dimension?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
@@ -16,7 +16,7 @@ export type ButtonOwnProps = PropsWithClass & {
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 }
 
-type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonOwnProps>;
+type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonProps>;
 
 // eslint-disable-next-line react/display-name
 export const Button = forwardRef((

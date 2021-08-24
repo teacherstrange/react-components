@@ -1,32 +1,28 @@
-import React, { ElementType } from 'react'
-import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
+import React, { forwardRef } from 'react'
+import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { Prose as ProseClass } from './prose.module.css'
 import clsx from 'clsx'
 
-type ProseOwnProps = {}
+export type ProseProps = {}
 
-const defaultElement = 'div'
+type PolymorphicProse = Polymorphic.ForwardRefComponent<'div', ProseProps>;
 
-export type ProseProps<
-  As extends ElementType = typeof defaultElement
-> = PolymorphicPropsWithoutRef<ProseOwnProps, As>;
-
-export const Prose = <
-  As extends ElementType = typeof defaultElement
->({
-    children,
-    className,
-    as,
-    ...props
-  }: ProseProps<As>) => {
-  const Wrapper: ElementType = as || defaultElement
-
+// eslint-disable-next-line react/display-name
+export const Prose = forwardRef(({
+  children,
+  className,
+  as: Wrapper = 'div',
+  ...props
+}, forwardedRef) => {
   return (
     <Wrapper
+      ref={forwardedRef}
       className={clsx(ProseClass, className)}
       {...props}
     >
       {children}
     </Wrapper>
   )
-}
+}) as PolymorphicProse
+
+Prose.displayName = 'Prose'

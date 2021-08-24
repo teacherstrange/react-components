@@ -1,33 +1,27 @@
-import React, { ElementType } from 'react'
-import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
+import React, { forwardRef } from 'react'
+import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { Container as ContainerClass } from './container.module.css'
 import clsx from 'clsx'
 
-type ContainerOwnProps = {
+export type ContainerProps = {
   dimension?: 'full' | 'medium' | 'large';
   padding?: boolean;
 }
 
-const defaultElement = 'div'
+type PolymorphicContainer = Polymorphic.ForwardRefComponent<'div', ContainerProps>;
 
-export type ContainerProps<
-  As extends ElementType = typeof defaultElement
-> = PolymorphicPropsWithoutRef<ContainerOwnProps, As>;
-
-export const Container = <
-  As extends ElementType = typeof defaultElement
->({
-    children,
-    className,
-    dimension = 'full',
-    padding = true,
-    as,
-    ...props
-  }: ContainerProps<As>) => {
-  const Wrapper: ElementType = as || defaultElement
-
+// eslint-disable-next-line react/display-name
+export const Container = forwardRef(({
+  children,
+  className,
+  dimension = 'full',
+  padding = true,
+  as: Wrapper = 'div',
+  ...props
+}, forwardedRef) => {
   return (
     <Wrapper
+      ref={forwardedRef}
       className={clsx(ContainerClass, className)}
       data-container-dimension={dimension}
       data-container-padding={padding}
@@ -36,4 +30,6 @@ export const Container = <
       {children}
     </Wrapper>
   )
-}
+}) as PolymorphicContainer
+
+Container.displayName = 'Container'

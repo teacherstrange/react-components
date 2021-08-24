@@ -29,7 +29,7 @@
   }
 
   &::placeholder {
-    color: var(--dimmed-4);
+    color: var(--dimmed-5);
   }
 
   &:focus-visible {

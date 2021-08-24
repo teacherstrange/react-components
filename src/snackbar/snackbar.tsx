@@ -1,5 +1,5 @@
-import React, { ElementType, ReactNode } from 'react'
-import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
+import React, { forwardRef, ReactNode } from 'react'
+import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { Snackbar as SnackbarClass, Icon as IconClass } from './snackbar.module.css'
 import clsx from 'clsx'
 import { IconNames } from '../icons/types'
@@ -7,7 +7,7 @@ import { Icon } from '../icon'
 import { Stack } from '../stack'
 import { Title } from '../title'
 
-type SnackbarOwnProps = {
+export type SnackbarProps = {
   icon?: IconNames;
   title?: string;
   elevated?: boolean;
@@ -15,26 +15,19 @@ type SnackbarOwnProps = {
   kind?: 'info' | 'warning' | 'neutral' | 'positive' | 'danger';
 }
 
-const defaultElement = 'div'
+type PolymorphicSnackbar = Polymorphic.ForwardRefComponent<'div', SnackbarProps>;
 
-export type SnackbarProps<
-  As extends ElementType = typeof defaultElement
-> = PolymorphicPropsWithoutRef<SnackbarOwnProps, As>;
-
-export const Snackbar = <
-As extends ElementType = typeof defaultElement
->({
-    children,
-    className,
-    title,
-    icon,
-    kind = 'neutral',
-    elevated,
-    as,
-    ...props
-  }: SnackbarProps<As>) => {
-  const Wrapper: ElementType = as || defaultElement
-
+// eslint-disable-next-line react/display-name
+export const Snackbar = forwardRef(({
+  children,
+  className,
+  title,
+  icon,
+  kind = 'neutral',
+  elevated,
+  as: Wrapper = 'div',
+  ...props
+}, forwardedRef) => {
   const defaultIcons = {
     info: 'circle-info',
     warning: 'triangle-exclamation',
@@ -45,6 +38,7 @@ As extends ElementType = typeof defaultElement
 
   return (
     <Wrapper
+      ref={forwardedRef}
       className={clsx(SnackbarClass, className)}
       data-snackbar-kind={kind}
       data-snackbar-elevated={elevated}
@@ -61,4 +55,6 @@ As extends ElementType = typeof defaultElement
       </Stack>
     </Wrapper>
   )
-}
+}) as PolymorphicSnackbar
+
+Snackbar.displayName = 'Snackbar'

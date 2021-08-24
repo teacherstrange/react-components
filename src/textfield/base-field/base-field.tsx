@@ -1,46 +1,29 @@
-import React, { forwardRef, ElementType, ForwardedRef, InputHTMLAttributes } from 'react'
-import type {
-  PolymorphicForwardRefExoticComponent,
-  PolymorphicPropsWithoutRef,
-  PolymorphicPropsWithRef
-} from 'react-polymorphic-types'
+import React, { forwardRef, InputHTMLAttributes } from 'react'
+import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { BaseField as BaseFieldClass } from './base-field.module.css'
 import clsx from 'clsx'
 
-type BaseFieldOwnProps = InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement> & {
+export type BaseFieldProps = InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement> & {
   invalid?: boolean;
 }
 
-const defaultElement = 'input'
+type PolymorphicBaseField = Polymorphic.ForwardRefComponent<'input', BaseFieldProps>;
 
-export type BaseFieldProps<
-  As extends ElementType = typeof defaultElement
-> = PolymorphicPropsWithRef<BaseFieldOwnProps, As>;
-
-export const BaseField: PolymorphicForwardRefExoticComponent<
-  BaseFieldOwnProps,
-  typeof defaultElement
-> = forwardRef(<
-  As extends ElementType = typeof defaultElement
->({
-    as,
-    invalid,
-    className,
-    ...props
-  }:
-  PolymorphicPropsWithoutRef<BaseFieldOwnProps, As>,
-    ref: ForwardedRef<Element>
-  ) => {
-  const Wrapper: ElementType = as || defaultElement
-
+// eslint-disable-next-line react/display-name
+export const BaseField = forwardRef(({
+  as: Wrapper = 'input',
+  invalid,
+  className,
+  ...props
+}, forwardedRef) => {
   return (
     <Wrapper
-      ref={ref}
+      ref={forwardedRef}
       data-basefield-invalid={invalid}
       className={clsx(BaseFieldClass, className)}
       {...props}
     />
   )
-})
+}) as PolymorphicBaseField
 
 BaseField.displayName = 'BaseField'

@@ -5,6 +5,10 @@ export default {
   title: 'Components/Snackbar',
   component: Snackbar,
   argTypes: {
+    kind: {
+      options: ['info', 'warning', 'neutral', 'positive', 'danger'],
+      control: { type: 'radio' }
+    },
     elevated: {
       options: [true, false],
       control: { type: 'inline-radio' }

@@ -1,17 +1,17 @@
 import React, { forwardRef } from 'react'
 import { IconButton as IconButtonClass } from './icon-button.module.css'
-import { Button, ButtonOwnProps } from '../button'
+import { Button, ButtonProps } from '../button'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import clsx from 'clsx'
 
-export type IconButtonOwnProps = PropsWithClass & Pick<
-ButtonOwnProps,
+export type IconButtonProps = PropsWithClass & Pick<
+ButtonProps,
   'kind' | 'dimension' | 'icon' | 'disabled' | 'onClick'
 >
 
 type PolymorphicIconButton = Polymorphic.ForwardRefComponent<
   Polymorphic.IntrinsicElement<typeof Button>,
-  Polymorphic.OwnProps<typeof Button> & IconButtonOwnProps
+  Polymorphic.OwnProps<typeof Button> & IconButtonProps
 >;
 
 // eslint-disable-next-line react/display-name

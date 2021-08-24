@@ -1,37 +1,31 @@
-import React, { CSSProperties, ElementType, ReactNode } from 'react'
-import type { PolymorphicPropsWithoutRef } from 'react-polymorphic-types'
+import React, { CSSProperties, forwardRef, ReactNode } from 'react'
+import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import clsx from 'clsx'
 
 import { ClampText as ClampTextClass } from './clamp-text.module.css'
 
-type ClampTextOwnProps = {
+export type ClampTextProps = PropsWithClass & {
   children: ReactNode;
   rows?: number;
 }
 
-const defaultElement = 'span'
+type PolymorphicClampText = Polymorphic.ForwardRefComponent<'span', ClampTextProps>;
 
-export type ClampTextProps<
-  As extends ElementType = typeof defaultElement
-> = PolymorphicPropsWithoutRef<ClampTextOwnProps, As>;
-
-export const ClampText = <
-As extends ElementType = typeof defaultElement
->({
-    className,
-    children,
-    rows = 1,
-    as,
-    ...props
-  }: ClampTextProps<As>) => {
-  const Wrapper: ElementType = as || defaultElement
-
+// eslint-disable-next-line react/display-name
+export const ClampText = forwardRef(({
+  className,
+  children,
+  rows = 1,
+  as: Wrapper = 'span',
+  ...props
+}, forwardedRef) => {
   const dynamicStyle: CSSProperties = {
     '--r': rows
   }
 
   return (
     <Wrapper
+      ref={forwardedRef}
       style={dynamicStyle}
       className={clsx(ClampTextClass, className)}
       {...props}
@@ -39,4 +33,6 @@ As extends ElementType = typeof defaultElement
       {children}
     </Wrapper>
   )
-}
+}) as PolymorphicClampText
+
+ClampText.displayName = 'ClampText'

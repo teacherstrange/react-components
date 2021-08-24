@@ -27,7 +27,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
   dimension = 'regular',
   onChange,
   ...props
-}: SelectProps, ref) => {
+}: SelectProps, forwardedRef) => {
   const iconSizes = {
     small: 14,
     regular: 16,
@@ -64,7 +64,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
           id={id}
           multiple={kind === 'multiple'}
           onChange={onChange}
-          ref={ref}
+          ref={forwardedRef}
           {...props}
         >
           {children}
