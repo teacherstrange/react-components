@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, HTMLAttributes, ReactNode } from 'react'
+import React, { ChangeEvent, forwardRef, SelectHTMLAttributes, ReactNode } from 'react'
 import { Icon, IconProps } from '../icon'
 import { IconNames } from '../icons/types'
 import { Stack } from '../stack'
@@ -6,15 +6,15 @@ import { Text } from '../text'
 import { Select as SelectClass, FieldContainer, Icon as IconClass, Field } from './select.module.css'
 import clsx from 'clsx'
 
-export type SelectProps = {
+export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   children: ReactNode;
   icon?: IconNames;
   label?: ReactNode;
-  type?: 'single' | 'multiple';
-  size?: 'regular' | 'small' | 'big';
+  kind?: 'single' | 'multiple';
+  dimension?: 'regular' | 'small' | 'big';
   disabled?: boolean;
   onChange?: (event: ChangeEvent<HTMLSelectElement>) => void
-} & HTMLAttributes<HTMLSelectElement>
+}
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
   children,
@@ -23,8 +23,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
   icon = 'sort-alt',
   id,
   label,
-  type = 'single',
-  size = 'regular',
+  kind = 'single',
+  dimension = 'regular',
   onChange,
   ...props
 }: SelectProps, ref) => {
@@ -39,22 +39,22 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
       as="fieldset"
       rowGap={4}
       className={clsx(SelectClass, className)}
-      data-select-is-multiple={type === 'multiple'}
+      data-select-is-multiple={kind === 'multiple'}
       data-select-has-label={Boolean(label)}
-      data-select-size={size}
+      data-select-dimension={dimension}
       aria-disabled={disabled}
       horizontalAlign="start"
       verticalAlign="start"
       tabIndex={disabled ? 0 : undefined}
     >
-      {label && <Text as="label" size={size === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
+      {label && <Text as="label" size={dimension === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
       <div className={FieldContainer}>
 
-        { type === 'single' && (
+        { kind === 'single' && (
           <Icon
             className={IconClass}
             name={icon}
-            size={iconSizes[size] as IconProps['size']}
+            dimension={iconSizes[dimension] as IconProps['dimension']}
           />
         ) }
 
@@ -62,7 +62,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
           disabled={disabled}
           className={Field}
           id={id}
-          multiple={type === 'multiple'}
+          multiple={kind === 'multiple'}
           onChange={onChange}
           ref={ref}
           {...props}

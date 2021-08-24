@@ -2,15 +2,15 @@
   border-radius: 200px;
   padding: 0;
 
-  &[data-button-size='small'] {
+  &[data-button-dimension='small'] {
     width: env(--space-24);
   }
 
-  &[data-button-size='regular'] {
+  &[data-button-dimension='regular'] {
     width: env(--space-40);
   }
 
-  &[data-button-size='big'] {
+  &[data-button-dimension='big'] {
     width: env(--space-48);
   }
 }

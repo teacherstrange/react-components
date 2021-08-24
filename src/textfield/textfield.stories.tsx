@@ -6,7 +6,7 @@ export default {
   title: 'Components/Textfield',
   component: Textfield,
   args: {
-    size: 'regular',
+    dimension: 'regular',
     readOnly: false,
     defaultValue: 'Sample value'
   },
@@ -17,7 +17,7 @@ export default {
         disable: true
       }
     },
-    size: {
+    dimension: {
       options: ['small', 'regular', 'big'],
       control: { type: 'radio' }
     },
@@ -42,7 +42,7 @@ export default {
 
 const SingleTemplate = (args) => (
   <Stack rowGap={24} fill={false} horizontalAlign="start">
-    <Textfield {...args} htmlSize={4} id="empty" label="Empty" placeholder="Placeholder" />
+    <Textfield {...args} size={4} id="empty" label="Empty" placeholder="Placeholder" />
   </Stack>
 )
 

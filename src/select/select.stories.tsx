@@ -11,11 +11,11 @@ export default {
         disable: true
       }
     },
-    type: {
+    kind: {
       options: ['single', 'multiple'],
       control: { type: 'radio' }
     },
-    size: {
+    dimension: {
       options: ['small', 'regular', 'big'],
       control: { type: 'radio' }
     },
@@ -25,7 +25,7 @@ export default {
     }
   },
   args: {
-    size: 'regular'
+    dimension: 'regular'
   }
 }
 
@@ -62,17 +62,17 @@ const MultipleTemplate = (args) => (
 export const Single = SingleTemplate.bind({})
 Single.args = {
   disabled: false,
-  type: 'single'
+  kind: 'single'
 }
 
 export const WithLabel = SingleTemplate.bind({})
 WithLabel.args = {
   disabled: false,
-  type: 'single',
+  kind: 'single',
   label: 'Label'
 }
 
 export const Multiple = MultipleTemplate.bind({})
 Multiple.args = {
-  type: 'multiple'
+  kind: 'multiple'
 }

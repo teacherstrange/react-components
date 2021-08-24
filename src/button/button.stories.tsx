@@ -5,8 +5,8 @@ export default {
   title: 'Components/Button',
   component: Button,
   args: {
-    size: 'regular',
-    type: 'primary',
+    dimension: 'regular',
+    kind: 'primary',
     children: 'Click me',
     fullWidth: false
   },
@@ -17,11 +17,11 @@ export default {
         disable: true
       }
     },
-    size: {
+    dimension: {
       options: ['small', 'regular', 'big'],
       control: { type: 'radio' }
     },
-    type: {
+    kind: {
       options: ['primary', 'secondary', 'flat'],
       control: { type: 'radio' }
     },

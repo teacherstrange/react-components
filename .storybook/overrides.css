@@ -7,56 +7,56 @@
 }
 
 
-.ContainerEx[data-container-size='small'] {
+.ContainerEx[data-container-dimension='small'] {
   box-shadow:
     inset env(--space-16) 0 0 hsl(env(--color-support-brand) / 60%),
     inset calc(env(--space-16) * -1) 0 0 hsl(env(--color-support-brand) / 60%);
 }
 
 @media (min-width: 48em) {
-  .ContainerEx[data-container-size='small'] {
+  .ContainerEx[data-container-dimension='small'] {
     box-shadow:
       inset env(--space-32) 0 0 hsl(env(--color-support-brand) / 60%),
       inset calc(env(--space-32) * -1) 0 0 hsl(env(--color-support-brand) / 60%);
   }
 }
 
-.ContainerEx[data-container-size='medium'] {
+.ContainerEx[data-container-dimension='medium'] {
   box-shadow:
     inset env(--space-16) 0 0 hsl(env(--color-support-brand) / 60%),
     inset calc(env(--space-16) * -1) 0 0 hsl(env(--color-support-brand) / 60%);
 }
 
 @media (min-width: 48em) {
-  .ContainerEx[data-container-size='medium'] {
+  .ContainerEx[data-container-dimension='medium'] {
     box-shadow:
       inset env(--space-32) 0 0 hsl(env(--color-support-brand) / 60%),
       inset calc(env(--space-32) * -1) 0 0 hsl(env(--color-support-brand) / 60%);
   }
 }
 
-.ContainerEx[data-container-size='large'] {
+.ContainerEx[data-container-dimension='large'] {
   box-shadow:
     inset env(--space-16) 0 0 hsl(env(--color-support-brand) / 60%),
     inset calc(env(--space-16) * -1) 0 0 hsl(env(--color-support-brand) / 60%);
 }
 
 @media (min-width: 48em) {
-  .ContainerEx[data-container-size='large'] {
+  .ContainerEx[data-container-dimension='large'] {
     box-shadow:
       inset env(--space-32) 0 0 hsl(env(--color-support-brand) / 60%),
       inset calc(env(--space-32) * -1) 0 0 hsl(env(--color-support-brand) / 60%);
   }
 }
 
-.ContainerEx[data-container-size='full'] {
+.ContainerEx[data-container-dimension='full'] {
   box-shadow:
     inset env(--space-16) 0 0 hsl(env(--color-support-brand) / 60%),
     inset calc(env(--space-16) * -1) 0 0 hsl(env(--color-support-brand) / 60%);
 }
 
 @media (min-width: 48em) {
-  .ContainerEx[data-container-size='full'] {
+  .ContainerEx[data-container-dimension='full'] {
     box-shadow:
       inset env(--space-32) 0 0 hsl(env(--color-support-brand) / 60%),
       inset calc(env(--space-32) * -1) 0 0 hsl(env(--color-support-brand) / 60%);

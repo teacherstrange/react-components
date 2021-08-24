@@ -1,17 +1,17 @@
 import clsx from 'clsx'
-import React, { ChangeEvent, forwardRef, HTMLAttributes } from 'react'
+import React, { ChangeEvent, forwardRef, InputHTMLAttributes } from 'react'
 import { Radio as RadioClass } from './selection-controls.module.css'
 
-export type RadioProps = {
+export type RadioProps = InputHTMLAttributes<HTMLInputElement> & {
   disabled?: boolean;
-  size?: 'regular' | 'small',
+  dimension?: 'regular' | 'small',
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-} & HTMLAttributes<HTMLInputElement>
+}
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
   className,
   disabled,
-  size = 'regular',
+  dimension = 'regular',
   onChange,
   ...props
 }: RadioProps, ref: any) => {
@@ -20,7 +20,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
       type="radio"
       disabled={disabled}
       aria-disabled={disabled}
-      data-control-size={size}
+      data-control-dimension={dimension}
       onChange={onChange}
       className={clsx(RadioClass, className)}
       ref={ref}

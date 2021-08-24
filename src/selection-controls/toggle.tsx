@@ -1,17 +1,17 @@
 import clsx from 'clsx'
-import React, { ChangeEvent, forwardRef, HTMLAttributes } from 'react'
+import React, { ChangeEvent, forwardRef, InputHTMLAttributes } from 'react'
 import { Toggle as ToggleClass } from './selection-controls.module.css'
 
-export type ToggleProps = {
+export type ToggleProps = InputHTMLAttributes<HTMLInputElement> & {
   disabled?: boolean;
-  size?: 'regular' | 'small',
+  dimension?: 'regular' | 'small',
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-} & HTMLAttributes<HTMLInputElement>
+}
 
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(({
   className,
   disabled,
-  size = 'regular',
+  dimension = 'regular',
   onChange,
   ...props
 }: ToggleProps, ref: any) => {
@@ -20,7 +20,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(({
       type="checkbox"
       disabled={disabled}
       aria-disabled={disabled}
-      data-control-size={size}
+      data-control-dimension={dimension}
       onChange={onChange}
       className={clsx(ToggleClass, className)}
       ref={ref}

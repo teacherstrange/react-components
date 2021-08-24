@@ -12,7 +12,7 @@ type SnackbarOwnProps = {
   title?: string;
   elevated?: boolean;
   children: ReactNode;
-  type?: 'info' | 'warning' | 'neutral' | 'positive' | 'danger';
+  kind?: 'info' | 'warning' | 'neutral' | 'positive' | 'danger';
 }
 
 const defaultElement = 'div'
@@ -28,7 +28,7 @@ As extends ElementType = typeof defaultElement
     className,
     title,
     icon,
-    type = 'neutral',
+    kind = 'neutral',
     elevated,
     as,
     ...props
@@ -46,14 +46,14 @@ As extends ElementType = typeof defaultElement
   return (
     <Wrapper
       className={clsx(SnackbarClass, className)}
-      data-snackbar-type={type}
+      data-snackbar-kind={kind}
       data-snackbar-elevated={elevated}
       aria-live="polite"
       role="region"
       {...props}
     >
       <Stack verticalAlign="start" horizontalAlign="start" direction="row" columnGap={16} fill={false}>
-        <Icon className={IconClass} name={icon || defaultIcons[type] as IconNames} size={24} />
+        <Icon className={IconClass} name={icon || defaultIcons[kind] as IconNames} dimension={24} />
         <Stack rowGap={8}>
           {title && <Title level="5">{title}</Title>}
           <p>{children}</p>

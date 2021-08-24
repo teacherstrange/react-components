@@ -40,7 +40,7 @@
     cursor: not-allowed;
   }
 
-  &[data-control-size='small'] {
+  &[data-control-dimension='small'] {
     --w: 16px;
     --h: 16px;
   }
@@ -98,7 +98,7 @@
     transform: translateX(100%);
   }
 
-  &[data-control-size='small'] {
+  &[data-control-dimension='small'] {
     --w: 28px;
     --h: 16px;
   }

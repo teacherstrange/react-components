@@ -4,7 +4,7 @@ import { Container as ContainerClass } from './container.module.css'
 import clsx from 'clsx'
 
 type ContainerOwnProps = {
-  size?: 'full' | 'medium' | 'large';
+  dimension?: 'full' | 'medium' | 'large';
   padding?: boolean;
 }
 
@@ -19,7 +19,7 @@ export const Container = <
 >({
     children,
     className,
-    size = 'full',
+    dimension = 'full',
     padding = true,
     as,
     ...props
@@ -29,7 +29,7 @@ export const Container = <
   return (
     <Wrapper
       className={clsx(ContainerClass, className)}
-      data-container-size={size}
+      data-container-dimension={dimension}
       data-container-padding={padding}
       {...props}
     >

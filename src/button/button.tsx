@@ -10,13 +10,13 @@ import { Icon } from '../icon'
 import { Button as ButtonClass } from './button.module.css'
 
 type ButtonOwnProps = {
-  type?: 'primary' | 'secondary' | 'flat';
-  size?: 'regular' | 'small' | 'big';
+  kind?: 'primary' | 'secondary' | 'flat';
+  dimension?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
   icon?: IconNames,
   iconPosition?: 'left' | 'right',
   disabled?: boolean;
-  htmlType?: 'submit' | 'reset' | 'button';
+  type?: 'submit' | 'reset' | 'button';
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 }
 
@@ -33,15 +33,15 @@ export const Button: PolymorphicForwardRefExoticComponent<
   As extends ElementType = typeof defaultElement
 >(
     {
-      type = 'primary',
-      size = 'regular',
+      kind = 'primary',
+      dimension = 'regular',
       className,
       children,
       fullWidth,
       icon,
       disabled,
       iconPosition = 'left',
-      htmlType = 'button',
+      type = 'button',
       onClick,
       as,
       ...props
@@ -62,18 +62,18 @@ export const Button: PolymorphicForwardRefExoticComponent<
   return (
     <Wrapper
       ref={ref}
-      type={Wrapper === 'button' ? htmlType : undefined}
+      type={Wrapper === 'button' ? type : undefined}
       className={clsx(ButtonClass, className)}
       data-button-icon-position={iconPosition}
-      data-button-size={size}
-      data-button-type={type}
+      data-button-dimension={dimension}
+      data-button-kind={kind}
       data-button-fullwidth={fullWidth}
       data-button-disabled={disabled}
       aria-disabled={disabled}
       onClick={handleClick()}
       {...props}
     >
-      {icon && <Icon name={icon} size={size === 'small' ? 16 : 24} />}
+      {icon && <Icon name={icon} dimension={dimension === 'small' ? 16 : 24} />}
       {children}
     </Wrapper>
   )

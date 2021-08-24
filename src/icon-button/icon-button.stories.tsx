@@ -5,17 +5,17 @@ export default {
   title: 'Components/IconButton',
   component: IconButton,
   args: {
-    size: 'regular',
-    type: 'primary',
+    dimension: 'regular',
+    kind: 'primary',
     icon: 'bell'
   },
   argTypes: {
     onClick: { action: 'clicked' },
-    size: {
+    dimension: {
       options: ['small', 'regular', 'big'],
       control: { type: 'radio' }
     },
-    type: {
+    kind: {
       options: ['primary', 'secondary', 'flat'],
       control: { type: 'radio' }
     }

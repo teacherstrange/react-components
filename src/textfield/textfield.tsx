@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, Ref, HTMLAttributes } from 'react'
+import React, { ChangeEvent, forwardRef, Ref, InputHTMLAttributes } from 'react'
 import { Icon, IconProps } from '../icon'
 import { IconNames } from '../icons/types'
 import { Stack } from '../stack'
@@ -7,18 +7,17 @@ import { BaseField } from './base-field'
 import { Textfield as TextfieldClass, FieldContainer, InputField, Icon as IconClass } from './textfield.module.css'
 import clsx from 'clsx'
 
-export type TextfieldProps = {
+export type TextfieldProps = InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement> & {
   icon?: IconNames;
   label?: string;
   textarea?: boolean;
-  size?: 'regular' | 'small' | 'big';
+  dimension?: 'regular' | 'small' | 'big';
   readOnly?: boolean;
   iconPosition?: 'left' | 'right';
   disabled?: boolean;
   invalid?: boolean;
-  htmlSize?: number;
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
-} & HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>
+}
 
 export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, TextfieldProps>(({
   children,
@@ -31,8 +30,7 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
   readOnly,
   invalid,
   iconPosition = 'right',
-  size = 'regular',
-  htmlSize,
+  dimension = 'regular',
   onChange,
   ...props
 }: TextfieldProps, ref) => {
@@ -57,14 +55,14 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
       className={clsx(TextfieldClass, className)}
       data-textfield-has-icon={Boolean(icon)}
       data-textfield-icon-position={iconPosition}
-      data-textfield-size={size}
+      data-textfield-dimension={dimension}
       data-textfield-invalid={invalid}
       aria-disabled={disabled}
       horizontalAlign="stretch"
       verticalAlign="start"
       tabIndex={disabled ? 0 : undefined}
     >
-      {label && <Text as="label" size={size === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
+      {label && <Text as="label" size={dimension === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
       <div className={FieldContainer}>
 
         {textarea
@@ -80,7 +78,6 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
             <BaseField
               className={InputField}
               ref={ref as Ref<HTMLInputElement>}
-              htmlSize={htmlSize}
               {...commonProps}
               {...props}
             />
@@ -91,7 +88,7 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
           <Icon
             className={IconClass}
             name={icon}
-            size={iconSizes[size] as IconProps['size']}
+            dimension={iconSizes[dimension] as IconProps['dimension']}
           />
         )}
       </div>

@@ -10,7 +10,7 @@ export default {
 }
 
 export const Basic = () => (
-  <Container size="medium">
+  <Container dimension="medium">
     <p>This is a standard paragraph</p>
 
     <p><a href="#">Text link</a></p>
@@ -115,7 +115,7 @@ export const Basic = () => (
 )
 
 export const List = () => (
-  <Container size="medium">
+  <Container dimension="medium">
     <dl>
       <dt>Definition List Title</dt>
       <dd>This is a definition list division.</dd>
@@ -154,7 +154,7 @@ export const List = () => (
 )
 
 export const Code = () => (
-  <Container size="medium">
+  <Container dimension="medium">
     <p>
       <code>&lt;kbd&gt;</code>
       {' '}

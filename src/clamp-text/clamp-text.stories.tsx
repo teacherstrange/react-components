@@ -13,7 +13,7 @@ export default {
 }
 
 const Template = (args) => (
-  <Container size="medium">
+  <Container dimension="medium">
     <ClampText {...args}>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam in quas magnam vitae vel ducimus, minus quia. Deserunt distinctio suscipit veritatis ab deleniti dolores, eligendi totam? Quae cum neque expedita.
       Odit incidunt voluptate inventore eos sunt possimus fugiat earum cupiditate? Ea possimus beatae quaerat totam exercitationem at nostrum asperiores libero, enim delectus doloribus in culpa. Dicta laudantium aliquid nostrum voluptate.

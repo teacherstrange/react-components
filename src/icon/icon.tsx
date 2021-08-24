@@ -5,25 +5,25 @@ import React, {
 import sprite from '../icons/all.svg'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
-export type IconProps = {
+export type IconProps = SVGAttributes<SVGElement> & {
   name: IconNames;
-  size?: TokensTypes['icon']['size'] | 32 | 40 | 48 | 56;
-} & SVGAttributes<SVGElement>
+  dimension?: TokensTypes['icon']['size'] | 32 | 40 | 48 | 56;
+}
 
 export const Icon = ({
   className,
   name,
-  size = 16,
+  dimension = 16,
   fill,
   ...props
 }: IconProps) => {
-  const computedSize = size < 24 ? 16 : 24
+  const computedSize = dimension < 24 ? 16 : 24
 
   return (
     <svg
       aria-hidden="true"
-      width={size}
-      height={size}
+      width={dimension}
+      height={dimension}
       fill={fill}
       className={className}
       {...props}

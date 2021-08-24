@@ -14,7 +14,7 @@ const divStyle = { display: 'flex', width: 100, flexShrink: 0, height: 100, bord
 
 
 export const Resting = () => (
-  <Container size="large">
+  <Container dimension="large">
     <Stack direction="row" rowGap={24} columnGap={88} fill={false}>
       <div data-elevation="1" style={divStyle}>1</div>
       <div data-elevation="2" style={divStyle}>2</div>
@@ -26,7 +26,7 @@ export const Resting = () => (
 
 
 export const Hoverable = () => (
-  <Container size="large">
+  <Container dimension="large">
     <Stack direction="row" rowGap={24} columnGap={88} fill={false}>
       <div data-elevation="1" data-elevation-hover="2"style={divStyle}>1</div>
     </Stack>

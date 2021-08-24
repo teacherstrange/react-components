@@ -10,27 +10,27 @@
     font-size: env(--font-size-16);
   }
 
-  &[data-snackbar-type='neutral'] {
+  &[data-snackbar-kind='neutral'] {
     --snackbar-bg: var(--highlight-gray-background);
     --snackbar-fg: var(--highlight-gray-foreground);
   }
 
-  &[data-snackbar-type='positive'] {
+  &[data-snackbar-kind='positive'] {
     --snackbar-bg: var(--highlight-green-background);
     --snackbar-fg: var(--highlight-green-foreground);
   }
 
-  &[data-snackbar-type='warning'] {
+  &[data-snackbar-kind='warning'] {
     --snackbar-bg: var(--highlight-yellow-background);
     --snackbar-fg: var(--highlight-yellow-foreground);
   }
 
-  &[data-snackbar-type='info'] {
+  &[data-snackbar-kind='info'] {
     --snackbar-bg: var(--highlight-blue-background);
     --snackbar-fg: var(--highlight-blue-foreground);
   }
 
-  &[data-snackbar-type='danger'] {
+  &[data-snackbar-kind='danger'] {
     --snackbar-bg: var(--highlight-red-background);
     --snackbar-fg: var(--highlight-red-foreground);
   }

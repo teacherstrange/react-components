@@ -6,7 +6,7 @@
   flex-grow: 1;
   inline-size: 100%;
 
-  &[data-container-size='medium'] {
+  &[data-container-dimension='medium'] {
     max-width: env(--container-medium);
 
     @media (--from-small) {
@@ -14,7 +14,7 @@
     }
   }
 
-  &[data-container-size='large'] {
+  &[data-container-dimension='large'] {
     max-width: env(--container-large);
 
     @media (--from-small) {
@@ -22,7 +22,7 @@
     }
   }
 
-  &[data-container-size='full'] {
+  &[data-container-dimension='full'] {
     max-width: 100%;
 
     @media (--from-small) {

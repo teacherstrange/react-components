@@ -23,19 +23,19 @@
 
   /* Sizes */
 
-  &[data-button-size='big'] {
+  &[data-button-dimension='big'] {
     padding: 0.55rem env(--space-24) 0.66rem;
     font-size: env(--font-size-18);
     height: env(--space-48);
   }
 
-  &[data-button-size='regular'] {
+  &[data-button-dimension='regular'] {
     padding: 0.33rem env(--space-16) env(--space-8);
     font-size: env(--font-size-16);
     height: env(--space-40);
   }
 
-  &[data-button-size='small'] {
+  &[data-button-dimension='small'] {
     font-size: env(--font-size-14);
     padding: 0 env(--space-4) 0.11rem;
     height: env(--space-24);
@@ -44,7 +44,7 @@
 
   /* Types */
 
-  &[data-button-type='primary'] {
+  &[data-button-kind='primary'] {
     background-color: var(--cta-default);
     color: var(--cta-foreground);
 
@@ -53,7 +53,7 @@
     }
   }
 
-  &[data-button-type='secondary'] {
+  &[data-button-kind='secondary'] {
     color: var(--global-vibrancy-foreground);
     backdrop-filter: blur(32px);
     background-color: var(--global-vibrancy-background);
@@ -63,7 +63,7 @@
     }
   }
 
-  &[data-button-type='flat'] {
+  &[data-button-kind='flat'] {
     color: var(--global-foreground);
 
     &:is(:hover, :focus) {

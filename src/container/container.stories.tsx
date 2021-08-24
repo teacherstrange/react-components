@@ -14,12 +14,12 @@ export default {
         disable: true
       }
     },
-    size: {
+    dimension: {
       options: ['full', 'medium', 'large']
     }
   },
   args: {
-    size: 'full'
+    dimension: 'full'
   }
 }
 
@@ -27,13 +27,13 @@ const Template = (args) => <Container {...args} />
 
 export const Medium = Template.bind({})
 Medium.args = {
-  size: 'medium',
+  dimension: 'medium',
   className: 'ContainerEx'
 }
 
 export const Large = Template.bind({})
 Large.args = {
-  size: 'large',
+  dimension: 'large',
   className: 'ContainerEx'
 }
 

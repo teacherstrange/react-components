@@ -3,19 +3,19 @@
   position: relative;
   padding: 0;
 
-  &[data-textfield-size='small'] {
+  &[data-textfield-dimension='small'] {
     --field-height: env(--space-24);
     --field-padding: 0.33rem;
     --font-size: env(--font-size-14);
   }
 
-  &[data-textfield-size='regular'] {
+  &[data-textfield-dimension='regular'] {
     --field-height: env(--space-40);
     --field-padding: env(--space-16);
     --font-size: env(--font-size-16);
   }
 
-  &[data-textfield-size='big'] {
+  &[data-textfield-dimension='big'] {
     --field-height: env(--space-48);
     --field-padding: env(--space-16);
     --font-size: env(--font-size-18);

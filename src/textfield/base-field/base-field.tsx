@@ -1,4 +1,4 @@
-import React, { forwardRef, ElementType, ForwardedRef, HTMLAttributes } from 'react'
+import React, { forwardRef, ElementType, ForwardedRef, InputHTMLAttributes } from 'react'
 import type {
   PolymorphicForwardRefExoticComponent,
   PolymorphicPropsWithoutRef,
@@ -7,10 +7,9 @@ import type {
 import { BaseField as BaseFieldClass } from './base-field.module.css'
 import clsx from 'clsx'
 
-type BaseFieldOwnProps = {
+type BaseFieldOwnProps = InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement> & {
   invalid?: boolean;
-  htmlSize?: number;
-} & HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>
+}
 
 const defaultElement = 'input'
 
@@ -27,7 +26,6 @@ export const BaseField: PolymorphicForwardRefExoticComponent<
     as,
     invalid,
     className,
-    htmlSize,
     ...props
   }:
   PolymorphicPropsWithoutRef<BaseFieldOwnProps, As>,
@@ -38,7 +36,6 @@ export const BaseField: PolymorphicForwardRefExoticComponent<
   return (
     <Wrapper
       ref={ref}
-      size={htmlSize}
       data-basefield-invalid={invalid}
       className={clsx(BaseFieldClass, className)}
       {...props}
