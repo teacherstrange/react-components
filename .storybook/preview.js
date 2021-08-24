@@ -9,8 +9,5 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-  },
-  options: {
-    showRoots: true,
-  },
+  }
 }
