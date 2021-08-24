@@ -43,8 +43,8 @@
       0
       calc(var(--field-padding) * var(--factor));
   }
-  @nest [data-textfield-size*='regular'] &,
-  [data-textfield-size*='big'] & {
+  @nest [data-textfield-dimension*='regular'] &,
+  [data-textfield-dimension*='big'] & {
     --factor: 3;
   }
 }
