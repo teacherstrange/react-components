@@ -52,6 +52,7 @@
     "postbuild": "copyfiles package.json dist"
   },
   "dependencies": {
+    "@radix-ui/react-polymorphic": "0.0.13",
     "@wonderflow/config": "1.4.6",
     "@wonderflow/eslint-config": "1.1.0",
     "@wonderflow/stylelint-config": "1.0.1",
@@ -59,8 +60,8 @@
     "clsx": "1.1.1",
     "flat": "5.0.2",
     "postcss": "8.3.6",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2",
     "react-polymorphic-types": "2.0.0",
     "style-dictionary": "3.0.1"
   },
