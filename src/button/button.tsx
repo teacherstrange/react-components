@@ -1,15 +1,11 @@
 import clsx from 'clsx'
-import React, { ElementType, forwardRef, ForwardedRef, MouseEvent, useCallback } from 'react'
-import type {
-  PolymorphicForwardRefExoticComponent,
-  PolymorphicPropsWithoutRef,
-  PolymorphicPropsWithRef
-} from 'react-polymorphic-types'
+import React, { forwardRef, MouseEvent, useCallback } from 'react'
+import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { IconNames } from '../icons/types'
 import { Icon } from '../icon'
 import { Button as ButtonClass } from './button.module.css'
 
-type ButtonOwnProps = {
+type ButtonOwnProps = PropsWithClass & {
   kind?: 'primary' | 'secondary' | 'flat';
   dimension?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
@@ -20,37 +16,24 @@ type ButtonOwnProps = {
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 }
 
-const defaultElement = 'button'
+type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonOwnProps>;
 
-export type ButtonProps<
-  As extends ElementType = typeof defaultElement
-> = PolymorphicPropsWithRef<ButtonOwnProps, As>;
-
-export const Button: PolymorphicForwardRefExoticComponent<
-  ButtonOwnProps,
-  typeof defaultElement
-> = forwardRef(<
-  As extends ElementType = typeof defaultElement
->(
-    {
-      kind = 'primary',
-      dimension = 'regular',
-      className,
-      children,
-      fullWidth,
-      icon,
-      disabled,
-      iconPosition = 'left',
-      type = 'button',
-      onClick,
-      as,
-      ...props
-    }:
-  PolymorphicPropsWithoutRef<ButtonOwnProps, As>,
-    ref: ForwardedRef<Element>
-  ) => {
-  const Wrapper: ElementType = as || defaultElement
-
+// eslint-disable-next-line react/display-name
+export const Button = forwardRef((
+  {
+    kind = 'primary',
+    dimension = 'regular',
+    className,
+    children,
+    fullWidth,
+    icon,
+    disabled,
+    iconPosition = 'left',
+    type = 'button',
+    onClick,
+    as: Wrapper = 'button',
+    ...props
+  }, forwardedRef) => {
   const handleClick = useCallback(
     () => (event: any) => {
       if (!disabled && onClick) onClick(event)
@@ -61,7 +44,7 @@ export const Button: PolymorphicForwardRefExoticComponent<
 
   return (
     <Wrapper
-      ref={ref}
+      ref={forwardedRef}
       type={Wrapper === 'button' ? type : undefined}
       className={clsx(ButtonClass, className)}
       data-button-icon-position={iconPosition}
@@ -77,6 +60,6 @@ export const Button: PolymorphicForwardRefExoticComponent<
       {children}
     </Wrapper>
   )
-})
+}) as PolymorphicButton
 
 Button.displayName = 'Button'
