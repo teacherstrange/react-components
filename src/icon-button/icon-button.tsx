@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import { IconNames } from 'src/icons/types'
 
 export type IconButtonProps = PropsWithClass & {
-  type?: ButtonProps['type'];
+  kind?: ButtonProps['kind'];
   dimension?: ButtonProps['dimension'];
   icon: IconNames,
   disabled?: ButtonProps['disabled'];
@@ -16,7 +16,7 @@ export const IconButton = forwardRef(({
   className,
   icon,
   dimension,
-  type,
+  kind,
   disabled,
   ...props
 }: IconButtonProps, ref: any) => (
@@ -24,7 +24,7 @@ export const IconButton = forwardRef(({
     ref={ref}
     icon={icon}
     dimension={dimension}
-    type={type}
+    kind={kind}
     disabled={disabled}
     className={clsx(IconButtonClass, className)}
     {...props}
