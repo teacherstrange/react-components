@@ -19,7 +19,7 @@ import "@wonderflow/react-components/core.css";
 import "@wonderflow/react-components/themes/light.css";
 ```
 
-> Themes are provided in css and json formats
+> Themes are provided in css and json formats.
 
 ## Components
 
