@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react'
 import { IconButton as IconButtonClass } from './icon-button.module.css'
-import { Button, ButtonProps } from '../button'
+import { Button, ButtonOwnProps } from '../button'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import clsx from 'clsx'
 
 export type IconButtonOwnProps = PropsWithClass & Pick<
-  ButtonProps,
+ButtonOwnProps,
   'kind' | 'dimension' | 'icon' | 'disabled' | 'onClick'
 >
 
