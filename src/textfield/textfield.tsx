@@ -1,13 +1,13 @@
-import React, { ChangeEvent, forwardRef, Ref, InputHTMLAttributes } from 'react'
+import React, { ChangeEvent, forwardRef, Ref } from 'react'
 import { Icon, IconProps } from '../icon'
 import { IconNames } from '../icons/types'
 import { Stack } from '../stack'
 import { Text } from '../text'
-import { BaseField } from './base-field'
+import { BaseField, BaseFieldProps } from './base-field'
 import { Textfield as TextfieldClass, FieldContainer, InputField, Icon as IconClass } from './textfield.module.css'
 import clsx from 'clsx'
 
-export type TextfieldProps = InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement> & {
+export type TextfieldProps = BaseFieldProps & {
   icon?: IconNames;
   label?: string;
   textarea?: boolean;
@@ -15,7 +15,6 @@ export type TextfieldProps = InputHTMLAttributes<HTMLInputElement> & InputHTMLAt
   readOnly?: boolean;
   iconPosition?: 'left' | 'right';
   disabled?: boolean;
-  invalid?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
 }
 
