@@ -5,7 +5,7 @@ import { IconNames } from '../icons/types'
 import { Icon } from '../icon'
 import { Button as ButtonClass } from './button.module.css'
 
-type ButtonOwnProps = PropsWithClass & {
+export type ButtonOwnProps = PropsWithClass & {
   kind?: 'primary' | 'secondary' | 'flat';
   dimension?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
