@@ -67,7 +67,7 @@
 
   &:is(.H1) {
     --fluid-type-min: 3.16rem;
-    --fluid-type-factor: calc(2.41rem + 4.17vw);
+    --fluid-type-factor: calc(2.23rem + 4.17vw);
     --fluid-type-max: 4.2rem;
 
     font-weight: 900;
