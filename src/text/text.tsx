@@ -6,7 +6,8 @@ import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 export type TextProps = {
   size?: TokensTypes['font']['size'];
-  color?: 'positive' | 'informative' | 'danger' | 'warning';
+  sentiment?: 'positive' | 'informative' | 'danger' | 'warning';
+  dimmed?: 5 | 6 | 7;
   weight?: 'thin' | 'bold';
   fluid?: boolean;
 }
@@ -18,7 +19,8 @@ export const Text = forwardRef(({
   children,
   className,
   size,
-  color,
+  sentiment,
+  dimmed,
   weight,
   as: Wrapper = 'p',
   fluid = true,
@@ -29,7 +31,8 @@ export const Text = forwardRef(({
       ref={forwardedRef}
       data-text-size={size}
       data-text-weight={weight}
-      data-text-color={color}
+      data-text-sentiment={sentiment}
+      data-text-dimmed={dimmed}
       data-text-is-fluid={fluid}
       className={clsx(TextClass, className)}
       {...props}

@@ -14,19 +14,31 @@
 
   /* Colors */
 
-  &[data-text-color='positive'] {
+  &[data-text-dimmed='5'] {
+    color: var(--dimmed-5);
+  }
+
+  &[data-text-dimmed='6'] {
+    color: var(--dimmed-6);
+  }
+
+  &[data-text-dimmed='7'] {
+    color: var(--dimmed-7);
+  }
+
+  &[data-text-sentiment='positive'] {
     color: var(--highlight-green-foreground);
   }
 
-  &[data-text-color='informative'] {
+  &[data-text-sentiment='informative'] {
     color: var(--highlight-blue-foreground);
   }
 
-  &[data-text-color='danger'] {
+  &[data-text-sentiment='danger'] {
     color: var(--highlight-red-foreground);
   }
 
-  &[data-text-color='warning'] {
+  &[data-text-sentiment='warning'] {
     color: var(--highlight-yellow-foreground);
   }
 

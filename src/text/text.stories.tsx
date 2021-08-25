@@ -10,6 +10,14 @@ export default {
     children: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores, tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!'
   },
   argTypes: {
+    sentiment: {
+      options: ['positive', 'informative', 'danger', 'warning'],
+      control: { type: 'select' }
+    },
+    dimmed: {
+      options: [5, 6, 7],
+      control: { type: 'select' }
+    },
     fluid: {
       options: [true, false],
       control: { type: 'inline-radio' }
@@ -17,7 +25,7 @@ export default {
   }
 }
 
-const Template = (args) => <Container size="medium"><Text {...args} /></Container>
+const Template = (args) => <Container dimension="medium"><Text {...args} /></Container>
 
 export const Default = Template.bind({})
 export const Weight = Template.bind({})

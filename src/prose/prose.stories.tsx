@@ -14,7 +14,7 @@ export default {
 }
 
 export const Default = (args) => (
-  <Container size="medium">
+  <Container dimension="medium">
     <Prose {...args}>
       <Title as="h1" level="display">Title</Title>
       <Text size={28}>
