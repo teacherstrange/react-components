@@ -16,6 +16,7 @@ export const ClampText = forwardRef(({
   className,
   children,
   rows = 1,
+  style,
   as: Wrapper = 'span',
   ...props
 }, forwardedRef) => {
@@ -26,7 +27,7 @@ export const ClampText = forwardRef(({
   return (
     <Wrapper
       ref={forwardedRef}
-      style={dynamicStyle}
+      style={{ ...dynamicStyle, ...style }}
       className={clsx(ClampTextClass, className)}
       {...props}
     >
