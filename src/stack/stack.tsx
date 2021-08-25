@@ -29,8 +29,8 @@ export const Stack = forwardRef(({
   direction = 'column',
   wrap = false,
   fill = true,
-  verticalAlign,
-  horizontalAlign,
+  verticalAlign = 'initial',
+  horizontalAlign = 'initial',
   style,
   ...props
 }, forwardedRef) => {
