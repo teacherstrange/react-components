@@ -7,7 +7,7 @@
   font-family: inherit;
   display: inline-flex;
   align-items: center;
-  min-width: min-content;
+  min-inline-size: min-content;
   justify-content: center;
   text-decoration: none;
   white-space: nowrap;

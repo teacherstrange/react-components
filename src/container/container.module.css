@@ -7,7 +7,7 @@
   inline-size: 100%;
 
   &[data-container-dimension='medium'] {
-    max-width: env(--container-medium);
+    max-inline-size: env(--container-medium);
 
     @media (--from-small) {
       padding: 0 env(--space-32);
@@ -15,7 +15,7 @@
   }
 
   &[data-container-dimension='large'] {
-    max-width: env(--container-large);
+    max-inline-size: env(--container-large);
 
     @media (--from-small) {
       padding: 0 env(--space-32);
@@ -23,7 +23,7 @@
   }
 
   &[data-container-dimension='full'] {
-    max-width: 100%;
+    max-inline-size: 100%;
 
     @media (--from-small) {
       padding: 0 env(--space-32);
