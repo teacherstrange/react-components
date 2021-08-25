@@ -3,14 +3,17 @@
   padding: 0;
 
   &[data-button-dimension='small'] {
-    width: env(--space-24);
+    inline-size: env(--space-24);
+    min-inline-size: env(--space-24);
   }
 
   &[data-button-dimension='regular'] {
-    width: env(--space-40);
+    inline-size: env(--space-40);
+    min-inline-size: env(--space-40);
   }
 
   &[data-button-dimension='big'] {
-    width: env(--space-48);
+    inline-size: env(--space-48);
+    min-inline-size: env(--space-48);
   }
 }
