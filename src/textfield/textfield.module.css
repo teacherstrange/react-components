@@ -55,7 +55,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 0;
 
   @nest [data-textfield-icon-position='left'] & {
     right: auto;
