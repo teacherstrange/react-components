@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { CSSProperties, forwardRef } from 'react'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { Text as TextClass } from './text.module.css'
 import clsx from 'clsx'
@@ -10,6 +10,7 @@ export type TextProps = {
   dimmed?: 5 | 6 | 7;
   weight?: 'thin' | 'bold';
   fluid?: boolean;
+  maxWidth?: string;
 }
 
 type PolymorphicText = Polymorphic.ForwardRefComponent<'p', TextProps>;
@@ -22,10 +23,16 @@ export const Text = forwardRef(({
   sentiment,
   dimmed,
   weight,
+  maxWidth,
   as: Wrapper = 'p',
   fluid = true,
+  style,
   ...props
 }, forwardedRef) => {
+  const dynamicStyle: CSSProperties = {
+    '--maxW': maxWidth
+  }
+
   return (
     <Wrapper
       ref={forwardedRef}
@@ -35,6 +42,7 @@ export const Text = forwardRef(({
       data-text-dimmed={dimmed}
       data-text-is-fluid={fluid}
       className={clsx(TextClass, className)}
+      style={{ ...dynamicStyle, ...style }}
       {...props}
     >
       {children}
