@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { CSSProperties, forwardRef } from 'react'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import * as styles from './title.module.css'
 import clsx from 'clsx'
@@ -6,6 +6,7 @@ import clsx from 'clsx'
 export type TitleProps = {
   level?: '1' | '2' | '3' | '4' | '5' | '6' | 'display';
   lineHeignt?: 'none' | 'small' | 'large';
+  maxWidth?: string;
   fluid?: boolean;
 }
 
@@ -19,9 +20,15 @@ export const Title = forwardRef(({
   lineHeignt = 'small',
   level = '1',
   fluid = true,
+  maxWidth,
+  style,
   ...props
 }, forwardedRef) => {
   const computedLevel = level.match(/\d/g) ? `H${level}` : level.charAt(0).toUpperCase() + level.slice(1)
+
+  const dynamicStyle: CSSProperties = {
+    '--maxW': maxWidth
+  }
 
   return (
     <Wrapper
@@ -29,6 +36,7 @@ export const Title = forwardRef(({
       data-title-line-height={lineHeignt}
       data-title-is-fluid={fluid}
       className={clsx(styles.Title, styles[computedLevel], className)}
+      style={{ ...dynamicStyle, style }}
       {...props}
     >
       {children}

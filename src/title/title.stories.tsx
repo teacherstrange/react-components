@@ -7,6 +7,16 @@ export default {
   component: Title,
   parameters: {
     controls: { hideNoControlsWarning: true }
+  },
+  argTypes: {
+    level: {
+      options: ['1', '2', '3', '4', '5', '6'],
+      control: { type: 'select' }
+    },
+    lineHeight: {
+      options: ['none', 'small', 'large'],
+      control: { type: 'select' }
+    }
   }
 }
 
@@ -27,5 +37,8 @@ const Template = (args) => <Container dimension="medium"><Title {...args}>Sample
 export const Single = Template.bind({})
 Single.args = {
   as: 'span',
-  level: '1'
+  lineHeignt: 'small',
+  level: '1',
+  fluid: true,
+  maxWidth: 'auto'
 }
