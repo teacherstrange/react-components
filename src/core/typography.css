@@ -117,6 +117,6 @@ code {
   color: var(--highlight-red-foreground);
   border-radius: env(--radius-4);
   padding: 2px 4px;
-  font-size: 1em;
+  font-size: 0.92em;
   font-family: env(--font-family-mono);
 }
