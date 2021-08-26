@@ -1,3 +1,11 @@
+---
+name: Bug report
+about: Report a bug about components
+labels: bug
+assignees: equinusocio
+
+---
+
 ## Bug report
 
 ### Current Behavior
