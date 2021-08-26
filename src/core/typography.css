@@ -114,7 +114,7 @@ legend {
 }
 
 code {
-  color: var(--cta-default);
+  color: var(--highlight-red-foreground);
   border-radius: env(--radius-4);
   padding: 2px 4px;
   font-size: 1em;
