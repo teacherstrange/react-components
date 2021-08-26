@@ -16,6 +16,6 @@
   }
 
   & > :--headings + * {
-    margin-block-start: 0.8em;
+    margin-block-start: 1.3em;
   }
 }
