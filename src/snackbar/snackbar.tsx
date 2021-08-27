@@ -42,8 +42,7 @@ export const Snackbar = forwardRef(({
       className={clsx(SnackbarClass, className)}
       data-snackbar-kind={kind}
       data-snackbar-elevated={elevated}
-      aria-live="polite"
-      role="region"
+      role="alert"
       {...props}
     >
       <Stack verticalAlign="start" horizontalAlign="start" direction="row" columnGap={16} fill={false}>
