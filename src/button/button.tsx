@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import React, { forwardRef, MouseEvent, useCallback } from 'react'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { IconNames } from '../icons/types'
-import { Icon } from '../icon'
+import { Icon, IconProps } from '../icon'
 import { Button as ButtonClass } from './button.module.css'
 
 export type ButtonProps = PropsWithClass & {
@@ -42,6 +42,12 @@ export const Button = forwardRef((
     [disabled, onClick]
   )
 
+  const iconSize = {
+    big: 24,
+    regular: 16,
+    small: 16
+  }
+
   return (
     <Wrapper
       ref={forwardedRef}
@@ -56,7 +62,7 @@ export const Button = forwardRef((
       onClick={handleClick()}
       {...props}
     >
-      {icon && <Icon name={icon} dimension={dimension === 'small' ? 16 : 24} />}
+      {icon && <Icon name={icon} dimension={iconSize[dimension] as IconProps['dimension']} />}
       {children}
     </Wrapper>
   )
