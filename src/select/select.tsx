@@ -45,6 +45,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
       aria-disabled={disabled}
       horizontalAlign="start"
       verticalAlign="start"
+      inline
       tabIndex={disabled ? 0 : undefined}
     >
       {label && <Text as="label" size={dimension === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
