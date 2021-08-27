@@ -50,15 +50,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
     >
       {label && <Text as="label" size={dimension === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
       <div className={FieldContainer}>
-
-        { kind === 'single' && (
-          <Icon
-            className={IconClass}
-            name={icon}
-            dimension={iconSizes[dimension] as IconProps['dimension']}
-          />
-        ) }
-
         <select
           disabled={disabled}
           className={Field}
@@ -70,6 +61,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
         >
           {children}
         </select>
+
+        { kind === 'single' && (
+          <Icon
+            className={IconClass}
+            name={icon}
+            dimension={iconSizes[dimension] as IconProps['dimension']}
+          />
+        ) }
       </div>
     </Stack>
   )
