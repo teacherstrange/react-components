@@ -24,7 +24,6 @@
 
 .FieldContainer {
   position: relative;
-  z-index: 0;
 }
 
 .InputField {
@@ -56,7 +55,6 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
 
   @nest [data-textfield-icon-position='left'] & {
     right: auto;
