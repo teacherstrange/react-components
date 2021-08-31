@@ -6,7 +6,7 @@ export type ThemeType = 'light' | 'dark' | 'auto' | undefined;
 
 export type ThemeContextType = {
   theme: ThemeType;
-  setTheme: (value: ThemeType) => void;
+  setTheme: React.Dispatch<React.SetStateAction<ThemeType>>;
 }
 
 type ThemeProviderProps = {
