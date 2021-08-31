@@ -1,6 +1,5 @@
 import React from 'react'
 import { ThemeProvider, ThemeSwitch } from './index'
-import { Text } from '../text'
 
 export default {
   title: 'Components/ThemeSwitch',
@@ -16,9 +15,6 @@ export default {
 const Template = (args) => (
   <ThemeProvider>
     <ThemeSwitch {...args} />
-    <Text data-theme="light">
-      This text should use always the white theme because is using the data-theme override
-    </Text>
   </ThemeProvider>
 )
 
