@@ -6,7 +6,7 @@ export type ThemeType = 'light' | 'dark' | 'auto' | undefined;
 
 export type ThemeContextType = {
   theme: ThemeType;
-  setTheme?: (value: ThemeType) => void;
+  setTheme: (value: ThemeType) => void;
 }
 
 type ThemeProviderProps = {
@@ -14,7 +14,7 @@ type ThemeProviderProps = {
   persistState?: boolean;
 }
 
-export const ThemeContext = createContext<ThemeContextType>({ theme: 'auto' })
+export const ThemeContext = createContext<ThemeContextType>({ theme: 'auto', setTheme: () => {} })
 
 export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({
   children,
@@ -39,13 +39,6 @@ export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({
       document.documentElement.dataset.theme = theme
       if (persistState) {
         localStorage.setItem('theme', theme)
-      }
-    }
-
-    return () => {
-      document.documentElement.removeAttribute('data-theme')
-      if (!persistState) {
-        localStorage.removeItem('theme')
       }
     }
   }, [persistState, theme])

@@ -19,9 +19,7 @@ export const ThemeSwitch = ({
 
   const changeTheme = useCallback(
     (theme) => {
-      if (typeof setTheme === 'function') {
-        setTheme(theme as ThemeType)
-      }
+      setTheme(theme as ThemeType)
     },
     [setTheme]
   )
