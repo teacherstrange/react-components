@@ -1,4 +1,4 @@
-import '../dist/themes/light.css';
+import '../dist/themes.css';
 import '../src/core.css';
 import './overrides.css';
 
