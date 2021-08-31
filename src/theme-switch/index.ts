@@ -1,3 +1,4 @@
 export { ThemeProvider, ThemeContext } from './theme-provider'
-export { ThemeSwitch } from './theme-switch'
 export { useThemeContext } from './use-theme-context'
+export { ThemeSwitch } from './theme-switch'
+export type { ThemeSwitchProps } from './theme-switch'
