@@ -19,7 +19,7 @@ export const ThemeContext = createContext<ThemeContextType>({ theme: 'auto', set
 export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({
   children,
   theme: initialTheme = 'auto',
-  persistState = false
+  persistState = true
 }) => {
   const [theme, setTheme] = useState<ThemeType>(initialTheme)
 
