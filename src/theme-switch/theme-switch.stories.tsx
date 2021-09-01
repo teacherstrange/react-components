@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, ThemeSwitch } from './index'
+import { ThemeSwitch } from './index'
 
 export default {
   title: 'Components/ThemeSwitch',
@@ -12,15 +12,6 @@ export default {
   }
 }
 
-const Template = (args) => (
-  <ThemeProvider>
-    <ThemeSwitch {...args} />
-  </ThemeProvider>
-)
+const Template = (args) => <ThemeSwitch {...args} />
 
 export const Default = Template.bind({})
-
-export const DefaultTheme = Template.bind({})
-DefaultTheme.args = {
-  defaultTheme: 'light'
-}

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import { Select } from '../select'
 import { ThemeType } from './theme-provider'
 import { useThemeContext } from './use-theme-context'
@@ -6,15 +6,10 @@ import { useThemeContext } from './use-theme-context'
 import clsx from 'clsx'
 import { IconNames } from 'src/icons/types'
 
-export type ThemeSwitchProps = PropsWithClass & {
-  defaultTheme?: ThemeType;
-}
-
 export const ThemeSwitch = ({
   className,
-  defaultTheme,
   ...props
-}: ThemeSwitchProps) => {
+}: PropsWithClass) => {
   const { theme, setTheme } = useThemeContext()
 
   const changeTheme = useCallback(
@@ -23,12 +18,6 @@ export const ThemeSwitch = ({
     },
     [setTheme]
   )
-
-  useEffect(() => {
-    if (typeof setTheme === 'function') {
-      setTheme(defaultTheme)
-    }
-  }, [defaultTheme, setTheme])
 
   const icon = {
     light: 'sun-bright' as IconNames,
@@ -39,7 +28,7 @@ export const ThemeSwitch = ({
   return (
     <Select
       onChange={({ currentTarget }) => changeTheme(currentTarget.value)}
-      value={theme || defaultTheme}
+      value={theme}
       icon={theme ? icon[theme] : icon.auto}
       className={clsx(className)}
       aria-label="Change color scheme"
