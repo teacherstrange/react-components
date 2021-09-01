@@ -25,6 +25,7 @@
 .FieldContainer {
   position: relative;
   color: var(--global-vibrancy-foreground);
+  width: 100%;
 
   @nest .Select[aria-disabled='true'] & {
     color: var(--global-disabled-foreground);
