@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { SelectHTMLAttributes, useCallback } from 'react'
 import { Select } from '../select'
 import { ThemeType } from './theme-provider'
 import { useThemeContext } from './use-theme-context'
@@ -9,7 +9,7 @@ import { IconNames } from 'src/icons/types'
 export const ThemeSwitch = ({
   className,
   ...props
-}: PropsWithClass) => {
+}: SelectHTMLAttributes<HTMLSelectElement>) => {
   const { theme, setTheme } = useThemeContext()
 
   const changeTheme = useCallback(
