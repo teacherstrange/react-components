@@ -3,15 +3,9 @@ import { ThemeSwitch } from './index'
 
 export default {
   title: 'Components/ThemeSwitch',
-  component: ThemeSwitch,
-  argTypes: {
-    defaultTheme: {
-      options: ['light', 'dark', 'auto'],
-      control: { type: 'radio' }
-    }
-  }
+  component: ThemeSwitch
 }
 
-const Template = (args) => <ThemeSwitch {...args} />
+const Template = (args) => <ThemeSwitch dimension="big" {...args} />
 
 export const Default = Template.bind({})

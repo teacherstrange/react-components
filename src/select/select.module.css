@@ -56,7 +56,7 @@
   height: var(--field-height);
   padding:
     0
-    calc(var(--field-padding) + env(--space-16))
+    calc(var(--field-padding) + calc(var(--field-padding) * 1.6))
     0
     var(--field-padding);
 
