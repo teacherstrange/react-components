@@ -1,0 +1,30 @@
+.Card {
+  background: var(--global-background);
+  padding: var(--padding, env(--space-24));
+  border-radius: var(--radius, env(--radius-8));
+  position: relative;
+
+  &[data-card-dimmed='1'] {
+    background: var(--dimmed-1);
+  }
+
+  &[data-card-dimmed='2'] {
+    background: var(--dimmed-2);
+  }
+
+  &[data-card-dimmed='3'] {
+    background: var(--dimmed-3);
+  }
+}
+
+.Left {
+  flex-shrink: 0;
+}
+
+.Content {
+  flex-grow: 1;
+}
+
+.Right {
+  flex-shrink: 0;
+}

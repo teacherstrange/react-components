@@ -14,6 +14,10 @@ const Template = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
+  resting: 1
+}
+export const WithHover = Template.bind({})
+WithHover.args = {
   resting: 1,
   hover: 3
 }
