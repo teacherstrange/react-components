@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import { Select, SelectProps } from '../select'
 import { ThemeType } from './theme-provider'
+import { Except } from 'type-fest'
 import { useThemeContext } from './use-theme-context'
 
 import clsx from 'clsx'
@@ -9,7 +10,7 @@ import { IconNames } from 'src/icons/types'
 export const ThemeSwitch = ({
   className,
   ...props
-}: SelectProps) => {
+}: Except<SelectProps, 'children'>) => {
   const { theme, setTheme } = useThemeContext()
 
   const changeTheme = useCallback(
