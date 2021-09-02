@@ -3,6 +3,7 @@ import React, { Fragment, Children, cloneElement, ReactElement } from 'react'
 export type ElevatorProps = {
   resting: 1 | 2 | 3 | 4;
   hover?: 1 | 2 | 3 | 4;
+  children: ReactElement;
 }
 
 export const Elevator: React.FC<ElevatorProps> = ({
