@@ -34,6 +34,8 @@ export const StarMeter = forwardRef(({
     big: 18
   }
 
+  const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max)
+
   const roundValue = (value: number) => {
     const integer = parseInt(String(value), 10)
     const fraction = value - integer
@@ -78,7 +80,7 @@ export const StarMeter = forwardRef(({
       columnGap={8}
       className={clsx(StarMeterClass, className)}
       role="meter"
-      aria-valuenow={value}
+      aria-valuenow={clamp(value, 0, starCount)}
       aria-valuemin={0}
       aria-valuemax={starCount}
       aria-labelledby="current-value"
