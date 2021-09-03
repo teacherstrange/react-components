@@ -10,7 +10,6 @@ import { Title } from '../title'
 export type SnackbarProps = {
   icon?: IconNames;
   title?: string;
-  elevated?: boolean;
   children: ReactNode;
   kind?: 'info' | 'warning' | 'neutral' | 'positive' | 'danger';
 }
@@ -24,7 +23,6 @@ export const Snackbar = forwardRef(({
   title,
   icon,
   kind = 'neutral',
-  elevated,
   as: Wrapper = 'div',
   ...props
 }, forwardedRef) => {
@@ -41,7 +39,6 @@ export const Snackbar = forwardRef(({
       ref={forwardedRef}
       className={clsx(SnackbarClass, className)}
       data-snackbar-kind={kind}
-      data-snackbar-elevated={elevated}
       role="alert"
       {...props}
     >
