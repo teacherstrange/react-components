@@ -88,7 +88,7 @@ export const StarMeter = forwardRef(({
       ref={forwardedRef}
       {...props}
     >
-      <svg className={Gradient} width="100" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <svg aria-hidden="true" className={Gradient} width="100" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="HalfStar">
             <stop offset="0" style={{ stopColor: 'var(--starColor)' }} />
