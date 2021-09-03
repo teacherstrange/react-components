@@ -1,5 +1,11 @@
+[data-elevation='0'],
+[data-elevation-hover='0']:hover {
+  transition: box-shadow env(--duration-100) env(--easing-standard);
+  box-shadow: none;
+}
+
 [data-elevation='1'],
-[data-elevation-hover='2']:hover {
+[data-elevation-hover='1']:hover {
   transition: box-shadow env(--duration-100) env(--easing-standard);
   box-shadow:
     0 6px 11px rgba(0, 0, 0, 0.11),
