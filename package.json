@@ -53,6 +53,7 @@
     "postbuild": "copyfiles package.json dist"
   },
   "dependencies": {
+    "@bumaga/tabs": "0.2.0",
     "@radix-ui/react-polymorphic": "0.0.13",
     "@wonderflow/config": "1.4.7",
     "@wonderflow/eslint-config": "1.1.0",
@@ -63,6 +64,7 @@
     "postcss": "8.3.6",
     "react": ">=17.0.2",
     "react-dom": ">=17.0.2",
+    "react-roving-tabindex": "3.1.1",
     "style-dictionary": "3.0.2",
     "type-fest": "2.1.0"
   },

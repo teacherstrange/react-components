@@ -1,0 +1,47 @@
+.Tab {
+  display: block;
+}
+
+.TabList {
+  display: flex;
+  flex-wrap: nowrap;
+  box-shadow: inset 0 -4px 0 var(--dimmed-3);
+  padding-bottom: 4px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.TabItem {
+  color: var(--dimmed-6);
+  appearance: none;
+  padding: env(--space-16) env(--space-24);
+  border: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: env(--font-size-16);
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: color env(--duration-200) linear;
+  outline-offset: -3px;
+
+  &[data-tab-active='true'] {
+    color: var(--global-foreground);
+    box-shadow: 0 4px 0 var(--cta-default);
+  }
+
+  &:not([data-tab-active='true']):hover {
+    cursor: pointer;
+  }
+}
+
+a.TabItem {
+  background-size: 0;
+}
+
+.TabPanel {
+  padding: env(--space-24) 0;
+}
