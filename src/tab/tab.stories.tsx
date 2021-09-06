@@ -7,25 +7,27 @@ export default {
 }
 
 const Template = (args) => (
-  <Tab.Root {...args}>
-    <Tab.TabList>
-      <Tab.TabItem>Tab 1</Tab.TabItem>
-      <Tab.TabItem>Tab 2</Tab.TabItem>
-      <Tab.TabItem>Tab 3</Tab.TabItem>
-      <Tab.TabItem>Tab 4</Tab.TabItem>
-      <Tab.TabItem>Tab 5</Tab.TabItem>
-      <Tab.TabItem>Tab 6</Tab.TabItem>
-      <Tab.TabItem>Tab 7</Tab.TabItem>
-    </Tab.TabList>
+  <>
+    <Tab.Root {...args}>
+      <Tab.List>
+        <Tab.Item>Tab 1</Tab.Item>
+        <Tab.Item>Tab 2</Tab.Item>
+        <Tab.Item>Tab 3</Tab.Item>
+        <Tab.Item>Tab 4</Tab.Item>
+        <Tab.Item>Tab 5</Tab.Item>
+        <Tab.Item>Tab 6</Tab.Item>
+        <Tab.Item>Tab 7</Tab.Item>
+      </Tab.List>
 
-    <Tab.TabPanel>Panel 1</Tab.TabPanel>
-    <Tab.TabPanel>Panel 2</Tab.TabPanel>
-    <Tab.TabPanel>Panel 3</Tab.TabPanel>
-    <Tab.TabPanel>Panel 4</Tab.TabPanel>
-    <Tab.TabPanel>Panel 5</Tab.TabPanel>
-    <Tab.TabPanel>Panel 6</Tab.TabPanel>
-    <Tab.TabPanel>Panel 7</Tab.TabPanel>
-  </Tab.Root>
+      <Tab.Panel>Panel 1</Tab.Panel>
+      <Tab.Panel>Panel 2</Tab.Panel>
+      <Tab.Panel>Panel 3</Tab.Panel>
+      <Tab.Panel>Panel 4</Tab.Panel>
+      <Tab.Panel>Panel 5</Tab.Panel>
+      <Tab.Panel>Panel 6</Tab.Panel>
+      <Tab.Panel>Panel 7</Tab.Panel>
+    </Tab.Root>
+  </>
 )
 
 export const Default = Template.bind({})

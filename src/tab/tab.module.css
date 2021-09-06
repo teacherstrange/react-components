@@ -28,12 +28,12 @@
   transition: color env(--duration-200) linear;
   outline-offset: -3px;
 
-  &[data-tab-active='true'] {
+  &[aria-selected='true'] {
     color: var(--global-foreground);
     box-shadow: 0 4px 0 var(--cta-default);
   }
 
-  &:not([data-tab-active='true']):hover {
+  &:not([aria-selected='true']):hover {
     cursor: pointer;
   }
 }

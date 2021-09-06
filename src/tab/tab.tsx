@@ -1,11 +1,10 @@
 import React, {
   useCallback,
   useEffect,
-  useMemo,
   useImperativeHandle,
   useState,
   forwardRef,
-  createRef
+  useRef
 } from 'react'
 import { Tabs as TabsWrapper, useTabState, usePanelState } from '@bumaga/tabs'
 import {
@@ -23,11 +22,6 @@ import {
   TabItem as TabItemClass
 } from './tab.module.css'
 
-const KEYCODES = {
-  LEFT: 'ArrowLeft',
-  RIGHT: 'ArrowRight'
-}
-
 type TabProps = PropsWithClass & {
   initialState?: number;
   onChange?: (index: number) => void;
@@ -37,9 +31,9 @@ type PolymorphicTabItem = Polymorphic.ForwardRefComponent<'button', {}>;
 
 export const Tab: {
   Root: React.FC<TabProps>;
-  TabList: React.FC<PropsWithClass>
-  TabPanel: React.FC<PropsWithClass>
-  TabItem: PolymorphicTabItem;
+  List: React.FC<PropsWithClass>
+  Panel: React.FC<PropsWithClass>
+  Item: PolymorphicTabItem;
 } = {
   Root: forwardRef(({
     children,
@@ -49,29 +43,6 @@ export const Tab: {
     ...props
   }, forwardedRef) => {
     const [current, setCurrent] = useState(initialState)
-    const tabsCount = useMemo(() => React.Children.count(children) - 1, [children])
-
-    const onKeyDown = useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
-      // @ts-ignore
-      const { target: { dataset } } = event
-
-      if (!dataset.tabitem) {
-        return
-      }
-
-      switch (event.key) {
-        case KEYCODES.RIGHT:
-          event.preventDefault()
-          setCurrent(current === tabsCount - 1 ? current : current + 1)
-          break
-        case KEYCODES.LEFT:
-          event.preventDefault()
-          setCurrent(current === 0 ? current : current - 1)
-          break
-        default:
-          break
-      }
-    }, [current, tabsCount, setCurrent])
 
     useEffect(() => {
       if (typeof onChange === 'function') {
@@ -82,13 +53,17 @@ export const Tab: {
     useImperativeHandle(forwardedRef, () => ({ setCurrent }))
 
     return (
-      <div onKeyDown={onKeyDown} className={clsx(TabClass, className)} {...props}>
-        <TabsWrapper state={[current, setCurrent]}>{children}</TabsWrapper>
-      </div>
+      <TabsWrapper
+        className={clsx(TabClass, className)}
+        state={[current, setCurrent]}
+        {...props}
+      >
+        {children}
+      </TabsWrapper>
     )
   }),
 
-  TabList: ({ children, className, ...props }) => (
+  List: ({ children, className, ...props }) => (
     <div role="tablist" tabIndex={-1} className={clsx(TabListClass, className)} {...props}>
       <RovingTabIndexProvider>
         {children}
@@ -96,7 +71,7 @@ export const Tab: {
     </div>
   ),
 
-  TabPanel: ({ children, className, ...props }) => {
+  Panel: ({ children, className, ...props }) => {
     const isActive = usePanelState()
     return isActive
       ? (
@@ -111,14 +86,14 @@ export const Tab: {
       : null
   },
 
-  TabItem: forwardRef(({
+  Item: forwardRef(({
     children,
     className,
     as: Wrapper = 'button',
     ...props
   }, forwardedRef) => {
     const { onClick, isActive } = useTabState()
-    const internalRef = createRef<Polymorphic.IntrinsicElement<typeof Wrapper>>()
+    const internalRef = useRef<Polymorphic.IntrinsicElement<typeof Wrapper>>(null)
     const [, focused, handleKeyDown, handleClick] = useRovingTabIndex(internalRef, false)
 
     useFocusEffect(focused, internalRef)
@@ -135,7 +110,6 @@ export const Tab: {
       <Wrapper
         ref={forwardedRef || internalRef}
         className={clsx(TabItemClass, className)}
-        data-tab-active={isActive}
         aria-selected={isActive}
         onClick={fireClick}
         onKeyDown={handleKeyDown}
@@ -152,6 +126,6 @@ export const Tab: {
 }
 
 Tab.Root.displayName = 'Tab.Root'
-Tab.TabList.displayName = 'Tab.TabList'
-Tab.TabPanel.displayName = 'Tab.TabPanel'
-Tab.TabItem.displayName = 'Tab.TabItem'
+Tab.List.displayName = 'Tab.TabList'
+Tab.Panel.displayName = 'Tab.TabPanel'
+Tab.Item.displayName = 'Tab.TabItem'
