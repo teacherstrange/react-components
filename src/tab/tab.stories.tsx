@@ -72,8 +72,7 @@ export const ProgrammaticTab = () => {
 }
 
 export const ChangeEvent = () => {
-  const state = useState(0)
   return (
-    <Template state={state} onChange={index => alert(`${index} is selected`)} />
+    <Template initialState={3} onChange={index => alert(`${index} is selected`)} />
   )
 }

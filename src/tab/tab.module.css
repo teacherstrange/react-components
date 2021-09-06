@@ -5,32 +5,62 @@
 .TabList {
   display: flex;
   flex-wrap: nowrap;
-  box-shadow: inset 0 -4px 0 var(--dimmed-3);
-  padding-bottom: 4px;
-  overflow: auto;
+  box-shadow: inset 0 -1px 0 var(--dimmed-3);
+  outline: none;
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+
+  @media (width < 48em) {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      border-radius: 6px;
+      border: 3px solid transparent;
+    }
+  }
 }
 
 .TabItem {
   color: var(--dimmed-6);
   appearance: none;
-  padding: env(--space-16) env(--space-24);
+  padding: env(--space-8) env(--space-16);
+  block-size: env(--space-48);
   border: 0;
   background-color: transparent;
   font-family: inherit;
-  font-size: env(--font-size-16);
-  font-weight: 600;
-  text-transform: uppercase;
+  font-size: inherit;
   white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
   flex-shrink: 0;
-  transition: color env(--duration-200) linear;
-  outline-offset: -3px;
+  outline-offset: -4px;
+  position: relative;
 
   &[aria-selected='true'] {
     color: var(--global-foreground);
-    box-shadow: 0 4px 0 var(--cta-default);
+    -webkit-text-stroke: 0.7px currentColor;
+
+    &::after {
+      content: '';
+      height: 4px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 3px 3px 0 0;
+      background-color: var(--cta-default);
+    }
   }
 
   &:not([aria-selected='true']):hover {
