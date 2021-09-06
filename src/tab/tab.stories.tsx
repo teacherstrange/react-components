@@ -60,7 +60,7 @@ export const ProgrammaticTab = () => {
       <Tab.Panel aria-labelledby={seed('tab-1')} id={seed('panel-1')}>
         <button
           type="button"
-          onClick={() => console.log(tabRef.current.setCurrent(2))}
+          onClick={() => tabRef.current.setCurrent(2)}
         >
           Go to 3
         </button>
