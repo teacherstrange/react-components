@@ -1,10 +1,10 @@
 import React, {
   useCallback,
   useEffect,
-  useImperativeHandle,
   useState,
   forwardRef,
-  useRef
+  useRef,
+  Ref
 } from 'react'
 import { Tabs as TabsWrapper, useTabState, usePanelState } from '@bumaga/tabs'
 import {
@@ -41,7 +41,7 @@ export const Tab: {
     initialState = 0,
     onChange,
     ...props
-  }, forwardedRef) => {
+  }, forwardedRef: Ref<HTMLDivElement>) => {
     const [current, setCurrent] = useState(initialState)
 
     useEffect(() => {
@@ -50,12 +50,11 @@ export const Tab: {
       }
     }, [current, onChange])
 
-    useImperativeHandle(forwardedRef, () => ({ setCurrent }))
-
     return (
       <TabsWrapper
         className={clsx(TabClass, className)}
         state={[current, setCurrent]}
+        ref={forwardedRef}
         {...props}
       >
         {children}
@@ -63,19 +62,20 @@ export const Tab: {
     )
   }),
 
-  List: ({ children, className, ...props }) => (
-    <div role="tablist" tabIndex={-1} className={clsx(TabListClass, className)} {...props}>
+  List: forwardRef(({ children, className, ...props }, forwardedRef: Ref<HTMLDivElement>) => (
+    <div ref={forwardedRef} role="tablist" tabIndex={-1} className={clsx(TabListClass, className)} {...props}>
       <RovingTabIndexProvider>
         {children}
       </RovingTabIndexProvider>
     </div>
-  ),
+  )),
 
-  Panel: ({ children, className, ...props }) => {
+  Panel: forwardRef(({ children, className, ...props }, forwardedRef: Ref<HTMLDivElement>) => {
     const isActive = usePanelState()
     return isActive
       ? (
         <div
+          ref={forwardedRef}
           tabIndex={0}
           className={clsx(TabPanelClass, className)}
           {...props}
@@ -84,7 +84,7 @@ export const Tab: {
         </div>
         )
       : null
-  },
+  }),
 
   Item: forwardRef(({
     children,
@@ -108,6 +108,7 @@ export const Tab: {
 
     return (
       <Wrapper
+        role="tab"
         ref={forwardedRef || internalRef}
         className={clsx(TabItemClass, className)}
         aria-selected={isActive}
@@ -115,7 +116,6 @@ export const Tab: {
         onKeyDown={handleKeyDown}
         onFocus={fireClick}
         type={Wrapper === 'button' ? 'button' : undefined}
-        role="tab"
         tabIndex={isActive ? 0 : -1}
         {...props}
       >
@@ -126,6 +126,6 @@ export const Tab: {
 }
 
 Tab.Root.displayName = 'Tab.Root'
-Tab.List.displayName = 'Tab.TabList'
-Tab.Panel.displayName = 'Tab.TabPanel'
-Tab.Item.displayName = 'Tab.TabItem'
+Tab.List.displayName = 'Tab.List'
+Tab.Panel.displayName = 'Tab.Panel'
+Tab.Item.displayName = 'Tab.Item'
