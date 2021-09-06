@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Tab } from './'
 import { UIDReset, useUIDSeed } from 'react-uid'
 
@@ -45,7 +45,7 @@ InitialTab.args = {
   initialState: 3
 }
 
-export const ProgrammaticTab = (args) => {
+export const ProgrammaticTab = () => {
   const tabRef = useRef(null)
   const seed = useUIDSeed()
 
@@ -60,7 +60,7 @@ export const ProgrammaticTab = (args) => {
       <Tab.Panel aria-labelledby={seed('tab-1')} id={seed('panel-1')}>
         <button
           type="button"
-          onClick={() => console.log(tabRef)}
+          onClick={() => console.log(tabRef.current.setCurrent(2))}
         >
           Go to 3
         </button>
@@ -68,5 +68,12 @@ export const ProgrammaticTab = (args) => {
       <Tab.Panel aria-labelledby={seed('tab-2')} id={seed('panel-2')}>Panel 2</Tab.Panel>
       <Tab.Panel aria-labelledby={seed('tab-3')} id={seed('panel-3')}>Panel 3</Tab.Panel>
     </Tab.Root>
+  )
+}
+
+export const ChangeEvent = () => {
+  const state = useState(0)
+  return (
+    <Template state={state} onChange={index => alert(`${index} is selected`)} />
   )
 }

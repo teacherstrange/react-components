@@ -4,7 +4,8 @@ import React, {
   useState,
   forwardRef,
   useRef,
-  Ref
+  Ref,
+  useImperativeHandle
 } from 'react'
 import { Tabs as TabsWrapper, useTabState, usePanelState } from '@bumaga/tabs'
 import {
@@ -41,7 +42,7 @@ export const Tab: {
     initialState = 0,
     onChange,
     ...props
-  }, forwardedRef: Ref<HTMLDivElement>) => {
+  }, forwardedRef) => {
     const [current, setCurrent] = useState(initialState)
 
     useEffect(() => {
@@ -50,15 +51,20 @@ export const Tab: {
       }
     }, [current, onChange])
 
+    useImperativeHandle(forwardedRef, () => ({ setCurrent }))
+
     return (
-      <TabsWrapper
+      <div
         className={clsx(TabClass, className)}
-        state={[current, setCurrent]}
-        ref={forwardedRef}
         {...props}
       >
-        {children}
-      </TabsWrapper>
+        <TabsWrapper
+          state={[current, setCurrent]}
+
+        >
+          {children}
+        </TabsWrapper>
+      </div>
     )
   }),
 
