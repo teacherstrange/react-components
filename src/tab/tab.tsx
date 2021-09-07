@@ -19,7 +19,6 @@ import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import {
   Tab as TabClass,
   TabList as TabListClass,
-  TabPanel as TabPanelClass,
   TabItem as TabItemClass
 } from './tab.module.css'
 
@@ -82,7 +81,7 @@ export const Tab: {
         <div
           ref={forwardedRef}
           tabIndex={0}
-          className={clsx(TabPanelClass, className)}
+          className={clsx(className)}
           {...props}
         >
           {children}

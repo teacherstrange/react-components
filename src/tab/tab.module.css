@@ -71,7 +71,3 @@
 a.TabItem {
   background-size: 0;
 }
-
-.TabPanel {
-  padding: env(--space-24) 0;
-}
