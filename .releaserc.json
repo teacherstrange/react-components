@@ -1,19 +1,13 @@
 {
   "branches": ["main"],
   "plugins": [
-    "@semantic-release/commit-analyzer",
+    "commit-analyzer-fail-on-no-release",
     "@semantic-release/release-notes-generator",
     "@semantic-release/github",
     [
       "@semantic-release/npm",
       {
         "pkgRoot": "dist"
-      }
-    ],
-    [
-      "@semantic-release/exec",
-      {
-        "prepareCmd": "npx replace-json-property package.json version ${nextRelease.version}"
       }
     ],
     "@semantic-release/git"
