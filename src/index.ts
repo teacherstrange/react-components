@@ -16,3 +16,4 @@ export { ThemeProvider, ThemeContext, ThemeSwitch, useThemeContext } from './the
 export { Elevator } from './elevator'
 export { Card } from './card'
 export { StarMeter } from './star-meter'
+export { Tab } from './tab'
