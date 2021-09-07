@@ -5,7 +5,8 @@ import React, {
   forwardRef,
   useRef,
   Ref,
-  useImperativeHandle
+  useImperativeHandle,
+  ReactNode
 } from 'react'
 import { Tabs as TabsWrapper, useTabState, usePanelState } from '@bumaga/tabs'
 import {
@@ -24,6 +25,7 @@ import {
 } from './tab.module.css'
 
 type TabProps = PropsWithClass & {
+  children: ReactNode;
   initialState?: number;
   onChange?: (index: number) => void;
 }
@@ -58,10 +60,7 @@ export const Tab: {
         className={clsx(TabClass, className)}
         {...props}
       >
-        <TabsWrapper
-          state={[current, setCurrent]}
-
-        >
+        <TabsWrapper state={[current, setCurrent]}>
           {children}
         </TabsWrapper>
       </div>
