@@ -26,7 +26,7 @@ import {
 
 type TabProps = PropsWithClass & {
   children: ReactNode;
-  initialState?: number;
+  initialTab?: number;
   onChange?: (index: number) => void;
 }
 
@@ -41,11 +41,11 @@ export const Tab: {
   Root: forwardRef(({
     children,
     className,
-    initialState = 0,
+    initialTab = 0,
     onChange,
     ...props
   }, forwardedRef) => {
-    const [current, setCurrent] = useState(initialState)
+    const [current, setCurrent] = useState(initialTab)
 
     useEffect(() => {
       if (typeof onChange === 'function') {

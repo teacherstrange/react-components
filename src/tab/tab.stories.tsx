@@ -42,7 +42,7 @@ const Template = (args) => {
 export const Default = Template.bind({})
 export const InitialTab = Template.bind({})
 InitialTab.args = {
-  initialState: 3
+  initialTab: 3
 }
 
 export const ProgrammaticTab = () => {
