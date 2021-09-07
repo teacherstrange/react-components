@@ -1,10 +1,18 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Tab } from './tab'
 import { UIDReset, useUIDSeed } from 'react-uid'
 
 export default {
   title: 'Components/Tab',
-  component: Tab
+  component: Tab,
+  argTypes: {
+    onChange: {
+      action: 'changed',
+      table: {
+        disable: true
+      }
+    }
+  }
 }
 
 const Template = (args) => {
@@ -96,8 +104,4 @@ export const ProgrammaticTab = () => {
   )
 }
 
-export const ChangeEvent = () => {
-  return (
-    <Template initialState={3} onChange={index => alert(`${index} is selected`)} />
-  )
-}
+export const ChangeEvent = Template.bind({})
