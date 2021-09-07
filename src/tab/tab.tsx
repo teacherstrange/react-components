@@ -5,7 +5,6 @@ import React, {
   forwardRef,
   useRef,
   Ref,
-  useImperativeHandle,
   ReactNode
 } from 'react'
 import { Tabs as TabsWrapper, useTabState, usePanelState } from '@bumaga/tabs'
@@ -26,7 +25,7 @@ import {
 
 type TabProps = PropsWithClass & {
   children: ReactNode;
-  initialTab?: number;
+  state?: [number, React.Dispatch<React.SetStateAction<number>>];
   onChange?: (index: number) => void;
 }
 
@@ -41,26 +40,27 @@ export const Tab: {
   Root: forwardRef(({
     children,
     className,
-    initialTab = 0,
+    state,
     onChange,
     ...props
-  }, forwardedRef) => {
-    const [current, setCurrent] = useState(initialTab)
+  }, forwardedRef: Ref<HTMLDivElement>) => {
+    const innerState = useState(0)
+    const tabState = state || innerState
+    const [currentTab] = tabState
 
     useEffect(() => {
       if (typeof onChange === 'function') {
-        onChange(current)
+        onChange(currentTab)
       }
-    }, [current, onChange])
-
-    useImperativeHandle(forwardedRef, () => ({ setCurrent }))
+    }, [currentTab, onChange])
 
     return (
       <div
+        ref={forwardedRef}
         className={clsx(TabClass, className)}
         {...props}
       >
-        <TabsWrapper state={[current, setCurrent]}>
+        <TabsWrapper state={tabState}>
           {children}
         </TabsWrapper>
       </div>
