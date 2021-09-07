@@ -68,6 +68,26 @@
   }
 }
 
+.TabPanel {
+  --fadeFromY: 5px;
+
+  animation: fadeIn env(--duration-200);
+  animation-timing-function: env(--easing-entrance));
+}
+
 a.TabItem {
   background-size: 0;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(var(--fadeFromX, 0), var(--fadeFromY, 0));
+  }
+
+  100% {
+    opacity: unset;
+    transform: none;
+  }
 }

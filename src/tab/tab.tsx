@@ -18,8 +18,9 @@ import type * as Polymorphic from '@radix-ui/react-polymorphic'
 
 import {
   Tab as TabClass,
-  TabList as TabListClass,
-  TabItem as TabItemClass
+  TabList,
+  TabItem,
+  TabPanel
 } from './tab.module.css'
 
 type TabProps = PropsWithClass & {
@@ -67,7 +68,7 @@ export const Tab: {
   }),
 
   List: forwardRef(({ children, className, ...props }, forwardedRef: Ref<HTMLDivElement>) => (
-    <div ref={forwardedRef} role="tablist" tabIndex={-1} className={clsx(TabListClass, className)} {...props}>
+    <div ref={forwardedRef} role="tablist" tabIndex={-1} className={clsx(TabList, className)} {...props}>
       <RovingTabIndexProvider>
         {children}
       </RovingTabIndexProvider>
@@ -81,7 +82,7 @@ export const Tab: {
         <div
           ref={forwardedRef}
           tabIndex={0}
-          className={clsx(className)}
+          className={clsx(TabPanel, className)}
           {...props}
         >
           {children}
@@ -114,7 +115,7 @@ export const Tab: {
       <Wrapper
         role="tab"
         ref={forwardedRef || internalRef}
-        className={clsx(TabItemClass, className)}
+        className={clsx(TabItem, className)}
         aria-selected={isActive}
         onClick={fireClick}
         onKeyDown={handleKeyDown}
