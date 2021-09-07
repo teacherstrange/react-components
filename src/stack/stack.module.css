@@ -2,8 +2,8 @@
   display: flex;
   grid-gap: var(--rGap, 0) var(--cGap, 0);
   flex-direction: column;
-  align-items: var(--hAlign, initial);
-  justify-content: var(--vAlign, initial);
+  align-items: var(--hAlign);
+  justify-content: var(--vAlign);
   padding: var(--vPadding, 0) var(--hPadding, 0);
 
   &[data-stack-fill='true'] > * {
@@ -11,8 +11,8 @@
   }
 
   &[data-stack-direction='row'] {
-    align-items: var(--vAlign, initial);
-    justify-content: var(--hAlign, initial);
+    align-items: var(--vAlign);
+    justify-content: var(--hAlign);
     flex-direction: row;
   }
 

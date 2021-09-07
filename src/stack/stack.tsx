@@ -46,12 +46,12 @@ export const Stack = forwardRef(({
   }
 
   const computedStyle: CSSProperties = {
-    '--rGap': tksn.space[rowGap],
-    '--cGap': tksn.space[columnGap],
-    '--vAlign': alignmentTemplate(verticalAlign),
-    '--hAlign': alignmentTemplate(horizontalAlign),
-    '--vPadding': tksn.space[verticalPadding],
-    '--hPadding': tksn.space[horizontalPadding]
+    '--rGap': rowGap && tksn.space[rowGap],
+    '--cGap': columnGap && tksn.space[columnGap],
+    '--vAlign': verticalAlign && alignmentTemplate(verticalAlign),
+    '--hAlign': horizontalAlign && alignmentTemplate(horizontalAlign),
+    '--vPadding': verticalPadding && tksn.space[verticalPadding],
+    '--hPadding': horizontalPadding && tksn.space[horizontalPadding]
   }
 
   return (
