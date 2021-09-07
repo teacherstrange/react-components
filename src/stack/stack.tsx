@@ -13,6 +13,8 @@ export type StackProps = {
   fill?: boolean;
   verticalAlign?: string;
   horizontalAlign?: string;
+  horizontalPadding?: TokensTypes['space'];
+  verticalPadding?: TokensTypes['space'];
   direction?: 'row' | 'column';
 }
 
@@ -31,6 +33,8 @@ export const Stack = forwardRef(({
   fill = true,
   verticalAlign = 'initial',
   horizontalAlign = 'initial',
+  horizontalPadding = 0,
+  verticalPadding = 0,
   style,
   ...props
 }, forwardedRef) => {
@@ -42,10 +46,12 @@ export const Stack = forwardRef(({
   }
 
   const computedStyle: CSSProperties = {
-    '--rGap': rowGap && tksn.space[rowGap],
-    '--cGap': columnGap && tksn.space[columnGap],
-    '--vAlign': verticalAlign && alignmentTemplate(verticalAlign),
-    '--hAlign': horizontalAlign && alignmentTemplate(horizontalAlign)
+    '--rGap': tksn.space[rowGap],
+    '--cGap': tksn.space[columnGap],
+    '--vAlign': alignmentTemplate(verticalAlign),
+    '--hAlign': alignmentTemplate(horizontalAlign),
+    '--vPadding': tksn.space[verticalPadding],
+    '--hPadding': tksn.space[horizontalPadding]
   }
 
   return (
