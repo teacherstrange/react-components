@@ -42,13 +42,15 @@ export default {
 
 const SingleTemplate = (args) => (
   <Stack rowGap={24} fill={false} horizontalAlign="start">
-    <Textfield {...args} size={4} id="empty" label="Empty" placeholder="Placeholder" />
+    <Textfield {...args} size={4} label="Empty" placeholder="Placeholder" />
+    <Textfield {...args} size={4} label="Empty" placeholder="Placeholder" />
+    <Textfield {...args} size={4} label="Empty" placeholder="Placeholder" />
   </Stack>
 )
 
 const MultipleTemplate = (args) => (
   <Stack rowGap={24}>
-    <Textfield {...args} id="filled" label="Filled" defaultValue="Sample value" />
+    <Textfield {...args} label="Filled" defaultValue="Sample value" />
     <Textfield {...args} label="Filled read only" defaultValue="Sample value" readOnly />
     <Textfield {...args} label="Empty disbled" placeholder="Placeholder" disabled />
     <Textfield {...args} label="Filled disabled" defaultValue="Sample value" disabled />

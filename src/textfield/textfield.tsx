@@ -4,8 +4,9 @@ import { IconNames } from '../icons/types'
 import { Stack } from '../stack'
 import { Text } from '../text'
 import { BaseField, BaseFieldProps } from './base-field'
-import { Textfield as TextfieldClass, FieldContainer, InputField, Icon as IconClass } from './textfield.module.css'
 import clsx from 'clsx'
+import { useUIDSeed } from 'react-uid'
+import { Textfield as TextfieldClass, FieldContainer, InputField, Icon as IconClass } from './textfield.module.css'
 
 export type TextfieldProps = BaseFieldProps & {
   icon?: IconNames;
@@ -23,7 +24,6 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
   className,
   disabled = false,
   icon,
-  id,
   label,
   textarea,
   readOnly,
@@ -33,6 +33,8 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
   onChange,
   ...props
 }: TextfieldProps, forwardedRef) => {
+  const uid = useUIDSeed()
+
   const iconSizes = {
     small: 14,
     regular: 16,
@@ -40,7 +42,6 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
   }
 
   const commonProps = {
-    id,
     readOnly,
     invalid,
     disabled,
@@ -61,7 +62,7 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
       verticalAlign="start"
       tabIndex={disabled ? 0 : undefined}
     >
-      {label && <Text as="label" size={dimension === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
+      {label && <Text as="label" size={dimension === 'small' ? 14 : 16} htmlFor={uid('field')}>{label}</Text>}
       <div className={FieldContainer}>
 
         {textarea
@@ -69,6 +70,7 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
             <BaseField
               ref={forwardedRef as Ref<HTMLTextAreaElement>}
               as="textarea"
+              id={uid('field')}
               {...commonProps}
               {...props}
             />
@@ -76,6 +78,7 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
           : (
             <BaseField
               className={InputField}
+              id={uid('field')}
               ref={forwardedRef as Ref<HTMLInputElement>}
               {...commonProps}
               {...props}
