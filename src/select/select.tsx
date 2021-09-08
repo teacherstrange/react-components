@@ -5,6 +5,7 @@ import { Stack } from '../stack'
 import { Text } from '../text'
 import { Select as SelectClass, FieldContainer, Icon as IconClass, Field } from './select.module.css'
 import clsx from 'clsx'
+import { useUIDSeed } from 'react-uid'
 
 export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   children: ReactNode;
@@ -21,13 +22,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
   className,
   disabled = false,
   icon = 'sort-alt',
-  id,
   label,
   kind = 'single',
   dimension = 'regular',
   onChange,
   ...props
 }: SelectProps, forwardedRef) => {
+  const uid = useUIDSeed()
+
   const iconSizes = {
     small: 14,
     regular: 16,
@@ -48,12 +50,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
       inline
       tabIndex={disabled ? 0 : undefined}
     >
-      {label && <Text as="label" size={dimension === 'small' ? 14 : 16} htmlFor={id}>{label}</Text>}
+      {label && <Text as="label" size={dimension === 'small' ? 14 : 16} htmlFor={uid('select')}>{label}</Text>}
       <div className={FieldContainer}>
         <select
           disabled={disabled}
           className={Field}
-          id={id}
+          id={uid('select')}
           multiple={kind === 'multiple'}
           onChange={onChange}
           ref={forwardedRef}

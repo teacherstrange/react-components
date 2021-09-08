@@ -30,7 +30,7 @@ export default {
 }
 
 const SingleTemplate = (args) => (
-  <Select {...args} id="SampleSelect">
+  <Select {...args}>
     <option value="placeholder" hidden selected disabled>Pick an option</option>
     <optgroup label="Option Group One">
       <option value="1">This is a very long option selected</option>
