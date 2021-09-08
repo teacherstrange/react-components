@@ -66,3 +66,7 @@ export const ProgrammaticTab = () => {
 }
 
 export const ChangeEvent = Template.bind({})
+
+ChangeEvent.args = {
+  onChange: (current) => alert(`current is ${current}`)
+}
