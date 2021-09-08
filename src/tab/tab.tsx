@@ -63,10 +63,6 @@ const TabRoot: React.FC<TabProps> = forwardRef(({
     }
   }, [currentTab, onChange])
 
-  const generateID = (index: any, prefix?: string) => {
-    return `${prefix}-${seedID(index)}`
-  }
-
   return (
     <div
       ref={forwardedRef}
@@ -82,8 +78,8 @@ const TabRoot: React.FC<TabProps> = forwardRef(({
         <TabList>
           {Children.map(children, (child: any, index) => (
             <Tab.Item
-              id={generateID(index, 'tab-item')}
-              aria-controls={`${generateID(index, 'tab-panel')}`}
+              id={seedID(`tab-item-${index}`)}
+              aria-controls={seedID(`tab-panel-${index}`)}
             >
               {child.props.label}
             </Tab.Item>
@@ -96,8 +92,8 @@ const TabRoot: React.FC<TabProps> = forwardRef(({
         {Children.map(children, (child: any, index) => cloneElement(
           child,
           {
-            id: generateID(index, 'tab-panel'),
-            'aria-labelledby': generateID(index, 'tab-item')
+            id: seedID(`tab-panel-${index}`),
+            'aria-labelledby': seedID(`tab-item-${index}`)
           }
         ))}
 
