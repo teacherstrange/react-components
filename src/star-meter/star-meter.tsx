@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { Icon } from '../icon'
 import { Stack } from '../stack'
+import { useUIDSeed } from 'react-uid'
 import { Text, TextProps } from '../text'
 
 import { StarMeter as StarMeterClass, Gradient, Icon as IconClass } from './star-meter.module.css'
@@ -28,6 +29,8 @@ export const StarMeter = forwardRef(({
   dimension = 'regular',
   ...props
 }, forwardedRef) => {
+  const uid = useUIDSeed()
+
   const labelSize = {
     small: 14,
     regular: 16,
@@ -83,7 +86,7 @@ export const StarMeter = forwardRef(({
       aria-valuenow={clamp(value, 0, starCount)}
       aria-valuemin={0}
       aria-valuemax={starCount}
-      aria-labelledby="current-value"
+      aria-labelledby={uid('star-meter')}
       data-star-meter-dimension={dimension}
       ref={forwardedRef}
       {...props}
@@ -101,7 +104,7 @@ export const StarMeter = forwardRef(({
       <Stack direction="row" columnGap={2}>
         {starType(starCount, roundValue(value))}
       </Stack>
-      <Text dimmed={6} id="current-value" size={labelSize[dimension] as TextProps['size']} weight="bold">
+      <Text dimmed={6} id={uid('star-meter')} size={labelSize[dimension] as TextProps['size']} weight="bold">
         {label || value.toString()}
       </Text>
     </Stack>
