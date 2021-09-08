@@ -6,7 +6,9 @@ import React, {
   forwardRef,
   useRef,
   Ref,
-  ReactNode
+  ReactNode,
+  Children,
+  cloneElement
 } from 'react'
 import { Tabs as TabsWrapper, useTabState, usePanelState } from '@bumaga/tabs'
 import {
@@ -16,6 +18,7 @@ import {
 } from 'react-roving-tabindex'
 import clsx from 'clsx'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import { useUIDSeed } from 'react-uid'
 
 import {
   Tab as TabClass,
@@ -52,6 +55,7 @@ const TabRoot: React.FC<TabProps> = forwardRef(({
   const innerState = useState(0)
   const tabState = state || innerState
   const [currentTab] = tabState
+  const seedID = useUIDSeed()
 
   useEffect(() => {
     if (typeof onChange === 'function') {
@@ -66,7 +70,33 @@ const TabRoot: React.FC<TabProps> = forwardRef(({
       {...props}
     >
       <TabsWrapper state={tabState}>
-        {children}
+
+        {/**
+         * Auto generate the list of triggers based on
+         * children. Assign required ARIA attributes and ID's
+         */}
+        <TabList>
+          {Children.map(children, (child: any, index) => (
+            <Tab.Item
+              id={seedID(`tab-item-${index}`)}
+              aria-controls={seedID(`tab-panel-${index}`)}
+            >
+              {child.props.label}
+            </Tab.Item>
+          ))}
+        </TabList>
+
+        {/**
+         * Loop children to assign required ARIA attributes and ID's
+         */}
+        {Children.map(children, (child: any, index) => cloneElement(
+          child,
+          {
+            id: seedID(`tab-panel-${index}`),
+            'aria-labelledby': seedID(`tab-item-${index}`)
+          }
+        ))}
+
       </TabsWrapper>
     </div>
   )
@@ -104,9 +134,17 @@ const TabList: React.FC<PropsWithClass> = forwardRef(({
 
 /**
  * Tab.Panel
+ * Public api
+ */
+export type TabPanelProps = PropsWithClass & {
+  label: ReactNode;
+}
+
+/**
+ * Tab.Panel
  * Component
  */
-const TabPanel: React.FC<PropsWithClass> = forwardRef(({
+const TabPanel: React.FC<TabPanelProps> = forwardRef(({
   children,
   className,
   ...props

@@ -1,3 +1,5 @@
+export { UIDReset as IdProvider } from 'react-uid'
+
 export { Container } from './container'
 export { Separator } from './separator'
 export { Prose } from './prose'
