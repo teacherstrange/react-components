@@ -6,7 +6,9 @@ import React, {
   forwardRef,
   useRef,
   Ref,
-  ReactNode
+  ReactNode,
+  cloneElement,
+  Children
 } from 'react'
 import { Tabs as TabsWrapper, useTabState, usePanelState } from '@bumaga/tabs'
 import {
@@ -66,6 +68,9 @@ const TabRoot: React.FC<TabProps> = forwardRef(({
       {...props}
     >
       <TabsWrapper state={tabState}>
+        <TabList>
+          {Children.map(children, (child: any) => <Tab.Item>{child.props.label}</Tab.Item>)}
+        </TabList>
         {children}
       </TabsWrapper>
     </div>
@@ -104,9 +109,17 @@ const TabList: React.FC<PropsWithClass> = forwardRef(({
 
 /**
  * Tab.Panel
+ * Public api
+ */
+export type TabPanelProps = PropsWithClass & {
+  label: ReactNode;
+}
+
+/**
+ * Tab.Panel
  * Component
  */
-const TabPanel: React.FC<PropsWithClass> = forwardRef(({
+const TabPanel: React.FC<TabPanelProps> = forwardRef(({
   children,
   className,
   ...props
