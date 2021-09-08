@@ -7,8 +7,8 @@ import React, {
   useRef,
   Ref,
   ReactNode,
-  cloneElement,
-  Children
+  Children,
+  cloneElement
 } from 'react'
 import { Tabs as TabsWrapper, useTabState, usePanelState } from '@bumaga/tabs'
 import {
@@ -18,6 +18,7 @@ import {
 } from 'react-roving-tabindex'
 import clsx from 'clsx'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import { useUIDSeed } from 'react-uid'
 
 import {
   Tab as TabClass,
@@ -54,12 +55,17 @@ const TabRoot: React.FC<TabProps> = forwardRef(({
   const innerState = useState(0)
   const tabState = state || innerState
   const [currentTab] = tabState
+  const seedID = useUIDSeed()
 
   useEffect(() => {
     if (typeof onChange === 'function') {
       onChange(currentTab)
     }
   }, [currentTab, onChange])
+
+  const generateID = (index: any, prefix?: string) => {
+    return `${prefix}-${seedID(index)}`
+  }
 
   return (
     <div
@@ -68,10 +74,33 @@ const TabRoot: React.FC<TabProps> = forwardRef(({
       {...props}
     >
       <TabsWrapper state={tabState}>
+
+        {/**
+         * Auto generate the list of triggers based on
+         * children. Assign required ARIA attributes and ID's
+         */}
         <TabList>
-          {Children.map(children, (child: any) => <Tab.Item>{child.props.label}</Tab.Item>)}
+          {Children.map(children, (child: any, index) => (
+            <Tab.Item
+              id={generateID(index, 'tab-item')}
+              aria-controls={`${generateID(index, 'tab-panel')}`}
+            >
+              {child.props.label}
+            </Tab.Item>
+          ))}
         </TabList>
-        {children}
+
+        {/**
+         * Loop children to assign required ARIA attributes and ID's
+         */}
+        {Children.map(children, (child: any, index) => cloneElement(
+          child,
+          {
+            id: generateID(index, 'tab-panel'),
+            'aria-labelledby': generateID(index, 'tab-item')
+          }
+        ))}
+
       </TabsWrapper>
     </div>
   )
