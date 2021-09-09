@@ -35,7 +35,7 @@ import {
  * Tab.Root
  * Public api
  */
-type TabProps = PropsWithClass & {
+export type TabProps = PropsWithClass & {
   children: ReactNode;
   state?: [number, React.Dispatch<React.SetStateAction<number>>];
   onChange?: (index: number) => void;
