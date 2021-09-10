@@ -82,7 +82,7 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
         {expandable && (
         <Icon
           className={ExpandIcon}
-          name="chevron-up"
+          name="chevron-right"
           dimension={dimension !== 'big' ? 16 : 24}
         />
         )}

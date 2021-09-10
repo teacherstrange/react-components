@@ -60,7 +60,6 @@
   right: 0;
   inline-size: var(--iconSize);
   block-size: var(--iconSize);
-  transform: rotate(180deg);
   transition: transform env(--duration-100) env(--easing-standard);
   transform-origin: 50% center;
 
@@ -69,7 +68,7 @@
     right: auto;
   }
   @nest .Disclosure[open] & {
-    transform: none;
+    transform: rotate(90deg);
   }
 }
 
