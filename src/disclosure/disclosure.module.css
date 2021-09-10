@@ -34,10 +34,10 @@
   outline-offset: -2px;
 
   @nest .Disclosure[data-disclosure-icon-position='right'][data-disclosure-expandable='true'] & {
-    padding-right: var(--padding);
+    padding-inline-end: var(--padding);
   }
   @nest .Disclosure[data-disclosure-icon-position='left'][data-disclosure-expandable='true'] & {
-    padding-left: var(--padding);
+    padding-inline-start: var(--padding);
   }
   @nest .Disclosure[data-disclosure-expandable='true'] & {
     cursor: pointer;
@@ -78,7 +78,7 @@
   box-sizing: border-box;
 
   @nest .Disclosure[data-disclosure-icon-position='left'] &[data-disclosure-padding='true'] {
-    padding-left: var(--padding);
+    padding-inline-start: var(--padding);
   }
   @nest .Disclosure[data-disclosure-icon-position='right'] &[data-disclosure-padding='true'] {
     padding-right: var(--padding);
