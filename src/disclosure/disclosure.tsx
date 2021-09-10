@@ -1,4 +1,8 @@
-import React, { CSSProperties, DetailsHTMLAttributes, ReactNode, useCallback, useState } from 'react'
+import React, {
+  CSSProperties,
+  DetailsHTMLAttributes, forwardRef,
+  ReactNode, useCallback, useState
+} from 'react'
 import clsx from 'clsx'
 import { Disclosure as DisclosureClass, Summary, ExpandIcon, Content } from './disclosure.module.css'
 import { Icon } from '../icon'
@@ -14,7 +18,7 @@ export type DisclosureProps = DetailsHTMLAttributes<HTMLDetailsElement> & {
   expandable?: boolean;
 }
 
-export const Disclosure: React.FC<DisclosureProps> = ({
+export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
   children,
   open = false,
   padding = true,
@@ -26,7 +30,7 @@ export const Disclosure: React.FC<DisclosureProps> = ({
   expandable = true,
   style,
   ...props
-}) => {
+}, forwardedRef) => {
   const [isOpen, setIsOpen] = useState(open)
 
   const handleOpen = useCallback(
@@ -62,6 +66,7 @@ export const Disclosure: React.FC<DisclosureProps> = ({
       data-disclosure-expandable={expandable}
       aria-expanded={isOpen ? 'true' : 'false'}
       open={isOpen}
+      ref={forwardedRef}
       {...props}
     >
       <Text
@@ -91,4 +96,6 @@ export const Disclosure: React.FC<DisclosureProps> = ({
       </div>
     </details>
   )
-}
+})
+
+Disclosure.displayName = 'Disclosure'
