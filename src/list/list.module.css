@@ -1,0 +1,48 @@
+.List {
+  --marker-size: env(--space-16);
+  --marker-gap: env(--space-8);
+
+
+  &[data-list-ordered='false'] {
+    padding: 0;
+    list-style: none;
+
+    & li {
+      padding-left: calc(var(--marker-size) + var(--marker-gap));
+      position: relative;
+    }
+  }
+
+  &[data-list-ordered='true'] li {
+    padding-left: var(--marker-gap);
+
+    &::marker {
+      color: var(--dimmed-5);
+    }
+  }
+
+  &[data-list-size='small'] {
+    --marker-size: 0.77rem;
+    --marker-gap: env(--space-8);
+  }
+
+  &[data-list-size='big'] {
+    --marker-size: 1.11rem;
+    --marker-gap: env(--space-16);
+  }
+}
+
+.Marker {
+  position: absolute;
+  left: 0;
+  top: calc(var(--marker-size) / 2.4);
+  width: var(--marker-size);
+  height: var(--marker-size);
+
+  @nest .List[data-list-size='small'] & {
+    top: 3px;
+  }
+  @nest .List[data-list-size='big'] & {
+    top: calc(var(--marker-size) / 3);
+  }
+}
