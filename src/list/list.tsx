@@ -47,6 +47,7 @@ export const List = forwardRef(({
       className={clsx(ListClass, className)}
       data-list-size={dimension}
       data-list-ordered={!isUnordered}
+      role="list"
       {...props}
     >
       {Children.map(children, (child: ReactElement) => (
