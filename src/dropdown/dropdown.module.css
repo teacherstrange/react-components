@@ -1,0 +1,14 @@
+.Dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.Trigger {
+  display: contents;
+}
+
+.PopUp {
+  position: absolute;
+  top: calc(100% + env(--space-8));
+  white-space: nowrap;
+}
