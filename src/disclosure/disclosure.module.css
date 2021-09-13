@@ -1,6 +1,6 @@
 .Disclosure {
   --iconSize: 1.11rem;
-  --iconPadding: env(--space-16);
+  --iconPadding: env(--space-8);
   --padding: calc(var(--iconSize) + var(--iconPadding) + (var(--iconSize) / 2));
 
   display: block;
@@ -14,7 +14,6 @@
 
   &[data-disclosure-dimension='small'] {
     --iconSize: env(--space-16);
-    --iconPadding: env(--space-8);
   }
 
   &[data-disclosure-dimension='regular'] {
@@ -22,7 +21,8 @@
   }
 
   &[data-disclosure-dimension='big'] {
-    --iconSize: env(--space-24);
+    --iconSize: env(--space-16);
+    --iconPadding: env(--space-16);
   }
 }
 
