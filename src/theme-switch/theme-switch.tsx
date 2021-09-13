@@ -7,10 +7,12 @@ import { useThemeContext } from './use-theme-context'
 import clsx from 'clsx'
 import { IconNames } from 'src/icons/types'
 
+export type ThemeSwitchProps = Except<SelectProps, 'children'>
+
 export const ThemeSwitch = ({
   className,
   ...props
-}: Except<SelectProps, 'children'>) => {
+}: ThemeSwitchProps) => {
   const { theme, setTheme } = useThemeContext()
 
   const changeTheme = useCallback(
