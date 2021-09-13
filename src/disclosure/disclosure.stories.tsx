@@ -6,7 +6,8 @@ export default {
   component: Disclosure,
   args: {
     padding: true,
-    expandable: true
+    expandable: true,
+    dimension: 'regular'
   },
   argTypes: {
     expandable: {
@@ -15,6 +16,10 @@ export default {
     },
     padding: {
       options: [true, false],
+      control: { type: 'inline-radio' }
+    },
+    dimension: {
+      options: ['small', 'regular', 'big'],
       control: { type: 'inline-radio' }
     }
   }
