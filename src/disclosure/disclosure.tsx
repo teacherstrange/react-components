@@ -74,9 +74,11 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
         onClick={handleOpen()}
         className={Summary}
         fluid={false}
-        tabIndex={!expandable ? -1 : undefined}
+        aria-expanded={isOpen}
+        tabIndex={!expandable ? -1 : 0}
         size={dimension ? sizes[dimension].summary as TextProps['size'] : undefined}
         weight="bold"
+        role="button"
       >
         {summary}
         {expandable && (
