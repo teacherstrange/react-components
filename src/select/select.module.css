@@ -25,7 +25,7 @@
 .FieldContainer {
   position: relative;
   color: var(--global-vibrancy-foreground);
-  width: 100%;
+  inline-size: 100%;
 
   @nest .Select[aria-disabled='true'] & {
     color: var(--global-disabled-foreground);
@@ -42,7 +42,7 @@
   line-height: 1;
   appearance: none;
   display: block;
-  width: 100%;
+  inline-size: 100%;
   box-sizing: border-box;
   overflow: hidden;
   backdrop-filter: blur(32px);
@@ -53,7 +53,7 @@
       var(--global-vibrancy-background),
       var(--global-vibrancy-background)
     );
-  height: var(--field-height);
+  block-size: var(--field-height);
   padding:
     0
     calc(var(--field-padding) + calc(var(--field-padding) * 1.6))
@@ -85,7 +85,7 @@
   }
 
   &[multiple] {
-    height: auto;
+    block-size: auto;
     padding: env(--space-8) env(--space-16) env(--space-8) env(--space-16);
     overflow: auto;
 

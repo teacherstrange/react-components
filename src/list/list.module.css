@@ -36,8 +36,8 @@
   position: absolute;
   left: 0;
   top: calc(var(--marker-size) / 2.4);
-  width: var(--marker-size);
-  height: var(--marker-size);
+  inline-size: var(--marker-size);
+  block-size: var(--marker-size);
 
   @nest .List[data-list-size='small'] & {
     top: 3px;

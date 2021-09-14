@@ -1,6 +1,6 @@
 .Text {
   line-height: 1.5;
-  min-height: 0.01vh;
+  min-block-size: 0.01vh;
   font-size: var(--fluid-type-max);
   max-inline-size: var(--maxW, initial);
 
