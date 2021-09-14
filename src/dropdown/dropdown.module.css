@@ -10,4 +10,5 @@
 .PopUp {
   inline-size: max-content;
   min-inline-size: 100%;
+  z-index: 1;
 }

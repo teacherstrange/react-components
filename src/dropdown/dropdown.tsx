@@ -16,6 +16,7 @@ import { DropdownMenu } from './dropdown-menu'
 import { DropdownItem } from './dropdown-item'
 import { usePopper } from 'react-popper'
 import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core/lib'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export type DropdownProps = PropsWithClass & {
   children: ReactNode;
@@ -93,22 +94,31 @@ export const Dropdown = ({
           }
         ))}
       </div>
-      {isOpen && (
-      <div
-        className={PopUp}
-        ref={setPopUpElement}
-        style={popUpStyles.popper}
-        {...popUpAttributes.popper}
-      >
-        {Children.map(children, (child: ReactElement) => cloneElement(
-          child,
-          {
-            id: seedID('dropdown-menu'),
-            'aria-labelledby': seedID('dropdown-trigger')
-          }
-        ))}
-      </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+        <div
+          className={PopUp}
+          ref={setPopUpElement}
+          style={popUpStyles.popper}
+          {...popUpAttributes.popper}
+        >
+          <motion.div
+            animate={{ y: 0, opacity: 1 }}
+            initial={{ y: 5, opacity: 0 }}
+            exit={{ y: 5, opacity: 0 }}
+            transition={{ ease: 'easeOut', duration: 0.1 }}
+          >
+            {Children.map(children, (child: ReactElement) => cloneElement(
+              child,
+              {
+                id: seedID('dropdown-menu'),
+                'aria-labelledby': seedID('dropdown-trigger')
+              }
+            ))}
+          </motion.div>
+        </div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
