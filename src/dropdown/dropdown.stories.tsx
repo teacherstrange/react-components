@@ -11,6 +11,12 @@ export default {
     iconPosition: 'left'
   },
   argTypes: {
+    onClick: {
+      action: 'clicked',
+      table: {
+        disable: true
+      }
+    },
     dimension: {
       options: ['small', 'regular'],
       control: { type: 'radio' }
@@ -22,33 +28,33 @@ export default {
   }
 }
 
-const DefaultTemplate = ({ dimension, iconPosition, ...props }) => (
+const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => (
   <>
     <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
       <Dropdown.Menu>
-        <Dropdown.Item iconPosition={iconPosition} icon="arrow-right" dimension={dimension}>Sample long menu item</Dropdown.Item>
-        <Dropdown.Item iconPosition={iconPosition} icon="user" dimension={dimension}>Short menu label</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-right" dimension={dimension}>Sample long menu item</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="user" dimension={dimension}>Short menu label</Dropdown.Item>
         <Separator />
-        <Dropdown.Item iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
-        <Dropdown.Item iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
     <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
       <Dropdown.Menu>
-        <Dropdown.Item iconPosition={iconPosition} icon="arrow-right" dimension={dimension}>Sample long menu item</Dropdown.Item>
-        <Dropdown.Item iconPosition={iconPosition} icon="user" dimension={dimension}>Short menu label</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-right" dimension={dimension}>Sample long menu item</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="user" dimension={dimension}>Short menu label</Dropdown.Item>
         <Separator />
-        <Dropdown.Item iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
-        <Dropdown.Item iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
     <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
       <Dropdown.Menu>
-        <Dropdown.Item iconPosition={iconPosition} icon="arrow-right" dimension={dimension}>Sample long menu item</Dropdown.Item>
-        <Dropdown.Item iconPosition={iconPosition} icon="user" dimension={dimension}>Short menu label</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-right" dimension={dimension}>Sample long menu item</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="user" dimension={dimension}>Short menu label</Dropdown.Item>
         <Separator />
-        <Dropdown.Item iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
-        <Dropdown.Item iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   </>
