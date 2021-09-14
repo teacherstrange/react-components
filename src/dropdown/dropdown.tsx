@@ -14,25 +14,48 @@ import { useUIDSeed } from 'react-uid'
 import { useFocusWithin } from '@react-aria/interactions'
 import { DropdownMenu } from './dropdown-menu'
 import { DropdownItem } from './dropdown-item'
+import { usePopper } from 'react-popper'
+import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core/lib'
 
 export type DropdownProps = PropsWithClass & {
   children: ReactNode;
   trigger: ReactNode;
-  fullWidth?: boolean;
-  align?: 'left' | 'center' | 'right';
+  offset?: number,
+  placement?: AutoPlacement | BasePlacement | VariationPlacement;
 }
 
 export const Dropdown = ({
   className,
   children,
   trigger,
-  fullWidth,
-  align = 'left',
+  offset = 8,
+  placement = 'auto-start',
   ...props
 }: DropdownProps) => {
   const DropDownRef = useRef<HTMLDivElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const seedID = useUIDSeed()
+  const [triggerRef, setTriggerRef] = useState(null)
+  const [popUpElement, setPopUpElement] = useState<any>(null)
+
+  const { styles: popUpStyles, attributes: popUpAttributes } = usePopper(triggerRef, popUpElement, {
+    placement: placement,
+    modifiers: [
+      {
+        name: 'flip',
+        enabled: true,
+        options: {
+          fallbackPlacements: ['bottom', 'top']
+        }
+      },
+      {
+        name: 'offset',
+        options: {
+          offset: [0, offset]
+        }
+      }
+    ]
+  })
 
   const { focusWithinProps } = useFocusWithin({
     onFocusWithin: () => null,
@@ -53,8 +76,6 @@ export const Dropdown = ({
   return (
     <div
       className={clsx(DropdownClass, className)}
-      data-dropdown-align={align}
-      data-dropdown-fullwidth={fullWidth}
       ref={DropDownRef}
       {...focusWithinProps}
       {...props}
@@ -65,6 +86,7 @@ export const Dropdown = ({
           {
             onClick: handleOpen(!isOpen),
             id: seedID('dropdown-trigger'),
+            ref: setTriggerRef,
             'aria-haspopup': 'true',
             'aria-controls': seedID('dropdown-menu'),
             'aria-expanded': isOpen
@@ -72,7 +94,12 @@ export const Dropdown = ({
         ))}
       </div>
       {isOpen && (
-      <div className={PopUp}>
+      <div
+        className={PopUp}
+        ref={setPopUpElement}
+        style={popUpStyles.popper}
+        {...popUpAttributes.popper}
+      >
         {Children.map(children, (child: ReactElement) => cloneElement(
           child,
           {

@@ -4,7 +4,7 @@ import { Stack } from '../stack'
 import { useRovingTabIndex, useFocusEffect } from 'react-roving-tabindex'
 import { IconNames } from 'src/icons/types'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
-import { DropdownItem as DropdownItemClass } from './dropdown-item.module.css'
+import { DropdownItem as DropdownItemClass, Icon as IconClass } from './dropdown-item.module.css'
 import clsx from 'clsx'
 
 export type DropdownItemProps = PropsWithClass & {
@@ -12,6 +12,7 @@ export type DropdownItemProps = PropsWithClass & {
   icon?: IconNames;
   dimension?: 'small' | 'regular'
   onClick?: () => void;
+  iconPosition: 'left' | 'right';
 }
 
 type PolymorphicDropdownItem = Polymorphic.ForwardRefComponent<'button', DropdownItemProps>;
@@ -24,10 +25,12 @@ export const DropdownItem = forwardRef(({
   icon,
   dimension = 'regular',
   as: Wrapper = 'button',
+  iconPosition = 'left',
   ...props
 }, forwardedRef) => {
   const itemRef = useRef<any>(forwardedRef)
   const [tabIndex, focused, handleKeyDown, handleClick] = useRovingTabIndex(itemRef, false)
+  const isIconRight = iconPosition === 'right'
 
   useFocusEffect(focused, itemRef)
 
@@ -56,13 +59,20 @@ export const DropdownItem = forwardRef(({
         direction="row"
         as="span"
         fill={false}
-        horizontalAlign="start"
+        horizontalAlign={isIconRight ? 'space-between' : 'start'}
         verticalAlign="center"
         columnGap={8}
         horizontalPadding={16}
         verticalPadding={8}
       >
-        {icon && <Icon name={icon} dimension={dimension === 'small' ? 14 : 16} />}
+        {icon && (
+          <Icon
+            data-dropdown-icon-right={isIconRight}
+            className={IconClass}
+            name={icon}
+            dimension={dimension === 'small' ? 14 : 16}
+          />
+        )}
         {children}
       </Stack>
     </Wrapper>

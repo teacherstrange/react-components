@@ -8,8 +8,6 @@
 }
 
 .PopUp {
-  position: absolute;
-  top: calc(100% + env(--space-8));
   inline-size: max-content;
   min-inline-size: 100%;
 }
