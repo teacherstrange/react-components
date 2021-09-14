@@ -67,11 +67,11 @@ export const Dropdown = ({
             id: seedID('dropdown-trigger'),
             'aria-haspopup': 'true',
             'aria-controls': seedID('dropdown-menu'),
-            'aria-expanded': open
+            'aria-expanded': isOpen
           }
         ))}
       </div>
-      {/* {isOpen && ( */}
+      {isOpen && (
       <div className={PopUp}>
         {Children.map(children, (child: ReactElement) => cloneElement(
           child,
@@ -81,7 +81,7 @@ export const Dropdown = ({
           }
         ))}
       </div>
-      {/* )} */}
+      )}
     </div>
   )
 }
