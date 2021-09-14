@@ -1,0 +1,20 @@
+.DropdownItem {
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: env(--font-size-16);
+  color: inherit;
+  line-height: 1.2;
+  outline-offset: -3px;
+  cursor: pointer;
+  inline-size: 100%;
+  box-sizing: border-box;
+
+  &:is(:hover, :focus) {
+    background-color: var(--dimmed-2);
+  }
+
+  &[data-dropdown-item-dimension='small'] {
+    font-size: env(--font-size-14);
+  }
+}

@@ -6,12 +6,14 @@ import React, {
   useCallback,
   Children,
   cloneElement,
-  ReactElement,
-  useEffect
+  ReactElement
 } from 'react'
 import { useClickAway, useKey } from 'react-use'
 import { Dropdown as DropdownClass, Trigger, PopUp } from './dropdown.module.css'
 import { useUIDSeed } from 'react-uid'
+import { useFocusWithin } from '@react-aria/interactions'
+import { DropdownMenu } from './dropdown-menu'
+import { DropdownItem } from './dropdown-item'
 
 export type DropdownProps = PropsWithClass & {
   children: ReactNode;
@@ -20,21 +22,27 @@ export type DropdownProps = PropsWithClass & {
   align?: 'left' | 'center' | 'right';
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({
+export const Dropdown = ({
   className,
   children,
   trigger,
   fullWidth,
   align = 'left',
   ...props
-}) => {
+}: DropdownProps) => {
   const DropDownRef = useRef<HTMLDivElement>(null)
-  const [open, setOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const seedID = useUIDSeed()
 
+  const { focusWithinProps } = useFocusWithin({
+    onFocusWithin: () => null,
+    onBlurWithin: () => setIsOpen(false),
+    onFocusWithinChange: () => null
+  })
+
   const handleOpen = useCallback(
-    (isOpen: boolean) => () => {
-      setOpen(isOpen)
+    (action: boolean) => () => {
+      setIsOpen(action)
     },
     []
   )
@@ -42,47 +50,41 @@ export const Dropdown: React.FC<DropdownProps> = ({
   useKey('Escape', handleOpen(false))
   useClickAway(DropDownRef, handleOpen(false))
 
-  useEffect(() => {
-    const keyupHandler = (event: KeyboardEvent) => {
-      if (!DropDownRef.current?.contains(event.target as Node) && event.key !== 'Enter') {
-        handleOpen(false)()
-      }
-    }
-    document.body.addEventListener('keyup', keyupHandler)
-    return () => {
-      document.body.removeEventListener('keyup', keyupHandler)
-    }
-  }, [handleOpen])
-
   return (
     <div
       className={clsx(DropdownClass, className)}
       data-dropdown-align={align}
       data-dropdown-fullwidth={fullWidth}
       ref={DropDownRef}
+      {...focusWithinProps}
       {...props}
     >
       <div className={Trigger}>
         {Children.map(trigger, (child: ReactElement) => cloneElement(
           child,
           {
-            onClick: handleOpen(!open),
+            onClick: handleOpen(!isOpen),
+            id: seedID('dropdown-trigger'),
             'aria-haspopup': 'true',
             'aria-controls': seedID('dropdown-menu'),
             'aria-expanded': open
           }
         ))}
       </div>
-      {open && (
-        <div className={PopUp}>
-          {Children.map(children, (child: ReactElement) => cloneElement(
-            child,
-            {
-              id: seedID('dropdown-menu')
-            }
-          ))}
-        </div>
-      )}
+      {/* {isOpen && ( */}
+      <div className={PopUp}>
+        {Children.map(children, (child: ReactElement) => cloneElement(
+          child,
+          {
+            id: seedID('dropdown-menu'),
+            'aria-labelledby': seedID('dropdown-trigger')
+          }
+        ))}
+      </div>
+      {/* )} */}
     </div>
   )
 }
+
+Dropdown.Menu = DropdownMenu
+Dropdown.Item = DropdownItem

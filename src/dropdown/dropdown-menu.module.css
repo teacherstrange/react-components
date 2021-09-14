@@ -1,7 +1,7 @@
 .DropdownMenu {
   list-style-type: none;
   padding: env(--space-8) 0 env(--space-8);
-  background-color: var(--global-foreground);
+  background-color: var(--global-background);
   border: 1px solid var(--dimmed-2);
   border-radius: env(--radius-8);
   overflow: hidden;

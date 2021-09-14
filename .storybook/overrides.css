@@ -3,7 +3,7 @@
   background-size: 8px 8px;
   background-image: radial-gradient(circle, hsl(env(--color-primary-80) / 30%) 1px, rgba(0, 0, 0, 0) 1px);
   background-position: 0 0;
-  min-height: env(--space-24);
+  min-block-size: env(--space-24);
 }
 
 

@@ -1,35 +1,37 @@
 
-import React, {
-  ReactNode,
-  HTMLAttributes
-} from 'react'
+import React, { Children, cloneElement, forwardRef, ReactElement, ReactNode } from 'react'
+import { RovingTabIndexProvider } from 'react-roving-tabindex'
+import { Elevator } from '../elevator'
+import { Stack } from '../stack'
+import clsx from 'clsx'
 
-import {
-  RovingTabIndexProvider
-} from 'react-roving-tabindex'
+import { DropdownMenu as DropdownMenuClass } from './dropdown-menu.module.css'
 
-import style from './dropdown-menu.module.css'
-
-export interface IDropdownMenuProps extends HTMLAttributes<HTMLUListElement> {
+export type DropdownMenuProps = PropsWithClass & {
   children: ReactNode;
 }
 
-export const DropdownMenu = ({
+export const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(({
   className,
   children,
-  ...attributes
-}: IDropdownMenuProps) => (
-  <ul
-    role="menu"
-    className={`${style.DropdownMenu} ${className || ''}`}
-    {...attributes}
-  >
-    <RovingTabIndexProvider options={{
-      direction: 'vertical',
-      loopAround: true
-    }}
+  ...props
+}, forwardedRef) => (
+  <Elevator resting={2}>
+    <Stack
+      as="ul"
+      ref={forwardedRef}
+      rowGap={4}
+      className={clsx(DropdownMenuClass, className)}
+      role="menu"
+      {...props}
     >
-      {children}
-    </RovingTabIndexProvider>
-  </ul>
-)
+      <RovingTabIndexProvider options={{ direction: 'vertical', loopAround: true }}>
+        {Children.map(children, (child: ReactElement) => cloneElement(
+          <li role="menuitem">{child}</li>
+        ))}
+      </RovingTabIndexProvider>
+    </Stack>
+  </Elevator>
+))
+
+DropdownMenu.displayName = 'Dropdown.Menu'
