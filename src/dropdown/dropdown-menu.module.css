@@ -6,4 +6,8 @@
   border-radius: env(--radius-8);
   overflow: hidden;
   position: relative;
+
+  & hr {
+    margin: 0 env(--space-8);
+  }
 }
