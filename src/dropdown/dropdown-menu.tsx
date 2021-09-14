@@ -20,7 +20,7 @@ export const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(({
     <Stack
       as="ul"
       ref={forwardedRef}
-      rowGap={4}
+      rowGap={8}
       className={clsx(DropdownMenuClass, className)}
       role="menu"
       {...props}
