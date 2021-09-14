@@ -26,19 +26,19 @@
   &[data-button-dimension='big'] {
     padding: 0.55rem env(--space-24) 0.66rem;
     font-size: env(--font-size-18);
-    height: env(--space-48);
+    block-size: env(--space-48);
   }
 
   &[data-button-dimension='regular'] {
     padding: 0.33rem env(--space-16) env(--space-8);
     font-size: env(--font-size-16);
-    height: env(--space-40);
+    block-size: env(--space-40);
   }
 
   &[data-button-dimension='small'] {
     font-size: env(--font-size-14);
     padding: 0 env(--space-4) 0.11rem;
-    height: env(--space-24);
+    block-size: env(--space-24);
     grid-gap: env(--space-4);
   }
 
@@ -75,7 +75,7 @@
   /* Styles */
 
   &[data-button-fullwidth='true'] {
-    width: 100%;
+    inline-size: 100%;
   }
 
   &[data-button-icon-position='right'] {

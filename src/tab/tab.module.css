@@ -53,7 +53,7 @@
 
     &::after {
       content: '';
-      height: 4px;
+      block-size: 4px;
       position: absolute;
       left: 0;
       right: 0;
