@@ -24,7 +24,7 @@
     opacity: 0.6;
   }
 
-  &:is(:hover) {
+  &:is(:hover, :focus-visible) {
     color: var(--cta-default);
 
     &::before {
