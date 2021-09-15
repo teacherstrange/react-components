@@ -60,7 +60,7 @@ export const Dropdown = ({
 
   const { focusWithinProps } = useFocusWithin({
     onFocusWithin: () => null,
-    onBlurWithin: () => setIsOpen(false),
+    onBlurWithin: (e) => e.relatedTarget && setIsOpen(false),
     onFocusWithinChange: () => null
   })
 
