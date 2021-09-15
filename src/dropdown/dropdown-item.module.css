@@ -6,7 +6,6 @@
   color: var(--dimmed-6);
   line-height: 1.2;
   font-weight: 600;
-  outline: none;
   cursor: pointer;
   inline-size: 100%;
   box-sizing: border-box;
@@ -26,6 +25,7 @@
 
   &:is(:hover, :focus-visible) {
     color: var(--cta-default);
+    outline: none;
 
     &::before {
       background-color: var(--dimmed-2);
