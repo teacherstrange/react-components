@@ -3,8 +3,14 @@ module.exports = {
   addons: [
     "@storybook/addon-actions",
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
     "storybook-css-modules-preset",
+    'storybook-addon-themes',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        backgrounds: false,
+      }
+    },
     {
       name: '@storybook/addon-postcss',
       options: {
