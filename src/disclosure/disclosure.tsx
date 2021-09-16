@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import { Disclosure as DisclosureClass, Summary, ExpandIcon, Content } from './disclosure.module.css'
 import { Icon } from '../icon'
 import { Text, TextProps } from '../text'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export type DisclosureProps = DetailsHTMLAttributes<HTMLDetailsElement> & {
   open?: boolean;
@@ -89,13 +90,15 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
         />
         )}
       </Text>
-      <div
+      <motion.div
         className={Content}
         data-disclosure-padding={padding}
         data-disclosure-height={Boolean(contentMaxHeight)}
+        animate={isOpen ? { y: 0, opacity: 1 } : { y: 5, opacity: 0 }}
+        transition={{ ease: 'easeOut', duration: 0.1 }}
       >
         {children}
-      </div>
+      </motion.div>
     </details>
   )
 })
