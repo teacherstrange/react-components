@@ -69,8 +69,6 @@
 }
 
 .TabPanel {
-  --fadeFromY: 10px;
-
   animation: fadeIn env(--duration-200);
   animation-timing-function: env(--easing-entrance));
 }
