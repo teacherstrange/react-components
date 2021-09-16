@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { Disclosure as DisclosureClass, Summary, ExpandIcon, Content } from './disclosure.module.css'
 import { Icon } from '../icon'
 import { Text, TextProps } from '../text'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export type DisclosureProps = DetailsHTMLAttributes<HTMLDetailsElement> & {
   open?: boolean;
