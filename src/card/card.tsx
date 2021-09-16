@@ -9,7 +9,7 @@ import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 export type CardProps = PropsWithClass & Pick<
 StackProps,
-  'wrap' | 'columnGap' | 'verticalAlign' | 'horizontalAlign'> & {
+  'wrap' | 'columnGap' | 'rowGap' | 'verticalAlign' | 'horizontalAlign'> & {
   padding?: false | TokensTypes['space'];
   left?: ReactNode;
   right?: ReactNode;
@@ -30,6 +30,7 @@ export const Card = forwardRef(({
   right,
   dimmed,
   columnGap = 24,
+  rowGap = 24,
   verticalAlign = 'start',
   horizontalAlign = 'space-between',
   wrap,
@@ -55,6 +56,7 @@ export const Card = forwardRef(({
         verticalAlign={verticalAlign}
         horizontalAlign={horizontalAlign}
         columnGap={columnGap}
+        rowGap={rowGap}
         wrap={wrap}
       >
         {left && <div className={Left}>{left}</div>}
