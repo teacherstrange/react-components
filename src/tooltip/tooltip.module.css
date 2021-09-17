@@ -2,8 +2,13 @@
   padding: env(--space-8);
   border-radius: env(--radius-4);
   background-color: hsl(env(--color-primary-80));
-  max-width: 40ch;
+  max-width: var(--maxW);
   font-size: env(--font-size-16);
+
+  &[data-popper-reference-hidden='true'] {
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .Arrow {
@@ -17,6 +22,10 @@
     transform: rotate(45deg);
   }
 
+  @nest .Tooltip[data-popper-reference-hidden='true'] & {
+    visibility: hidden;
+    pointer-events: none;
+  }
   @nest .Tooltip[data-popper-placement^='top'] & {
     bottom: -6px;
   }
