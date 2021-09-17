@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from '../button'
 import { Dropdown } from './dropdown'
 import { Separator } from '../separator'
+import { Tooltip } from '../tooltip'
 
 export default {
   title: 'Components/Dropdown',
@@ -50,7 +51,15 @@ const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => (
     </Dropdown>
     <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
       <Dropdown.Menu>
-        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-right" dimension={dimension}>Sample long menu item</Dropdown.Item>
+        <Dropdown.Item
+          onClick={onClick}
+          iconPosition={iconPosition}
+          icon="arrow-right"
+          dimension={dimension}
+          description={<span>Description for this item</span>}
+        >
+          Sample long menu item
+        </Dropdown.Item>
         <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="user" dimension={dimension}>Short menu label</Dropdown.Item>
         <Separator />
         <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>

@@ -1,10 +1,11 @@
-import React, { ReactNode, useCallback, forwardRef, useRef } from 'react'
+import React, { ReactNode, useCallback, forwardRef, useRef, useMemo } from 'react'
 import { Icon } from '../icon'
 import { Stack } from '../stack'
 import { useRovingTabIndex, useFocusEffect } from 'react-roving-tabindex'
 import { IconNames } from 'src/icons/types'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { DropdownItem as DropdownItemClass, Icon as IconClass } from './dropdown-item.module.css'
+import { Tooltip } from '../tooltip'
 import clsx from 'clsx'
 
 export type DropdownItemProps = PropsWithClass & {
@@ -13,6 +14,7 @@ export type DropdownItemProps = PropsWithClass & {
   dimension?: 'small' | 'regular'
   onClick?: () => void;
   iconPosition: 'left' | 'right';
+  description?: ReactNode;
 }
 
 type PolymorphicDropdownItem = Polymorphic.ForwardRefComponent<'button', DropdownItemProps>;
@@ -26,6 +28,7 @@ export const DropdownItem = forwardRef(({
   dimension = 'regular',
   as: Wrapper = 'button',
   iconPosition = 'left',
+  description,
   ...props
 }, forwardedRef) => {
   const itemRef = useRef<any>(forwardedRef)
@@ -44,6 +47,29 @@ export const DropdownItem = forwardRef(({
     [handleClick, onClick]
   )
 
+  const InnerContent = useMemo(() => (
+    <Stack
+      direction="row"
+      as="span"
+      fill={false}
+      horizontalAlign={isIconRight ? 'space-between' : 'start'}
+      verticalAlign="center"
+      columnGap={8}
+      horizontalPadding={16}
+      verticalPadding={8}
+    >
+      {icon && (
+      <Icon
+        data-dropdown-icon-right={isIconRight}
+        className={IconClass}
+        name={icon}
+        dimension={dimension === 'small' ? 14 : 16}
+      />
+      )}
+      {children}
+    </Stack>
+  ), [children, dimension, icon, isIconRight])
+
   return (
     <Wrapper
       ref={itemRef}
@@ -55,26 +81,14 @@ export const DropdownItem = forwardRef(({
       data-dropdown-item-dimension={dimension}
       {...props}
     >
-      <Stack
-        direction="row"
-        as="span"
-        fill={false}
-        horizontalAlign={isIconRight ? 'space-between' : 'start'}
-        verticalAlign="center"
-        columnGap={8}
-        horizontalPadding={16}
-        verticalPadding={8}
-      >
-        {icon && (
-          <Icon
-            data-dropdown-icon-right={isIconRight}
-            className={IconClass}
-            name={icon}
-            dimension={dimension === 'small' ? 14 : 16}
-          />
-        )}
-        {children}
-      </Stack>
+      {description
+        ? (
+          <Tooltip placement="right-start" trigger={InnerContent}>
+            {description}
+          </Tooltip>
+          )
+        : InnerContent
+      }
     </Wrapper>
   )
 }) as PolymorphicDropdownItem
