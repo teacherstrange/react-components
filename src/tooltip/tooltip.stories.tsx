@@ -10,14 +10,14 @@ export default {
 }
 
 const Template = (args) => (
-  <>
-    <Tooltip
-      trigger={<Button>HTML</Button>}
-      {...args}
-    >
-      HTML stands for HyperText Markup Language
-    </Tooltip>
-  </>
+
+  <Tooltip
+    trigger={<Button>HTML</Button>}
+    {...args}
+  >
+    HTML stands for HyperText Markup Language
+  </Tooltip>
+
 )
 
 export const Default = Template.bind({})

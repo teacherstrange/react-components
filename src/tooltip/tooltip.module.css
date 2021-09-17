@@ -1,8 +1,9 @@
 .Tooltip {
-  padding: env(--space-8);
+  position: relative;
+  padding: env(--space-8) env(--space-16);
   border-radius: env(--radius-4);
   background-color: hsl(env(--color-primary-80));
-  max-width: var(--maxW);
+  max-inline-size: var(--maxW);
   font-size: env(--font-size-16);
 
   &[data-popper-reference-hidden='true'] {
