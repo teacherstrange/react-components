@@ -1,0 +1,32 @@
+.Tooltip {
+  padding: env(--space-8);
+  border-radius: env(--radius-4);
+  background-color: hsl(env(--color-primary-80));
+  max-width: 40ch;
+  font-size: env(--font-size-16);
+}
+
+.Arrow {
+  &::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: hsl(env(--color-primary-80));
+    visibility: visible;
+    transform: rotate(45deg);
+  }
+
+  @nest .Tooltip[data-popper-placement^='top'] & {
+    bottom: -6px;
+  }
+  @nest .Tooltip[data-popper-placement^='bottom'] & {
+    top: -6px;
+  }
+  @nest .Tooltip[data-popper-placement^='left'] & {
+    right: -6px;
+  }
+  @nest .Tooltip[data-popper-placement^='right'] & {
+    left: -6px;
+  }
+}

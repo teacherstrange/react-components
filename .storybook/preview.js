@@ -11,7 +11,7 @@ export const parameters = {
     },
   },
   themes: {
-    default: 'auto',
+    default: 'light',
     list: [
       { name: 'auto', color: 'linear-gradient(to bottom right, lightgray 50%, black 50.1%)' },
       { name: 'light', color: 'lightgray' },
