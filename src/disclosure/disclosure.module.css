@@ -21,7 +21,7 @@
   }
 
   &[data-disclosure-dimension='big'] {
-    --iconSize: env(--space-16);
+    --iconSize: env(--space-24);
     --iconPadding: env(--space-16);
   }
 }
