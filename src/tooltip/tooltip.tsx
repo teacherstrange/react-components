@@ -1,14 +1,17 @@
 import clsx from 'clsx'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import { useUIDSeed } from 'react-uid'
-import { Tooltip as TooltipClass, Arrow } from './tooltip.module.css'
+import { useDebounce } from 'react-use'
+import { useFocusWithin } from '@react-aria/interactions'
+import { Tooltip as TooltipClass, Arrow, Trigger as TriggerClass } from './tooltip.module.css'
 import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core/lib'
-// import { usePopper } from 'react-popper'
 import { Popper, Target, Content } from 'react-nested-popper'
 
 export type TooltipProps = PropsWithClass & {
   trigger: ReactNode;
   placement?: AutoPlacement | BasePlacement | VariationPlacement;
+  show?: boolean;
+  delay?: number;
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -16,13 +19,48 @@ export const Tooltip: React.FC<TooltipProps> = ({
   className,
   trigger,
   placement = 'bottom-start',
+  style,
+  show,
+  delay = 700,
   ...props
 }) => {
   const seedID = useUIDSeed()
+  const [visible, setVisible] = useState(false)
+  const [debouncedVisible, setDebouncedVisible] = useState(visible)
+
+  const [, cancel] = useDebounce(
+    () => {
+      setDebouncedVisible(visible)
+    },
+    delay,
+    [visible]
+  )
+
+  const { focusWithinProps } = useFocusWithin({
+    onFocusWithin: () => setVisible(true),
+    onBlurWithin: () => setVisible(false),
+    onFocusWithinChange: () => null
+  })
+
+  useEffect(() => {
+    cancel()
+  }, [cancel])
 
   return (
-    <Popper>
-      <Target style={{ display: 'inline-flex' }}>
+    <Popper
+      show={show || debouncedVisible}
+      onClick={() => null}
+      outsideClickType="all"
+      shouldCloseOnOutsideClick={() => true}
+    >
+      <Target
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
+        onClick={() => null}
+        style={{ ...style }}
+        className={TriggerClass}
+        {...focusWithinProps}
+      >
         {trigger}
       </Target>
       <Content
@@ -38,7 +76,10 @@ export const Tooltip: React.FC<TooltipProps> = ({
           modifiers: [
             {
               name: 'flip',
-              enabled: true
+              enabled: true,
+              options: {
+                fallbackPlacements: ['right-start', 'left-start', 'bottom', 'top']
+              }
             },
             {
               name: 'offset',

@@ -5,11 +5,16 @@
   background-color: hsl(env(--color-primary-80));
   max-inline-size: var(--maxW);
   font-size: env(--font-size-16);
+  z-index: 2;
 
   &[data-popper-reference-hidden='true'] {
     visibility: hidden;
     pointer-events: none;
   }
+}
+
+.Trigger {
+  display: inline-flex;
 }
 
 .Arrow {
