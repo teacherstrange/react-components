@@ -15,7 +15,8 @@ const Template = (args) => (
     trigger={<Button>HTML</Button>}
     {...args}
   >
-    HTML stands for HyperText Markup Language
+    HTML stands for HyperText Markup LanguageHTML stands for HyperText Markup LanguageHTML stands for HyperText Markup LanguageHTML stands for HyperText Markup LanguageHTML stands for HyperText Markup Language
+
   </Tooltip>
 
 )

@@ -1,11 +1,11 @@
-import clsx from 'clsx'
-import React, { Children, cloneElement, CSSProperties, ReactElement, ReactNode, useEffect, useState } from 'react'
+import React, { Children, cloneElement, CSSProperties, ReactElement, ReactNode, useState } from 'react'
 import { useUIDSeed } from 'react-uid'
-import { useDebounce } from 'react-use'
+import { useKey } from 'react-use'
+import { Elevator } from '../elevator'
 import { useFocusWithin } from '@react-aria/interactions'
-import { Tooltip as TooltipClass, Arrow, Trigger as TriggerClass, Content as ContentClass } from './tooltip.module.css'
+import { Tooltip as TooltipClass, Arrow, Trigger } from './tooltip.module.css'
 import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core/lib'
-import { Popper, Target, Content } from 'react-nested-popper'
+import { usePopperTooltip } from 'react-popper-tooltip'
 
 export type TooltipProps = PropsWithClass & {
   children: ReactNode;
@@ -18,107 +18,75 @@ export type TooltipProps = PropsWithClass & {
 
 export const Tooltip: React.FC<TooltipProps> = ({
   children,
-  className,
   trigger,
   placement = 'bottom-start',
-  style,
   show,
+  style,
   maxWidth = '40ch',
-  delay = 700
+  delay = 500
 }) => {
   const seedID = useUIDSeed()
-  const [visible, setVisible] = useState(false)
-  const [internalDelay, setInternalDelay] = useState(delay)
-  const [debouncedVisible, setDebouncedVisible] = useState(visible)
+  const [controlledVisible, setControlledVisible] = useState(false)
 
-  const [, cancel] = useDebounce(
-    () => {
-      setDebouncedVisible(visible)
-    },
-    internalDelay,
-    [visible]
-  )
+  useKey('Escape', () => setControlledVisible(false))
+
+  const {
+    getArrowProps,
+    getTooltipProps,
+    setTooltipRef,
+    setTriggerRef,
+    visible
+  } = usePopperTooltip({
+    delayShow: delay,
+    delayHide: 200,
+    trigger: ['hover', 'focus'],
+    visible: show || controlledVisible,
+    closeOnTriggerHidden: true,
+    onVisibleChange: setControlledVisible,
+    placement: placement,
+    offset: [0, 16]
+  }, {
+    strategy: 'fixed'
+  })
 
   const { focusWithinProps } = useFocusWithin({
-    onFocusWithin: () => {
-      setInternalDelay(0)
-      setVisible(true)
+    onFocusWithin: (e) => {
+      console.log(e)
+      setControlledVisible(true)
     },
     onBlurWithin: () => {
-      setInternalDelay(delay)
-      setVisible(false)
+      setControlledVisible(false)
     },
     onFocusWithinChange: () => null
   })
-
-  useEffect(() => {
-    cancel()
-  }, [cancel])
 
   const dynamycStyle: CSSProperties = {
     '--maxW': maxWidth
   }
 
   return (
-    <Popper
-      show={show || debouncedVisible}
-      onClick={() => null}
-      outsideClickType="all"
-      shouldCloseOnOutsideClick={() => true}
-    >
-      <Target
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-        onClick={() => null}
-        style={{ ...style }}
-        className={TriggerClass}
-        {...focusWithinProps}
-      >
-        {Children.map(trigger, (child: ReactElement) => cloneElement(
-          child,
-          {
-            'aria-describedby': seedID('tooltip-content')
-          }
-        ))}
-      </Target>
-      <Content
-        className={clsx(TooltipClass, className)}
-        includeArrow
-        arrowClassName={Arrow}
-        innerRef={(el: HTMLElement) => {
-          if (el) {
-            el.dataset.elevation = '2'
-            el.dataset.theme = 'dark'
-          }
-        }}
-        popperOptions={{
-          placement: placement,
-          modifiers: [
-            {
-              name: 'flip',
-              enabled: true,
-              options: {
-                fallbackPlacements: ['right-start', 'left-start', 'bottom', 'top']
-              }
-            },
-            {
-              name: 'offset',
-              options: {
-                offset: [0, 16]
-              }
-            }
-          ]
-        }}
-      >
-        <div
-          role="tooltip"
-          style={dynamycStyle}
-          className={ContentClass}
-          id={seedID('tooltip-content')}
-        >
-          {children}
-        </div>
-      </Content>
-    </Popper>
+    <div className={Trigger} {...focusWithinProps} style={{ ...style }}>
+      {Children.map(trigger, (child: ReactElement) => cloneElement(
+        child,
+        {
+          ref: setTriggerRef,
+          'aria-describedby': seedID('tooltip-content')
+        }
+      ))}
+      {visible && (
+        <Elevator resting={2}>
+          <div
+            ref={setTooltipRef}
+            role="tooltip"
+            id={seedID('tooltip-content')}
+            data-theme="dark"
+            {...getTooltipProps({ className: TooltipClass, style: dynamycStyle })}
+          >
+            {children}
+            <div {...getArrowProps({ className: Arrow })} />
+          </div>
+        </Elevator>
+      )}
+    </div>
   )
 }
