@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { Children, cloneElement, ReactElement, ReactNode, useEffect, useState } from 'react'
 import { useUIDSeed } from 'react-uid'
 import { useDebounce } from 'react-use'
 import { useFocusWithin } from '@react-aria/interactions'
@@ -8,6 +8,7 @@ import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core
 import { Popper, Target, Content } from 'react-nested-popper'
 
 export type TooltipProps = PropsWithClass & {
+  children: ReactNode;
   trigger: ReactNode;
   placement?: AutoPlacement | BasePlacement | VariationPlacement;
   show?: boolean;
@@ -61,12 +62,14 @@ export const Tooltip: React.FC<TooltipProps> = ({
         className={TriggerClass}
         {...focusWithinProps}
       >
-        {trigger}
+        {Children.map(trigger, (child: ReactElement) => cloneElement(
+          child,
+          {
+            'aria-describedby': seedID('tooltip-content')
+          }
+        ))}
       </Target>
       <Content
-        {...props}
-        role="tooltip"
-        id={seedID('tooltip-content')}
         className={clsx(TooltipClass, className)}
         data-theme="dark"
         includeArrow
@@ -90,7 +93,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
           ]
         }}
       >
-        {children}
+        <div role="tooltip" id={seedID('tooltip-content')}>
+          {children}
+        </div>
       </Content>
     </Popper>
   )
