@@ -26,19 +26,26 @@ export const Tooltip: React.FC<TooltipProps> = ({
 }) => {
   const seedID = useUIDSeed()
   const [visible, setVisible] = useState(false)
+  const [internalDelay, setInternalDelay] = useState(delay)
   const [debouncedVisible, setDebouncedVisible] = useState(visible)
 
   const [, cancel] = useDebounce(
     () => {
       setDebouncedVisible(visible)
     },
-    delay,
+    internalDelay,
     [visible]
   )
 
   const { focusWithinProps } = useFocusWithin({
-    onFocusWithin: () => setVisible(true),
-    onBlurWithin: () => setVisible(false),
+    onFocusWithin: () => {
+      setInternalDelay(0)
+      setVisible(true)
+    },
+    onBlurWithin: () => {
+      setInternalDelay(delay)
+      setVisible(false)
+    },
     onFocusWithinChange: () => null
   })
 
@@ -47,6 +54,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   }, [cancel])
 
   return (
+
     <Popper
       show={show || debouncedVisible}
       onClick={() => null}
@@ -70,8 +78,13 @@ export const Tooltip: React.FC<TooltipProps> = ({
       </Target>
       <Content
         className={clsx(TooltipClass, className)}
-        data-theme="dark"
         includeArrow
+        innerRef={(el: HTMLElement) => {
+          if (el) {
+            el.dataset.elevation = '2'
+            el.dataset.theme = 'dark'
+          }
+        }}
         arrowClassName={Arrow}
         popperOptions={{
           placement: placement,
