@@ -61,6 +61,66 @@ const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => (
         <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
+    <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
+      <Dropdown.Menu>
+        <Dropdown.Item
+          onClick={onClick}
+          iconPosition={iconPosition}
+          icon="arrow-right"
+          dimension={dimension}
+          description={<>Description for this item</>}
+        >
+          Sample long menu item
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={onClick}
+          iconPosition={iconPosition}
+          icon="user"
+          dimension={dimension}
+          description={(
+            <>
+              <Title as="h2" level="2">Sample H2 Title</Title>
+              <img style={{ width: '100%' }} src="https://images.unsplash.com/photo-1593963171957-d87a6279226d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+            </>
+          )}
+        >
+          Short menu label
+        </Dropdown.Item>
+        <Separator />
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+    <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
+      <Dropdown.Menu>
+        <Dropdown.Item
+          onClick={onClick}
+          iconPosition={iconPosition}
+          icon="arrow-right"
+          dimension={dimension}
+          description={<>Description for this item</>}
+        >
+          Sample long menu item
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={onClick}
+          iconPosition={iconPosition}
+          icon="user"
+          dimension={dimension}
+          description={(
+            <>
+              <Title as="h2" level="2">Sample H2 Title</Title>
+              <img style={{ width: '100%' }} src="https://images.unsplash.com/photo-1593963171957-d87a6279226d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+            </>
+          )}
+        >
+          Short menu label
+        </Dropdown.Item>
+        <Separator />
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   </>
 )
 
