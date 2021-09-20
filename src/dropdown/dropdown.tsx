@@ -15,7 +15,7 @@ import { useFocusWithin } from '@react-aria/interactions'
 import { DropdownMenu } from './dropdown-menu'
 import { DropdownItem } from './dropdown-item'
 import { usePopper } from 'react-popper'
-import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core/lib'
+import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export type DropdownProps = PropsWithClass & {

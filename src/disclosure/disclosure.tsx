@@ -94,7 +94,7 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
         className={Content}
         data-disclosure-padding={padding}
         data-disclosure-height={Boolean(contentMaxHeight)}
-        animate={isOpen ? { y: 0, opacity: 1 } : { y: 5, opacity: 0 }}
+        animate={isOpen ? { y: 5, opacity: 1 } : { y: 0, opacity: 0 }}
         transition={{ ease: 'easeOut', duration: 0.1 }}
       >
         {children}

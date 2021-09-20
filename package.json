@@ -67,7 +67,7 @@
     "postcss": "8.3.6",
     "react": ">=17.0.2",
     "react-dom": ">=17.0.2",
-    "react-popper": "2.2.5",
+    "react-nested-popper": "1.0.0",
     "react-roving-tabindex": "3.1.1",
     "react-uid": "2.3.1",
     "react-use": "17.3.1",
