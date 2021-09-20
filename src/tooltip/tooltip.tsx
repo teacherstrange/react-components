@@ -22,8 +22,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   placement = 'bottom-start',
   style,
   show,
-  delay = 700,
-  ...props
+  delay = 700
 }) => {
   const seedID = useUIDSeed()
   const [visible, setVisible] = useState(false)
