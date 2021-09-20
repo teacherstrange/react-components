@@ -3,7 +3,6 @@
   padding: env(--space-8) env(--space-16);
   border-radius: env(--radius-4);
   background-color: hsl(env(--color-primary-80));
-  max-inline-size: var(--maxW);
   font-size: env(--font-size-16);
   z-index: 2;
 
@@ -11,6 +10,10 @@
     visibility: hidden;
     pointer-events: none;
   }
+}
+
+.Content {
+  max-inline-size: var(--maxW);
 }
 
 .Trigger {

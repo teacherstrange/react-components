@@ -1,9 +1,9 @@
 import clsx from 'clsx'
-import React, { Children, cloneElement, ReactElement, ReactNode, useEffect, useState } from 'react'
+import React, { Children, cloneElement, CSSProperties, ReactElement, ReactNode, useEffect, useState } from 'react'
 import { useUIDSeed } from 'react-uid'
 import { useDebounce } from 'react-use'
 import { useFocusWithin } from '@react-aria/interactions'
-import { Tooltip as TooltipClass, Arrow, Trigger as TriggerClass } from './tooltip.module.css'
+import { Tooltip as TooltipClass, Arrow, Trigger as TriggerClass, Content as ContentClass } from './tooltip.module.css'
 import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core/lib'
 import { Popper, Target, Content } from 'react-nested-popper'
 
@@ -13,6 +13,7 @@ export type TooltipProps = PropsWithClass & {
   placement?: AutoPlacement | BasePlacement | VariationPlacement;
   show?: boolean;
   delay?: number;
+  maxWidth?: string;
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -22,6 +23,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   placement = 'bottom-start',
   style,
   show,
+  maxWidth = '40ch',
   delay = 700
 }) => {
   const seedID = useUIDSeed()
@@ -53,8 +55,11 @@ export const Tooltip: React.FC<TooltipProps> = ({
     cancel()
   }, [cancel])
 
-  return (
+  const dynamycStyle: CSSProperties = {
+    '--maxW': maxWidth
+  }
 
+  return (
     <Popper
       show={show || debouncedVisible}
       onClick={() => null}
@@ -79,13 +84,13 @@ export const Tooltip: React.FC<TooltipProps> = ({
       <Content
         className={clsx(TooltipClass, className)}
         includeArrow
+        arrowClassName={Arrow}
         innerRef={(el: HTMLElement) => {
           if (el) {
             el.dataset.elevation = '2'
             el.dataset.theme = 'dark'
           }
         }}
-        arrowClassName={Arrow}
         popperOptions={{
           placement: placement,
           modifiers: [
@@ -105,7 +110,12 @@ export const Tooltip: React.FC<TooltipProps> = ({
           ]
         }}
       >
-        <div role="tooltip" id={seedID('tooltip-content')}>
+        <div
+          role="tooltip"
+          style={dynamycStyle}
+          className={ContentClass}
+          id={seedID('tooltip-content')}
+        >
           {children}
         </div>
       </Content>
