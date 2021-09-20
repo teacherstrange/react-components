@@ -21,8 +21,8 @@
   &::before {
     content: '';
     position: absolute;
-    width: 12px;
-    height: 12px;
+    inline-size: 12px;
+    block-size: 12px;
     background-color: hsl(env(--color-primary-80));
     visibility: visible;
     transform: rotate(45deg);

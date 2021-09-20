@@ -4,7 +4,6 @@ import { Stack } from '../stack'
 import { useRovingTabIndex, useFocusEffect } from 'react-roving-tabindex'
 import { IconNames } from 'src/icons/types'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
-// import { useFocusWithin } from '@react-aria/interactions'
 import { DropdownItem as DropdownItemClass, Icon as IconClass } from './dropdown-item.module.css'
 import { Tooltip } from '../tooltip'
 import clsx from 'clsx'
@@ -35,12 +34,6 @@ export const DropdownItem = forwardRef(({
   const itemRef = useRef<any>(forwardedRef)
   const [tabIndex, focused, handleKeyDown, handleClick] = useRovingTabIndex(itemRef, false)
   const isIconRight = iconPosition === 'right'
-
-  // const { focusWithinProps } = useFocusWithin({
-  //   onFocusWithin: (e) => setVisible(true),
-  //   onBlurWithin: (e) => setVisible(false),
-  //   onFocusWithinChange: () => null
-  // })
 
   useFocusEffect(focused, itemRef)
 
