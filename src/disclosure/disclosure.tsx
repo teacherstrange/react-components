@@ -58,6 +58,21 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
     }
   }
 
+  const renderContent = useCallback(
+    () => (
+      <motion.div
+        className={Content}
+        data-disclosure-padding={padding}
+        data-disclosure-height={Boolean(contentMaxHeight)}
+        animate={isOpen ? { y: 5, opacity: 1 } : { y: 0, opacity: 0 }}
+        transition={{ ease: 'easeOut', duration: 0.1 }}
+      >
+        {children}
+      </motion.div>
+    ),
+    [children, contentMaxHeight, isOpen, padding]
+  )
+
   return (
     <details
       style={{ ...dynamicStyle, ...style }}
@@ -83,22 +98,14 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
       >
         {summary}
         {expandable && (
-        <Icon
-          className={ExpandIcon}
-          name="chevron-right"
-          dimension={dimension !== 'big' ? 16 : 24}
-        />
+          <Icon
+            className={ExpandIcon}
+            name="chevron-right"
+            dimension={dimension !== 'big' ? 16 : 24}
+          />
         )}
       </Text>
-      <motion.div
-        className={Content}
-        data-disclosure-padding={padding}
-        data-disclosure-height={Boolean(contentMaxHeight)}
-        animate={isOpen ? { y: 5, opacity: 1 } : { y: 0, opacity: 0 }}
-        transition={{ ease: 'easeOut', duration: 0.1 }}
-      >
-        {children}
-      </motion.div>
+      {renderContent()}
     </details>
   )
 })
