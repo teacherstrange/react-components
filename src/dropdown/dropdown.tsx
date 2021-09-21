@@ -4,8 +4,7 @@ import React, {
   useState,
   Children,
   cloneElement,
-  ReactElement,
-  useCallback
+  ReactElement
 } from 'react'
 import { useKey } from 'react-use'
 import { Dropdown as DropdownClass, PopUp } from './dropdown.module.css'
@@ -14,8 +13,8 @@ import { useFocusWithin } from '@react-aria/interactions'
 import { DropdownMenu } from './dropdown-menu'
 import { DropdownItem } from './dropdown-item'
 import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core'
-import { Popper, Target, Content } from 'react-nested-popper'
-import { motion } from 'framer-motion'
+import { usePopperTooltip } from 'react-popper-tooltip'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export type DropdownProps = PropsWithClass & {
   children: ReactNode;
@@ -33,6 +32,23 @@ export const Dropdown = ({
 }: DropdownProps) => {
   const seedID = useUIDSeed()
   const [isOpen, setIsOpen] = useState(false)
+  const {
+    getTooltipProps,
+    setTooltipRef,
+    setTriggerRef,
+    visible
+  } = usePopperTooltip({
+    delayShow: 0,
+    delayHide: 200,
+    trigger: ['click'],
+    visible: isOpen,
+    closeOnTriggerHidden: true,
+    onVisibleChange: setIsOpen,
+    placement: placement,
+    offset: [0, offset]
+  }, {
+    strategy: 'fixed'
+  })
 
   const { focusWithinProps } = useFocusWithin({
     onFocusWithin: () => null,
@@ -40,72 +56,46 @@ export const Dropdown = ({
     onFocusWithinChange: () => null
   })
 
-  const handleOpen = useCallback(
-    (action: boolean) => () => {
-      setIsOpen(action)
-    },
-    []
-  )
-  useKey('Escape', () => handleOpen(false))
+  useKey('Escape', () => setIsOpen(false))
 
   return (
-    <Popper
-      show={isOpen}
-      outsideClickType="all"
-      onOutsideClick={handleOpen(false)}
-      onTargetClick={handleOpen(!isOpen)}
-      usePortal={false}
-    >
-      <Target
-        className={clsx(DropdownClass, className)}
-      >
-        {Children.map(trigger, (child: ReactElement) => cloneElement(
-          child,
-          {
-            id: seedID('dropdown-trigger'),
-            'aria-haspopup': 'true',
-            'aria-controls': seedID('dropdown-menu'),
-            'aria-expanded': isOpen
-          }
-        ))}
-      </Target>
-      <Content
-        className={PopUp}
-        popperOptions={{
-          placement: placement,
-          modifiers: [
-            {
-              name: 'flip',
-              enabled: true,
-              options: {
-                fallbackPlacements: ['bottom', 'top']
-              }
-            },
-            {
-              name: 'offset',
-              options: {
-                offset: [0, offset]
-              }
-            }
-          ]
-        }}
-      >
-        <motion.div
-          animate={isOpen ? { y: 5, opacity: 1 } : { y: 0, opacity: 0 }}
-          transition={{ ease: 'easeOut', duration: 0.1 }}
-        >
-          <div {...focusWithinProps}>
-            {Children.map(children, (child: ReactElement) => cloneElement(
-              child,
-              {
-                id: seedID('dropdown-menu'),
-                'aria-labelledby': seedID('dropdown-trigger')
-              }
-            ))}
+    <div className={clsx(DropdownClass, className)} {...focusWithinProps}>
+      {Children.map(trigger, (child: ReactElement) => cloneElement(
+        child,
+        {
+          ref: setTriggerRef,
+          id: seedID('dropdown-trigger'),
+          'aria-haspopup': 'true',
+          'aria-controls': seedID('dropdown-menu'),
+          'aria-expanded': isOpen
+        }
+      ))}
+      <AnimatePresence>
+        {visible && (
+          <div
+            ref={setTooltipRef}
+            role="tooltip"
+            id={seedID('tooltip-content')}
+            className={PopUp}
+            {...getTooltipProps({ className: PopUp })}
+          >
+            <motion.div
+              animate={isOpen ? { y: 5, opacity: 1 } : { y: 0, opacity: 0 }}
+              transition={{ ease: 'easeOut', duration: 0.1 }}
+            >
+
+              {Children.map(children, (child: ReactElement) => cloneElement(
+                child,
+                {
+                  id: seedID('dropdown-menu'),
+                  'aria-labelledby': seedID('dropdown-trigger')
+                }
+              ))}
+            </motion.div>
           </div>
-        </motion.div>
-      </Content>
-    </Popper>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
 

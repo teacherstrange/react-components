@@ -57,6 +57,7 @@ export const DropdownItem = forwardRef(({
       columnGap={8}
       horizontalPadding={16}
       verticalPadding={8}
+      style={{ inlineSize: '100%' }}
     >
       {icon && (
       <Icon
@@ -83,7 +84,7 @@ export const DropdownItem = forwardRef(({
     >
       {description
         ? (
-          <Tooltip show={focused} placement="right-start" style={{ width: '100%' }} trigger={InnerContent}>
+          <Tooltip fill show={focused} placement="right-start" trigger={InnerContent}>
             {description}
           </Tooltip>
           )
