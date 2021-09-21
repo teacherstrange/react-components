@@ -42,7 +42,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     delayShow: delay,
     delayHide: 200,
     trigger: ['hover', 'focus'],
-    visible: show || controlledVisible,
+    visible: true,
     closeOnTriggerHidden: true,
     onVisibleChange: setControlledVisible,
     placement: placement,
