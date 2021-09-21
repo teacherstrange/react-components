@@ -14,6 +14,7 @@ export type TooltipProps = PropsWithClass & {
   show?: boolean;
   delay?: number;
   maxWidth?: string;
+  fill?: boolean;
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -23,6 +24,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   show,
   style,
   maxWidth = '40ch',
+  fill = false,
   delay = 500
 }) => {
   const seedID = useUIDSeed()
@@ -65,7 +67,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   }
 
   return (
-    <div className={Trigger} {...focusWithinProps} style={{ ...style }}>
+    <div data-tooltip-fill={fill} className={Trigger} {...focusWithinProps} style={{ ...style }}>
       {Children.map(trigger, (child: ReactElement) => cloneElement(
         child,
         {
