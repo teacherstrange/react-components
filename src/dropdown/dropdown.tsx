@@ -80,7 +80,7 @@ export const Dropdown = ({
             {...getTooltipProps({ className: PopUp })}
           >
             <motion.div
-              animate={isOpen ? { y: 5, opacity: 1 } : { y: 0, opacity: 0 }}
+              animate={visible ? { y: 5, opacity: 1 } : { y: 0, opacity: 0 }}
               transition={{ ease: 'easeOut', duration: 0.1 }}
             >
 
