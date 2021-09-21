@@ -66,6 +66,7 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
         data-disclosure-height={Boolean(contentMaxHeight)}
         animate={isOpen ? { y: 5, opacity: 1 } : { y: 0, opacity: 0 }}
         transition={{ ease: 'easeOut', duration: 0.1 }}
+        initial={false}
       >
         {children}
       </motion.div>
