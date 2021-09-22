@@ -94,7 +94,7 @@
     }
 
     & option:checked {
-      color: var(--dimmed-1);
+      color: var(--dimmed-0);
       background: var(--dimmed-4) linear-gradient(to bottom, var(--dimmed-4) 0%, var(--dimmed-4) 100%);
       background-color: var(--dimmed-4);
     }
