@@ -11,7 +11,7 @@
   overflow: hidden;
   color: inherit;
   background-color: var(--global-background);
-  border: 1px solid var(--dimmed-3);
+  border: 1px solid var(--dimmed-2);
   block-size: var(--field-height);
   padding: 0 var(--field-padding);
   display: flex;
@@ -58,7 +58,7 @@
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
-    border: 1px solid var(--dimmed-3);
+    border: 1px solid var(--dimmed-2);
     box-shadow: 0 0 0 100px var(--global-background) inset;
   }
 

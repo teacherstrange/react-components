@@ -9,11 +9,11 @@
   }
 
   &[data-card-dimmed='2'] {
-    background: var(--dimmed-2);
+    background: var(--dimmed-1);
   }
 
   &[data-card-dimmed='3'] {
-    background: var(--dimmed-3);
+    background: var(--dimmed-2);
   }
 }
 

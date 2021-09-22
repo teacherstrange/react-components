@@ -8,7 +8,7 @@ export default {
 
 const Template = (args) => (
   <Elevator {...args}>
-    <div style={{ padding: 32, background: 'var(--dimmed-2)' }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime, unde.</div>
+    <div style={{ padding: 32, background: 'var(--dimmed-1)' }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime, unde.</div>
   </Elevator>
 )
 

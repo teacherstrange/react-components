@@ -91,9 +91,9 @@ ol {
 }
 
 kbd {
-  border: 1px solid var(--dimmed-2);
+  border: 1px solid var(--dimmed-1);
   padding: 2px 4px;
-  box-shadow: 0 2px 0 var(--dimmed-2);
+  box-shadow: 0 2px 0 var(--dimmed-1);
   border-radius: env(--radius-4);
   font-weight: 600;
 }

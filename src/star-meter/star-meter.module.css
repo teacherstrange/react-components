@@ -1,6 +1,6 @@
 .StarMeter {
   --starColor: hsl(env(--color-yellow-20));
-  --starDimmedColor: var(--dimmed-3);
+  --starDimmedColor: var(--dimmed-2);
   --iconSize: 18px;
 
   position: relative;
