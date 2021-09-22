@@ -67,7 +67,7 @@
   },
   "highlight": {
     "gray-background": {
-      "value": "hsl({color.primary.0})"
+      "value": "hsl({color.primary.5})"
     },
     "gray-foreground": {
       "value": "hsl({color.primary.60})"
@@ -88,13 +88,13 @@
       "value": "hsl({color.blue.0})"
     },
     "blue-foreground": {
-      "value": "hsl({color.blue.60})"
+      "value": "hsl({color.blue.50})"
     },
     "red-background": {
       "value": "hsl({color.red.0})"
     },
     "red-foreground": {
-      "value": "hsl({color.red.60})"
+      "value": "hsl({color.red.50})"
     },
     "cyan-background": {
       "value": "hsl({color.cyan.0})"
