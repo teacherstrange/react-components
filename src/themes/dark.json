@@ -67,7 +67,7 @@
   },
   "highlight": {
     "gray-background": {
-      "value": "hsl({color.primary.80})"
+      "value": "hsl({color.primary.90})"
     },
     "gray-foreground": {
       "value": "hsl({color.support.white})"
