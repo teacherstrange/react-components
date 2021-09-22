@@ -40,14 +40,17 @@
     }
   },
   "dimmed": {
-    "1": {
+    "0": {
       "value": "hsl({color.primary.0})"
     },
-    "2": {
+    "1": {
       "value": "hsl({color.primary.5})"
     },
-    "3": {
+    "2": {
       "value": "hsl({color.primary.10})"
+    },
+    "3": {
+      "value": "hsl({color.primary.20})"
     },
     "4": {
       "value": "hsl({color.primary.30})"
