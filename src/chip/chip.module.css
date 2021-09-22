@@ -13,7 +13,6 @@
   }
 
   &[data-chip-dimension='big'] {
-    block-size: env(--space-32);
     font-size: env(--font-size-18);
   }
 
