@@ -70,7 +70,7 @@
       "value": "hsl({color.primary.90})"
     },
     "gray-foreground": {
-      "value": "hsl({color.support.white})"
+      "value": "hsl({color.primary.30})"
     },
     "yellow-background": {
       "value": "hsl({color.yellow.80})"
