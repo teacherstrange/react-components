@@ -16,7 +16,7 @@
       "value": "hsl({color.support.black})"
     },
     "vibrancy-background": {
-      "value": "hsl({color.primary.10} / 30%)"
+      "value": "hsl({color.primary.10} / 40%)"
     },
     "vibrancy-background-hover": {
       "value": "hsl({color.primary.50} / 30%)"
