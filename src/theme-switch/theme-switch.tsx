@@ -24,7 +24,7 @@ export const ThemeSwitch = ({
 
   const icon = {
     light: 'sun-bright' as IconNames,
-    auto: 'wand-magic-sparkles' as IconNames,
+    auto: 'pc' as IconNames,
     dark: 'moon' as IconNames
   }
 
