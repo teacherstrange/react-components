@@ -59,7 +59,7 @@
     "@wonderflow/config": "1.4.7",
     "@wonderflow/eslint-config": "1.1.0",
     "@wonderflow/stylelint-config": "1.0.1",
-    "@wonderflow/tokens": "1.3.3",
+    "@wonderflow/tokens": "1.3.4",
     "clsx": "1.1.1",
     "flat": "5.0.2",
     "framer-motion": "4.1.17",
