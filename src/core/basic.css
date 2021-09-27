@@ -4,8 +4,6 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   line-height: 1.5;
-  color: var(--global-foreground, #000);
-  background-color: var(--global-background, hsl(221 10% 30%));
 }
 
 *,
@@ -22,6 +20,8 @@ html {
 }
 
 body {
+  color: var(--global-foreground);
+  background-color: var(--global-background);
   font-family: env(--font-family-sans);
   font-feature-settings: 'calt' off;
   scroll-padding: env(--space-80);

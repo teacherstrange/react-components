@@ -17,20 +17,17 @@ const run = () => {
   const template = `
   :root,
   [data-theme='light'] {
-    color: var(--global-foreground);
     ${lightTheme}
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme='light']) {
-      color: var(--global-foreground);
-      ${darkTheme}
+        ${darkTheme}
     }
   }
 
   [data-theme='dark'],
   :root[data-theme='dark'] {
-    color: var(--global-foreground);
     ${darkTheme}
   }
   `
