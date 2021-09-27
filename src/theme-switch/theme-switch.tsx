@@ -25,7 +25,7 @@ export const ThemeSwitch = ({
     <Select
       onChange={onChange}
       icon={currentTheme === 'system' ? icon.system : icon[currentTheme]}
-      defaultValue={currentTheme}
+      value={currentTheme}
       className={clsx(className)}
       aria-label="Change color scheme"
     >
