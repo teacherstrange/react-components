@@ -6,13 +6,13 @@ import clsx from 'clsx'
 import { IconNames } from 'src/icons/types'
 
 export type ThemeSwitchProps = Except<SelectProps, 'children'> & {
-  currentTheme: string;
+  currentTheme?: string;
   onChange: SelectProps['onChange'];
 }
 
 export const ThemeSwitch = ({
   className,
-  currentTheme,
+  currentTheme = 'system',
   onChange
 }: ThemeSwitchProps) => {
   const icon = {
@@ -25,6 +25,7 @@ export const ThemeSwitch = ({
     <Select
       onChange={onChange}
       icon={currentTheme === 'system' ? icon.system : icon[currentTheme]}
+      defaultValue={currentTheme}
       className={clsx(className)}
       aria-label="Change color scheme"
     >
