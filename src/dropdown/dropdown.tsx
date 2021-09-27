@@ -4,9 +4,10 @@ import React, {
   useState,
   Children,
   cloneElement,
-  ReactElement
+  ReactElement,
+  useRef
 } from 'react'
-import { useKey } from 'react-use'
+import { useKey, useClickAway } from 'react-use'
 import { Dropdown as DropdownClass, PopUp } from './dropdown.module.css'
 import { useUIDSeed } from 'react-uid'
 import { useFocusWithin } from '@react-aria/interactions'
@@ -31,6 +32,7 @@ export const Dropdown = ({
   placement = 'auto-start'
 }: DropdownProps) => {
   const seedID = useUIDSeed()
+  const popupRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
   const {
     getTooltipProps,
@@ -45,9 +47,13 @@ export const Dropdown = ({
     closeOnTriggerHidden: true,
     onVisibleChange: setIsOpen,
     placement: placement,
-    offset: [0, offset]
-  }, {
-    strategy: 'fixed'
+    interactive: true,
+    offset: [0, offset],
+    closeOnOutsideClick: false
+  })
+
+  useClickAway(popupRef, () => {
+    setIsOpen(false)
   })
 
   const { focusWithinProps } = useFocusWithin({
@@ -59,7 +65,11 @@ export const Dropdown = ({
   useKey('Escape', () => setIsOpen(false))
 
   return (
-    <div className={clsx(DropdownClass, className)} {...focusWithinProps}>
+    <div
+      ref={popupRef}
+      className={clsx(DropdownClass, className)}
+      {...focusWithinProps}
+    >
       {Children.map(trigger, (child: ReactElement) => cloneElement(
         child,
         {
