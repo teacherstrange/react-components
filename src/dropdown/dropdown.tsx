@@ -47,7 +47,6 @@ export const Dropdown = ({
     closeOnTriggerHidden: true,
     onVisibleChange: setIsOpen,
     placement: placement,
-    interactive: true,
     offset: [0, offset],
     closeOnOutsideClick: false
   })
