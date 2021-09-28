@@ -63,6 +63,10 @@
     }
   }
 
+  &:not([aria-selected='true']) svg {
+    fill: var(--dimmed-3);
+  }
+
   &:not([aria-selected='true']):hover {
     cursor: pointer;
   }
