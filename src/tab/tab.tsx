@@ -8,7 +8,8 @@ import React, {
   Ref,
   ReactNode,
   Children,
-  cloneElement
+  cloneElement,
+  ButtonHTMLAttributes
 } from 'react'
 import { Tabs as TabsWrapper, useTabState, usePanelState } from '@bumaga/tabs'
 import {
@@ -17,8 +18,10 @@ import {
   RovingTabIndexProvider
 } from 'react-roving-tabindex'
 import clsx from 'clsx'
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { useUIDSeed } from 'react-uid'
+import { Icon } from '../icon'
+import { Stack } from '../stack'
+import { IconNames } from 'src/icons/types'
 
 import {
   Tab as TabClass,
@@ -80,6 +83,7 @@ const TabRoot: React.FC<TabProps> = forwardRef(({
             <Tab.Item
               id={seedID(`tab-item-${index}`)}
               aria-controls={seedID(`tab-panel-${index}`)}
+              icon={child.props.icon}
             >
               {child.props.label}
             </Tab.Item>
@@ -138,6 +142,7 @@ const TabList: React.FC<PropsWithClass> = forwardRef(({
  */
 export type TabPanelProps = PropsWithClass & {
   label: ReactNode;
+  icon?: IconNames;
 }
 
 /**
@@ -172,20 +177,22 @@ const TabPanel: React.FC<TabPanelProps> = forwardRef(({
  * Tab.Item
  * Public api
  */
-type PolymorphicTabItem = Polymorphic.ForwardRefComponent<'button', {}>;
+export type TabItemProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  icon?: IconNames;
+}
 
 /**
  * Tab.Item
  * Component
  */
-const TabItem = forwardRef(({
+const TabItem: React.FC<TabItemProps> = ({
   children,
   className,
-  as: Wrapper = 'button',
+  icon,
   ...props
-}, forwardedRef) => {
+}) => {
   const { onClick, isActive } = useTabState()
-  const internalRef = useRef<Polymorphic.IntrinsicElement<typeof Wrapper>>(null)
+  const internalRef = useRef<HTMLButtonElement>(null)
   const [, focused, handleKeyDown, handleClick] = useRovingTabIndex(internalRef, false)
 
   useFocusEffect(focused, internalRef)
@@ -199,22 +206,29 @@ const TabItem = forwardRef(({
   )
 
   return (
-    <Wrapper
+    <Stack
+      as="button"
+      direction="row"
+      verticalAlign="center"
+      horizontalAlign="start"
+      fill={false}
+      columnGap={8}
       role="tab"
-      ref={forwardedRef || internalRef}
+      ref={internalRef}
       className={clsx(TabItemClass, className)}
       aria-selected={isActive}
       onClick={fireClick}
       onKeyDown={handleKeyDown}
       onFocus={fireClick}
-      type={Wrapper === 'button' ? 'button' : undefined}
+      type="button"
       tabIndex={isActive ? 0 : -1}
       {...props}
     >
+      {icon && <Icon name={icon} dimension={16} />}
       {children}
-    </Wrapper>
+    </Stack>
   )
-}) as PolymorphicTabItem
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                   Export                                   */

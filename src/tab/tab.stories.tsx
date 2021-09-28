@@ -70,3 +70,16 @@ export const ChangeEvent = Template.bind({})
 ChangeEvent.args = {
   onChange: (current) => alert(`current is ${current}`)
 }
+
+export const IconsTab = () => {
+  const state = useState(0)
+
+  return (
+    <Tab.Root state={state}>
+      <Tab.Panel icon="circle-info" label="Tab 1">Panel 1</Tab.Panel>
+      <Tab.Panel icon="check" label="Tab 2">Panel 2</Tab.Panel>
+      <Tab.Panel icon="smile" label="Tab 3">Panel 3</Tab.Panel>
+      <Tab.Panel icon="star" label="Tab 4">Panel 4</Tab.Panel>
+    </Tab.Root>
+  )
+}
