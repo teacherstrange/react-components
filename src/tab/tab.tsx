@@ -5,7 +5,6 @@ import React, {
   useState,
   forwardRef,
   useRef,
-  Ref,
   ReactNode,
   Children,
   cloneElement,
@@ -48,13 +47,13 @@ export type TabProps = PropsWithClass & {
  * Tab.Root
  * Component
  */
-const TabRoot: React.FC<TabProps> = forwardRef(({
+const TabRoot: React.FC<TabProps> = forwardRef<HTMLDivElement, TabProps>(({
   children,
   className,
   state,
   onChange,
   ...props
-}, forwardedRef: Ref<HTMLDivElement>) => {
+}, forwardedRef) => {
   const innerState = useState(0)
   const tabState = state || innerState
   const [currentTab] = tabState
@@ -114,11 +113,11 @@ const TabRoot: React.FC<TabProps> = forwardRef(({
  * Tab.List
  * Component
  */
-const TabList: React.FC<PropsWithClass> = forwardRef(({
+const TabList: React.FC<PropsWithClass> = forwardRef<HTMLDivElement, PropsWithClass>(({
   children,
   className,
   ...props
-}, forwardedRef: Ref<HTMLDivElement>) => (
+}, forwardedRef) => (
   <div
     ref={forwardedRef}
     role="tablist"
@@ -149,11 +148,11 @@ export type TabPanelProps = PropsWithClass & {
  * Tab.Panel
  * Component
  */
-const TabPanel: React.FC<TabPanelProps> = forwardRef(({
+const TabPanel: React.FC<TabPanelProps> = forwardRef<HTMLDivElement, TabPanelProps>(({
   children,
   className,
   ...props
-}, forwardedRef: Ref<HTMLDivElement>) => {
+}, forwardedRef) => {
   const isActive = usePanelState()
   return isActive
     ? (
