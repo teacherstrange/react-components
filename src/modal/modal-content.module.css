@@ -1,0 +1,36 @@
+@import '../core/media.css';
+
+.Content {
+  background-color: var(--global-background);
+  color: var(--global-foreground);
+  overscroll-behavior: contain;
+  inline-size: 100%;
+  max-inline-size: 600px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-block-size: 80vh;
+  border-radius: env(--radius-8) env(--radius-8) 0 0;
+
+  @media (--from-small) {
+    max-block-size: 60vh;
+    border-radius: env(--radius-8);
+  }
+}
+
+.Header {
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+  border-bottom: 1px solid var(--dimmed-1);
+  padding:
+    env(--space-16)
+    env(--space-80)
+    env(--space-16)
+    env(--space-24);
+}
+
+.CloseButton {
+  position: absolute;
+  top: env(--space-8);
+  right: env(--space-8);
+}

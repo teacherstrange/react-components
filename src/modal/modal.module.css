@@ -1,0 +1,42 @@
+@import '../core/media.css';
+
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+
+  @media (--from-small) {
+    justify-content: center;
+  }
+}
+
+.Backdrop {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: var(--dimmed-1);
+
+  &[data-overlay-color='light'] {
+    background-color: hsl(env(--color-primary-0));
+  }
+
+  &[data-overlay-color='dark'] {
+    background-color: hsl(env(--color-primary-90));
+  }
+}
+
+.Container {
+  position: relative;
+  z-index: 1;
+}
