@@ -39,7 +39,7 @@ import {
  */
 export type TabProps = PropsWithClass & {
   children: ReactNode;
-  state?: number | React.Dispatch<React.SetStateAction<number>>;
+  state?: [number, React.Dispatch<React.SetStateAction<number>>];
   onChange?: (index: number) => void;
 }
 
