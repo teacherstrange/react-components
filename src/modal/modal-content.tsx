@@ -1,10 +1,10 @@
 import clsx from 'clsx'
-import React, { forwardRef, HTMLAttributes, ReactNode, useContext } from 'react'
+import React, { forwardRef, HTMLAttributes, ReactNode } from 'react'
 import { Content, Header, CloseButton } from './modal-content.module.css'
 import { Title } from '../title'
 import { Elevator } from '../elevator'
 import { IconButton } from '../icon-button'
-import { ModalContext } from './modal-context'
+import { useModalContext } from './modal-context'
 
 export type ModalContentProps = HTMLAttributes<HTMLDivElement> & {
   title: ReactNode;
@@ -16,7 +16,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(({
   title,
   ...props
 }, forwardedRef) => {
-  const { onClose, titleId } = useContext(ModalContext)
+  const { onClose, titleId } = useModalContext()
 
   return (
     <Elevator resting={4}>
