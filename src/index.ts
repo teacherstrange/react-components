@@ -1,4 +1,5 @@
 export { UIDReset as IdProvider } from 'react-uid'
+export { AnimatePresence as Presence } from 'framer-motion'
 
 export { Button, ButtonProps } from './button'
 export { Card, CardProps } from './card'

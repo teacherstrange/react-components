@@ -3,6 +3,7 @@ import { Modal } from './modal'
 import { Button } from '../button'
 import { IconButton } from '../icon-button'
 import { Card } from '../card'
+import { Presence } from '../'
 
 export default {
   title: 'Components/Modal',
@@ -50,7 +51,7 @@ const TemplateDynamic = (args) => {
   return (
     <>
       <Button onClick={() => setVisible(true)}>Show Modal</Button>
-      <Modal.Presence>
+      <Presence>
         {visible && (
         <Modal
           key="dynamic-modal"
@@ -63,7 +64,7 @@ const TemplateDynamic = (args) => {
           </Modal.Content>
         </Modal>
         )}
-      </Modal.Presence>
+      </Presence>
     </>
   )
 }

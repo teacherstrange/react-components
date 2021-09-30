@@ -1,11 +1,12 @@
 import React, { forwardRef } from 'react'
 import { useUIDSeed } from 'react-uid'
-import { LazyMotion, AnimatePresence as Presence, domAnimation, m } from 'framer-motion'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 import clsx from 'clsx'
 import { FocusOn } from 'react-focus-on'
 import { ModalContent } from './modal-content'
 import { Modal as ModalClass, Backdrop, Container } from './modal.module.css'
 import { ModalContext } from './modal-context'
+import { Presence } from '../'
 
 export type ModalProps = PropsWithClass & {
   visible?: boolean | React.Dispatch<React.SetStateAction<boolean>>;
@@ -89,7 +90,6 @@ export const Modal = ({
   return (<ModalElement {...props} />)
 }
 
-Modal.Presence = Presence
 Modal.Root = ModalElement
 Modal.Content = ModalContent
 
