@@ -5,7 +5,6 @@
   color: var(--global-foreground);
   overscroll-behavior: contain;
   inline-size: 100%;
-  max-inline-size: 600px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   max-block-size: 95vh;
@@ -13,7 +12,8 @@
   justify-self: center;
   align-self: end;
 
-  @media (--from-small) {
+  @media (--from-extra-small) {
+    max-inline-size: 600px;
     max-block-size: 80vh;
     border-radius: env(--radius-8);
     justify-self: center;
