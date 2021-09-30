@@ -1,0 +1,41 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+}
+
+.Backdrop {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: var(--dimmed-1);
+
+  &[data-overlay-color='light'] {
+    background-color: hsl(env(--color-primary-0));
+  }
+
+  &[data-overlay-color='dark'] {
+    background-color: hsl(env(--color-primary-90));
+  }
+}
+
+.Container {
+  position: absolute;
+  display: grid;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+
+  & > * {
+    pointer-events: auto;
+  }
+}
