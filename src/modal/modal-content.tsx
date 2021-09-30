@@ -1,12 +1,12 @@
 import clsx from 'clsx'
-import React, { forwardRef, HTMLAttributes, ReactNode } from 'react'
+import React, { forwardRef, ReactNode } from 'react'
 import { Content, Header, CloseButton } from './modal-content.module.css'
 import { Title } from '../title'
 import { Elevator } from '../elevator'
 import { IconButton } from '../icon-button'
 import { useModalContext } from './modal-context'
 
-export type ModalContentProps = HTMLAttributes<HTMLDivElement> & {
+export type ModalContentProps = PropsWithClass & {
   title: ReactNode;
 }
 

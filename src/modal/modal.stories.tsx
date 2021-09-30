@@ -13,7 +13,7 @@ export default {
   }
 }
 
-const TemplateVisible = (args) => {
+const DefaultTemplate = (args) => {
   const [visible, setVisible] = useState(false)
 
   return (
@@ -42,7 +42,7 @@ const TemplateVisible = (args) => {
   )
 }
 
-export const Default = TemplateVisible.bind({})
+export const Default = DefaultTemplate.bind({})
 
 const TemplateDynamic = (args) => {
   const [visible, setVisible] = useState(false)

@@ -33,15 +33,15 @@ const ModalElement: React.FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps
     >
       <ModalContext.Consumer>
         {(ctx) => (
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={ctx.titleId}
-            className={clsx(ModalClass, className)}
-            ref={forwardedRef}
-            {...props}
-          >
-            <LazyMotion features={domAnimation}>
+          <LazyMotion features={domAnimation}>
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={ctx.titleId}
+              className={clsx(ModalClass, className)}
+              ref={forwardedRef}
+              {...props}
+            >
               <m.span
                 key={seedID('modal-backdrop')}
                 className={Backdrop}
@@ -51,12 +51,10 @@ const ModalElement: React.FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
               />
-            </LazyMotion>
-            <FocusOn
-              onClickOutside={() => closeOnClickOutside && onClose()}
-              onEscapeKey={() => onClose()}
-            >
-              <LazyMotion features={domAnimation}>
+              <FocusOn
+                onClickOutside={() => closeOnClickOutside && ctx.onClose()}
+                onEscapeKey={ctx.onClose}
+              >
                 <m.div
                   key={seedID('modal-container')}
                   className={Container}
@@ -68,9 +66,9 @@ const ModalElement: React.FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps
                 >
                   {children}
                 </m.div>
-              </LazyMotion>
-            </FocusOn>
-          </div>
+              </FocusOn>
+            </div>
+          </LazyMotion>
         )}
       </ModalContext.Consumer>
     </ModalContext.Provider>
