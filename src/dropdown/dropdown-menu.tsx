@@ -1,8 +1,7 @@
 
 import React, { Children, cloneElement, forwardRef, ReactElement, ReactNode } from 'react'
 import { RovingTabIndexProvider } from 'react-roving-tabindex'
-import { Elevator } from '../elevator'
-import { Stack } from '../stack'
+import { Stack, Elevator } from '../'
 import clsx from 'clsx'
 
 import { DropdownMenu as DropdownMenuClass } from './dropdown-menu.module.css'

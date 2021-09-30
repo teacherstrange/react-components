@@ -2,9 +2,7 @@ import React, { Children, forwardRef, ReactElement, useMemo } from 'react'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { List as ListClass, Marker } from './list.module.css'
 import clsx from 'clsx'
-import { IconNames } from 'src/icons/types'
-import { Icon, IconProps } from '../icon'
-import { Text, TextProps } from '../text'
+import { Text, TextProps, Icon, IconProps, IconNames } from '../'
 
 export type ListProps = PropsWithClass & {
   dimension?: 'small' | 'regular' | 'big';

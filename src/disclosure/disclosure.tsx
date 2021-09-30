@@ -5,8 +5,7 @@ import React, {
 } from 'react'
 import clsx from 'clsx'
 import { Disclosure as DisclosureClass, Summary, ExpandIcon, Content } from './disclosure.module.css'
-import { Icon } from '../icon'
-import { Text, TextProps } from '../text'
+import { Text, TextProps, Icon } from '../'
 import { motion } from 'framer-motion'
 
 export type DisclosureProps = DetailsHTMLAttributes<HTMLDetailsElement> & {

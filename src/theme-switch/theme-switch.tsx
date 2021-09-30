@@ -1,9 +1,8 @@
 import React from 'react'
-import { Select, SelectProps } from '../select'
+import { Select, SelectProps, IconNames } from '../'
 import { Except } from 'type-fest'
 
 import clsx from 'clsx'
-import { IconNames } from 'src/icons/types'
 
 export type ThemeSwitchProps = Except<SelectProps, 'children'> & {
   currentTheme?: string;

@@ -1,7 +1,7 @@
 import React, { Children, cloneElement, CSSProperties, ReactElement, ReactNode, useState } from 'react'
 import { useUIDSeed } from 'react-uid'
 import { useKey } from 'react-use'
-import { Elevator } from '../elevator'
+import { Elevator } from '../'
 import { useFocusWithin } from '@react-aria/interactions'
 import { Tooltip as TooltipClass, Arrow, Trigger } from './tooltip.module.css'
 import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core/lib'
