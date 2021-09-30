@@ -9,7 +9,7 @@
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   max-block-size: 95vh;
-  border-radius: env(--radius-8) env(--radius-8) 0 0;
+  border-radius: env(--radius-24) env(--radius-24) 0 0;
   justify-self: center;
   align-self: end;
 

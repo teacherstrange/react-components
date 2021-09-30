@@ -35,7 +35,7 @@ const TemplateVisible = (args) => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
-          <img src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" />
+          <img width="100%" height="auto" src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=cover&w=1600&q=80" />
         </Modal.Content>
       </Modal>
     </>
@@ -59,7 +59,7 @@ const TemplateDynamic = (args) => {
         >
           <Modal.Content title="Modal title">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus et magnam distinctio qui quod ducimus libero magni earum perspiciatis.
-            <img src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" />
+            <img width="100%" height="auto" src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=cover&w=1600&q=80" />
           </Modal.Content>
         </Modal>
         )}
@@ -86,7 +86,7 @@ const CustomTemplate = (args) => {
         <Card>
           <IconButton onClick={() => setVisible(false)} icon="xmark" kind="flat" aria-label="Close modal" />
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus et magnam distinctio qui quod ducimus libero magni earum perspiciatis.
-          <img src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" />
+          <img width="100%" height="auto" src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=cover&w=1600&q=80" />
         </Card>
       </Modal>
     </>
