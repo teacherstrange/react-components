@@ -8,12 +8,16 @@
   max-inline-size: 600px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  max-block-size: 80vh;
+  max-block-size: 95vh;
   border-radius: env(--radius-8) env(--radius-8) 0 0;
+  justify-self: center;
+  align-self: end;
 
   @media (--from-small) {
-    max-block-size: 60vh;
+    max-block-size: 80vh;
     border-radius: env(--radius-8);
+    justify-self: center;
+    align-self: center;
   }
 }
 

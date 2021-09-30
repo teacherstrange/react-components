@@ -1,7 +1,6 @@
 import React, { Children, cloneElement, forwardRef, ReactElement } from 'react'
 import { useUIDSeed } from 'react-uid'
-import { LazyMotion, AnimatePresence, domAnimation, m } from 'framer-motion'
-import { Elevator } from '../elevator'
+import { LazyMotion, AnimatePresence as Presence, domAnimation, m } from 'framer-motion'
 import clsx from 'clsx'
 import { FocusOn } from 'react-focus-on'
 import { ModalContent } from './modal-content'
@@ -10,16 +9,15 @@ import { Modal as ModalClass, Backdrop, Container } from './modal.module.css'
 export type ModalProps = PropsWithClass & {
   visible?: boolean | React.Dispatch<React.SetStateAction<boolean>>;
   overlayColor?: 'light' | 'dark' | 'auto';
-  onOverlayClick?: () => void;
-  onClose?: () => void;
+  closeOnClickOutside?: boolean;
+  onClose: () => void;
 }
 
-// eslint-disable-next-line react/display-name
 const ModalElement: React.FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps>(({
   children,
   className,
   overlayColor = 'dark',
-  onOverlayClick,
+  closeOnClickOutside = true,
   onClose,
   ...props
 }, forwardedRef) => {
@@ -46,28 +44,27 @@ const ModalElement: React.FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps
         />
       </LazyMotion>
       <FocusOn
-        onClickOutside={() => onOverlayClick && onOverlayClick()}
-        onEscapeKey={() => onClose && onClose()}
+        onClickOutside={() => closeOnClickOutside && onClose()}
+        onEscapeKey={() => onClose()}
       >
         <LazyMotion features={domAnimation}>
-          <Elevator resting={4}>
-            <m.div
-              key={seedID('modal-container')}
-              className={Container}
-              data-theme="light"
-              initial={{ scale: 0.98, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.98, opacity: 0 }}
-              transition={{ ease: 'easeOut', duration: 0.1 }}
-            >
-              {Children.map(children, (child: ReactElement) => cloneElement(
-                child,
-                {
-                  id: seedID('modal-title')
-                }
-              ))}
-            </m.div>
-          </Elevator>
+          <m.div
+            key={seedID('modal-container')}
+            className={Container}
+            data-theme="light"
+            initial={{ scale: 0.98, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.98, opacity: 0 }}
+            transition={{ ease: 'easeOut', duration: 0.1 }}
+          >
+            {Children.map(children, (child: ReactElement) => cloneElement(
+              child,
+              {
+                id: seedID('modal-title'),
+                onClose: onClose
+              }
+            ))}
+          </m.div>
         </LazyMotion>
       </FocusOn>
     </div>
@@ -78,16 +75,19 @@ export const Modal = ({
   visible,
   ...props
 }: ModalProps) => {
-  return typeof visible === 'boolean'
-    ? (
-      <AnimatePresence>
+  if (typeof visible === 'boolean') {
+    return (
+      <Presence exitBeforeEnter>
         {visible ? <ModalElement {...props} /> : null}
-      </AnimatePresence>
-      )
-    : <ModalElement {...props} />
+      </Presence>
+    )
+  }
+  return (<ModalElement {...props} />)
 }
 
+Modal.Presence = Presence
+Modal.Root = ModalElement
 Modal.Content = ModalContent
 
 Modal.displayName = 'Modal'
-ModalElement.displayName = 'ModalElement'
+ModalElement.displayName = 'Modal.Element'

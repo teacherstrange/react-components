@@ -1,5 +1,3 @@
-@import '../core/media.css';
-
 .Modal {
   position: fixed;
   top: 0;
@@ -7,14 +5,6 @@
   right: 0;
   bottom: 0;
   z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: column;
-
-  @media (--from-small) {
-    justify-content: center;
-  }
 }
 
 .Backdrop {
@@ -37,6 +27,15 @@
 }
 
 .Container {
-  position: relative;
+  position: absolute;
+  display: grid;
+  inset: 0;
   z-index: 1;
+  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+
+  & > * {
+    pointer-events: auto;
+  }
 }
