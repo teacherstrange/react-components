@@ -1,13 +1,23 @@
+/* -------------------------------------------------------------------------- */
+/*                                  Utilities                                 */
+/* -------------------------------------------------------------------------- */
+
 export { UIDReset as IdProvider } from 'react-uid'
 export { AnimatePresence as Presence } from 'framer-motion'
 
+/* -------------------------------------------------------------------------- */
+/*                                 Components                                 */
+/* -------------------------------------------------------------------------- */
+
 export { Button, ButtonProps } from './button'
 export { Card, CardProps } from './card'
+
 export {
   Checkbox, CheckboxProps,
   Radio, RadioProps,
   Toggle, ToggleProps
 } from './selection-controls'
+
 export { Chip, ChipProps } from './chip'
 export { ClampText, ClampTextProps } from './clamp-text'
 export { Container, ContainerProps } from './container'
@@ -15,7 +25,6 @@ export { Disclosure, DisclosureProps } from './disclosure'
 export { Dropdown, DropdownProps } from './dropdown'
 export { Elevator, ElevatorProps } from './elevator'
 export { Icon, IconProps } from './icon'
-export type { IconNames } from './icons/types'
 export { IconButton, IconButtonProps } from './icon-button'
 export { List, ListProps } from './list'
 export { Modal, ModalProps, useModalContext } from './modal'
