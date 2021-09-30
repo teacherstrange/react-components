@@ -5,7 +5,7 @@ import { Checkbox as CheckboxClass } from './selection-controls.module.css'
 export type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
   disabled?: boolean;
   dimension?: 'regular' | 'small',
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?(event: ChangeEvent<HTMLInputElement>): void;
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({

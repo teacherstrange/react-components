@@ -8,7 +8,7 @@ export type ChipProps = PropsWithClass & {
   dimension?: 'small' | 'regular' | 'big';
   color?: 'gray' | 'cyan' | 'green' | 'purple' | 'yellow' | 'red' | 'blue',
   interactive?: boolean;
-  onDismissClick?: () => void;
+  onDismissClick?(): void;
 }
 
 export const Chip = forwardRef<HTMLSpanElement, ChipProps>(({

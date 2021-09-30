@@ -70,14 +70,14 @@ export const Default = DefaultTemplate.bind({})
 const CustomTemplate = ({ dimension, iconPosition, ...props }) => (
   <>
     <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
-      <div style={{ border: '2px solid black', maxInlineSize: '30ch', padding: 24 }}>
+      <div style={{ background: 'var(--global-vibrancy-background)', backdropFilter: 'blur(10px)', border: '2px solid black', maxInlineSize: '30ch', padding: 24 }}>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
         Magni error unde sapiente beatae! Nostrum praesentium similique
         veniam non ut nulla, incidunt velit et, placeat cupiditate, aliquid saepe. Atque, provident perferendis?
       </div>
     </Dropdown>
     <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
-      <div style={{ border: '2px solid black', maxInlineSize: '30ch', padding: 24 }}>
+      <div style={{ background: 'var(--global-vibrancy-background)', backdropFilter: 'blur(10px)', border: '2px solid black', maxInlineSize: '30ch', padding: 24 }}>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
         Magni error unde sapiente beatae! Nostrum praesentium similique
         veniam non ut nulla, incidunt velit et, placeat cupiditate, aliquid saepe. Atque, provident perferendis?

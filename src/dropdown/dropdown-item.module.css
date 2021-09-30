@@ -23,7 +23,7 @@
     opacity: 0.6;
   }
 
-  &:is(:hover, :focus-visible) {
+  &:is(:hover, :focus-visible, [aria-pressed='true']) {
     color: var(--cta-default);
     outline: none;
 

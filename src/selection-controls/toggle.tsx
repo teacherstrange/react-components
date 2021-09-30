@@ -5,7 +5,7 @@ import { Toggle as ToggleClass } from './selection-controls.module.css'
 export type ToggleProps = InputHTMLAttributes<HTMLInputElement> & {
   disabled?: boolean;
   dimension?: 'regular' | 'small',
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?(event: ChangeEvent<HTMLInputElement>): void;
 }
 
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(({

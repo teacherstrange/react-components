@@ -5,7 +5,7 @@ import { Radio as RadioClass } from './selection-controls.module.css'
 export type RadioProps = InputHTMLAttributes<HTMLInputElement> & {
   disabled?: boolean;
   dimension?: 'regular' | 'small',
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?(event: ChangeEvent<HTMLInputElement>): void;
 }
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(({

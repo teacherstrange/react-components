@@ -14,7 +14,7 @@ export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   kind?: 'single' | 'multiple';
   dimension?: 'regular' | 'small' | 'big';
   disabled?: boolean;
-  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void
+  onChange?(event: ChangeEvent<HTMLSelectElement>): void
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(({

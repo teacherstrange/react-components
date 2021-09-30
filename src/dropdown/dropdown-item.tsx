@@ -12,7 +12,7 @@ export type DropdownItemProps = PropsWithClass & {
   children: ReactNode;
   icon?: IconNames;
   dimension?: 'small' | 'regular'
-  onClick?: () => void;
+  onClick?(): void;
   iconPosition: 'left' | 'right';
   description?: ReactNode;
 }

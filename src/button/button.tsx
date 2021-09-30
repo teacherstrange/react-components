@@ -13,7 +13,7 @@ export type ButtonProps = PropsWithClass & {
   iconPosition?: 'left' | 'right',
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
-  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+  onClick?(event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void;
 }
 
 type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonProps>;
