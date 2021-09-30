@@ -38,6 +38,7 @@
   justify-content: center;
 
   @media (--from-extra-small) {
+    overflow: auto;
     padding: 24px;
   }
 
