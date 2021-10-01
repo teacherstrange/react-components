@@ -9,7 +9,7 @@ import { ModalContext } from './modal-context'
 import { Presence } from '../'
 
 export type ModalProps = PropsWithClass & {
-  visible?: boolean | React.Dispatch<React.SetStateAction<boolean>>;
+  visible?: boolean;
   overlayColor?: 'light' | 'dark' | 'auto';
   closeOnClickOutside?: boolean;
   onClose(): void;
