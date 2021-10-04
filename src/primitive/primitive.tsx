@@ -1,4 +1,7 @@
-import * as React from 'react'
+import React from 'react'
+// import type * as Polymorphic from '../polymorphic'
+
+// type PolymorphicPrimitive = Polymorphic.ForwardRefComponent<'div', {}>;
 
 const NODES = [
   'a',
@@ -15,10 +18,8 @@ const NODES = [
   'ul'
 ] as const
 
-// Temporary while we await merge of this fix:
-// https://github.com/DefinitelyTyped/DefinitelyTyped/pull/55396
-// prettier-ignore
 type PropsWithoutRef<P> = P extends any ? ('ref' extends keyof P ? Pick<P, Exclude<keyof P, 'ref'>> : P) : P;
+
 type ComponentPropsWithoutRef<T extends React.ElementType> = PropsWithoutRef<
   React.ComponentProps<T>
 >;
@@ -31,10 +32,6 @@ type PrimitivePropsWithRef<E extends React.ElementType> = React.ComponentPropsWi
 
 interface PrimitiveForwardRefComponent<E extends React.ElementType>
   extends React.ForwardRefExoticComponent<PrimitivePropsWithRef<E>> {}
-
-/* -------------------------------------------------------------------------------------------------
- * Primitive
- * ----------------------------------------------------------------------------------------------- */
 
 export const Primitive = NODES.reduce(
   (primitive, node) => ({
@@ -49,7 +46,5 @@ export const Primitive = NODES.reduce(
   }),
   {} as Primitives
 )
-
-/* ----------------------------------------------------------------------------------------------- */
 
 export type { ComponentPropsWithoutRef, PrimitivePropsWithRef }

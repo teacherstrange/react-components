@@ -1,24 +1,26 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { IconButton as IconButtonClass } from './icon-button.module.css'
 import { Button, ButtonProps } from '../'
-import { PrimitivePropsWithRef } from '../primitive'
 import clsx from 'clsx'
 
-export type IconButtonProps = PrimitivePropsWithRef<typeof Button> & PropsWithClass & Pick<
+export type IconButtonProps = PropsWithClass & Pick<
 ButtonProps,
   'kind' | 'dimension' | 'icon' | 'disabled' | 'onClick'
 >
 
+type IconButtonElement = React.ElementRef<typeof Button>;
+
 // eslint-disable-next-line react/display-name
-export const IconButton: React.FC<IconButtonProps> = ({
+export const IconButton = forwardRef<IconButtonElement, IconButtonProps>(({
   className,
   icon,
   dimension,
   kind,
   disabled,
   ...props
-}) => (
+}, forwardedRef) => (
   <Button
+    ref={forwardedRef}
     icon={icon}
     dimension={dimension}
     kind={kind}
@@ -26,6 +28,6 @@ export const IconButton: React.FC<IconButtonProps> = ({
     className={clsx(IconButtonClass, className)}
     {...props}
   />
-)
+))
 
 IconButton.displayName = 'IconButton'
