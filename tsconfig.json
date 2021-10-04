@@ -31,6 +31,7 @@
     "node_modules",
     "src/Icons",
     "src/config",
+    "**/*.stories.tsx",
     "dist"
   ],
   "include": [
