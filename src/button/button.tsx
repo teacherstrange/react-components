@@ -34,7 +34,7 @@ export const Button = forwardRef((
     iconPosition = 'left',
     type = 'button',
     onClick,
-    as: Wrapper = 'button',
+    as = 'button',
     ...props
   }, forwardedRef) => {
   const handleClick = useCallback(
@@ -53,8 +53,9 @@ export const Button = forwardRef((
 
   return (
     <Primitive
+      as={as}
       ref={forwardedRef}
-      type={Wrapper === 'button' ? type : undefined}
+      type={as === 'button' ? type : undefined}
       className={clsx(ButtonClass, className)}
       data-button-icon-position={iconPosition}
       data-button-dimension={dimension}
