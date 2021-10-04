@@ -24,7 +24,6 @@ const Template = (args) => {
         <Tab.Panel label="Tab 4">Panel 4</Tab.Panel>
         <Tab.Panel label="Tab 5">Panel 5</Tab.Panel>
         <Tab.Panel label="Tab 6">Panel 6</Tab.Panel>
-        <Tab.Panel label="Tab 7">Panel 7</Tab.Panel>
       </Tab.Root>
     </>
   )

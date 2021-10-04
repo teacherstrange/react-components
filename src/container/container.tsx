@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import type * as Polymorphic from '../polymorphic'
 import { Container as ContainerClass } from './container.module.css'
 import clsx from 'clsx'
 

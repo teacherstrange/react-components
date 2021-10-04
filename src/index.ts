@@ -4,6 +4,7 @@
 
 export { UIDReset as IdProvider } from 'react-uid'
 export { AnimatePresence as Presence } from 'framer-motion'
+export * as Polymorphic from './polymorphic'
 
 /* -------------------------------------------------------------------------- */
 /*                                 Components                                 */

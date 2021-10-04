@@ -1,5 +1,5 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react'
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import type * as Polymorphic from '../polymorphic'
 import { BaseField as BaseFieldClass } from './base-field.module.css'
 import clsx from 'clsx'
 
