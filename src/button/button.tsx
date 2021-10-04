@@ -1,11 +1,19 @@
 import clsx from 'clsx'
 import React, { forwardRef, MouseEvent, useCallback } from 'react'
-import type * as Polymorphic from '../polymorphic'
+// import type * as Polymorphic from '../polymorphic'
 import { IconNames } from '../icons/types'
-import { Icon, IconProps, Primitive } from '../'
+import { Icon, IconProps, Primitive, ComponentPropsWithoutRef } from '../'
 import { Button as ButtonClass } from './button.module.css'
 
-export type ButtonProps = PropsWithClass & {
+// type PolymorphicButton = Polymorphic.ForwardRefComponent<
+//   Polymorphic.IntrinsicElement<typeof Primitive>,
+//   Polymorphic.OwnProps<typeof Primitive> & ButtonProps
+// >;
+
+type ButtonElement = React.ElementRef<typeof Primitive.button>;
+type PrimitiveButtonProps = ComponentPropsWithoutRef<typeof Primitive.button>;
+
+export type ButtonProps = PrimitiveButtonProps & {
   kind?: 'primary' | 'secondary' | 'flat';
   dimension?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
@@ -16,13 +24,8 @@ export type ButtonProps = PropsWithClass & {
   onClick?(event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void;
 }
 
-type PolymorphicButton = Polymorphic.ForwardRefComponent<
-  Polymorphic.IntrinsicElement<typeof Primitive>,
-  Polymorphic.OwnProps<typeof Primitive> & ButtonProps
->;
-
 // eslint-disable-next-line react/display-name
-export const Button = forwardRef((
+export const Button = forwardRef<ButtonElement, ButtonProps>((
   {
     kind = 'primary',
     dimension = 'regular',
@@ -52,7 +55,8 @@ export const Button = forwardRef((
   }
 
   return (
-    <Primitive
+    // eslint-disable-next-line react/jsx-pascal-case
+    <Primitive.button
       as={as}
       ref={forwardedRef}
       type={as === 'button' ? type : undefined}
@@ -68,8 +72,8 @@ export const Button = forwardRef((
     >
       {icon && <Icon name={icon} dimension={iconSize[dimension] as IconProps['dimension']} />}
       {children}
-    </Primitive>
+    </Primitive.button>
   )
-}) as PolymorphicButton
+})
 
 Button.displayName = 'Button'
