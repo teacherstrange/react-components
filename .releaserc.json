@@ -1,5 +1,8 @@
 {
-  "branches": ["main"],
+  "branches": [
+    "main",
+    { "name": "beta", "channel": "beta", "prerelease": true }
+  ],
   "plugins": [
     "commit-analyzer-fail-on-no-release",
     "@semantic-release/release-notes-generator",
