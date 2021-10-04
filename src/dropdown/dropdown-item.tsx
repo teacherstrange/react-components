@@ -1,11 +1,8 @@
 import React, { ReactNode, useCallback, forwardRef, useRef, useMemo } from 'react'
-import { Icon } from '../icon'
-import { Stack } from '../stack'
 import { useRovingTabIndex, useFocusEffect } from 'react-roving-tabindex'
-import type * as Polymorphic from '../polymorphic'
 import { DropdownItem as DropdownItemClass, Icon as IconClass } from './dropdown-item.module.css'
 import { IconNames } from '../icons/types'
-import { Tooltip } from '../'
+import { Tooltip, Stack, Icon, Polymorphic } from '../'
 import clsx from 'clsx'
 
 export type DropdownItemProps = PropsWithClass & {

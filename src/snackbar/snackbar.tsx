@@ -1,9 +1,8 @@
 import React, { forwardRef, ReactNode } from 'react'
-import type * as Polymorphic from '../polymorphic'
 import { Snackbar as SnackbarClass, Icon as IconClass } from './snackbar.module.css'
 import clsx from 'clsx'
 import { IconNames } from '../icons/types'
-import { Title, Stack, Icon } from '../'
+import { Title, Stack, Icon, Polymorphic } from '../'
 
 export type SnackbarProps = {
   icon?: IconNames;

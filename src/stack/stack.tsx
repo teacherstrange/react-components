@@ -1,6 +1,6 @@
 import React, { CSSProperties, forwardRef } from 'react'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
-import type * as Polymorphic from '../polymorphic'
+import { Polymorphic } from '../'
 import { Stack as StackClass } from './stack.module.css'
 import clsx from 'clsx'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'

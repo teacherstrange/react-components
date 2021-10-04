@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import type * as Polymorphic from '../polymorphic'
+import { Polymorphic } from '../'
 import { Prose as ProseClass } from './prose.module.css'
 import clsx from 'clsx'
 

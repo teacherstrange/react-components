@@ -1,5 +1,5 @@
 import React, { CSSProperties, forwardRef } from 'react'
-import type * as Polymorphic from '../polymorphic'
+import { Polymorphic } from '../'
 import * as styles from './title.module.css'
 import clsx from 'clsx'
 
