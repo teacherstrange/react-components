@@ -53,6 +53,8 @@ const TabRoot: React.FC<TabProps> = forwardRef<HTMLDivElement, TabProps>(({
   onChange,
   ...props
 }, forwardedRef) => {
+  children = Children.toArray(children).filter(Boolean)
+
   const innerState = useState(0)
   const tabState = state || innerState
   const [currentTab] = tabState
