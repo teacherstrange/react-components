@@ -1,50 +1,28 @@
-import React from 'react'
-// import type * as Polymorphic from '../polymorphic'
+import clsx from 'clsx'
+import React, { forwardRef } from 'react'
+import type * as Polymorphic from '../polymorphic'
 
-// type PolymorphicPrimitive = Polymorphic.ForwardRefComponent<'div', {}>;
+export type PrimitiveProps = PropsWithClass
 
-const NODES = [
-  'a',
-  'button',
-  'div',
-  'h2',
-  'h3',
-  'img',
-  'li',
-  'nav',
-  'p',
-  'span',
-  'svg',
-  'ul'
-] as const
+type PolymorphicPrimitive = Polymorphic.ForwardRefComponent<'button', PrimitiveProps>;
 
-type PropsWithoutRef<P> = P extends any ? ('ref' extends keyof P ? Pick<P, Exclude<keyof P, 'ref'>> : P) : P;
+// eslint-disable-next-line react/display-name
+export const Primitive = forwardRef((
+  {
+    className,
+    children,
+    as: Component = 'button',
+    ...props
+  }, forwardedRef) => {
+  return (
+    <Component
+      className={clsx(className)}
+      ref={forwardedRef}
+      {...props}
+    >
+      {children}
+    </Component>
+  )
+}) as PolymorphicPrimitive
 
-type ComponentPropsWithoutRef<T extends React.ElementType> = PropsWithoutRef<
-  React.ComponentProps<T>
->;
-
-type Primitives = { [E in typeof NODES[number]]: PrimitiveForwardRefComponent<E> };
-
-type PrimitivePropsWithRef<E extends React.ElementType> = React.ComponentPropsWithRef<E> & {
-  as?: keyof JSX.IntrinsicElements;
-};
-
-interface PrimitiveForwardRefComponent<E extends React.ElementType>
-  extends React.ForwardRefExoticComponent<PrimitivePropsWithRef<E>> {}
-
-export const Primitive = NODES.reduce(
-  (primitive, node) => ({
-    ...primitive,
-    // eslint-disable-next-line react/display-name
-    [node]: React.forwardRef((props: PrimitivePropsWithRef<typeof node>, forwardedRef: any) => {
-      const { as, ...primitiveProps } = props
-      const Comp: any = as || node
-
-      return <Comp {...primitiveProps} ref={forwardedRef} />
-    })
-  }),
-  {} as Primitives
-)
-
-export type { ComponentPropsWithoutRef, PrimitivePropsWithRef }
+Primitive.displayName = 'Primitive'
