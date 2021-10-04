@@ -5,3 +5,8 @@ npm i @wonderflow/react-components
 ```
 
 For more info check https://design.wonderflow.ai/
+
+## Contributing
+
+See [contributing.md](./CONTRIBUTING.md) to contribute to this project
+
