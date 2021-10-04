@@ -5,18 +5,18 @@
   &[data-button-dimension='small'] {
     inline-size: env(--space-24);
     min-inline-size: env(--space-24);
-    padding: inherit;
+    padding: 0;
   }
 
   &[data-button-dimension='regular'] {
     inline-size: env(--space-40);
     min-inline-size: env(--space-40);
-    padding: inherit;
+    padding: 0;
   }
 
   &[data-button-dimension='big'] {
     inline-size: env(--space-48);
     min-inline-size: env(--space-48);
-    padding: inherit;
+    padding: 0;
   }
 }
