@@ -54,7 +54,6 @@
   },
   "dependencies": {
     "@bumaga/tabs": "0.2.0",
-    "@radix-ui/react-polymorphic": "0.0.13",
     "@react-aria/interactions": "3.6.0",
     "@wonderflow/config": "1.4.7",
     "@wonderflow/eslint-config": "1.1.0",
