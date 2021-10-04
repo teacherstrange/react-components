@@ -1,26 +1,26 @@
 import clsx from 'clsx'
-import React, { MouseEvent, useCallback } from 'react'
+import React, { forwardRef, MouseEvent, useCallback } from 'react'
 // import type * as Polymorphic from '../polymorphic'
 import { IconNames } from '../icons/types'
-import { Icon, IconProps } from '../'
-import { Primitive, PrimitivePropsWithRef } from '../primitive'
+import { Icon, IconProps, Primitive } from '../'
 import { Button as ButtonClass } from './button.module.css'
 
-export type ButtonProps = PrimitivePropsWithRef<'button'> & PropsWithClass & {
+export type ButtonProps = PropsWithClass & {
   kind?: 'primary' | 'secondary' | 'flat';
   dimension?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
-  icon?: IconNames;
-  iconPosition?: 'left' | 'right';
+  icon?: IconNames,
+  iconPosition?: 'left' | 'right',
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
+  as?: keyof JSX.IntrinsicElements;
   onClick?(event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void;
 }
 
-// type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonProps>;
+type ButtonElement = React.ElementRef<typeof Primitive.button>;
 
 // eslint-disable-next-line react/display-name
-export const Button: React.FC<ButtonProps> = (
+export const Button = forwardRef<ButtonElement, ButtonProps>((
   {
     kind = 'primary',
     dimension = 'regular',
@@ -31,10 +31,10 @@ export const Button: React.FC<ButtonProps> = (
     disabled,
     iconPosition = 'left',
     type = 'button',
-    onClick,
     as = 'button',
+    onClick,
     ...props
-  }) => {
+  }, forwardedRef) => {
   const handleClick = useCallback(
     () => (event: any) => {
       if (!disabled && onClick) onClick(event)
@@ -53,6 +53,7 @@ export const Button: React.FC<ButtonProps> = (
     // eslint-disable-next-line react/jsx-pascal-case
     <Primitive.button
       as={as}
+      ref={forwardedRef}
       type={as === 'button' ? type : undefined}
       className={clsx(ButtonClass, className)}
       data-button-icon-position={iconPosition}
@@ -68,6 +69,6 @@ export const Button: React.FC<ButtonProps> = (
       {children}
     </Primitive.button>
   )
-}
+})
 
 Button.displayName = 'Button'
