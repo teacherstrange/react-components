@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import React, { forwardRef, MouseEvent, useCallback } from 'react'
 import type * as Polymorphic from '../polymorphic'
 import { IconNames } from '../icons/types'
-import { Icon, IconProps } from '../'
+import { Icon, IconProps, Primitive } from '../'
 import { Button as ButtonClass } from './button.module.css'
 
 export type ButtonProps = PropsWithClass & {
@@ -16,7 +16,10 @@ export type ButtonProps = PropsWithClass & {
   onClick?(event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void;
 }
 
-type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonProps>;
+type PolymorphicButton = Polymorphic.ForwardRefComponent<
+  Polymorphic.IntrinsicElement<typeof Primitive>,
+  Polymorphic.OwnProps<typeof Primitive> & ButtonProps
+>;
 
 // eslint-disable-next-line react/display-name
 export const Button = forwardRef((
@@ -49,7 +52,7 @@ export const Button = forwardRef((
   }
 
   return (
-    <Wrapper
+    <Primitive
       ref={forwardedRef}
       type={Wrapper === 'button' ? type : undefined}
       className={clsx(ButtonClass, className)}
@@ -64,7 +67,7 @@ export const Button = forwardRef((
     >
       {icon && <Icon name={icon} dimension={iconSize[dimension] as IconProps['dimension']} />}
       {children}
-    </Wrapper>
+    </Primitive>
   )
 }) as PolymorphicButton
 
