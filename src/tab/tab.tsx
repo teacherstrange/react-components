@@ -18,7 +18,8 @@ import {
 } from 'react-roving-tabindex'
 import clsx from 'clsx'
 import { useUIDSeed } from 'react-uid'
-import { Stack, Icon, IconNames } from '../'
+import { IconNames } from '../icons/types'
+import { Stack, Icon } from '../'
 
 import {
   Tab as TabClass,

@@ -1,5 +1,6 @@
 import React, { ChangeEvent, forwardRef, Ref } from 'react'
-import { Text, Stack, IconNames, Icon, IconProps } from '../'
+import { Text, Stack, Icon, IconProps } from '../'
+import { IconNames } from '../icons/types'
 import { BaseField, BaseFieldProps } from './base-field'
 import clsx from 'clsx'
 import { useUIDSeed } from 'react-uid'

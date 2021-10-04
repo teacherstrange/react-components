@@ -1,5 +1,6 @@
 import React from 'react'
-import { Select, SelectProps, IconNames } from '../'
+import { IconNames } from '../icons/types'
+import { Select, SelectProps } from '../'
 import { Except } from 'type-fest'
 
 import clsx from 'clsx'

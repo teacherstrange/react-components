@@ -2,7 +2,8 @@ import React, { forwardRef, ReactNode } from 'react'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { Snackbar as SnackbarClass, Icon as IconClass } from './snackbar.module.css'
 import clsx from 'clsx'
-import { Title, Stack, Icon, IconNames } from '../'
+import { IconNames } from '../icons/types'
+import { Title, Stack, Icon } from '../'
 
 export type SnackbarProps = {
   icon?: IconNames;

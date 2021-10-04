@@ -4,7 +4,8 @@ import { Stack } from '../stack'
 import { useRovingTabIndex, useFocusEffect } from 'react-roving-tabindex'
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import { DropdownItem as DropdownItemClass, Icon as IconClass } from './dropdown-item.module.css'
-import { Tooltip, IconNames } from '../'
+import { IconNames } from '../icons/types'
+import { Tooltip } from '../'
 import clsx from 'clsx'
 
 export type DropdownItemProps = PropsWithClass & {

@@ -1,5 +1,6 @@
 import React, { ChangeEvent, forwardRef, SelectHTMLAttributes, ReactNode } from 'react'
-import { Text, IconNames, Stack, Icon, IconProps } from '../'
+import { Text, Stack, Icon, IconProps } from '../'
+import { IconNames } from '../icons/types'
 import { Select as SelectClass, FieldContainer, Icon as IconClass, Field } from './select.module.css'
 import clsx from 'clsx'
 import { useUIDSeed } from 'react-uid'
