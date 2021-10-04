@@ -1,7 +1,6 @@
 import React, { CSSProperties, forwardRef, ReactNode } from 'react'
-import type * as Polymorphic from '../polymorphic'
 import tkns from '@wonderflow/tokens/platforms/web/tokens.json'
-import { Stack, StackProps } from '../'
+import { Stack, StackProps, Polymorphic } from '../'
 import clsx from 'clsx'
 
 import { Card as CardClass, Left, Content, Right } from './card.module.css'

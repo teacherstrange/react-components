@@ -1,8 +1,7 @@
 import React, { forwardRef, ReactNode } from 'react'
 import clsx from 'clsx'
-import type * as Polymorphic from '../polymorphic'
 import { useUIDSeed } from 'react-uid'
-import { Text, TextProps, Stack, Icon } from '../'
+import { Text, TextProps, Stack, Icon, Polymorphic } from '../'
 
 import { StarMeter as StarMeterClass, Gradient, Icon as IconClass } from './star-meter.module.css'
 

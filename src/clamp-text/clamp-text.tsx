@@ -1,5 +1,5 @@
 import React, { CSSProperties, forwardRef, ReactNode } from 'react'
-import type * as Polymorphic from '../polymorphic'
+import { Polymorphic } from '../'
 import clsx from 'clsx'
 
 import { ClampText as ClampTextClass } from './clamp-text.module.css'
