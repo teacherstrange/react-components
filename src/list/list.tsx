@@ -1,5 +1,5 @@
 import React, { Children, forwardRef, ReactElement, useMemo } from 'react'
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import type * as Polymorphic from '../polymorphic'
 import { List as ListClass, Marker } from './list.module.css'
 import clsx from 'clsx'
 import { IconNames } from '../icons/types'

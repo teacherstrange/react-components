@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import React, { forwardRef, MouseEvent, useCallback } from 'react'
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import type * as Polymorphic from '../polymorphic'
 import { IconNames } from '../icons/types'
 import { Icon, IconProps } from '../'
 import { Button as ButtonClass } from './button.module.css'

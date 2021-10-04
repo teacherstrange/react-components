@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactNode } from 'react'
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import type * as Polymorphic from '../polymorphic'
 import { Snackbar as SnackbarClass, Icon as IconClass } from './snackbar.module.css'
 import clsx from 'clsx'
 import { IconNames } from '../icons/types'

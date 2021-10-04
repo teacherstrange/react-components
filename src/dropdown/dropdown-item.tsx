@@ -2,7 +2,7 @@ import React, { ReactNode, useCallback, forwardRef, useRef, useMemo } from 'reac
 import { Icon } from '../icon'
 import { Stack } from '../stack'
 import { useRovingTabIndex, useFocusEffect } from 'react-roving-tabindex'
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import type * as Polymorphic from '../polymorphic'
 import { DropdownItem as DropdownItemClass, Icon as IconClass } from './dropdown-item.module.css'
 import { IconNames } from '../icons/types'
 import { Tooltip } from '../'

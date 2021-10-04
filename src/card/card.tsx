@@ -1,5 +1,5 @@
 import React, { CSSProperties, forwardRef, ReactNode } from 'react'
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import type * as Polymorphic from '../polymorphic'
 import tkns from '@wonderflow/tokens/platforms/web/tokens.json'
 import { Stack, StackProps } from '../'
 import clsx from 'clsx'

@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactNode } from 'react'
 import clsx from 'clsx'
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import type * as Polymorphic from '../polymorphic'
 import { useUIDSeed } from 'react-uid'
 import { Text, TextProps, Stack, Icon } from '../'
 

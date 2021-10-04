@@ -1,5 +1,5 @@
 import React, { CSSProperties, forwardRef } from 'react'
-import type * as Polymorphic from '@radix-ui/react-polymorphic'
+import type * as Polymorphic from '../polymorphic'
 import * as styles from './title.module.css'
 import clsx from 'clsx'
 
