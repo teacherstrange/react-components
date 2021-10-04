@@ -1,19 +1,11 @@
 import clsx from 'clsx'
 import React, { forwardRef, MouseEvent, useCallback } from 'react'
-// import type * as Polymorphic from '../polymorphic'
+import type * as Polymorphic from '../polymorphic'
 import { IconNames } from '../icons/types'
-import { Icon, IconProps, Primitive, ComponentPropsWithoutRef } from '../'
+import { Icon, IconProps } from '../'
 import { Button as ButtonClass } from './button.module.css'
 
-// type PolymorphicButton = Polymorphic.ForwardRefComponent<
-//   Polymorphic.IntrinsicElement<typeof Primitive>,
-//   Polymorphic.OwnProps<typeof Primitive> & ButtonProps
-// >;
-
-type ButtonElement = React.ElementRef<typeof Primitive.button>;
-type PrimitiveButtonProps = ComponentPropsWithoutRef<typeof Primitive.button>;
-
-export type ButtonProps = PrimitiveButtonProps & {
+export type ButtonProps = PropsWithClass & {
   kind?: 'primary' | 'secondary' | 'flat';
   dimension?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
@@ -24,8 +16,10 @@ export type ButtonProps = PrimitiveButtonProps & {
   onClick?(event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void;
 }
 
+type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonProps>;
+
 // eslint-disable-next-line react/display-name
-export const Button = forwardRef<ButtonElement, ButtonProps>((
+export const Button = forwardRef((
   {
     kind = 'primary',
     dimension = 'regular',
@@ -37,7 +31,7 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((
     iconPosition = 'left',
     type = 'button',
     onClick,
-    as = 'button',
+    as: Wrapper = 'button',
     ...props
   }, forwardedRef) => {
   const handleClick = useCallback(
@@ -55,11 +49,9 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((
   }
 
   return (
-    // eslint-disable-next-line react/jsx-pascal-case
-    <Primitive.button
-      as={as}
+    <Wrapper
       ref={forwardedRef}
-      type={as === 'button' ? type : undefined}
+      type={Wrapper === 'button' ? type : undefined}
       className={clsx(ButtonClass, className)}
       data-button-icon-position={iconPosition}
       data-button-dimension={dimension}
@@ -72,8 +64,8 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((
     >
       {icon && <Icon name={icon} dimension={iconSize[dimension] as IconProps['dimension']} />}
       {children}
-    </Primitive.button>
+    </Wrapper>
   )
-})
+}) as PolymorphicButton
 
 Button.displayName = 'Button'
