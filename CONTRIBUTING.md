@@ -1,8 +1,8 @@
 # Contributing
 
-## Start 
+## Start
 
-Execute following command to start the storybook:  
+Execute following command to start the storybook:
+
 - `npm run build`
 - `npm start`
-
