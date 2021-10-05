@@ -59,7 +59,6 @@ const ModalElement: React.FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps
                 <m.div
                   key={seedID('modal-container')}
                   className={Container}
-                  data-theme="light"
                   initial={{ scale: 0.98, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.98, opacity: 0 }}

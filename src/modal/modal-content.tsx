@@ -23,6 +23,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(({
       <div
         className={clsx(Content, className)}
         ref={forwardedRef}
+        data-theme="light"
         {...props}
       >
         <header className={Header}>
