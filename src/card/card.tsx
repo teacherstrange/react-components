@@ -37,8 +37,8 @@ export const Card = forwardRef(({
   ...props
 }, forwardedRef) => {
   const dynamicStyle: CSSProperties = {
-    '--padding': padding ? tkns.space[padding] : '0',
-    '--radius': radius ? tkns.radius[radius] : '0'
+    '--padding': padding && tkns.space[padding],
+    '--radius': radius && tkns.radius[radius]
   }
 
   return (

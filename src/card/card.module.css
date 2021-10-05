@@ -1,7 +1,7 @@
-.Card {
+:where(.Card) {
   background: var(--global-background);
-  padding: var(--padding, env(--space-24));
-  border-radius: var(--radius, env(--radius-8));
+  padding: var(--padding);
+  border-radius: var(--radius);
   position: relative;
 
   &[data-card-dimmed='1'] {
