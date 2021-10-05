@@ -41,7 +41,7 @@ export default {
 }
 
 const SingleTemplate = (args) => (
-  <Stack rowGap={24} fill={false} horizontalAlign="start">
+  <Stack rowGap={24}>
     <Textfield {...args} size={4} label="Empty" placeholder="Placeholder" />
     <Textfield {...args} size={4} label="Empty" placeholder="Placeholder" />
     <Textfield {...args} size={4} label="Empty" placeholder="Placeholder" />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Tab } from './tab'
 import { Button } from '../button'
+import { Stack } from '../stack'
 
 export default {
   title: 'Components/Tab',
@@ -91,9 +92,10 @@ export const ConditionalTab = () => {
   return (
     <Tab.Root state={state}>
       <Tab.Panel label="Always visible">
-        Always visible
-        {' '}
-        <Button icon="eye" onClick={() => setIsVisible(!isVisible)}>Toggle new tab</Button>
+        <Stack direction="column" verticalPadding={16} rowGap={8} inline>
+          Always visible
+          <Button icon="eye" onClick={() => setIsVisible(!isVisible)}>Toggle new tab</Button>
+        </Stack>
       </Tab.Panel>
       {isVisible && <Tab.Panel label="Visible conditionally">Panel 2</Tab.Panel>}
     </Tab.Root>

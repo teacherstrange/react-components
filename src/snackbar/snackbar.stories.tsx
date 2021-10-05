@@ -8,10 +8,6 @@ export default {
     kind: {
       options: ['info', 'warning', 'neutral', 'positive', 'danger'],
       control: { type: 'radio' }
-    },
-    elevated: {
-      options: [true, false],
-      control: { type: 'inline-radio' }
     }
   }
 }
@@ -24,6 +20,5 @@ const Template = (args) => (
 
 export const Single = Template.bind({})
 Single.args = {
-  title: 'Sample title',
-  elevated: false
+  title: 'Sample title'
 }
