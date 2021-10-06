@@ -26,6 +26,10 @@
     border-bottom: 2px solid currentColor;
   }
 
+  &:active {
+    background-color: var(--global-vibrancy-background-hover);
+  }
+
   &:checked {
     background-color: var(--dimmed-7);
 
