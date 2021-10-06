@@ -15,7 +15,7 @@ export default {
 }
 
 const Template = (args) => (
-  <ThemeSwitch currentTheme="system" dimension="big" {...args} />
+  <ThemeSwitch currentTheme="system" dimension="small" {...args} />
 )
 
 export const Default = Template.bind({})

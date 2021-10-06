@@ -8,6 +8,7 @@ import clsx from 'clsx'
 export type ThemeSwitchProps = Except<SelectProps, 'children'> & {
   currentTheme?: string;
   onChange: SelectProps['onChange'];
+  dimension?: SelectProps['dimension'];
 }
 
 export const ThemeSwitch = ({
