@@ -13,7 +13,8 @@ export type ThemeSwitchProps = Except<SelectProps, 'children'> & {
 export const ThemeSwitch = ({
   className,
   currentTheme = 'system',
-  onChange
+  onChange,
+  dimension
 }: ThemeSwitchProps) => {
   const icon = {
     light: 'sun-bright' as IconNames,
@@ -23,6 +24,7 @@ export const ThemeSwitch = ({
 
   return (
     <Select
+      dimension={dimension}
       onChange={onChange}
       icon={currentTheme === 'system' ? icon.system : icon[currentTheme]}
       defaultValue={currentTheme}
