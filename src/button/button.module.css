@@ -1,4 +1,4 @@
-:where(.Button) {
+.Button {
   box-sizing: border-box;
   user-select: none;
   -webkit-touch-callout: none;
@@ -20,7 +20,6 @@
   border-radius: env(--radius-4);
   background: none;
   grid-gap: env(--space-8);
-  background-image: none;
 
   /* Sizes */
 
