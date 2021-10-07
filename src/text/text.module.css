@@ -3,6 +3,7 @@
   min-block-size: 0.01vh;
   font-size: var(--fluid-type-max);
   max-inline-size: var(--maxW, initial);
+  text-align: var(--tAlign);
 
   &[data-text-is-fluid='true'] {
     font-size:

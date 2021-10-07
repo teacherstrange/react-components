@@ -16,6 +16,10 @@ export default {
     lineHeight: {
       options: ['none', 'small', 'large'],
       control: { type: 'select' }
+    },
+    textAlign: {
+      options: ['start', 'center', 'end'],
+      control: { type: 'inline-radio' }
     }
   }
 }
@@ -37,8 +41,9 @@ const Template = (args) => <Container dimension="medium"><Title {...args}>Sample
 export const Single = Template.bind({})
 Single.args = {
   as: 'span',
-  lineHeignt: 'small',
+  lineHeight: 'small',
   level: '1',
   fluid: true,
-  maxWidth: 'auto'
+  maxWidth: 'auto',
+  textAlign: 'center'
 }

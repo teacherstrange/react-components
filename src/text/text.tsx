@@ -11,6 +11,7 @@ export type TextProps = {
   weight?: 'thin' | 'bold';
   fluid?: boolean;
   maxWidth?: string;
+  textAlign?: 'start' | 'center' | 'end';
 }
 
 type PolymorphicText = Polymorphic.ForwardRefComponent<'p', TextProps>;
@@ -24,13 +25,15 @@ export const Text = forwardRef(({
   dimmed,
   weight,
   maxWidth,
+  textAlign = 'start',
   as: Wrapper = 'p',
   fluid = true,
   style,
   ...props
 }, forwardedRef) => {
   const dynamicStyle: CSSProperties = {
-    '--maxW': maxWidth
+    '--maxW': maxWidth,
+    '--tAlign': textAlign
   }
 
   return (
