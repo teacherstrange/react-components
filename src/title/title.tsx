@@ -6,6 +6,7 @@ import clsx from 'clsx'
 export type TitleProps = {
   level?: '1' | '2' | '3' | '4' | '5' | '6' | 'display';
   lineHeignt?: 'none' | 'small' | 'large';
+  textAlign?: 'start' | 'center' | 'end';
   maxWidth?: string;
   fluid?: boolean;
 }
@@ -20,6 +21,7 @@ export const Title = forwardRef(({
   lineHeignt = 'small',
   level = '1',
   fluid = true,
+  textAlign = 'start',
   maxWidth,
   style,
   ...props
@@ -35,6 +37,7 @@ export const Title = forwardRef(({
       ref={forwardedRef}
       data-title-line-height={lineHeignt}
       data-title-is-fluid={fluid}
+      data-title-text-align={textAlign}
       className={clsx(styles.Title, styles[computedLevel], className)}
       style={{ ...dynamicStyle, style }}
       {...props}

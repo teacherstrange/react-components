@@ -16,6 +16,10 @@ export default {
     lineHeight: {
       options: ['none', 'small', 'large'],
       control: { type: 'select' }
+    },
+    textAlign: {
+      options: ['start', 'center', 'end'],
+      control: { type: 'inline-radio' }
     }
   }
 }
@@ -40,5 +44,6 @@ Single.args = {
   lineHeignt: 'small',
   level: '1',
   fluid: true,
-  maxWidth: 'auto'
+  maxWidth: 'auto',
+  textAlign: 'center'
 }

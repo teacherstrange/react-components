@@ -24,6 +24,18 @@
     &[data-heading-line-height='small'] {
       line-height: 1;
     }
+
+    &[data-title-text-align='start'] {
+      text-align: start;
+    }
+
+    &[data-title-text-align='center'] {
+      text-align: center;
+    }
+
+    &[data-title-text-align='end'] {
+      text-align: end;
+    }
   }
 
   &:is(.H6) {

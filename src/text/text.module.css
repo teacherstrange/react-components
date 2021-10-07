@@ -85,4 +85,18 @@
   &[data-text-weight='bold'] {
     font-weight: 600;
   }
+
+  /* Text Direction */
+
+  &[data-text-align='start'] {
+    text-align: start;
+  }
+
+  &[data-text-align='center'] {
+    text-align: center;
+  }
+
+  &[data-text-align='end'] {
+    text-align: end;
+  }
 }

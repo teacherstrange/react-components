@@ -8,7 +8,8 @@ export default {
   args: {
     maxWidth: 'auto',
     fluid: true,
-    children: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores, tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!'
+    children: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores, tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!',
+    textAlign: 'start'
   },
   argTypes: {
     sentiment: {
@@ -22,6 +23,10 @@ export default {
     fluid: {
       options: [true, false],
       control: { type: 'inline-radio' }
+    },
+    textAlign: {
+      options: ['start', 'center', 'end'],
+      control: { type: 'inline-radio' }
     }
   }
 }
@@ -33,4 +38,8 @@ export const Weight = Template.bind({})
 Weight.args = {
   weight: 'bold',
   fluid: true
+}
+export const Align = Template.bind({})
+Align.args = {
+  textAlign: 'center'
 }
