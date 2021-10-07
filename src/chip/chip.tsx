@@ -10,7 +10,7 @@ export type ChipProps = PropsWithClass & {
   onDismissClick?(): void;
 }
 
-export const Chip = forwardRef<HTMLSpanElement, ChipProps>(({
+export const Chip: React.FC<ChipProps> = forwardRef<HTMLSpanElement, ChipProps>(({
   children,
   className,
   dimension = 'regular',
