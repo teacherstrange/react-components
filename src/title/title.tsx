@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 export type TitleProps = {
   level?: '1' | '2' | '3' | '4' | '5' | '6' | 'display';
-  lineHeignt?: 'none' | 'small' | 'large';
+  lineHeight?: 'none' | 'small' | 'large';
   textAlign?: 'start' | 'center' | 'end';
   maxWidth?: string;
   fluid?: boolean;
@@ -18,7 +18,7 @@ export const Title = forwardRef(({
   children,
   className,
   as: Wrapper = 'span',
-  lineHeignt = 'small',
+  lineHeight = 'small',
   level = '1',
   fluid = true,
   textAlign = 'start',
@@ -35,7 +35,7 @@ export const Title = forwardRef(({
   return (
     <Wrapper
       ref={forwardedRef}
-      data-title-line-height={lineHeignt}
+      data-title-line-height={lineHeight}
       data-title-is-fluid={fluid}
       data-title-text-align={textAlign}
       className={clsx(styles.Title, styles[computedLevel], className)}
