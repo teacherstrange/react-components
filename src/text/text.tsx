@@ -32,7 +32,8 @@ export const Text = forwardRef(({
   ...props
 }, forwardedRef) => {
   const dynamicStyle: CSSProperties = {
-    '--maxW': maxWidth
+    '--maxW': maxWidth,
+    '--tAlign': textAlign
   }
 
   return (
@@ -43,7 +44,6 @@ export const Text = forwardRef(({
       data-text-sentiment={sentiment}
       data-text-dimmed={dimmed}
       data-text-is-fluid={fluid}
-      data-text-align={textAlign}
       className={clsx(TextClass, className)}
       style={{ ...dynamicStyle, ...style }}
       {...props}

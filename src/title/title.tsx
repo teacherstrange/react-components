@@ -29,7 +29,8 @@ export const Title = forwardRef(({
   const computedLevel = level.match(/\d/g) ? `H${level}` : level.charAt(0).toUpperCase() + level.slice(1)
 
   const dynamicStyle: CSSProperties = {
-    '--maxW': maxWidth
+    '--maxW': maxWidth,
+    '--tAlign': textAlign
   }
 
   return (
@@ -37,7 +38,6 @@ export const Title = forwardRef(({
       ref={forwardedRef}
       data-title-line-height={lineHeight}
       data-title-is-fluid={fluid}
-      data-title-text-align={textAlign}
       className={clsx(styles.Title, styles[computedLevel], className)}
       style={{ ...dynamicStyle, style }}
       {...props}

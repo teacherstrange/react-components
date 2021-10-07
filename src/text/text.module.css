@@ -3,6 +3,7 @@
   min-block-size: 0.01vh;
   font-size: var(--fluid-type-max);
   max-inline-size: var(--maxW, initial);
+  text-align: var(--tAlign);
 
   &[data-text-is-fluid='true'] {
     font-size:
@@ -84,19 +85,5 @@
 
   &[data-text-weight='bold'] {
     font-weight: 600;
-  }
-
-  /* Text Direction */
-
-  &[data-text-align='start'] {
-    text-align: start;
-  }
-
-  &[data-text-align='center'] {
-    text-align: center;
-  }
-
-  &[data-text-align='end'] {
-    text-align: end;
   }
 }

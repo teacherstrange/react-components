@@ -41,5 +41,5 @@ Weight.args = {
 }
 export const Align = Template.bind({})
 Align.args = {
-  textAlign: 'center'
+  textAlign: 'end'
 }
