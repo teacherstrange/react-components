@@ -1,7 +1,7 @@
 {
   "branches": [
     "main",
-    { "name": "beta", "channel": "beta", "prerelease": true }
+    { "name": "next", "channel": "next", "prerelease": true }
   ],
   "plugins": [
     "commit-analyzer-fail-on-no-release",
