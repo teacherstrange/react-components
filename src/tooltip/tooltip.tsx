@@ -53,7 +53,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
   const { focusWithinProps } = useFocusWithin({
     onFocusWithin: (e) => {
-      console.log(e)
       setControlledVisible(true)
     },
     onBlurWithin: () => {
