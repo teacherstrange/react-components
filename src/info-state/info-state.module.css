@@ -1,0 +1,48 @@
+.IconWrapper {
+  border-radius: env(--radius-8);
+  padding: env(--space-8);
+
+  & svg {
+    display: block;
+  }
+
+  &[data-info-state-icon-color='cyan'] {
+    background-color: var(--highlight-cyan-background);
+    color: var(--highlight-cyan-foreground);
+  }
+
+  &[data-info-state-icon-color='gray'] {
+    background-color: var(--highlight-gray-background);
+    color: var(--highlight-gray-foreground);
+  }
+
+  &[data-info-state-icon-color='green'] {
+    background-color: var(--highlight-green-background);
+    color: var(--highlight-green-foreground);
+  }
+
+  &[data-info-state-icon-color='purple'] {
+    background-color: var(--highlight-purple-background);
+    color: var(--highlight-purple-foreground);
+  }
+
+  &[data-info-state-icon-color='yellow'] {
+    background-color: var(--highlight-yellow-background);
+    color: var(--highlight-yellow-foreground);
+  }
+
+  &[data-info-state-icon-color='red'] {
+    background-color: var(--highlight-red-background);
+    color: var(--highlight-red-foreground);
+  }
+
+  &[data-info-state-icon-color='blue'] {
+    background-color: var(--highlight-blue-background);
+    color: var(--highlight-blue-foreground);
+  }
+}
+
+.Image {
+  max-inline-size: 22rem;
+  max-block-size: 22rem;
+}

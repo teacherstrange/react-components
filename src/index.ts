@@ -12,13 +12,7 @@ export * as Polymorphic from './polymorphic'
 
 export { Button, ButtonProps } from './button'
 export { Card, CardProps } from './card'
-
-export {
-  Checkbox, CheckboxProps,
-  Radio, RadioProps,
-  Toggle, ToggleProps
-} from './selection-controls'
-
+export { Checkbox, CheckboxProps, Radio, RadioProps, Toggle, ToggleProps } from './selection-controls'
 export { Chip, ChipProps } from './chip'
 export { ClampText, ClampTextProps } from './clamp-text'
 export { Container, ContainerProps } from './container'
@@ -27,6 +21,7 @@ export { Dropdown, DropdownProps } from './dropdown'
 export { Elevator, ElevatorProps } from './elevator'
 export { Icon, IconProps } from './icon'
 export { IconButton, IconButtonProps } from './icon-button'
+export { InfoState, InfoStateProps } from './info-state'
 export { List, ListProps } from './list'
 export { Modal, ModalProps, useModalContext } from './modal'
 export { Prose, ProseProps } from './prose'
