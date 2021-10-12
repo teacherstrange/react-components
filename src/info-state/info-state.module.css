@@ -71,7 +71,7 @@
   30%,
   100% {
     opacity: 0;
-    transform: scale(8);
+    transform: scale(3);
     border-radius: 50px;
   }
 }
