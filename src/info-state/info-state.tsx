@@ -5,7 +5,6 @@ import { IconWrapper, Image } from './info-state.module.css'
 
 export type InfoStateProps = PropsWithClass & {
   title: ReactNode;
-  text?: ReactNode;
   icon?: IconNames;
   image?: string;
   direction?: StackProps['direction'];
@@ -47,7 +46,7 @@ export const InfoState = forwardRef<HTMLDivElement, InfoStateProps>(({
         fill={false}
       >
         <Title maxWidth="20ch" textAlign={isHorizontal ? 'start' : 'center'} level="4">{title}</Title>
-        <Text maxWidth="40ch" textAlign={isHorizontal ? 'start' : 'center'}>{children}</Text>
+        <Text maxWidth="40ch" dimmed={6} textAlign={isHorizontal ? 'start' : 'center'}>{children}</Text>
         {actions && (
           <Stack verticalPadding={16} inline direction="row" columnGap={16} rowGap={16} wrap>
             {actions}
