@@ -1,48 +1,77 @@
 .IconWrapper {
   border-radius: env(--radius-8);
   padding: env(--space-8);
+  display: block;
+  position: relative;
+  background-color: var(--bg);
+  color: var(--fg);
+
+  &::before {
+    content: '';
+    background-color: var(--fg, currentColor);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    animation: pulse 6s ease 0.5s infinite;
+    animation-fill-mode: backwards;
+  }
 
   & svg {
     display: block;
   }
 
   &[data-info-state-icon-color='cyan'] {
-    background-color: var(--highlight-cyan-background);
-    color: var(--highlight-cyan-foreground);
+    --bg: var(--highlight-cyan-background);
+    --fg: var(--highlight-cyan-foreground);
   }
 
   &[data-info-state-icon-color='gray'] {
-    background-color: var(--highlight-gray-background);
-    color: var(--highlight-gray-foreground);
+    --bg: var(--highlight-gray-background);
+    --fg: var(--highlight-gray-foreground);
   }
 
   &[data-info-state-icon-color='green'] {
-    background-color: var(--highlight-green-background);
-    color: var(--highlight-green-foreground);
+    --bg: var(--highlight-green-background);
+    --fg: var(--highlight-green-foreground);
   }
 
   &[data-info-state-icon-color='purple'] {
-    background-color: var(--highlight-purple-background);
-    color: var(--highlight-purple-foreground);
+    --bg: var(--highlight-purple-background);
+    --fg: var(--highlight-purple-foreground);
   }
 
   &[data-info-state-icon-color='yellow'] {
-    background-color: var(--highlight-yellow-background);
-    color: var(--highlight-yellow-foreground);
+    --bg: var(--highlight-yellow-background);
+    --fg: var(--highlight-yellow-foreground);
   }
 
   &[data-info-state-icon-color='red'] {
-    background-color: var(--highlight-red-background);
-    color: var(--highlight-red-foreground);
+    --bg: var(--highlight-red-background);
+    --fg: var(--highlight-red-foreground);
   }
 
   &[data-info-state-icon-color='blue'] {
-    background-color: var(--highlight-blue-background);
-    color: var(--highlight-blue-foreground);
+    --bg: var(--highlight-blue-background);
+    --fg: var(--highlight-blue-foreground);
   }
 }
 
 .Image {
   max-inline-size: 22rem;
   max-block-size: 22rem;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  30%,
+  100% {
+    opacity: 0;
+    transform: scale(8);
+    border-radius: 50px;
+  }
 }

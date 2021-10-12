@@ -37,8 +37,14 @@ export const InfoState = forwardRef<HTMLDivElement, InfoStateProps>(({
       wrap={!!image}
       {...props}
     >
-      {(!image && icon) && <span data-info-state-icon-color={iconColor} className={IconWrapper}><Icon name={icon} dimension={48} /></span>}
+      {(!image && icon) && (
+        <span data-info-state-icon-color={iconColor} className={IconWrapper}>
+          <Icon name={icon} dimension={48} />
+        </span>
+      )}
+
       {(image && !icon) && <img className={Image} alt="" width="400" src={image} loading="lazy" decoding="async" />}
+
       <Stack
         rowGap={16}
         horizontalAlign={isHorizontal ? 'start' : 'center'}
