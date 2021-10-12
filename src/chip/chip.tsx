@@ -5,7 +5,7 @@ import { Chip as ChipClass, Action } from './chip.module.css'
 
 export type ChipProps = PropsWithClass & {
   dimension?: 'small' | 'regular' | 'big';
-  color?: 'gray' | 'cyan' | 'green' | 'purple' | 'yellow' | 'red' | 'blue',
+  color?: 'gray' | 'cyan' | 'green' | 'purple' | 'yellow' | 'red' | 'blue';
   interactive?: boolean;
   onDismissClick?(): void;
 }
