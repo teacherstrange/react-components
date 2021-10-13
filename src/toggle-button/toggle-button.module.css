@@ -1,6 +1,7 @@
 .ToggleButton.ToggleButton {
   border-radius: 200px;
   padding: 0;
+  transition: box-shadow env(--duration-300) env(--easing-entrance);
 
   &[aria-pressed='true'] {
     box-shadow:
