@@ -10,7 +10,7 @@
   }
 
   &[data-button-kind='primary'] {
-    --border-color: var(--highlight-red-background);
+    --border-color: hsl(env(--color-red-5));
   }
 
   &[data-button-kind='secondary'] {
