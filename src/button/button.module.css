@@ -66,7 +66,12 @@
   &[data-button-kind='flat'] {
     color: var(--global-foreground);
 
-    &:is(:hover, :focus) {
+    &:is(:active) {
+      backdrop-filter: blur(32px);
+      background-color: var(--global-vibrancy-background-hover);
+    }
+
+    &:is(:hover, :focus):not(:active) {
       backdrop-filter: blur(32px);
       background-color: var(--global-vibrancy-background);
     }
