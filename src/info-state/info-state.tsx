@@ -22,11 +22,12 @@ export const InfoState = forwardRef<HTMLDivElement, InfoStateProps>(({
   iconColor = 'blue',
   actions,
   ...props
-}) => {
+}, forwardedRef) => {
   const isHorizontal = direction === 'row'
 
   return (
     <Stack
+      ref={forwardedRef}
       direction={direction}
       rowGap={24}
       columnGap={32}
