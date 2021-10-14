@@ -1,4 +1,4 @@
-.ToggleButton.ToggleButton {
+.ToggleButton {
   border-radius: 200px;
   padding: 0;
   transition: box-shadow env(--duration-300) env(--easing-entrance);
@@ -6,11 +6,12 @@
   &[aria-pressed='true'] {
     box-shadow:
       0 0 0 var(--border-width) var(--border-color),
+      0 0 0 var(--border-width) var(--border-color),
       inset 0 0 0 calc(var(--border-width) / 2) hsl(0deg 0% 0% / 20%);
   }
 
   &[data-button-kind='primary'] {
-    --border-color: hsl(env(--color-red-5));
+    --border-color: hsl(env(--color-red-30) / 25%);
   }
 
   &[data-button-kind='secondary'] {
