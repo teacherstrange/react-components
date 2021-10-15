@@ -3,16 +3,27 @@ import React, {
   useState,
   useMemo,
   useContext,
-  cloneElement,
-  isValidElement
+  FC
 } from 'react'
 
-import useConstant from 'use-constant'
+import useConstant from './use-constant'
 
-const TabsState = createContext()
-const Elements = createContext()
+type TabsContext = [number ?, React.Dispatch<React.SetStateAction<number>>?]
+const TabsState = createContext<TabsContext>([])
 
-export const Tabs = ({ state: outerState, children }) => {
+interface ElementsContext {
+  tabs: React.ReactNode[]
+  panels: React.ReactNode[]
+}
+const Elements = createContext<ElementsContext>({
+  tabs: [],
+  panels: []
+})
+interface TabsProps {
+  state: [number, React.Dispatch<React.SetStateAction<number>>]
+}
+
+export const Tabs: FC<TabsProps> = ({ state: outerState, children }) => {
   const innerState = useState(0)
   const elements = useConstant(() => ({ tabs: [], panels: [] }))
   const state = outerState || innerState
@@ -24,7 +35,7 @@ export const Tabs = ({ state: outerState, children }) => {
   )
 }
 
-export const useTabState = (children) => {
+export const useTabState = (children: React.ReactNode) => {
   const [activeIndex, setActive] = useContext(TabsState)
   const elements = useContext(Elements)
 
@@ -40,7 +51,11 @@ export const useTabState = (children) => {
     return isChildrenUnique ? currentIndex : childrenIndex
   })
 
-  const onClick = useConstant(() => () => setActive(tabIndex))
+  const onClick = useConstant(() => () => {
+    if (setActive) {
+      setActive(tabIndex)
+    }
+  })
 
   const state = useMemo(
     () => ({
@@ -53,7 +68,7 @@ export const useTabState = (children) => {
   return state
 }
 
-export const usePanelState = (children) => {
+export const usePanelState = (children: React.ReactNode) => {
   const [activeIndex] = useContext(TabsState)
   const elements = useContext(Elements)
 
@@ -70,20 +85,4 @@ export const usePanelState = (children) => {
   })
 
   return panelIndex === activeIndex
-}
-
-export const Tab = ({ children }) => {
-  const state = useTabState(children)
-
-  if (typeof children === 'function') {
-    return children(state)
-  }
-
-  return isValidElement(children) ? cloneElement(children, state) : children
-}
-
-export const Panel = ({ active, children }) => {
-  const isActive = usePanelState(children)
-
-  return isActive || active ? children : null
 }
