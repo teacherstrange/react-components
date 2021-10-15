@@ -94,4 +94,15 @@
     color: var(--global-disabled-foreground);
     cursor: not-allowed;
   }
+
+  &[data-button-is-loading='true'] > :not(.SpinnerIndicator) {
+    visibility: hidden;
+  }
+}
+
+.SpinnerIndicator {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
 }

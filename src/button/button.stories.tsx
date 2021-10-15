@@ -8,7 +8,9 @@ export default {
     dimension: 'regular',
     kind: 'primary',
     children: 'Click me',
-    fullWidth: false
+    fullWidth: false,
+    disabled: false,
+    loading: false
   },
   argTypes: {
     onClick: {
@@ -27,14 +29,6 @@ export default {
     },
     iconPosition: {
       options: ['left', 'right'],
-      control: { type: 'inline-radio' }
-    },
-    disabled: {
-      options: [true, false],
-      control: { type: 'inline-radio' }
-    },
-    fullWidth: {
-      options: [true, false],
       control: { type: 'inline-radio' }
     }
   }
