@@ -10,7 +10,6 @@ import React, {
   cloneElement,
   ButtonHTMLAttributes
 } from 'react'
-import { Tabs as TabsWrapper, useTabState, usePanelState } from '@bumaga/tabs'
 import {
   useRovingTabIndex,
   useFocusEffect,
@@ -20,6 +19,7 @@ import clsx from 'clsx'
 import { useUIDSeed } from 'react-uid'
 import { IconNames } from '../icons/types'
 import { Stack, Icon } from '../'
+import { Tabs as TabsWrapper, useTabState, usePanelState } from './primitive-tab'
 
 import {
   Tab as TabClass,
@@ -154,7 +154,7 @@ const TabPanel: React.FC<TabPanelProps> = forwardRef<HTMLDivElement, TabPanelPro
   className,
   ...props
 }, forwardedRef) => {
-  const isActive = usePanelState()
+  const isActive = usePanelState(children)
   return isActive
     ? (
       <div
@@ -191,7 +191,7 @@ const TabItem: React.FC<TabItemProps> = ({
   icon,
   ...props
 }) => {
-  const { onClick, isActive } = useTabState()
+  const { onClick, isActive } = useTabState(children)
   const internalRef = useRef<HTMLButtonElement>(null)
   const [, focused, handleKeyDown, handleClick] = useRovingTabIndex(internalRef, false)
 
