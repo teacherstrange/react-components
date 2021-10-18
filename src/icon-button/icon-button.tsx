@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 export type IconButtonProps = PropsWithClass & Pick<
 ButtonProps,
-  'kind' | 'dimension' | 'icon' | 'disabled' | 'onClick'
+  'kind' | 'dimension' | 'icon' | 'disabled' | 'onClick' | 'loading'
 >
 
 type PolymorphicIconButton = Polymorphic.ForwardRefComponent<
@@ -20,6 +20,7 @@ export const IconButton = forwardRef(({
   dimension,
   kind,
   disabled,
+  loading,
   ...props
 }, forwardedRef) => (
   <Button
@@ -28,6 +29,7 @@ export const IconButton = forwardRef(({
     dimension={dimension}
     kind={kind}
     disabled={disabled}
+    loading={loading}
     className={clsx(IconButtonClass, className)}
     {...props}
   />

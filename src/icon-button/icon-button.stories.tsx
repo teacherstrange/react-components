@@ -7,13 +7,18 @@ export default {
   args: {
     dimension: 'regular',
     kind: 'primary',
-    icon: 'bell'
+    icon: 'bell',
+    loading: false
   },
   argTypes: {
     onClick: { action: 'clicked' },
     dimension: {
       options: ['small', 'regular', 'big'],
       control: { type: 'radio' }
+    },
+    loading: {
+      options: [true, false],
+      control: { type: 'inline-radio' }
     },
     kind: {
       options: ['primary', 'secondary', 'flat'],

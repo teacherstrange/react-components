@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import React, { forwardRef, MouseEvent, useCallback } from 'react'
 import { IconNames } from '../icons/types'
-import { Icon, IconProps, Polymorphic } from '../'
-import { Button as ButtonClass } from './button.module.css'
+import { Icon, IconProps, Polymorphic, Spinner } from '../'
+import { Button as ButtonClass, SpinnerIndicator } from './button.module.css'
 
 export type ButtonProps = PropsWithClass & {
   kind?: 'primary' | 'secondary' | 'flat';
@@ -12,6 +12,7 @@ export type ButtonProps = PropsWithClass & {
   iconPosition?: 'left' | 'right',
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
+  loading?: boolean;
   onClick?(event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void;
 }
 
@@ -30,6 +31,7 @@ export const Button = forwardRef((
     iconPosition = 'left',
     type = 'button',
     onClick,
+    loading,
     as: Wrapper = 'button',
     ...props
   }, forwardedRef) => {
@@ -57,12 +59,25 @@ export const Button = forwardRef((
       data-button-kind={kind}
       data-button-fullwidth={fullWidth}
       data-button-disabled={disabled}
+      data-button-is-loading={loading}
       aria-disabled={disabled}
+      aria-busy={loading}
+      aria-live={loading ? 'polite' : undefined}
       onClick={handleClick()}
       {...props}
     >
-      {icon && <Icon name={icon} dimension={iconSize[dimension] as IconProps['dimension']} />}
-      {children}
+      {icon && (
+        <Icon
+          name={icon}
+          dimension={iconSize[dimension] as IconProps['dimension']}
+        />
+      )}
+      {children && <span>{children}</span>}
+      {loading && (
+        <span className={SpinnerIndicator}>
+          <Spinner dimension={dimension} />
+        </span>
+      )}
     </Wrapper>
   )
 }) as PolymorphicButton

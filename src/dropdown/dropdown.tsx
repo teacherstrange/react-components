@@ -12,7 +12,7 @@ import { Dropdown as DropdownClass, PopUp } from './dropdown.module.css'
 import { useUIDSeed } from 'react-uid'
 import { useFocusWithin } from '@react-aria/interactions'
 import { DropdownMenu } from './dropdown-menu'
-import { DropdownItem } from './dropdown-item'
+import { DropdownItem, DropdownItemCheckbox } from './dropdown-item'
 import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core'
 import { usePopperTooltip } from 'react-popper-tooltip'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -110,3 +110,4 @@ export const Dropdown = ({
 
 Dropdown.Menu = DropdownMenu
 Dropdown.Item = DropdownItem
+Dropdown.ItemCheckbox = DropdownItemCheckbox

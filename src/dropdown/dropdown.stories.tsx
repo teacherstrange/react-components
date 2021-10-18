@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '../button'
 import { Dropdown } from './dropdown'
 import { Separator } from '../separator'
@@ -29,8 +29,10 @@ export default {
   }
 }
 
-const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => (
-  <>
+const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => {
+  const [checked, setChecked] = useState<boolean>(false)
+
+  return (
     <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
       <Dropdown.Menu>
         <Dropdown.Item
@@ -42,6 +44,15 @@ const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => (
         >
           Sample long menu item
         </Dropdown.Item>
+        <Dropdown.ItemCheckbox
+          onClick={() => setChecked(val => !val)}
+          checked={checked}
+          icon={checked && 'check'}
+          iconPosition={iconPosition}
+          dimension={dimension}
+        >
+          Checkbox item
+        </Dropdown.ItemCheckbox>
         <Dropdown.Item
           onClick={onClick}
           iconPosition={iconPosition}
@@ -59,13 +70,16 @@ const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => (
         </Dropdown.Item>
         <Separator />
         <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
-        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension} disabled>Really?</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
-  </>
-)
+  )
+}
 
 export const Default = DefaultTemplate.bind({})
+Default.args = {
+  iconPosition: 'left'
+}
 
 const CustomTemplate = ({ dimension, iconPosition, ...props }) => (
   <>
