@@ -59,13 +59,16 @@ const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => (
         </Dropdown.Item>
         <Separator />
         <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
-        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension}>Really?</Dropdown.Item>
+        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension} disabled>Really?</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   </>
 )
 
 export const Default = DefaultTemplate.bind({})
+Default.args = {
+  iconPosition: 'left'
+}
 
 const CustomTemplate = ({ dimension, iconPosition, ...props }) => (
   <>

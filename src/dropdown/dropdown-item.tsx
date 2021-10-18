@@ -12,6 +12,8 @@ export type DropdownItemProps = PropsWithClass & {
   onClick?(): void;
   iconPosition: 'left' | 'right';
   description?: ReactNode;
+  role?: string;
+  disabled?: boolean;
 }
 
 type PolymorphicDropdownItem = Polymorphic.ForwardRefComponent<'button', DropdownItemProps>;
@@ -26,10 +28,12 @@ export const DropdownItem = forwardRef(({
   as: Wrapper = 'button',
   iconPosition = 'left',
   description,
+  role,
+  disabled,
   ...props
 }, forwardedRef) => {
   const itemRef = useRef<any>(forwardedRef)
-  const [tabIndex, focused, handleKeyDown, handleClick] = useRovingTabIndex(itemRef, false)
+  const [tabIndex, focused, handleKeyDown, handleClick] = useRovingTabIndex(itemRef, disabled)
   const isIconRight = iconPosition === 'right'
 
   useFocusEffect(focused, itemRef)
@@ -54,15 +58,16 @@ export const DropdownItem = forwardRef(({
       columnGap={8}
       horizontalPadding={16}
       verticalPadding={8}
+      data-dropdown-icon-right={isIconRight}
+      data-dropdown-has-icon={Boolean(icon)}
       style={{ inlineSize: '100%' }}
     >
       {icon && (
-      <Icon
-        data-dropdown-icon-right={isIconRight}
-        className={IconClass}
-        name={icon}
-        dimension={dimension === 'small' ? 14 : 16}
-      />
+        <Icon
+          className={IconClass}
+          name={icon}
+          dimension={dimension === 'small' ? 14 : 16}
+        />
       )}
       {children}
     </Stack>
@@ -71,10 +76,12 @@ export const DropdownItem = forwardRef(({
   return (
     <Wrapper
       ref={itemRef}
+      role={role || 'menuitem'}
       className={clsx(DropdownItemClass, className)}
-      onClick={triggerClick}
-      onKeyDown={handleKeyDown}
+      onClick={disabled ? undefined : triggerClick}
+      onKeyDown={disabled ? undefined : handleKeyDown}
       tabIndex={tabIndex}
+      aria-disabled={disabled}
       type={Wrapper === 'button' ? 'button' : undefined}
       data-dropdown-item-dimension={dimension}
       {...props}

@@ -26,7 +26,7 @@ export const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(({
     >
       <RovingTabIndexProvider options={{ direction: 'vertical', loopAround: true }}>
         {Children.map(children, (child: ReactElement, index) => (
-          <li role="menuitem">
+          <li role="none">
             {cloneElement(
               child,
               {
