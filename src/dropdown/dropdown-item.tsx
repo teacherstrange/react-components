@@ -27,7 +27,6 @@ export const DropdownItem = forwardRef(({
   as: Wrapper = 'button',
   iconPosition = 'left',
   description,
-  checked,
   disabled = false,
   ...props
 }, forwardedRef) => {
