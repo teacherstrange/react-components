@@ -8,6 +8,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "engines": {
+    "node": ">=16.8"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wonderflow-bv/react-components.git"
