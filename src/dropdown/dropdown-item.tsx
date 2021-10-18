@@ -12,7 +12,7 @@ export type DropdownItemProps = PropsWithClass & {
   onClick?(): void;
   iconPosition: 'left' | 'right';
   description?: ReactNode;
-  role?: string;
+  checked?: boolean;
   disabled?: boolean;
 }
 
@@ -28,8 +28,8 @@ export const DropdownItem = forwardRef(({
   as: Wrapper = 'button',
   iconPosition = 'left',
   description,
-  role,
-  disabled,
+  checked,
+  disabled = false,
   ...props
 }, forwardedRef) => {
   const itemRef = useRef<any>(forwardedRef)
@@ -76,7 +76,7 @@ export const DropdownItem = forwardRef(({
   return (
     <Wrapper
       ref={itemRef}
-      role={role || 'menuitem'}
+      role="menuitem"
       className={clsx(DropdownItemClass, className)}
       onClick={disabled ? undefined : triggerClick}
       onKeyDown={disabled ? undefined : handleKeyDown}
@@ -98,4 +98,19 @@ export const DropdownItem = forwardRef(({
   )
 }) as PolymorphicDropdownItem
 
+type PolymorphicDropdownItemCheckbox = Polymorphic.ForwardRefComponent<
+  Polymorphic.IntrinsicElement<typeof DropdownItem>,
+  Polymorphic.OwnProps<typeof DropdownItem> & DropdownItemProps
+>;
+
+// eslint-disable-next-line react/display-name
+export const DropdownItemCheckbox = forwardRef(({
+  children,
+  checked,
+  ...props
+}, forwardedRef) =>
+  <DropdownItem role="menuitemcheckbox" aria-checked={checked} ref={forwardedRef} {...props}>{children}</DropdownItem>
+) as PolymorphicDropdownItemCheckbox
+
 DropdownItem.displayName = 'Dropdown.Item'
+DropdownItemCheckbox.displayName = 'Dropdown.ItemChecbox'
