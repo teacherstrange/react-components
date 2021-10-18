@@ -28,7 +28,6 @@
   }
 
   &:is(:hover, :focus-visible, [aria-pressed='true']):not([aria-disabled='true']) {
-    color: var(--cta-default);
     outline: none;
 
     &::before {
