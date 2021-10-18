@@ -12,7 +12,6 @@ export type DropdownItemProps = PropsWithClass & {
   onClick?(): void;
   iconPosition: 'left' | 'right';
   description?: ReactNode;
-  checked?: boolean;
   disabled?: boolean;
 }
 
@@ -98,9 +97,13 @@ export const DropdownItem = forwardRef(({
   )
 }) as PolymorphicDropdownItem
 
+export type DropdownItemCheckboxProps = DropdownItemProps & {
+  checked?: boolean;
+}
+
 type PolymorphicDropdownItemCheckbox = Polymorphic.ForwardRefComponent<
   Polymorphic.IntrinsicElement<typeof DropdownItem>,
-  Polymorphic.OwnProps<typeof DropdownItem> & DropdownItemProps
+  Polymorphic.OwnProps<typeof DropdownItem> & DropdownItemCheckboxProps
 >;
 
 // eslint-disable-next-line react/display-name
