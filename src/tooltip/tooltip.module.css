@@ -41,28 +41,29 @@
     pointer-events: none;
   }
   @nest .Tooltip[data-popper-placement^='top'] & {
-    bottom: -5px;
+    bottom: 6px;
 
-    &::before {
-      transform: translateX(-50%) rotate(45deg);
-    }
-  }
-  @nest .Tooltip[data-popper-placement^='bottom'] & {
-    top: -5px;
 
     &::before {
       transform: translateX(-50%) rotate(45deg);
     }
   }
   @nest .Tooltip[data-popper-placement^='left'] & {
-    right: -5px;
+    right: 6px;
 
     &::before {
       transform: translateY(-50%) rotate(45deg);
     }
   }
+  @nest .Tooltip[data-popper-placement^='bottom'] & {
+    top: -6px;
+
+    &::before {
+      transform: translateX(-50%) rotate(45deg);
+    }
+  }
   @nest .Tooltip[data-popper-placement^='right'] & {
-    left: -5px;
+    left: -6px;
 
     &::before {
       transform: translateY(-50%) rotate(45deg);
