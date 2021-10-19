@@ -12,7 +12,7 @@ export type InfoStateProps = PropsWithClass & {
   actions?: ReactNode;
 }
 
-export const InfoState = forwardRef<HTMLDivElement, InfoStateProps>(({
+export const InfoState: React.FC<InfoStateProps> = forwardRef<HTMLDivElement, InfoStateProps>(({
   className,
   children,
   title,
