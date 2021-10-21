@@ -4,6 +4,7 @@
   font-size: var(--fluid-type-max);
   max-inline-size: var(--maxW, initial);
   text-align: var(--tAlign);
+  display: inline-block;
 
   &[data-text-is-fluid='true'] {
     font-size:
