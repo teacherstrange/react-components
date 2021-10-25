@@ -40,8 +40,8 @@
       bottom: 0;
       display: block;
       background:
-        linear-gradient(to right, var(--fill-color) 15%, transparent 20%) 0 0 / 100vw 100vw,
-        linear-gradient(to right, var(--fill-color) 20%, transparent 20%) 0 0 / 100vw 100vw var(--track-color);
+        linear-gradient(to right, var(--fill-color) 15%, transparent 20%) 0 0 / 100% 100%,
+        linear-gradient(to right, var(--fill-color) 20%, transparent 20%) 0 0 / 100% 100% var(--track-color);
       animation: progress-stripes 2s linear infinite;
     }
 
@@ -55,8 +55,8 @@
       bottom: 0;
       display: block;
       background:
-        linear-gradient(to right, var(--fill-color) 20%, transparent 30%) 0 0 / 100vw 100vw,
-        linear-gradient(to right, var(--fill-color) 30%, transparent 30%) 0 0 / 100vw 100vw var(--track-color);
+        linear-gradient(to right, var(--fill-color) 20%, transparent 30%) 0 0 / 100% 100%,
+        linear-gradient(to right, var(--fill-color) 30%, transparent 30%) 0 0 / 100% 100% var(--track-color);
       animation: progress-stripes 2s linear infinite;
     }
 
@@ -69,19 +69,19 @@
       bottom: 0;
       display: block;
       background:
-        linear-gradient(to right, var(--fill-color) 20%, transparent 30%) 0 0 / 100vw 100vw,
-        linear-gradient(to right, var(--fill-color) 30%, transparent 30%) 0 0 / 100vw 100vw var(--track-color);
+        linear-gradient(to right, var(--fill-color) 20%, transparent 30%) 0 0 / 100% 100%,
+        linear-gradient(to right, var(--fill-color) 30%, transparent 30%) 0 0 / 100% 100% var(--track-color);
       animation: progress-stripes 2s linear infinite;
     }
   }
 }
 
 @keyframes progress-stripes {
-  from {
+  0% {
     background-position: 0 0;
   }
 
-  to {
-    background-position: calc(100vw) 0;
+  100% {
+    background-position: 100vw 0;
   }
 }
