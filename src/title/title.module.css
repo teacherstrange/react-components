@@ -17,11 +17,11 @@
         );
     }
 
-    &[data-heading-line-height='none'] {
+    &[data-title-line-height='none'] {
       line-height: 0.3;
     }
 
-    &[data-heading-line-height='small'] {
+    &[data-title-line-height='small'] {
       line-height: 1;
     }
   }
