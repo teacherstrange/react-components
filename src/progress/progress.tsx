@@ -13,7 +13,7 @@ export const Progress = forwardRef<HTMLProgressElement, ProgressProps>(({
   className,
   value,
   max = 100,
-  dimension,
+  dimension = 'regular',
   ...props
 }, forwardedRef) => {
   return (
