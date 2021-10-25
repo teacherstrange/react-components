@@ -1,9 +1,9 @@
 import React from 'react'
-import { Progress } from './progress'
+import { LinearProgress } from './linear-progress'
 
 export default {
   title: 'Components/Progress',
-  component: Progress,
+  component: LinearProgress,
   args: {
     min: 0,
     max: 100,
@@ -17,7 +17,7 @@ export default {
   }
 }
 
-const Template = (args) => <Progress {...args} />
+const Template = (args) => <LinearProgress {...args} />
 
 export const Determinate = Template.bind({})
 Determinate.args = {

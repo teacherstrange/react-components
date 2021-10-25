@@ -1,4 +1,4 @@
-.Progress {
+.LinearProgress {
   --progress-height: env(--space-4);
   --track-color: var(--dimmed-1);
   --fill-color: var(--cta-default);

@@ -1,15 +1,15 @@
 import React, { forwardRef, ProgressHTMLAttributes } from 'react'
 import clsx from 'clsx'
 
-import { Progress as ProgressClass } from './progress.module.css'
+import { LinearProgress as LinearProgressClass } from './linear-progress.module.css'
 
-export type ProgressProps = ProgressHTMLAttributes<HTMLProgressElement> & {
+export type LinearProgressProps = ProgressHTMLAttributes<HTMLProgressElement> & {
   value?: number;
   max?: number;
   dimension?: 'regular' | 'big';
 }
 
-export const Progress = forwardRef<HTMLProgressElement, ProgressProps>(({
+export const LinearProgress = forwardRef<HTMLProgressElement, LinearProgressProps>(({
   className,
   value,
   max = 100,
@@ -20,7 +20,7 @@ export const Progress = forwardRef<HTMLProgressElement, ProgressProps>(({
     <progress
       role="progressbar"
       ref={forwardedRef}
-      className={clsx(ProgressClass, className)}
+      className={clsx(LinearProgressClass, className)}
       data-progress-dimension={dimension}
       aria-valuemin={0}
       aria-valuenow={value}
@@ -32,4 +32,4 @@ export const Progress = forwardRef<HTMLProgressElement, ProgressProps>(({
   )
 })
 
-Progress.displayName = 'Progress'
+LinearProgress.displayName = 'LinearProgress'
