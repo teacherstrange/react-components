@@ -1,9 +1,35 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
+import clsx from 'clsx'
 
-export type ProgressProps = {}
+import { Progress as ProgressClass } from './progress.module.css'
 
-export const Progress = () => {
-  return (
-    <progress />
-  )
+export type ProgressProps = PropsWithClass & {
+  value?: number;
+  max?: number;
+  dimension?: 'regular' | 'big';
 }
+
+export const Progress = forwardRef<HTMLProgressElement, ProgressProps>(({
+  className,
+  value,
+  max,
+  dimension,
+  ...props
+}, forwardedRef) => {
+  return (
+    <progress
+      role="progressbar"
+      ref={forwardedRef}
+      className={clsx(ProgressClass, className)}
+      data-progress-dimension={dimension}
+      aria-valuemin={0}
+      aria-valuenow={value}
+      aria-valuemax={max}
+      value={value}
+      max={max}
+      {...props}
+    />
+  )
+})
+
+Progress.displayName = 'Progress'

@@ -1,3 +1,95 @@
+%IndeterminateMixin {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background:
+    linear-gradient(to right, var(--fill-color) 20%, transparent 30%) 0 0 / 100vw 100vw,
+    linear-gradient(to right, var(--fill-color) 30%, transparent 30%) 0 0 / 100vw 100vw var(--track-color);
+  animation:
+    progress-stripes 2s linear infinite,
+    size 4s ease-in-out infinite;
+}
+
 .Progress {
+  --progress-height: env(--space-4);
+  --track-color: var(--dimmed-1);
+  --fill-color: var(--cta-default);
+
   position: relative;
+  width: 100%;
+  border: none;
+  vertical-align: baseline;
+  appearance: none;
+  overflow: hidden;
+  display: block;
+  background: var(--track-color);
+  height: var(--progress-height);
+
+  &[data-progress-dimension='big'] {
+    --progress-height: env(--space-8);
+  }
+
+  &::-webkit-progress-bar {
+    background: var(--track-color);
+  }
+
+  &::-webkit-progress-value {
+    background: var(--fill-color);
+    transition: width 200ms ease-out;
+  }
+
+  &::-moz-progress-bar {
+    background: var(--fill-color);
+  }
+
+  &:indeterminate {
+    &::after {
+
+      /* stylelint-disable-next-line value-keyword-case */
+
+      @extend %IndeterminateMixin;
+    }
+
+    /* Safari only override */
+    &::-webkit-progress-bar {
+
+      /* stylelint-disable-next-line value-keyword-case */
+
+      @extend %IndeterminateMixin;
+    }
+
+    &::-moz-progress-bar {
+
+      /* stylelint-disable-next-line value-keyword-case */
+
+      @extend %IndeterminateMixin;
+    }
+  }
+}
+
+@keyframes progress-stripes {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: calc(100vw) 0;
+  }
+}
+@keyframes size {
+  0% {
+    transform: none;
+  }
+
+  50% {
+    transform: scaleX(2);
+  }
+
+  100% {
+    transform: none;
+  }
 }

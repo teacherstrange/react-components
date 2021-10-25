@@ -1,3 +1,8 @@
 const { postcssConfig } = require('@wonderflow/config')
 
-module.exports = postcssConfig
+module.exports = {
+  plugins: {
+    ...postcssConfig.plugins,
+    'postcss-extend-rule': {}
+  }
+}
