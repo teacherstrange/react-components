@@ -1,0 +1,31 @@
+.Avatar {
+  --size: env(--space-24);
+
+  position: relative;
+  inline-size: var(--size);
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: var(--highlight-blue-background);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  &[data-avatar-dimension='regular'] {
+    --size: env(--space-40);
+  }
+
+  &[data-avatar-dimension='big'] {
+    --size: env(--space-48);
+  }
+
+  & img {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+  }
+}
+
+.Placeholder {
+  height: calc(var(--size) - 25%);
+}
