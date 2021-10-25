@@ -8,44 +8,44 @@
 [data-elevation-hover='1']:hover {
   transition: box-shadow env(--duration-100) env(--easing-standard);
   box-shadow:
-    0 6px 11px rgba(0, 0, 0, 0.11),
-    0 2.5px 4.59px rgba(0, 0, 0, 0.07),
-    0 1.34px 2.45px rgba(0, 0, 0, 0.05),
-    0 0.75px 1.37px rgba(0, 0, 0, 0.04),
-    0 0.39px 0.73px rgba(0, 0, 0, 0.02),
-    0 0.16px 0.3px rgba(0, 0, 0, 0.01);
+    0 6px 11px rgb(0 0 0 / 11%),
+    0 2.5px 4.59px rgb(0 0 0 / 7%),
+    0 1.34px 2.45px rgb(0 0 0 / 5%),
+    0 0.75px 1.37px rgb(0 0 0 / 4%),
+    0 0.39px 0.73px rgb(0 0 0 / 2%),
+    0 0.16px 0.3px rgb(0 0 0 / 1%);
 }
 
 [data-elevation='2'],
 [data-elevation-hover='2']:hover {
   transition: box-shadow env(--duration-100) env(--easing-standard);
   box-shadow:
-    0 9px 25px rgba(0, 0, 0, 0.13),
-    0 3.75px 10.44px rgba(0, 0, 0, 0.09),
-    0 2.01px 5.58px rgba(0, 0, 0, 0.07),
-    0 1.12px 3.13px rgba(0, 0, 0, 0.06),
-    0 0.59px 0.69px rgba(0, 0, 0, 0.03);
+    0 9px 25px rgb(0 0 0 / 13%),
+    0 3.75px 10.44px rgb(0 0 0 / 9%),
+    0 2.01px 5.58px rgb(0 0 0 / 7%),
+    0 1.12px 3.13px rgb(0 0 0 / 6%),
+    0 0.59px 0.69px rgb(0 0 0 / 3%);
 }
 
 [data-elevation='3'],
 [data-elevation-hover='3']:hover {
   transition: box-shadow env(--duration-100) env(--easing-standard);
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.12),
-    0 7.51px 16.71px rgba(0, 0, 0, 0.08),
-    0 4.02px 8.93px rgba(0, 0, 0, 0.07),
-    0 2.25px 5px rgba(0, 0, 0, 0.06),
-    0 1.19px 2.66px rgba(0, 0, 0, 0.04),
-    0 0.49px 1.1px rgba(0, 0, 0, 0.03);
+    0 18px 40px rgb(0 0 0 / 12%),
+    0 7.51px 16.71px rgb(0 0 0 / 8%),
+    0 4.02px 8.93px rgb(0 0 0 / 7%),
+    0 2.25px 5px rgb(0 0 0 / 6%),
+    0 1.19px 2.66px rgb(0 0 0 / 4%),
+    0 0.49px 1.1px rgb(0 0 0 / 3%);
 }
 
 [data-elevation='4'],
 [data-elevation-hover='4']:hover {
   transition: box-shadow env(--duration-100) env(--easing-standard);
   box-shadow:
-    0 33px 78px rgba(0, 0, 0, 0.14),
-    0 12.04px 28.47px rgba(0, 0, 0, 0.1),
-    0 5.84px 13.82px rgba(0, 0, 0, 0.09),
-    0 2.86px 6.77px rgba(0, 0, 0, 0.07),
-    0 1.13px 2.67px rgba(0, 0, 0, 0.06);
+    0 33px 78px rgb(0 0 0 / 14%),
+    0 12.04px 28.47px rgb(0 0 0 / 10%),
+    0 5.84px 13.82px rgb(0 0 0 / 9%),
+    0 2.86px 6.77px rgb(0 0 0 / 7%),
+    0 1.13px 2.67px rgb(0 0 0 / 6%);
 }

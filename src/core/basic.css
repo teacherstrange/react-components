@@ -28,12 +28,6 @@ body {
   margin: 0;
 }
 
-::-moz-selection {
-  background-color: var(--dimmed-7);
-  color: var(--dimmed-0);
-  text-shadow: none;
-}
-
 ::selection {
   background-color: var(--dimmed-7);
   color: var(--dimmed-0);

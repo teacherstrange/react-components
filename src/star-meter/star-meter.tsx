@@ -58,10 +58,10 @@ export const StarMeter = forwardRef(({
   const starType = (maxStars: number, value: number) => {
     return new Array(maxStars).fill(0).map((_, index) => {
       const starIndex = index + 1
-      let fillType = 'var(--starDimmedColor)'
+      let fillType = 'var(--star-dimmed-color)'
 
       if (value >= starIndex) {
-        fillType = 'var(--starColor)'
+        fillType = 'var(--star-color)'
       }
 
       if (value < starIndex && value > starIndex - 1) {
@@ -91,10 +91,10 @@ export const StarMeter = forwardRef(({
       <svg aria-hidden="true" className={Gradient} width="100" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="HalfStar">
-            <stop offset="0" style={{ stopColor: 'var(--starColor)' }} />
-            <stop offset="50%" style={{ stopColor: 'var(--starColor)' }} />
-            <stop offset="50.1%" style={{ stopColor: 'var(--starDimmedColor)' }} />
-            <stop offset="100%" style={{ stopColor: 'var(--starDimmedColor)' }} />
+            <stop offset="0" style={{ stopColor: 'var(--star-color)' }} />
+            <stop offset="50%" style={{ stopColor: 'var(--star-color)' }} />
+            <stop offset="50.1%" style={{ stopColor: 'var(--star-dimmed-color)' }} />
+            <stop offset="100%" style={{ stopColor: 'var(--star-dimmed-color)' }} />
           </linearGradient>
         </defs>
       </svg>
