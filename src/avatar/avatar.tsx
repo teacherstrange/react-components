@@ -12,7 +12,7 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(({
   src,
   dimension = 'regular',
   ...props
-}) => {
+}, forwardedRef) => {
   return (
     <picture
       className={clsx(AvatarClass, className)}
@@ -39,6 +39,7 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(({
 
       {src && (
         <img
+          ref={forwardedRef}
           alt=""
           src={src}
           {...props}
