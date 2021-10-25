@@ -1,9 +1,9 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, ProgressHTMLAttributes } from 'react'
 import clsx from 'clsx'
 
 import { Progress as ProgressClass } from './progress.module.css'
 
-export type ProgressProps = PropsWithClass & {
+export type ProgressProps = ProgressHTMLAttributes<HTMLProgressElement> & {
   value?: number;
   max?: number;
   dimension?: 'regular' | 'big';

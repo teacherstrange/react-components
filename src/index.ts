@@ -10,6 +10,7 @@ export * as Polymorphic from './polymorphic'
 /*                                 Components                                 */
 /* -------------------------------------------------------------------------- */
 
+export { Avatar, AvatarProps } from './avatar'
 export { Button, ButtonProps } from './button'
 export { Card, CardProps } from './card'
 export { Checkbox, CheckboxProps, Radio, RadioProps, Toggle, ToggleProps } from './selection-controls'
