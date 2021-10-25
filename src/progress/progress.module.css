@@ -40,8 +40,8 @@
       bottom: 0;
       display: block;
       background:
-        linear-gradient(to right, var(--fill-color) 20%, transparent 30%) 0 0 / 100vw 100vw,
-        linear-gradient(to right, var(--fill-color) 30%, transparent 30%) 0 0 / 100vw 100vw var(--track-color);
+        linear-gradient(to right, var(--fill-color) 15%, transparent 20%) 0 0 / 100vw 100vw,
+        linear-gradient(to right, var(--fill-color) 20%, transparent 20%) 0 0 / 100vw 100vw var(--track-color);
       animation:
         progress-stripes 2s linear infinite,
         size 4s ease-in-out infinite;
@@ -97,7 +97,7 @@
   }
 
   50% {
-    transform: scaleX(2);
+    transform: scaleX(3);
   }
 
   100% {
