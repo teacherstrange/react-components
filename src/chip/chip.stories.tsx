@@ -2,7 +2,7 @@ import React from 'react'
 import { Chip } from './chip'
 
 export default {
-  title: 'Components/Chip',
+  title: 'Components/Widgets/Chip',
   component: Chip,
   argTypes: {
     onDismissClick: {

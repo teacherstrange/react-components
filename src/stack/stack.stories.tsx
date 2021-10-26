@@ -2,7 +2,7 @@ import React from 'react'
 import { Stack } from './stack'
 
 export default {
-  title: 'Components/Stack',
+  title: 'Components/Layout/Stack',
   component: Stack,
   argTypes: {
     inline: {

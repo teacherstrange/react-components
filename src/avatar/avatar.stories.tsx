@@ -2,7 +2,7 @@ import React from 'react'
 import { Avatar } from './avatar'
 
 export default {
-  title: 'Components/Avatar',
+  title: 'Components/Widgets/Avatar',
   component: Avatar,
   args: {
     dimension: 'regular',

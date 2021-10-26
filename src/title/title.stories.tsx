@@ -3,7 +3,7 @@ import { Title } from '../title'
 import { Container } from '../container'
 
 export default {
-  title: 'Components/Title',
+  title: 'Components/Typography/Title',
   component: Title,
   parameters: {
     controls: { hideNoControlsWarning: true }

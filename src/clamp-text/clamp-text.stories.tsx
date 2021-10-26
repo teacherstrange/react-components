@@ -3,7 +3,7 @@ import { ClampText } from './clamp-text'
 import { Container } from '../container'
 
 export default {
-  title: 'Components/Clamp Text',
+  title: 'Components/Typography/Clamp Text',
   component: ClampText,
   argTypes: {
     rows: {

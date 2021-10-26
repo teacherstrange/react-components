@@ -2,7 +2,7 @@ import React from 'react'
 import { List } from './list'
 
 export default {
-  title: 'Components/List',
+  title: 'Components/Typography/List',
   component: List,
   argTypes: {
     dimension: {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Disclosure } from './disclosure'
 
 export default {
-  title: 'Components/Disclosure',
+  title: 'Components/Widgets/Disclosure',
   component: Disclosure,
   args: {
     padding: true,
