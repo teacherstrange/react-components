@@ -60,7 +60,7 @@
   position: absolute;
   left: var(--offset);
   transition: left 200ms ease-out;
-  transform: translateX(-100%);
+  transform: translateX(var(--translation));
 }
 
 @keyframes progress-stripes {

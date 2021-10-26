@@ -20,7 +20,7 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(({
   ...props
 }, forwardedRef) => {
   const getPercentage = useCallback(
-    () => value ? (100 * value) / max : 0,
+    () => value ? Math.round((100 * value) / max) : 0,
     [max, value]
   )
 
@@ -40,16 +40,19 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(({
         max={max}
         {...props}
       />
-      {(value && showProgress) && (
-      <Text
-        as="span"
-        className={Percentage}
-        style={{ '--offset': `${Math.round(getPercentage())}%` }}
-        weight="bold"
-        size={dimension === 'regular' ? 16 : 18}
-      >
-        {Math.round(getPercentage())}
-      </Text>
+      {(showProgress) && (
+        <Text
+          as="span"
+          className={Percentage}
+          style={{
+            '--offset': `${getPercentage()}%`,
+            '--translation': value !== 0 ? '-100%' : '-50%'
+          }}
+          weight="bold"
+          size={dimension === 'regular' ? 16 : 18}
+        >
+          {value && getPercentage()}
+        </Text>
       )}
     </div>
   )
