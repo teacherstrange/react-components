@@ -2,14 +2,16 @@ import React from 'react'
 import { LinearProgress } from './linear-progress'
 
 export default {
-  title: 'Components/Progress',
+  title: 'Components/Linear progress',
   component: LinearProgress,
   args: {
-    min: 0,
     max: 100,
     dimension: 'regular'
   },
   argTypes: {
+    value: {
+      control: { type: 'range' }
+    },
     dimension: {
       options: ['regular', 'big'],
       control: { type: 'radio' }
