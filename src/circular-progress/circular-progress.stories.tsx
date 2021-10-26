@@ -2,7 +2,7 @@ import React from 'react'
 import { CircularProgress } from './circular-progress'
 
 export default {
-  title: 'Components/Progress/Circular progress',
+  title: 'Components/Loading/Circular progress',
   component: CircularProgress,
   args: {
     max: 100,

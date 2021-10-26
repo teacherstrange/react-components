@@ -2,7 +2,7 @@ import React from 'react'
 import { LinearProgress } from './linear-progress'
 
 export default {
-  title: 'Components/Progress/Linear progress',
+  title: 'Components/Loading/Linear progress',
   component: LinearProgress,
   args: {
     max: 100,
