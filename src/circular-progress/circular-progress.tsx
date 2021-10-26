@@ -19,7 +19,7 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
   ...props
 }, forwardedRef) => {
   const getPercentage = useCallback(
-    () => (100 * value) / max,
+    () => value ? (100 * value) / max : 0,
     [max, value]
   )
 
@@ -36,7 +36,7 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
       aria-valuemax={max}
       className={clsx(CircularProgressClass, className)}
       data-circular-progress-dimension={dimension}
-      data-circular-progress-show-progress={showProgress}
+      data-circular-progress-show-progress={showProgress && !!value}
       style={{ ...dynamicStyle, style }}
       {...props}
     />
