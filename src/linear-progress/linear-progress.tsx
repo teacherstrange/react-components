@@ -24,6 +24,8 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(({
     [max, value]
   )
 
+  const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max)
+
   return (
     <div
       ref={forwardedRef}
@@ -51,7 +53,7 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(({
           weight="bold"
           size={dimension === 'regular' ? 16 : 18}
         >
-          {value && getPercentage()}
+          {value && clamp(getPercentage(), 0, 100)}
         </Text>
       )}
     </div>

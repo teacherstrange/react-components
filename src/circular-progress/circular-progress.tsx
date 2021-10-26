@@ -23,6 +23,8 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
     [max, value]
   )
 
+  const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max)
+
   const dynamicStyle: CSSProperties = {
     '--progress': `${getPercentage()}%`
   }
@@ -35,7 +37,7 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
       aria-valuemin={0}
       aria-valuemax={max}
       className={clsx(CircularProgressClass, className)}
-      data-circular-progress={getPercentage()}
+      data-circular-progress={clamp(getPercentage(), 0, 100)}
       data-circular-progress-dimension={dimension}
       data-circular-progress-show-progress={showProgress}
       style={{ ...dynamicStyle, style }}

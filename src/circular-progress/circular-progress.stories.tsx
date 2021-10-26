@@ -28,5 +28,5 @@ const Template = (args) => <CircularProgress {...args} />
 
 export const Determinate = Template.bind({})
 Determinate.args = {
-  value: 40
+  value: 2000
 }
