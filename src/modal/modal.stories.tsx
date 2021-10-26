@@ -6,7 +6,7 @@ import { Card } from '../card'
 import { Presence } from '../'
 
 export default {
-  title: 'Components/Modal',
+  title: 'Components/Dialogs/Modal',
   component: Modal,
   argTypes: {
   },

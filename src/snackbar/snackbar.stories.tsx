@@ -2,7 +2,7 @@ import React from 'react'
 import { Snackbar } from './snackbar'
 
 export default {
-  title: 'Components/Snackbar',
+  title: 'Components/Dialogs/Snackbar',
   component: Snackbar,
   argTypes: {
     kind: {

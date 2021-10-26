@@ -11,6 +11,7 @@
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
+  padding: 0 env(--space-8);
 
   @media (width < 48em) {
     -ms-overflow-style: none;
@@ -73,7 +74,7 @@
 }
 
 .TabPanel {
-  animation: fadeIn env(--duration-200);
+  animation: fade-in env(--duration-200);
   animation-timing-function: env(--easing-entrance));
 }
 
@@ -82,9 +83,9 @@ a.TabItem {
 }
 
 
-@keyframes fadeIn {
+@keyframes fade-in {
   0% {
-    opacity: 0;
+    opacity: 0%;
     transform: translate(var(--fadeFromX, 0), var(--fadeFromY, 0));
   }
 

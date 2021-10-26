@@ -2,7 +2,7 @@ import React from 'react'
 import { IconButton } from './icon-button'
 
 export default {
-  title: 'Components/IconButton',
+  title: 'Components/Buttons/IconButton',
   component: IconButton,
   args: {
     dimension: 'regular',

@@ -2,7 +2,7 @@ import React from 'react'
 import { Elevator } from './elevator'
 
 export default {
-  title: 'Components/Elevator',
+  title: 'Components/Widgets/Elevator',
   component: Elevator
 }
 

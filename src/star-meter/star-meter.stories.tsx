@@ -2,7 +2,7 @@ import React from 'react'
 import { StarMeter } from '../star-meter'
 
 export default {
-  title: 'Components/Star meter',
+  title: 'Components/Widgets/Star meter',
   component: StarMeter,
   args: {
     dimension: 'regular'

@@ -4,7 +4,7 @@ import { InfoState } from './info-state'
 import { Button } from '../button'
 
 export default {
-  title: 'Components/InfoState',
+  title: 'Components/Dialogs/InfoState',
   component: InfoState,
   args: {
     title: 'Sample very long title'

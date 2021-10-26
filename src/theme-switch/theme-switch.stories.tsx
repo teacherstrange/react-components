@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeSwitch } from './index'
 
 export default {
-  title: 'Components/ThemeSwitch',
+  title: 'Deprecated/ThemeSwitch',
   component: ThemeSwitch,
   argTypes: {
     onChange: {

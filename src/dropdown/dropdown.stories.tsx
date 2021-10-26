@@ -5,7 +5,7 @@ import { Separator } from '../separator'
 import { Title } from '../title'
 
 export default {
-  title: 'Components/Dropdown',
+  title: 'Components/Dialogs/Dropdown',
   component: Dropdown,
   args: {
     dimension: 'regular',

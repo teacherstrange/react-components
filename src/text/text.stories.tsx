@@ -3,7 +3,7 @@ import { Text } from '../text'
 import { Container } from '../container'
 
 export default {
-  title: 'Components/Text',
+  title: 'Components/Typography/Text',
   component: Text,
   args: {
     maxWidth: 'auto',

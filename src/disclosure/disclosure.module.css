@@ -1,7 +1,7 @@
 .Disclosure {
-  --iconSize: 1.11rem;
-  --iconPadding: env(--space-8);
-  --padding: calc(var(--iconSize) + var(--iconPadding) + (var(--iconSize) / 2));
+  --icon-size: 1.11rem;
+  --icon-padding: env(--space-8);
+  --padding: calc(var(--icon-size) + var(--icon-padding) + (var(--icon-size) / 2));
 
   display: block;
   position: relative;
@@ -13,16 +13,16 @@
   }
 
   &[data-disclosure-dimension='small'] {
-    --iconSize: env(--space-16);
+    --icon-size: env(--space-16);
   }
 
   &[data-disclosure-dimension='regular'] {
-    --iconSize: 1.11rem;
+    --icon-size: 1.11rem;
   }
 
   &[data-disclosure-dimension='big'] {
-    --iconSize: env(--space-24);
-    --iconPadding: env(--space-16);
+    --icon-size: env(--space-24);
+    --icon-padding: env(--space-16);
   }
 }
 
@@ -57,15 +57,15 @@
   content: '';
   transform-box: fill-box;
   position: absolute;
-  top: calc(var(--iconSize) / 4);
-  right: calc(var(--iconSize) / 2);
-  inline-size: var(--iconSize);
-  block-size: var(--iconSize);
+  top: calc(var(--icon-size) / 4);
+  right: calc(var(--icon-size) / 2);
+  inline-size: var(--icon-size);
+  block-size: var(--icon-size);
   transition: transform env(--duration-100) env(--easing-standard);
   transform-origin: 50% center;
 
   @nest .Disclosure[data-disclosure-icon-position='left'] & {
-    left: calc(var(--iconSize) / 2);
+    left: calc(var(--icon-size) / 2);
     right: auto;
   }
   @nest .Disclosure[open] & {
