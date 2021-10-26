@@ -2,7 +2,7 @@ import React from 'react'
 import { Select } from './select'
 
 export default {
-  title: 'Components/Select',
+  title: 'Components/Forms/Select',
   component: Select,
   argTypes: {
     onChange: {

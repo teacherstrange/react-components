@@ -2,7 +2,7 @@ import React from 'react'
 import { Icon } from './icon'
 
 export default {
-  title: 'Components/Icon',
+  title: 'Components/Widgets/Icon',
   component: Icon,
   args: {
     dimension: 16

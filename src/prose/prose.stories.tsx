@@ -6,7 +6,7 @@ import { Text } from '../text'
 import { Title } from '../title'
 
 export default {
-  title: 'Components/Prose',
+  title: 'Components/Typography/Prose',
   component: Prose,
   args: {
     as: 'section'

@@ -2,7 +2,7 @@ import React from 'react'
 import { Separator } from './separator'
 
 export default {
-  title: 'Components/Separator',
+  title: 'Components/Layout/Separator',
   component: Separator
 
 }

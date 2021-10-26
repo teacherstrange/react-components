@@ -6,7 +6,7 @@ import { Icon } from '../icon'
 import { Stack } from '../stack'
 
 export default {
-  title: 'Components/Card',
+  title: 'Components/Layout/Card',
   component: Card,
   argTypes: {
     children: {

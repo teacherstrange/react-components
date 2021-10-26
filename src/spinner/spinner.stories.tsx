@@ -2,7 +2,7 @@ import React from 'react'
 import { Spinner } from './spinner'
 
 export default {
-  title: 'Components/Spinner',
+  title: 'Components/Loading/Spinner',
   component: Spinner,
   args: {
     dimension: 'big'

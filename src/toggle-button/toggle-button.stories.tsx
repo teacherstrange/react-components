@@ -2,7 +2,7 @@ import React from 'react'
 import { ToggleButton } from './toggle-button'
 
 export default {
-  title: 'Components/Toggle button',
+  title: 'Components/Buttons/Toggle button',
   component: ToggleButton,
   args: {
     dimension: 'regular',
