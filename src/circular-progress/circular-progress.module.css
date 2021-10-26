@@ -13,7 +13,7 @@
   font-size: 1rem;
 
   &[data-circular-progress-show-progress='true']::after {
-    content: attr(aria-valuenow);
+    content: attr(data-circular-progress);
     display: block;
   }
 

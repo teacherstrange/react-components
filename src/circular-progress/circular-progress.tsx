@@ -19,7 +19,7 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
   ...props
 }, forwardedRef) => {
   const getPercentage = useCallback(
-    () => value ? (100 * value) / max : 0,
+    () => value ? Math.round((100 * value) / max) : 0,
     [max, value]
   )
 
@@ -31,12 +31,13 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
     <div
       ref={forwardedRef}
       role="progressbar"
-      aria-valuenow={Math.round(getPercentage())}
+      aria-valuenow={value}
       aria-valuemin={0}
       aria-valuemax={max}
       className={clsx(CircularProgressClass, className)}
+      data-circular-progress={getPercentage()}
       data-circular-progress-dimension={dimension}
-      data-circular-progress-show-progress={showProgress && !!value}
+      data-circular-progress-show-progress={showProgress}
       style={{ ...dynamicStyle, style }}
       {...props}
     />
