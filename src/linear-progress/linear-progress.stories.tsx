@@ -6,6 +6,7 @@ export default {
   component: LinearProgress,
   args: {
     max: 100,
+    showProgress: true,
     dimension: 'regular'
   },
   argTypes: {

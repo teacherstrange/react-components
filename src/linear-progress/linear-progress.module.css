@@ -1,4 +1,8 @@
 .LinearProgress {
+  position: relative;
+}
+
+.Progress {
   --progress-height: env(--space-4);
   --track-color: var(--dimmed-1);
   --fill-color: var(--cta-default);
@@ -50,6 +54,13 @@
       );
     animation: progress-stripes 2s linear infinite;
   }
+}
+
+.Percentage {
+  position: absolute;
+  left: var(--offset);
+  transition: left 200ms ease-out;
+  transform: translateX(-100%);
 }
 
 @keyframes progress-stripes {
