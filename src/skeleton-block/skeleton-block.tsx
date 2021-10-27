@@ -1,5 +1,5 @@
 import React from 'react'
-import Skeleton, { SkeletonTheme, SkeletonProps } from 'react-loading-skeleton'
+import Skeleton, { SkeletonProps } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
@@ -13,12 +13,12 @@ export const SkeletonBlock = ({
   ...props
 }: SkeletonBlockProps) => {
   return (
-    <SkeletonTheme baseColor="var(--dimmed-1)" highlightColor="var(--dimmed-0)">
-      <Skeleton
-        className={className}
-        borderRadius={borderRadius}
-        {...props}
-      />
-    </SkeletonTheme>
+    <Skeleton
+      className={className}
+      borderRadius={borderRadius}
+      baseColor="var(--dimmed-1)"
+      highlightColor="var(--dimmed-0)"
+      {...props}
+    />
   )
 }
