@@ -15,6 +15,10 @@
   &[data-card-dimmed='3'] {
     background: var(--dimmed-2);
   }
+
+  &[data-card-bordered='true'] {
+    border: solid 1px var(--dimmed-1);
+  }
 }
 
 .Left {

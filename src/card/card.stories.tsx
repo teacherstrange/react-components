@@ -8,6 +8,9 @@ import { Stack } from '../stack'
 export default {
   title: 'Components/Layout/Card',
   component: Card,
+  args: {
+    bordered: false
+  },
   argTypes: {
     children: {
       table: {

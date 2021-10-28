@@ -12,6 +12,7 @@ StackProps,
   padding?: false | TokensTypes['space'];
   left?: ReactNode;
   right?: ReactNode;
+  bordered?: boolean
   radius?: false | TokensTypes['radius'];
   dimmed?: 1 | 2 | 3;
 }
@@ -28,6 +29,7 @@ export const Card = forwardRef(({
   left,
   right,
   dimmed,
+  bordered,
   columnGap = 24,
   rowGap = 24,
   verticalAlign = 'start',
@@ -47,6 +49,7 @@ export const Card = forwardRef(({
       className={clsx(CardClass, className)}
       style={{ ...dynamicStyle, ...style }}
       data-card-dimmed={dimmed}
+      data-card-bordered={bordered}
       {...props}
     >
       <Stack
