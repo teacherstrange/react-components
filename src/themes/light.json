@@ -88,25 +88,25 @@
       "value": "hsl({color.blue.5})"
     },
     "blue-foreground": {
-      "value": "hsl({color.blue.50})"
+      "value": "hsl({color.blue.40})"
     },
     "red-background": {
       "value": "hsl({color.red.0})"
     },
     "red-foreground": {
-      "value": "hsl({color.red.50})"
+      "value": "hsl({color.red.40})"
     },
     "cyan-background": {
       "value": "hsl({color.cyan.0})"
     },
     "cyan-foreground": {
-      "value": "hsl({color.cyan.60})"
+      "value": "hsl({color.cyan.50})"
     },
     "purple-background": {
       "value": "hsl({color.purple.0})"
     },
     "purple-foreground": {
-      "value": "hsl({color.purple.60})"
+      "value": "hsl({color.purple.50})"
     }
   }
 }
