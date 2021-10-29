@@ -19,7 +19,7 @@
   outline-offset: 2px;
 
   @nest [data-textfield-has-icon='true'] &::-webkit-calendar-picker-indicator {
-    opacity: 0;
+    opacity: 0%;
     position: absolute;
     right: calc(var(--field-padding) / 2);
   }
@@ -54,10 +54,10 @@
     cursor: default;
   }
 
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active {
+  &:autofill,
+  &:autofill:hover,
+  &:autofill:focus,
+  &:autofill:active {
     border: 1px solid var(--dimmed-2);
     box-shadow: 0 0 0 100px var(--global-background) inset;
   }
@@ -100,7 +100,7 @@ textarea.BaseField {
     var(--field-padding);
 
   &::-webkit-datetime-edit-text {
-    opacity: 0.3;
+    opacity: 30%;
   }
 
   &::-webkit-calendar-picker-indicator {
