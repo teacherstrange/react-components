@@ -7,6 +7,7 @@
     font-size: var(--fluid-type-max);
     max-inline-size: var(--maxW, initial);
     text-align: var(--tAlign);
+    word-break: break-all;
 
     &[data-title-is-fluid='true'] {
       font-size:
