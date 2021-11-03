@@ -46,7 +46,6 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(({
       columnGap={8}
       className={clsx(RangeClass, className)}
       data-range-dimension={dimension}
-      inline
     >
       {showValues && <Text as="span" size={isSmall ? 14 : 16} weight="bold" textAlign="end" className={Value}>{value}</Text>}
       {(iconLeft && !showValues) && <Icon name={iconLeft} dimension={isSmall ? 16 : 24} />}
