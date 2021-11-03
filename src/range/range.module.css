@@ -37,11 +37,23 @@
   &::-webkit-slider-thumb {
 
     @mixin thumb;
+
+
+    &:active,
+    &:focus {
+      background-color: var(--dimmed-6);
+    }
   }
 
   &::-moz-range-thumb {
 
     @mixin thumb;
+
+
+    &:active,
+    &:focus {
+      background-color: var(--dimmed-6);
+    }
   }
 
   &:active::-webkit-slider-thumb {

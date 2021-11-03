@@ -19,11 +19,6 @@
   transition: box-shadow 0.1s ease-out, background-color 0.1s ease-out;
   appearance: none;
   outline-offset: -2px;
-
-  &:active,
-  &:focus {
-    background-color: var(--dimmed-6);
-  }
 }
 @define-mixin disabled-thumb {
   background: none var(--global-disabled-foreground);
