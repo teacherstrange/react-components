@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from './button'
+import { Button, ButtonsGroup } from './button'
 
 export default {
   title: 'Components/Buttons/Button',
@@ -10,7 +10,8 @@ export default {
     children: 'Click me',
     fullWidth: false,
     disabled: false,
-    loading: false
+    loading: false,
+    pressed: false
   },
   argTypes: {
     onClick: {
@@ -53,3 +54,14 @@ WithIcon.args = {
   icon: 'bookmark',
   iconPosition: 'left'
 }
+
+const GroupTemplate = (args) => (
+  <ButtonsGroup {...args}>
+    <Button pressed>Action</Button>
+    <Button>Action</Button>
+    <Button>Action</Button>
+  </ButtonsGroup>
+)
+
+export const Grouped = GroupTemplate.bind({})
+Grouped.args = {}

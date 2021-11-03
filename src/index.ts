@@ -11,7 +11,7 @@ export * as Polymorphic from './polymorphic'
 /* -------------------------------------------------------------------------- */
 
 export { Avatar, AvatarProps } from './avatar'
-export { Button, ButtonProps } from './button'
+export { Button, ButtonsGroup, ButtonProps, ButtonsGroupProps } from './button'
 export { Card, CardProps } from './card'
 export { Checkbox, CheckboxProps, Radio, RadioProps, Toggle, ToggleProps } from './selection-controls'
 export { Chip, ChipProps } from './chip'

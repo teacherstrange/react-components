@@ -1,8 +1,8 @@
 import clsx from 'clsx'
-import React, { forwardRef, MouseEvent, useCallback } from 'react'
+import React, { Children, cloneElement, forwardRef, MouseEvent, ReactElement, useCallback } from 'react'
 import { IconNames } from '../icons/types'
 import { Icon, IconProps, Polymorphic, Spinner } from '../'
-import { Button as ButtonClass, SpinnerIndicator } from './button.module.css'
+import { Button as ButtonClass, SpinnerIndicator, ButtonsGroup as ButtonsGroupClass } from './button.module.css'
 
 export type ButtonProps = PropsWithClass & {
   kind?: 'primary' | 'secondary' | 'flat';
@@ -13,6 +13,7 @@ export type ButtonProps = PropsWithClass & {
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
   loading?: boolean;
+  pressed?: boolean;
   onClick?(event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void;
 }
 
@@ -30,6 +31,7 @@ export const Button = forwardRef((
     disabled,
     iconPosition = 'left',
     type = 'button',
+    pressed = false,
     onClick,
     loading,
     as: Wrapper = 'button',
@@ -62,6 +64,7 @@ export const Button = forwardRef((
       data-button-is-loading={loading}
       aria-disabled={disabled}
       aria-busy={loading}
+      aria-pressed={pressed}
       aria-live={loading ? 'polite' : undefined}
       onClick={handleClick()}
       {...props}
@@ -81,5 +84,23 @@ export const Button = forwardRef((
     </Wrapper>
   )
 }) as PolymorphicButton
+
+export type ButtonsGroupProps = PropsWithClass & Pick<ButtonProps, 'dimension'>
+
+export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({
+  children,
+  className,
+  dimension = 'regular'
+}) => (
+  <div className={clsx(ButtonsGroupClass, className)}>
+    {Children.map(children, (child: ReactElement) => cloneElement(
+      child,
+      {
+        kind: 'secondary',
+        dimension: dimension
+      }
+    ))}
+  </div>
+)
 
 Button.displayName = 'Button'
