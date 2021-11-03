@@ -1,5 +1,10 @@
 @import './_mixins.css';
 
+
+.Range {
+  direction: rtl;
+}
+
 .Range svg {
   flex-shrink: 0;
 }
@@ -8,6 +13,7 @@
   --track-color: var(--global-vibrancy-background);
   --progress-color: var(--dimmed-3);
   --thumb-size: 24px;
+  --progress-direction: calc(-9999px - var(--thumb-size) / 2);
 
   width: 100%;
   background: transparent;
@@ -16,6 +22,9 @@
   height: var(--thumb-size);
   border-radius: 100px;
 
+  @nest :dir(rtl) & {
+    --progress-direction: calc(9999px + var(--thumb-size) / 2);
+  }
   @nest .Range[data-range-dimension='small'] & {
     --thumb-size: 16px;
   }
