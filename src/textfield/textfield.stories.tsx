@@ -3,7 +3,7 @@ import { Stack } from '../stack'
 import { Textfield } from './textfield'
 
 export default {
-  title: 'Components/Forms/Textfield',
+  title: 'Components/Inputs/Textfield',
   component: Textfield,
   args: {
     dimension: 'regular',
