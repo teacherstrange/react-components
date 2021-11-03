@@ -22,7 +22,7 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(({
   step,
   onInput,
   className,
-  defaultValue = 50,
+  defaultValue = 0,
   dimension = 'regular',
   showValues,
   iconLeft,
