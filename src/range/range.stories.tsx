@@ -36,6 +36,6 @@ WithValues.args = {
 }
 export const WithIcons = Template.bind({})
 WithIcons.args = {
-  iconLeft: 'moon',
-  iconRight: 'sun-bright'
+  iconMin: 'moon',
+  iconMax: 'sun-bright'
 }

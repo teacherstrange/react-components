@@ -11,8 +11,8 @@ export type RangeProps = InputHTMLAttributes<HTMLInputElement> & {
   onInput?(value: number): void;
   defaultValue?: number;
   showValues?: boolean;
-  iconLeft?: IconNames;
-  iconRight?: IconNames;
+  iconMin?: IconNames;
+  iconMax?: IconNames;
   dimension?: 'small' | 'regular';
 }
 
@@ -25,8 +25,8 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(({
   defaultValue = 0,
   dimension = 'regular',
   showValues,
-  iconLeft,
-  iconRight,
+  iconMin,
+  iconMax,
   ...props
 }, forwardedRef) => {
   const [value, setValue] = useState<number>(defaultValue)
@@ -48,7 +48,7 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(({
       data-range-dimension={dimension}
     >
       {showValues && <Text as="span" size={isSmall ? 14 : 16} weight="bold" textAlign="end" className={Value}>{value}</Text>}
-      {(iconLeft && !showValues) && <Icon name={iconLeft} dimension={isSmall ? 16 : 24} />}
+      {(iconMin && !showValues) && <Icon name={iconMin} dimension={isSmall ? 16 : 24} />}
 
       <input
         ref={forwardedRef}
@@ -66,7 +66,7 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(({
       />
 
       {showValues && <Text as="span" size={isSmall ? 14 : 16} weight="bold" className={Value}>{max}</Text>}
-      {(iconRight && !showValues) && <Icon name={iconRight} dimension={isSmall ? 16 : 24} />}
+      {(iconMax && !showValues) && <Icon name={iconMax} dimension={isSmall ? 16 : 24} />}
     </Stack>
   )
 })
