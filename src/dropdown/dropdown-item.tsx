@@ -10,7 +10,7 @@ export type DropdownItemProps = PropsWithClass & {
   icon?: IconNames;
   dimension?: 'small' | 'regular'
   onClick?(): void;
-  iconPosition: 'left' | 'right';
+  iconPosition?: 'left' | 'right';
   description?: ReactNode;
   disabled?: boolean;
 }
