@@ -13,6 +13,7 @@ export type DropdownItemProps = PropsWithClass & {
   iconPosition?: 'left' | 'right';
   description?: ReactNode;
   disabled?: boolean;
+  padding?: boolean;
 }
 
 type PolymorphicDropdownItem = Polymorphic.ForwardRefComponent<'button', DropdownItemProps>;
@@ -27,6 +28,7 @@ export const DropdownItem = forwardRef(({
   as: Wrapper = 'button',
   iconPosition = 'left',
   description,
+  padding = true,
   disabled = false,
   ...props
 }, forwardedRef) => {
@@ -58,6 +60,7 @@ export const DropdownItem = forwardRef(({
       verticalPadding={8}
       data-dropdown-icon-right={isIconRight}
       data-dropdown-has-icon={Boolean(icon)}
+      data-dropdown-padding={padding}
       style={{ inlineSize: '100%' }}
     >
       {icon && (
@@ -69,7 +72,7 @@ export const DropdownItem = forwardRef(({
       )}
       {children}
     </Stack>
-  ), [children, dimension, icon, isIconRight])
+  ), [children, dimension, icon, isIconRight, padding])
 
   return (
     <Wrapper

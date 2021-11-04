@@ -48,11 +48,11 @@
     cursor: not-allowed;
   }
 
-  & span[data-dropdown-has-icon='false'][data-dropdown-icon-right='false'] {
+  & [data-dropdown-padding='true'][data-dropdown-has-icon='false'][data-dropdown-icon-right='false'] {
     padding-left: env(--space-40);
   }
 
-  & span[data-dropdown-has-icon='false'][data-dropdown-icon-right='true'] {
+  & [data-dropdown-padding='true'][data-dropdown-has-icon='false'][data-dropdown-icon-right='true'] {
     padding-right: env(--space-40);
   }
 }

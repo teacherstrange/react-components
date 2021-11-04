@@ -9,7 +9,8 @@ export default {
   component: Dropdown,
   args: {
     dimension: 'regular',
-    iconPosition: 'left'
+    iconPosition: 'left',
+    padding: true
   },
   argTypes: {
     onClick: {
@@ -29,13 +30,14 @@ export default {
   }
 }
 
-const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => {
+const DefaultTemplate = ({ dimension, iconPosition, onClick, padding, ...props }) => {
   const [checked, setChecked] = useState<boolean>(false)
 
   return (
     <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
       <Dropdown.Menu>
         <Dropdown.Item
+          padding={padding}
           onClick={onClick}
           iconPosition={iconPosition}
           icon="arrow-right"
@@ -45,6 +47,7 @@ const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => {
           Sample long menu item
         </Dropdown.Item>
         <Dropdown.ItemCheckbox
+          padding={padding}
           onClick={() => setChecked(val => !val)}
           checked={checked}
           icon={checked && 'check'}
@@ -54,6 +57,7 @@ const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => {
           Checkbox item
         </Dropdown.ItemCheckbox>
         <Dropdown.Item
+          padding={padding}
           onClick={onClick}
           iconPosition={iconPosition}
           icon="user"
@@ -69,8 +73,8 @@ const DefaultTemplate = ({ dimension, iconPosition, onClick, ...props }) => {
           Short menu label
         </Dropdown.Item>
         <Separator />
-        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
-        <Dropdown.Item onClick={onClick} iconPosition={iconPosition} dimension={dimension} disabled>Really?</Dropdown.Item>
+        <Dropdown.Item padding={padding} onClick={onClick} iconPosition={iconPosition} icon="arrow-down-to-bracket" dimension={dimension}>Even shorter</Dropdown.Item>
+        <Dropdown.Item padding={padding} onClick={onClick} iconPosition={iconPosition} dimension={dimension} disabled>Really?</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   )
