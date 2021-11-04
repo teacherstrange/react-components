@@ -1,20 +1,20 @@
 import clsx from 'clsx'
 import React, { forwardRef } from 'react'
-import { Button, Dropdown, DropdownProps, Stack, Polymorphic } from '../'
-import { MenuButton as MenuButtonClass } from './menu-button.module.css'
+import { Button, Dropdown, DropdownProps, Stack, Polymorphic } from '..'
+import { SplitButton as SplitButtonClass } from './split-button.module.css'
 
-export type MenuButtonProps = Pick<DropdownProps, 'placement'> & {
+export type SplitButtonProps = Pick<DropdownProps, 'placement'> & {
   label: string;
   dropdownOffset?: DropdownProps['offset'];
 }
 
-type PolymorphicMenuButton = Polymorphic.ForwardRefComponent<
+type PolymorphicSplitButton = Polymorphic.ForwardRefComponent<
   Polymorphic.IntrinsicElement<typeof Button>,
-  Polymorphic.OwnProps<typeof Button> & MenuButtonProps
+  Polymorphic.OwnProps<typeof Button> & SplitButtonProps
 >;
 
 // eslint-disable-next-line react/display-name
-export const MenuButton = forwardRef(({
+export const SplitButton = forwardRef(({
   className,
   label,
   icon = 'chevron-down',
@@ -38,7 +38,7 @@ export const MenuButton = forwardRef(({
 
   return (
     <Stack
-      className={clsx(MenuButtonClass, className)}
+      className={clsx(SplitButtonClass, className)}
       direction="row"
       columnGap={0}
       inline={!fullWidth}
@@ -65,6 +65,6 @@ export const MenuButton = forwardRef(({
       </Dropdown>
     </Stack>
   )
-}) as PolymorphicMenuButton
+}) as PolymorphicSplitButton
 
-MenuButton.displayName = 'MenuButton'
+SplitButton.displayName = 'SplitButton'

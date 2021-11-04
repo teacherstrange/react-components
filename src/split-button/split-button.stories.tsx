@@ -1,10 +1,10 @@
 import React from 'react'
-import { MenuButton } from './menu-button'
+import { SplitButton } from './split-button'
 import { Dropdown } from '../dropdown'
 
 export default {
-  title: 'Components/Buttons/Menu button',
-  component: MenuButton,
+  title: 'Components/Buttons/Split button',
+  component: SplitButton,
   args: {
     dimension: 'regular',
     kind: 'primary',
@@ -32,12 +32,12 @@ export default {
 }
 
 const Template = (args) => (
-  <MenuButton {...args}>
+  <SplitButton {...args}>
     <Dropdown.Menu>
       <Dropdown.Item padding={false}>Option 1</Dropdown.Item>
       <Dropdown.Item padding={false}>Option 2</Dropdown.Item>
     </Dropdown.Menu>
-  </MenuButton>
+  </SplitButton>
 )
 
 export const Default = Template.bind({})
