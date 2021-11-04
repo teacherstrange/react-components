@@ -2,7 +2,7 @@ import React from 'react'
 import { Toggle } from './toggle'
 
 export default {
-  title: 'Components/Selection Controls/Toggle',
+  title: 'Components/Inputs/Toggle',
   component: Toggle,
   argTypes: {
     onChange: {

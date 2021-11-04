@@ -2,7 +2,7 @@ import React from 'react'
 import { Checkbox } from './checkbox'
 
 export default {
-  title: 'Components/Selection Controls/Checkbox',
+  title: 'Components/Inputs/Checkbox',
   component: Checkbox,
   argTypes: {
     onChange: {

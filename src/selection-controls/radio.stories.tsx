@@ -2,7 +2,7 @@ import React from 'react'
 import { Radio } from './radio'
 
 export default {
-  title: 'Components/Selection Controls/Radio',
+  title: 'Components/Inputs/Radio',
   component: Radio,
   argTypes: {
     onChange: {

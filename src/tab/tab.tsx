@@ -53,7 +53,7 @@ const TabRoot: React.FC<TabProps> = forwardRef<HTMLDivElement, TabProps>(({
   onChange,
   ...props
 }, forwardedRef) => {
-  children = Children.toArray(children).filter(Boolean)
+  const renderedChildren = Children.toArray(children).filter(Boolean)
 
   const innerState = useState(0)
   const tabState = state || innerState
@@ -79,7 +79,7 @@ const TabRoot: React.FC<TabProps> = forwardRef<HTMLDivElement, TabProps>(({
          * children. Assign required ARIA attributes and ID's
          */}
         <TabList>
-          {Children.map(children, (child: any, index) => (
+          {Children.map(renderedChildren, (child: any, index) => (
             <Tab.Item
               id={seedID(`tab-item-${index}`)}
               aria-controls={seedID(`tab-panel-${index}`)}
@@ -93,7 +93,7 @@ const TabRoot: React.FC<TabProps> = forwardRef<HTMLDivElement, TabProps>(({
         {/**
          * Loop children to assign required ARIA attributes and ID's
          */}
-        {Children.map(children, (child: any, index) => cloneElement(
+        {Children.map(renderedChildren, (child: any, index) => cloneElement(
           child,
           {
             id: seedID(`tab-panel-${index}`),
