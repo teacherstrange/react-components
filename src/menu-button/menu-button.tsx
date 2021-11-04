@@ -22,7 +22,8 @@ export const MenuButton: React.FC<MenuButtonProps> = ({
   loading,
   children,
   placement,
-  dropdownOffset
+  dropdownOffset,
+  onClick
 }) => {
   const commonProps = {
     kind,
@@ -40,6 +41,7 @@ export const MenuButton: React.FC<MenuButtonProps> = ({
         loading={loading}
         disabled={disabled}
         fullWidth={fullWidth}
+        onClick={onClick}
         {...commonProps}
       >
         {label}
