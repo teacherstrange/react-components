@@ -1,6 +1,6 @@
 @import './_mixins.css';
 
-.Range svg {
+.Slider svg {
   flex-shrink: 0;
 }
 
@@ -20,7 +20,7 @@
   @nest :dir(rtl) & {
     --progress-direction: calc(9999px + var(--thumb-size) / 2);
   }
-  @nest .Range[data-range-dimension='small'] & {
+  @nest .Slider[data-slider-dimension='small'] & {
     --thumb-size: 16px;
   }
 

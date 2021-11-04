@@ -1,10 +1,10 @@
 import React, { forwardRef, InputHTMLAttributes, useCallback, useState } from 'react'
 import { IconNames } from '../icons/types'
-import { Stack, Text, Icon } from '../'
-import { Range as RangeClass, Input, Value } from './range.module.css'
+import { Stack, Text, Icon } from '..'
+import { Slider as SliderClass, Input, Value } from './slider.module.css'
 import clsx from 'clsx'
 
-export type RangeProps = InputHTMLAttributes<HTMLInputElement> & {
+export type SliderProps = InputHTMLAttributes<HTMLInputElement> & {
   min?: number;
   max?: number;
   step?: number;
@@ -16,7 +16,7 @@ export type RangeProps = InputHTMLAttributes<HTMLInputElement> & {
   dimension?: 'small' | 'regular';
 }
 
-export const Range = forwardRef<HTMLInputElement, RangeProps>(({
+export const Slider = forwardRef<HTMLInputElement, SliderProps>(({
   min = 0,
   max = 100,
   step,
@@ -44,8 +44,8 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(({
       direction="row"
       verticalAlign="center"
       columnGap={8}
-      className={clsx(RangeClass, className)}
-      data-range-dimension={dimension}
+      className={clsx(SliderClass, className)}
+      data-slider-dimension={dimension}
     >
       {showValues && <Text as="span" size={isSmall ? 14 : 16} weight="bold" textAlign="end" className={Value}>{value}</Text>}
       {(iconMin && !showValues) && <Icon name={iconMin} dimension={isSmall ? 16 : 24} />}
@@ -71,4 +71,4 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(({
   )
 })
 
-Range.displayName = 'Range'
+Slider.displayName = 'Slider'

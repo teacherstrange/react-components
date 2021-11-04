@@ -1,9 +1,9 @@
 import React from 'react'
-import { Range } from './range'
+import { Slider } from './slider'
 
 export default {
-  title: 'Components/Inputs/Range',
-  component: Range,
+  title: 'Components/Inputs/Slider',
+  component: Slider,
   args: {
     min: 0,
     max: 100,
@@ -27,7 +27,7 @@ export default {
   }
 }
 
-const Template = (args) => <Range {...args} />
+const Template = (args) => <Slider {...args} />
 
 export const Default = Template.bind({})
 export const WithValues = Template.bind({})
