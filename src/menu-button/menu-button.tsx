@@ -3,8 +3,7 @@ import React, { forwardRef } from 'react'
 import { Button, Dropdown, DropdownProps, Stack, Polymorphic } from '../'
 import { MenuButton as MenuButtonClass } from './menu-button.module.css'
 
-export type MenuButtonProps = Pick<DropdownProps, 'placement'
-> & {
+export type MenuButtonProps = Pick<DropdownProps, 'placement'> & {
   label: string;
   dropdownOffset?: DropdownProps['offset'];
 }
