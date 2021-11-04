@@ -15,6 +15,7 @@ type PolymorphicMenuButton = Polymorphic.ForwardRefComponent<
   Polymorphic.IntrinsicElement<typeof Button>,
   Polymorphic.OwnProps<typeof Button> & MenuButtonProps
 >;
+
 // eslint-disable-next-line react/display-name
 export const MenuButton: React.FC<MenuButtonProps> = forwardRef(({
   className,
@@ -64,3 +65,5 @@ export const MenuButton: React.FC<MenuButtonProps> = forwardRef(({
     </Stack>
   )
 }) as PolymorphicMenuButton
+
+MenuButton.displayName = 'MenuButton'
