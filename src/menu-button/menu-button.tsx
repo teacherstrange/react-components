@@ -1,7 +1,7 @@
 import clsx from 'clsx'
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { Except } from 'type-fest'
-import { Button, ButtonProps, Dropdown, DropdownProps, Stack } from '../'
+import { Button, ButtonProps, Dropdown, DropdownProps, Stack, Polymorphic } from '../'
 import { MenuButton as MenuButtonClass } from './menu-button.module.css'
 
 export type MenuButtonProps = Except<
@@ -11,7 +11,12 @@ export type MenuButtonProps = Except<
   dropdownOffset?: DropdownProps['offset'];
 }
 
-export const MenuButton: React.FC<MenuButtonProps> = ({
+type PolymorphicMenuButton = Polymorphic.ForwardRefComponent<
+  Polymorphic.IntrinsicElement<typeof Button>,
+  Polymorphic.OwnProps<typeof Button> & MenuButtonProps
+>;
+// eslint-disable-next-line react/display-name
+export const MenuButton: React.FC<MenuButtonProps> = forwardRef(({
   className,
   label,
   icon = 'chevron-down',
@@ -23,8 +28,9 @@ export const MenuButton: React.FC<MenuButtonProps> = ({
   children,
   placement,
   dropdownOffset,
-  onClick
-}) => {
+  onClick,
+  as
+}, forwardedRef) => {
   const commonProps = {
     kind,
     dimension
@@ -42,6 +48,8 @@ export const MenuButton: React.FC<MenuButtonProps> = ({
         disabled={disabled}
         fullWidth={fullWidth}
         onClick={onClick}
+        ref={forwardedRef}
+        as={as}
         {...commonProps}
       >
         {label}
@@ -55,4 +63,4 @@ export const MenuButton: React.FC<MenuButtonProps> = ({
       </Dropdown>
     </Stack>
   )
-}
+}) as PolymorphicMenuButton
