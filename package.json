@@ -32,7 +32,6 @@
     "last 2 Edge versions"
   ],
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "start": "run-s build storybook",
     "storybook": "start-storybook --quiet -p 6006",
     "lint": "run-s lint:scripts && run-s lint:styles",
