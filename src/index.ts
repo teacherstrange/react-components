@@ -44,3 +44,9 @@ export { ThemeSwitch, ThemeSwitchProps } from './theme-switch'
 export { Title, TitleProps } from './title'
 export { ToggleButton, ToggleButtonProps } from './toggle-button'
 export { Tooltip, TooltipProps } from './tooltip'
+
+/* -------------------------------------------------------------------------- */
+/*                                 Layouts                                    */
+/* -------------------------------------------------------------------------- */
+
+export { MasonryLayout, MasonryLayoutProps } from './layouts/masonry-layout'
