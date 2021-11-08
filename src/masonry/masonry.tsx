@@ -12,7 +12,7 @@ export type MasonryProps = PropsWithClass & {
     extraSmall?: number,
     small?: number,
     medium?: number,
-    large?: number
+    large?: number,
     extraLarge?: number
   };
 }
