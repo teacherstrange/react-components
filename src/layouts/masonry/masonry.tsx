@@ -25,25 +25,30 @@ export const Masonry: React.FC<MasonryProps> = ({
   style,
   ...props
 }) => {
+  const breakpoints = {
+    extraSmall: 480,
+    small: 768,
+    medium: 960,
+    large: 1280,
+    extraLarge: 1600
+  }
+
   const dynamicStyle: CSSProperties = {
     '--gutter': gutter && tksn.space[gutter]
   }
+
+  const computedColumns = typeof columns === 'object' && Object.keys(columns).reduce((prev, current) => current !== 'default' && ({
+    ...prev,
+    default: columns.default,
+    [breakpoints[current]]: columns[current]
+  }), {})
 
   return (
     <MasonryLayout
       role="list"
       className={clsx(MasonryClass, className)}
       columnClassName={Column}
-      breakpointCols={typeof columns === 'number'
-        ? columns
-        : {
-            default: columns.default,
-            480: columns.extraSmall || columns.default,
-            768: columns.small || columns.default,
-            960: columns.medium || columns.default,
-            1280: columns.large || columns.default,
-            1600: columns.extraLarge || columns.default
-          }}
+      breakpointCols={typeof columns === 'number' ? columns : computedColumns}
       style={{ ...dynamicStyle, ...style }}
       {...props}
     >
