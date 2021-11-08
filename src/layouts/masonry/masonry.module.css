@@ -1,4 +1,4 @@
-.MasonryLayout {
+.Masonry {
   display: flex;
   margin-left: calc(var(--gutter) * -1);
   width: auto;

@@ -49,4 +49,4 @@ export { Tooltip, TooltipProps } from './tooltip'
 /*                                 Layouts                                    */
 /* -------------------------------------------------------------------------- */
 
-export { MasonryLayout, MasonryLayoutProps } from './layouts/masonry-layout'
+export { Masonry, MasonryProps } from './layouts/masonry'

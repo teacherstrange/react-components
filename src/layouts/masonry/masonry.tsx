@@ -1,11 +1,11 @@
 import clsx from 'clsx'
 import React, { Children, cloneElement, CSSProperties, ReactElement } from 'react'
-import Masonry from 'react-masonry-css'
+import MasonryLayout from 'react-masonry-css'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
-import { MasonryLayout as MasonryLayoutClass, Column } from './masonry-layout.module.css'
+import { Masonry as MasonryClass, Column } from './masonry.module.css'
 
-export type MasonryLayoutProps = PropsWithClass & {
+export type MasonryProps = PropsWithClass & {
   gutter?: 0 | TokensTypes['space'];
   columns?: number | {
     default: number,
@@ -17,7 +17,7 @@ export type MasonryLayoutProps = PropsWithClass & {
   };
 }
 
-export const MasonryLayout: React.FC<MasonryLayoutProps> = ({
+export const Masonry: React.FC<MasonryProps> = ({
   className,
   children,
   columns = 3,
@@ -30,9 +30,9 @@ export const MasonryLayout: React.FC<MasonryLayoutProps> = ({
   }
 
   return (
-    <Masonry
+    <MasonryLayout
       role="list"
-      className={clsx(MasonryLayoutClass, className)}
+      className={clsx(MasonryClass, className)}
       columnClassName={Column}
       breakpointCols={typeof columns === 'number'
         ? columns
@@ -53,6 +53,6 @@ export const MasonryLayout: React.FC<MasonryLayoutProps> = ({
           role: 'listitem'
         }
       ))}
-    </Masonry>
+    </MasonryLayout>
   )
 }
