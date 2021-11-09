@@ -39,3 +39,8 @@
 .Icon {
   flex-shrink: 0;
 }
+
+.Action:is(.Action.Action) {
+  color: var(--snackbar-bg);
+  background-color: var(--snackbar-fg);
+}
