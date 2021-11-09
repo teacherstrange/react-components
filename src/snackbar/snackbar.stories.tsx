@@ -22,3 +22,7 @@ export const Single = Template.bind({})
 Single.args = {
   title: 'Sample title'
 }
+export const Dismissable = Template.bind({})
+Dismissable.args = {
+  dismissable: true
+}
