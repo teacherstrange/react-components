@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from './container'
 
 export default {
-  title: 'Components/Layout/Container',
+  title: 'Layouts/Container',
   component: Container,
   argTypes: {
     padding: {
