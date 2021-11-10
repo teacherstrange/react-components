@@ -50,3 +50,4 @@ export { Tooltip, TooltipProps } from './tooltip'
 /* -------------------------------------------------------------------------- */
 
 export { Masonry, MasonryProps } from './masonry'
+export { Grid, GridProps, GridItemProps } from './grid'
