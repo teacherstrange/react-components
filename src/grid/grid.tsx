@@ -25,7 +25,7 @@ export const Grid = ({
   columnGap = 8,
   style,
   filling = 'fill',
-  colMinWidth = '5rem',
+  colMinWidth = '10rem',
   rowMinHeight = '1fr',
   ...props
 }: GridProps) => {
