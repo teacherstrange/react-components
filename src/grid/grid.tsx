@@ -11,7 +11,7 @@ export type GridProps = PropsWithClass & {
   rows?: number;
   rowGap?: 0 | TokensTypes['space'];
   columnGap?: 0 | TokensTypes['space'];
-  filling?: 'fit' | 'fill';
+  filling?: 'fit' | 'fill' | false;
   colMinWidth?: string;
   rowMinHeight?: string;
 }
