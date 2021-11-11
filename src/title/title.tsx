@@ -39,7 +39,7 @@ export const Title = forwardRef(({
       data-title-line-height={lineHeight}
       data-title-is-fluid={fluid}
       className={clsx(styles.Title, styles[computedLevel], className)}
-      style={{ ...dynamicStyle, style }}
+      style={{ ...dynamicStyle, ...style }}
       {...props}
     >
       {children}

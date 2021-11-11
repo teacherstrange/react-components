@@ -6,7 +6,7 @@ import { Icon } from '../icon'
 import { Stack } from '../stack'
 
 export default {
-  title: 'Components/Layout/Card',
+  title: 'Components/Widgets/Card',
   component: Card,
   args: {
     bordered: false

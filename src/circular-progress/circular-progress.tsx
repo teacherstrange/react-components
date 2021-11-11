@@ -40,7 +40,7 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
       data-circular-progress={clamp(getPercentage(), 0, 100)}
       data-circular-progress-dimension={dimension}
       data-circular-progress-show-progress={showProgress}
-      style={{ ...dynamicStyle, style }}
+      style={{ ...dynamicStyle, ...style }}
       {...props}
     />
   )
