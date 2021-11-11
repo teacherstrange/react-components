@@ -6,9 +6,9 @@ import { GridItem } from './grid-item'
 import { Grid as GridClass } from './grid.module.css'
 
 export type GridProps = PropsWithClass & {
-  children?: ReactNode;
-  columns?: number | string;
-  rows?: number | string;
+  children: ReactNode;
+  columns?: number;
+  rows?: number;
   rowGap?: 0 | TokensTypes['space'];
   columnGap?: 0 | TokensTypes['space'];
   filling?: 'fit' | 'fill';
