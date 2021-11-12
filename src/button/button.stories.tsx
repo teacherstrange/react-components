@@ -52,7 +52,8 @@ Link.args = {
 export const WithIcon = Template.bind({})
 WithIcon.args = {
   icon: 'bookmark',
-  iconPosition: 'left'
+  iconPosition: 'left',
+  iconColor: 'currentColor'
 }
 
 const GroupTemplate = (args) => (

@@ -8,8 +8,9 @@ export type ButtonProps = PropsWithClass & {
   kind?: 'primary' | 'secondary' | 'flat';
   dimension?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
-  icon?: IconNames,
-  iconPosition?: 'left' | 'right',
+  icon?: IconNames;
+  iconPosition?: 'left' | 'right';
+  iconColor?: string;
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
   loading?: boolean;
@@ -30,6 +31,7 @@ export const Button = forwardRef((
     icon,
     disabled,
     iconPosition = 'left',
+    iconColor,
     type = 'button',
     pressed,
     onClick,
@@ -72,6 +74,7 @@ export const Button = forwardRef((
       {icon && (
         <Icon
           name={icon}
+          fill={iconColor}
           dimension={iconSize[dimension] as IconProps['dimension']}
         />
       )}
