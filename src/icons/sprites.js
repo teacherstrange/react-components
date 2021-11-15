@@ -28,11 +28,11 @@ const run = () => {
     jsonStructure.svgs[dir.name] = []
     jsonStructure.iconTypes.push(dir.name)
     dir.children && dir.children.forEach((file) => {
-      const iconID = `${dir.name}/${file.name.replace('.svg', '')}`
+      const iconID = `${dir.name}/${file.name.replace(/(-\d.*)/gm, '')}`
 
       sprite.add(iconID, fs.readFileSync(file.path, 'utf8'))
       jsonStructure.svgs[dir.name].push(file.name)
-      jsonStructure.iconNames.push(`${file.name.replace('.svg', '')}`)
+      jsonStructure.iconNames.push(`${file.name.replace(/(-\d.*)/gm, '')}`)
     })
   })
   fs.writeFileSync(path.join('dist', 'icons', 'all.svg'), sprite)
