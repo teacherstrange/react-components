@@ -23,14 +23,13 @@ export const GridItem: React.FC<GridItemProps> = ({
   }
 
   return (
-    <div
-      role="listitem"
+    <li
       className={clsx(GridItemClass, className)}
       style={{ ...dynamicStyle, ...style }}
       data-grid-item-fullwidth={fullWidth}
       {...props}
     >
       {children}
-    </div>
+    </li>
   )
 }
