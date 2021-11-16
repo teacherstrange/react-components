@@ -3,7 +3,7 @@ import { SplitButton } from './split-button'
 import { Dropdown } from '../dropdown'
 
 export default {
-  title: 'Components/Buttons/Split button',
+  title: 'Components/Actions/Split button',
   component: SplitButton,
   args: {
     dimension: 'regular',
