@@ -75,7 +75,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%) translateX(var(--x));
-  outline-offset: -8px;
+  outline-offset: -0.25em;
 
   &[data-button-kind='flat']:is(:hover, :active, :focus, [data-button-disabled='true']) {
     background-color: transparent;
