@@ -69,6 +69,34 @@
   }
 }
 
+.IconButton.IconButton.IconButton {
+  --x: 19%;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(var(--x));
+  outline-offset: -8px;
+
+  &[data-button-kind='flat']:is(:hover, :active, :focus, [data-button-disabled='true']) {
+    background-color: transparent;
+    backdrop-filter: none;
+  }
+
+  @nest [data-textfield-icon-position='left'] & {
+    --x: -19%;
+
+    right: auto;
+    left: var(--field-padding);
+  }
+  @nest [data-textfield-icon-position='right'] & {
+    left: auto;
+    right: var(--field-padding);
+  }
+  @nest .Textfield[data-textfield-invalid='true'] & {
+    color: var(--highlight-red-foreground);
+  }
+}
+
 .InputField:invalid + .Icon {
   fill: var(--highlight-red-foreground);
 }
