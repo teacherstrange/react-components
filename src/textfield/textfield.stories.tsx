@@ -45,6 +45,7 @@ const SingleTemplate = (args) => (
     <Textfield {...args} size={4} label="Empty" placeholder="Placeholder" />
     <Textfield {...args} size={4} label="Empty" placeholder="Placeholder" />
     <Textfield {...args} size={4} label="Empty" placeholder="Placeholder" />
+    <Textfield {...args} type="password" label="Password" defaultValue="123123klòasj" placeholder="Placeholder" />
   </Stack>
 )
 
@@ -54,6 +55,7 @@ const MultipleTemplate = (args) => (
     <Textfield {...args} label="Filled read only" defaultValue="Sample value" readOnly />
     <Textfield {...args} label="Empty disbled" placeholder="Placeholder" disabled />
     <Textfield {...args} label="Filled disabled" defaultValue="Sample value" disabled />
+    <Textfield {...args} type="password" label="Type password" defaultValue="912435jh345" />
     <Textfield {...args} type="number" label="Type number" defaultValue={100} />
     <Textfield {...args} type="search" label="Type search" />
     <Textfield {...args} type="date" label="Type date" />
