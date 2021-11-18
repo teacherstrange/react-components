@@ -39,15 +39,14 @@ export const Grid = ({
   }
 
   return (
-    <div
-      role="list"
+    <ul
       className={clsx(GridClass, className)}
       style={{ ...computedStyle, ...style }}
       data-grid-filling-type={filling}
       {...props}
     >
       {children}
-    </div>
+    </ul>
   )
 }
 

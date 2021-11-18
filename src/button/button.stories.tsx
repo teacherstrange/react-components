@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, ButtonsGroup } from './button'
 
 export default {
-  title: 'Components/Buttons/Button',
+  title: 'Components/Actions/Button',
   component: Button,
   args: {
     dimension: 'regular',

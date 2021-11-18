@@ -1,14 +1,15 @@
-import React, { ChangeEvent, forwardRef, Ref } from 'react'
-import { Text, Stack, Icon, IconProps } from '../'
+import React, { ChangeEvent, forwardRef, Ref, useCallback, useState } from 'react'
+import { Text, Stack, Icon, IconProps, IconButton, IconButtonProps } from '../'
 import { IconNames } from '../icons/types'
 import { BaseField, BaseFieldProps } from './base-field'
 import clsx from 'clsx'
 import { useUIDSeed } from 'react-uid'
-import { Textfield as TextfieldClass, FieldContainer, InputField, Icon as IconClass } from './textfield.module.css'
+import { Textfield as TextfieldClass, FieldContainer, InputField, Icon as IconClass, IconButton as IconButtonClass } from './textfield.module.css'
 
 export type TextfieldProps = BaseFieldProps & {
   icon?: IconNames;
   label?: string;
+  type?: string;
   textarea?: boolean;
   dimension?: 'regular' | 'small' | 'big';
   readOnly?: boolean;
@@ -28,15 +29,31 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
   invalid,
   iconPosition = 'right',
   dimension = 'regular',
+  type,
   onChange,
   ...props
 }: TextfieldProps, forwardedRef) => {
+  const [passwordVisible, setPasswordVisible] = useState<boolean>(false)
   const uid = useUIDSeed()
+  const isPassword = type === 'password'
+
+  const handlePasswordVisibility = useCallback(
+    () => {
+      setPasswordVisible(visibility => !visibility)
+    },
+    []
+  )
 
   const iconSizes = {
     small: 14,
     regular: 16,
     big: 24
+  }
+
+  const actionSizes = {
+    small: 'small',
+    regular: 'small',
+    big: 'big'
   }
 
   const commonProps = {
@@ -51,7 +68,7 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
       as="fieldset"
       rowGap={4}
       className={clsx(TextfieldClass, className)}
-      data-textfield-has-icon={Boolean(icon)}
+      data-textfield-has-icon={isPassword || Boolean(icon)}
       data-textfield-icon-position={iconPosition}
       data-textfield-dimension={dimension}
       data-textfield-invalid={invalid}
@@ -62,7 +79,6 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
     >
       {label && <Text as="label" size={dimension === 'small' ? 14 : 16} htmlFor={uid('field')}>{label}</Text>}
       <div className={FieldContainer}>
-
         {textarea
           ? (
             <BaseField
@@ -78,13 +94,24 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
               className={InputField}
               id={uid('field')}
               ref={forwardedRef as Ref<HTMLInputElement>}
+              type={passwordVisible ? 'text' : type}
               {...commonProps}
               {...props}
             />
             )
           }
+        {isPassword && (
+          <IconButton
+            className={IconButtonClass}
+            dimension={actionSizes[dimension] as IconButtonProps['dimension']}
+            onClick={handlePasswordVisibility}
+            kind="flat"
+            aria-label="Reveal password"
+            icon={passwordVisible ? 'eye-slash' : 'eye'}
+          />
+        )}
 
-        { !textarea && icon && (
+        { !textarea && icon && type !== 'password' && (
           <Icon
             className={IconClass}
             name={icon}
