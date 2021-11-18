@@ -18,7 +18,7 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, InputGroupProps>(({
   end,
   start,
   label,
-  dimension,
+  dimension = 'regular',
   ...props
 }, forwardedRef) => {
   const uid = useUIDSeed()
