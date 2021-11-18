@@ -4,7 +4,7 @@ import { Button } from '../button'
 import { Stack } from '../stack'
 
 export default {
-  title: 'Components/Widgets/Tab',
+  title: 'Components/Navigation/Tab',
   component: Tab,
   argTypes: {
     onChange: {
