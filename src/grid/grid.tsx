@@ -52,4 +52,5 @@ export const Grid: React.FC<GridProps> = forwardRef<HTMLUListElement, GridProps>
 })
 
 Grid.displayName = 'Grid'
+// @ts-expect-error
 Grid.Item = GridItem
