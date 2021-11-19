@@ -94,7 +94,6 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
         tabIndex={!expandable ? -1 : 0}
         size={dimension ? sizes[dimension].summary as TextProps['size'] : undefined}
         weight="bold"
-        role="button"
       >
         {summary}
         {expandable && (
