@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactNode } from 'react'
+import React, { CSSProperties, ReactNode, forwardRef } from 'react'
 import clsx from 'clsx'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
@@ -16,7 +16,7 @@ export type GridProps = PropsWithClass & {
   rowMinHeight?: string;
 }
 
-export const Grid = ({
+export const Grid: React.FC<GridProps> = forwardRef<HTMLUListElement, GridProps>(({
   className,
   children,
   columns,
@@ -28,7 +28,7 @@ export const Grid = ({
   colMinWidth = '10rem',
   rowMinHeight = '1fr',
   ...props
-}: GridProps) => {
+}, forwardedRef) => {
   const computedStyle: CSSProperties = {
     '--rGap': rowGap && tksn.space[rowGap],
     '--cGap': columnGap && tksn.space[columnGap],
@@ -43,11 +43,13 @@ export const Grid = ({
       className={clsx(GridClass, className)}
       style={{ ...computedStyle, ...style }}
       data-grid-filling-type={filling}
+      ref={forwardedRef}
       {...props}
     >
       {children}
     </ul>
   )
-}
+})
 
+Grid.displayName = 'Grid'
 Grid.Item = GridItem
