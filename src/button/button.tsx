@@ -88,19 +88,20 @@ export const Button = forwardRef((
   )
 }) as PolymorphicButton
 
-export type ButtonsGroupProps = PropsWithClass & Pick<ButtonProps, 'dimension'>
+export type ButtonsGroupProps = PropsWithClass & Pick<ButtonProps, 'dimension' | 'kind'>
 
 export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({
   children,
   className,
+  kind,
   dimension = 'regular'
 }) => (
   <div className={clsx(ButtonsGroupClass, className)}>
     {Children.map(children, (child: ReactElement) => cloneElement(
       child,
       {
-        kind: 'secondary',
-        dimension: dimension
+        kind,
+        dimension
       }
     ))}
   </div>

@@ -127,17 +127,17 @@
 .ButtonsGroup {
   display: inline-flex;
 
-  & > *:not(:first-child, :last-child) {
+  & > *:not(:first-child, :last-child, :only-of-type) {
     border-radius: 0;
   }
 
-  & > *:first-child {
+  & > *:first-child:not(:only-of-type) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     box-shadow: inset -1px 0 0 hsl(0deg 0% 40% / 10%);
   }
 
-  & > *:last-child {
+  & > *:last-child:not(:only-of-type) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     box-shadow: inset 1px 0 0 hsl(0deg 0% 40% / 10%);
