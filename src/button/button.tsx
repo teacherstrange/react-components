@@ -66,7 +66,7 @@ export const Button = forwardRef((
       data-button-is-loading={loading}
       aria-disabled={disabled}
       aria-busy={loading}
-      aria-pressed={Wrapper === 'button' && pressed}
+      aria-pressed={Wrapper === 'button' ? pressed : undefined}
       aria-live={loading ? 'polite' : undefined}
       onClick={handleClick()}
       {...props}
