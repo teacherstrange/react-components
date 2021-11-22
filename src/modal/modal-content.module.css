@@ -33,7 +33,7 @@
     env(--space-24);
 }
 
-.CloseButton {
+.CloseButton.CloseButton {
   position: absolute;
   top: env(--space-8);
   right: env(--space-8);
