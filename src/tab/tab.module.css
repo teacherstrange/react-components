@@ -93,7 +93,7 @@ a.TabItem {
 @keyframes fade-in {
   0% {
     opacity: 0%;
-    transform: translate(var(--fadeFromX, 0), var(--fadeFromY, 0));
+    transform: translate(var(--fade-from-x, 0), var(--fade-from-y, 0));
   }
 
   100% {
