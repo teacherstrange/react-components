@@ -18,6 +18,24 @@ export default {
   }
 }
 
-export const Default = (args) => <Checkbox {...args} />
-export const Checked = (args) => <Checkbox defaultChecked {...args} />
-export const DisabledChecked = (args) => <Checkbox defaultChecked disabled {...args} />
+const Template = (args) => (
+  <Checkbox {...args} />
+)
+
+export const Default = Template.bind({})
+
+export const Checked = Template.bind({})
+Checked.args = {
+  defaultChecked: true
+}
+
+export const DisabledChecked = Template.bind({})
+DisabledChecked.args = {
+  defaultChecked: true,
+  disabled: true
+}
+
+export const Indeterminate = Template.bind({})
+Indeterminate.args = {
+  indeterminate: true
+}

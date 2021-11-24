@@ -18,6 +18,19 @@ export default {
   }
 }
 
-export const Default = (args) => <Radio {...args} />
-export const Checked = (args) => <Radio defaultChecked {...args} />
-export const DisabledChecked = (args) => <Radio defaultChecked disabled {...args} />
+const Template = (args) => (
+  <Radio {...args} />
+)
+
+export const Default = Template.bind({})
+
+export const Checked = Template.bind({})
+Checked.args = {
+  defaultChecked: true
+}
+
+export const DisabledChecked = Template.bind({})
+DisabledChecked.args = {
+  defaultChecked: true,
+  disabled: true
+}

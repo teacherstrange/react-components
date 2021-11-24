@@ -30,7 +30,8 @@
     background-color: var(--global-vibrancy-background-hover);
   }
 
-  &:checked {
+  &:checked,
+  &[data-control-indeterminate='true'] {
     background-color: var(--dimmed-7);
 
     &::after {
@@ -47,6 +48,12 @@
   &[data-control-dimension='small'] {
     --w: 16px;
     --h: 16px;
+  }
+
+  &[data-control-indeterminate='true']::after {
+    border-left: 0;
+    block-size: 2px;
+    transform: translate(-50%, -50%);
   }
 }
 
