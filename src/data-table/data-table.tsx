@@ -4,7 +4,7 @@ import React, {
 import ReactDataTable, { TableProps } from 'react-data-table-component'
 import { Icon, SkeletonBlock, Checkbox } from '../'
 import { customStyle } from './theme'
-import { TableWrapper, SortIcon, ExpandIcon, ExpandWrapper, ExpandContent } from './data-table.module.css'
+import { TableWrapper, SortIcon, ExpandWrapper, ExpandContent } from './data-table.module.css'
 import { IconNames } from '../icons/types'
 import clsx from 'clsx'
 
@@ -64,8 +64,8 @@ export const DataTable = <T, >({
         selectableRowsComponent={Checkbox}
         selectableRowsComponentProps={selectProps}
         expandableIcon={{
-          collapsed: <span className={ExpandIcon}><Icon name={collapsedRowIcon} dimension={16} /></span>,
-          expanded: <span className={ExpandIcon} data-expanded><Icon name={expandedRowIcon} dimension={16} /></span>
+          collapsed: <Icon name={collapsedRowIcon} fill="var(--global-foreground)" dimension={16} />,
+          expanded: <Icon name={expandedRowIcon} fill="var(--global-foreground)" dimension={16} />
         }}
         sortIcon={(
           <span className={SortIcon}>

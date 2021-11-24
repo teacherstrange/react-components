@@ -8,7 +8,7 @@
   display: block;
 }
 
-.ExpandIcon {
+/* .ExpandIcon {
   display: flex;
   color: var(--highlight-gray-foreground);
   width: 24px;
@@ -19,7 +19,7 @@
   &[data-expanded] {
     color: var(--global-foreground);
   }
-}
+} */
 
 .ExpandWrapper {
   overflow: hidden;
