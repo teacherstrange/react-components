@@ -4,7 +4,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 export type SkeletonBlockProps = SkeletonProps & {
-  borderRadius: TokensTypes['radius']
+  borderRadius?: TokensTypes['radius']
 }
 
 export const SkeletonBlock = ({
