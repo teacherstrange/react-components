@@ -6,6 +6,7 @@ import { Icon, SkeletonBlock, Checkbox } from '../'
 import { customStyle } from './theme'
 import { TableWrapper, SortIcon, ExpandIcon, ExpandWrapper, ExpandContent } from './data-table.module.css'
 import { IconNames } from '../icons/types'
+import clsx from 'clsx'
 
 export type DataTableProps<T> = TableProps<T> & {
   ExpandableRowsComponent?: React.FC<{data: T}>;
@@ -46,7 +47,7 @@ export const DataTable = <T, >({
   ), [ExpandableRowsComponent])
 
   return (
-    <div className={`${TableWrapper} ${className || ''}`}>
+    <div className={clsx(TableWrapper, className)}>
       <ReactDataTable
         pagination={pagination}
         responsive={responsive}
