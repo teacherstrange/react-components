@@ -71,7 +71,8 @@ export const customStyle = (rowHeight: string) => ({
   },
   contextMenu: {
     style: {
-      backdropFilter: 'blur(32px)'
+      backdropFilter: 'blur(32px)',
+      borderRadius: '4px'
     }
   }
 } as TableStyles)
