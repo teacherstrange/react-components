@@ -83,7 +83,9 @@ export const SelectableRows = Template.bind({})
 SelectableRows.args = {
   pagination: true,
   selectableRows: true,
-  selectableRowsHighlight: true
+  selectableRowsHighlight: true,
+  noHeader: false,
+  title: 'Sample data'
 }
 
 export const LoadingState = Template.bind({})
