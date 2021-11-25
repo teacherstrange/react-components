@@ -4,7 +4,8 @@ const svgstore = require('svgstore')
 const path = require('path')
 const fs = require('fs-extra')
 const dt = require('directory-tree')
-const ora = require('ora')
+const { createSpinner } = require('nanospinner')
+const colors = require('picocolors')
 
 const generateTypes = jsonStructure => `
 export type IconNames = '${jsonStructure.iconNames.join('\' |\n\'')}';
@@ -12,7 +13,7 @@ export type IconTypes = '${jsonStructure.iconTypes.join('\' |\n\'')}';
 `
 
 const run = () => {
-  const spinner = ora('Processing icons...').start()
+  const spinner = createSpinner('Processing icons...').start()
   const directories = dt(path.join('src', 'icons', 'svgs'))
   fs.ensureDirSync('dist/icons')
 
@@ -40,13 +41,14 @@ const run = () => {
   fs.writeFileSync(path.join('dist', 'icons', 'structure.json'), JSON.stringify([...new Set(jsonStructure.iconNames)], null, 2))
   fs.writeFileSync(path.join('dist', 'icons', 'types.d.ts'), generateTypes(jsonStructure))
   fs.writeFileSync(path.join('src', 'icons', 'types.d.ts'), generateTypes(jsonStructure))
-  spinner.succeed('Icons and types generated')
+  console.clear()
+  spinner.success({ text: colors.green('Icons and types generated'), mark: colors.green('✔') })
 }
 
 try {
   run()
   process.exit(0)
 } catch (error) {
-  console.error('⚠️ Something went wrong:', error)
+  console.error(colors.yellow('⚠️ Something went wrong:'), error)
   process.exit(1)
 }

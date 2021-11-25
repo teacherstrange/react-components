@@ -3,4 +3,5 @@ const StyleDictionary = require('style-dictionary').extend('src/themes/themes.co
 /**
  * Manually run StyleDictionary for all the configured platforms
  */
+console.clear()
 StyleDictionary.buildAllPlatforms()
