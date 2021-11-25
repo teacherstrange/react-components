@@ -1,8 +1,8 @@
 import React from 'react'
-import { DataTable } from './data-table'
+import { Table } from './table'
 
 export default {
-  title: 'Layouts/DataTable',
+  title: 'Layouts/Table',
   parameters: {
     centered: { disable: true }
   }
@@ -54,7 +54,7 @@ const ExpndableComponent = ({ data }: Record<string, any>) => (
 )
 
 const Template = (args) => (
-  <DataTable
+  <Table
     columns={columns}
     data={data}
     {...args}

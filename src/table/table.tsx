@@ -1,21 +1,21 @@
 import React, {
   useMemo
 } from 'react'
-import ReactDataTable, { TableProps } from 'react-data-table-component'
-import { Icon, SkeletonBlock, Checkbox } from '../'
+import ReactDataTable, { TableProps as ReactTableProps } from 'react-data-table-component'
+import { Icon, SkeletonBlock, Checkbox } from '..'
 import { customStyle } from './theme'
-import { TableWrapper, SortIcon, ExpandWrapper, ExpandContent } from './data-table.module.css'
+import { TableWrapper, SortIcon, ExpandWrapper, ExpandContent } from './table.module.css'
 import { IconNames } from '../icons/types'
 import clsx from 'clsx'
 
-export type DataTableProps<T> = TableProps<T> & {
+export type TableProps<T> = ReactTableProps<T> & {
   ExpandableRowsComponent?: React.FC<{data: T}>;
   collapsedRowIcon?: IconNames;
   expandedRowIcon?: IconNames;
   minRowHeight?: string;
 }
 
-export const DataTable = <T, >({
+export const Table = <T, >({
   className,
   ExpandableRowsComponent,
   progressComponent,
@@ -31,7 +31,7 @@ export const DataTable = <T, >({
   expandedRowIcon = 'chevron-down',
   minRowHeight = '48px',
   ...props
-}: DataTableProps<T>) => {
+}: TableProps<T>) => {
   const selectProps = {
     indeterminate: (isIndeterminate: boolean) => isIndeterminate,
     dimension: 'small'
