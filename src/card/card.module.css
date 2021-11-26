@@ -23,8 +23,8 @@
     @mixin vibrancy;
   }
 
-  &[data-card-hoverable='true']:hover,
-  &[data-card-hoverable='true']:focus-visible {
+  &[data-card-highlight-hover='true'][data-card-vibrant='true']:hover,
+  &[data-card-highlight-hover='true'][data-card-vibrant='true']:focus-visible {
 
     @mixin vibrancy-hover;
   }
