@@ -1,6 +1,5 @@
 @define-mixin vibrancy {
-  color: var(--global-vibrancy-foreground);
-  backdrop-filter: saturate(180%) blur(62);
+  backdrop-filter: saturate(180%) blur(62px);
   background:
     linear-gradient(
       to bottom,
@@ -18,7 +17,7 @@
 }
 @define-mixin vibrancy-disabled {
   color: var(--global-disabled-foreground);
-  backdrop-filter: saturate(180%) blur(62);
+  backdrop-filter: saturate(180%) blur(62px);
   background:
     linear-gradient(
       to bottom,

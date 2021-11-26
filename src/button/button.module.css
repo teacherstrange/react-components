@@ -64,6 +64,8 @@
 
     @mixin vibrancy;
 
+    color: var(--global-vibrancy-foreground);
+
     &:is(:active) {
 
       @mixin vibrancy-hover;
@@ -87,6 +89,8 @@
     &:is(:hover, :focus):not(:active) {
 
       @mixin vibrancy;
+
+      color: var(--global-vibrancy-foreground);
     }
 
     &[aria-pressed='true'],
