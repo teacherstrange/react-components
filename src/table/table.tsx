@@ -68,16 +68,16 @@ export const Table = <T, >({
           expanded: <Icon name={expandedRowIcon} fill="var(--global-foreground)" dimension={16} />
         }}
         paginationIconFirstPage={
-          <Icon name="backward-step" dimension={24} />
+          <Icon name="backward-step" fill="var(--global-foreground)" dimension={24} />
         }
         paginationIconPrevious={
-          <Icon name="chevron-left" dimension={24} />
+          <Icon name="chevron-left" fill="var(--global-foreground)" dimension={24} />
         }
         paginationIconNext={
-          <Icon name="chevron-right" dimension={24} />
+          <Icon name="chevron-right" fill="var(--global-foreground)" dimension={24} />
         }
         paginationIconLastPage={
-          <Icon name="forward-step" dimension={24} />
+          <Icon name="forward-step" fill="var(--global-foreground)" dimension={24} />
         }
         sortIcon={(
           <span className={SortIcon}>
