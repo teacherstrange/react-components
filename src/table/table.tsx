@@ -67,6 +67,18 @@ export const Table = <T, >({
           collapsed: <Icon name={collapsedRowIcon} fill="var(--global-foreground)" dimension={16} />,
           expanded: <Icon name={expandedRowIcon} fill="var(--global-foreground)" dimension={16} />
         }}
+        paginationIconFirstPage={
+          <Icon name="backward-step" dimension={24} />
+        }
+        paginationIconPrevious={
+          <Icon name="chevron-left" dimension={24} />
+        }
+        paginationIconNext={
+          <Icon name="chevron-right" dimension={24} />
+        }
+        paginationIconLastPage={
+          <Icon name="forward-step" dimension={24} />
+        }
         sortIcon={(
           <span className={SortIcon}>
             <Icon
