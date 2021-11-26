@@ -23,7 +23,8 @@
     @mixin vibrancy;
   }
 
-  &[data-card-hoverable='true']:hover {
+  &[data-card-hoverable='true']:hover,
+  &[data-card-hoverable='true']:focus-visible {
 
     @mixin vibrancy-hover;
   }
