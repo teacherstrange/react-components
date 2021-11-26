@@ -70,9 +70,9 @@ export const Card = forwardRef(({
         {left && <div className={Left}>{left}</div>}
 
         {children && (
-          <Stack className={Content}>
+          <div className={Content}>
             {children}
-          </Stack>
+          </div>
         )}
 
         {right && (
