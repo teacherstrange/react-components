@@ -1,3 +1,5 @@
+@import '../core/utils/vibrancy.css';
+
 :where(.Card) {
   background: var(--global-background);
   padding: var(--padding);
@@ -14,6 +16,16 @@
 
   &[data-card-dimmed='3'] {
     background: var(--dimmed-2);
+  }
+
+  &[data-card-vibrant='true'] {
+
+    @mixin vibrancy;
+  }
+
+  &[data-card-hoverable='true']:hover {
+
+    @mixin vibrancy-hover;
   }
 
   &[data-card-bordered='true'] {

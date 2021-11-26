@@ -6,10 +6,12 @@ import { Icon } from '../icon'
 import { Stack } from '../stack'
 
 export default {
-  title: 'Components/Widgets/Card',
+  title: 'Layouts/Card',
   component: Card,
   args: {
-    bordered: false
+    bordered: false,
+    vibrant: false,
+    hoverable: false
   },
   argTypes: {
     children: {

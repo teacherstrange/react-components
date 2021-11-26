@@ -15,6 +15,8 @@ StackProps,
   bordered?: boolean
   radius?: false | TokensTypes['radius'];
   dimmed?: 1 | 2 | 3;
+  vibrant?: boolean;
+  hoverable?: boolean;
 }
 
 type PolymorphicCard = Polymorphic.ForwardRefComponent<'div', CardProps>;
@@ -34,6 +36,8 @@ export const Card = forwardRef(({
   rowGap = 24,
   verticalAlign = 'start',
   horizontalAlign = 'space-between',
+  vibrant = false,
+  hoverable = false,
   wrap,
   style,
   ...props
@@ -50,6 +54,8 @@ export const Card = forwardRef(({
       style={{ ...dynamicStyle, ...style }}
       data-card-dimmed={dimmed}
       data-card-bordered={bordered}
+      data-card-vibrant={vibrant}
+      data-card-hoverable={hoverable}
       {...props}
     >
       <Stack
