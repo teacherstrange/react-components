@@ -1,3 +1,5 @@
+@import '../core/utils/vibrancy.css';
+
 .Button {
   box-sizing: border-box;
   user-select: none;
@@ -59,12 +61,12 @@
   }
 
   &[data-button-kind='secondary'] {
-    color: var(--global-vibrancy-foreground);
-    backdrop-filter: blur(32px);
-    background-color: var(--global-vibrancy-background);
+
+    @mixin vibrancy;
 
     &:is(:active) {
-      background-color: var(--global-vibrancy-background-hover);
+
+      @mixin vibrancy-hover;
     }
 
     &[aria-pressed='true'],
@@ -78,13 +80,13 @@
     color: var(--global-foreground);
 
     &:is(:active) {
-      backdrop-filter: blur(32px);
-      background-color: var(--global-vibrancy-background-hover);
+
+      @mixin vibrancy-hover;
     }
 
     &:is(:hover, :focus):not(:active) {
-      backdrop-filter: blur(32px);
-      background-color: var(--global-vibrancy-background);
+
+      @mixin vibrancy;
     }
 
     &[aria-pressed='true'],
@@ -105,9 +107,9 @@
 
   &[data-button-disabled='true'],
   &[data-button-disabled='true']:is(:hover, :focus) {
-    background-color: var(--global-disabled-background);
-    backdrop-filter: blur(32px);
-    color: var(--global-disabled-foreground);
+
+    @mixin vibrancy-disabled;
+
     cursor: not-allowed;
   }
 
