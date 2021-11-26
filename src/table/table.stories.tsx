@@ -21,27 +21,91 @@ const columns = [{
   selector: row => row.someKey
 }]
 
-const data = [{
-  id: 1,
-  someKey: 'Some data to print',
-  anotherKey: 'Another key data',
-  anyOtherKey: 'Any other key data'
-}, {
-  id: 2,
-  someKey: 'Some data to print 2',
-  anotherKey: 'Another key data 2',
-  anyOtherKey: 'Any other key data 2'
-}, {
-  id: 3,
-  someKey: 'Some data to print 3',
-  anotherKey: 'Another key data 3',
-  anyOtherKey: 'Any other key data 3'
-}, {
-  id: 4,
-  someKey: 'Some data to print 4',
-  anotherKey: 'Another key data 4',
-  anyOtherKey: 'Any other key data 4'
-}
+const data = [
+  {
+    id: 1,
+    someKey: 'Some data to print',
+    anotherKey: 'Another key data',
+    value: 123
+  },
+  {
+    id: 2,
+    someKey: 'Some data to print 2',
+    anotherKey: 'Another key data 2',
+    value: 1234
+  },
+  {
+    id: 3,
+    someKey: 'Some data to print 3',
+    anotherKey: 'Another key data 3',
+    value: 5324
+  },
+  {
+    id: 4,
+    someKey: 'Some data to print 4',
+    anotherKey: 'Another key data 4',
+    value: 124
+  },
+  {
+    id: 5,
+    someKey: 'Some data to print',
+    anotherKey: 'Another key data',
+    value: 123
+  },
+  {
+    id: 6,
+    someKey: 'Some data to print 2',
+    anotherKey: 'Another key data 2',
+    value: 1234
+  },
+  {
+    id: 7,
+    someKey: 'Some data to print 3',
+    anotherKey: 'Another key data 3',
+    value: 5324
+  },
+  {
+    id: 8,
+    someKey: 'Some data to print 4',
+    anotherKey: 'Another key data 4',
+    value: 124
+  },
+  {
+    id: 9,
+    someKey: 'Some data to print 3',
+    anotherKey: 'Another key data 3',
+    value: 5324
+  },
+  {
+    id: 10,
+    someKey: 'Some data to print 4',
+    anotherKey: 'Another key data 4',
+    value: 124
+  },
+  {
+    id: 11,
+    someKey: 'Some data to print',
+    anotherKey: 'Another key data',
+    value: 123
+  },
+  {
+    id: 12,
+    someKey: 'Some data to print 2',
+    anotherKey: 'Another key data 2',
+    value: 1234
+  },
+  {
+    id: 13,
+    someKey: 'Some data to print 3',
+    anotherKey: 'Another key data 3',
+    value: 5324
+  },
+  {
+    id: 14,
+    someKey: 'Some data to print 4',
+    anotherKey: 'Another key data 4',
+    value: 124
+  }
 ]
 
 const ExpndableComponent = ({ data }: Record<string, any>) => (

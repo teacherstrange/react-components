@@ -67,6 +67,9 @@ export const customStyle = (rowHeight: string) => ({
   pagination: {
     style: {
       fontSize: tkns.font.size[16]
+    },
+    pageButtonsStyle: {
+      color: 'var(--global-foreground)'
     }
   },
   contextMenu: {
