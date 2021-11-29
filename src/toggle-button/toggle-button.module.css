@@ -7,20 +7,34 @@
   &[aria-pressed='true'] {
     box-shadow:
       0 0 0 var(--border-width) var(--border-color),
-      0 0 0 var(--border-width) var(--border-color),
-      inset 0 0 0 calc(var(--border-width) / 2) hsl(0deg 0% 0% / 20%);
+      0 0 0 var(--border-width) var(--border-color);
   }
 
   &[data-button-kind='primary'] {
     --border-color: hsl(env(--color-red-30) / 25%);
+
+    &[aria-pressed='true'] {
+      color: var(--cta-default);
+      background: none;
+    }
   }
 
   &[data-button-kind='secondary'] {
     --border-color: var(--dimmed-2);
+
+    &[aria-pressed='true'] {
+      color: var(--global-vibrancy-foreground);
+      background: none;
+    }
   }
 
   &[data-button-kind='flat'] {
     --border-color: var(--dimmed-2);
+
+    &[aria-pressed='true'] {
+      color: var(--global-vibrancy-foreground);
+      background: none;
+    }
   }
 
   &[data-button-dimension='small'] {
