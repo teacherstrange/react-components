@@ -30,5 +30,13 @@
 		],
     "scope": "css, postcss",
 		"description": "Import Wanda css media queries from inside a component"
+	},
+  "Import Wanda css utils": {
+		"prefix": "utils",
+		"body": [
+			"@import '../core/vibrancy.css';"
+		],
+    "scope": "css, postcss",
+		"description": "Import Wanda css utilities inside a component"
 	}
 }

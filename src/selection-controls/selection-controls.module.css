@@ -1,14 +1,16 @@
+@import '../core/vibrancy.css';
+
 .Checkbox {
   --w: 24px;
   --h: 24px;
+
+  @mixin vibrancy;
 
   appearance: none;
   inline-size: var(--w);
   block-size: var(--h);
   max-inline-size: var(--w);
   max-block-size: var(--h);
-  backdrop-filter: blur(32px);
-  background-color: var(--global-vibrancy-background);
   color: var(--global-background);
   border-radius: env(--radius-4);
   position: relative;
@@ -32,7 +34,7 @@
 
   &:checked,
   &[data-control-indeterminate='true'] {
-    background-color: var(--dimmed-7);
+    background: var(--dimmed-7);
 
     &::after {
       display: block;
@@ -40,8 +42,9 @@
   }
 
   &:disabled {
-    background: var(--global-disabled-background);
-    color: var(--global-disabled-foreground);
+
+    @mixin vibrancy-disabled;
+
     cursor: not-allowed;
   }
 

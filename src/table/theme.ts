@@ -1,6 +1,7 @@
 import tkns from '@wonderflow/tokens/platforms/web/tokens.json'
 import { createTheme, TableStyles } from 'react-data-table-component'
 
+/* Reference: https://github.com/jbetancur/react-data-table-component/blob/master/src/DataTable/themes.ts */
 createTheme('default', {
   text: {
     primary: 'var(--foreground-color)',
@@ -8,11 +9,11 @@ createTheme('default', {
     disabled: 'var(--global-disabled-foreground)'
   },
   background: {
-    default: '#transparent'
+    default: 'transparent'
   },
   context: {
-    background: 'transparent',
-    text: 'var(--foreground-color)'
+    background: 'var(--global-vibrancy-background)',
+    text: 'var(--global-vibrancy-foreground)'
   },
   divider: {
     default: 'transparent'
@@ -36,13 +37,9 @@ createTheme('default', {
     text: 'var(--global-foreground)'
   }
 })
+
+/* Reference: https://github.com/jbetancur/react-data-table-component/blob/master/src/DataTable/styles.ts */
 export const customStyle = (rowHeight: string) => ({
-  subHeader: {
-    style: {
-      padding: 0,
-      marginBottom: tkns.space[24]
-    }
-  },
   rows: {
     style: {
       minHeight: rowHeight
@@ -70,6 +67,15 @@ export const customStyle = (rowHeight: string) => ({
   pagination: {
     style: {
       fontSize: tkns.font.size[16]
+    },
+    pageButtonsStyle: {
+      color: 'var(--global-foreground)'
+    }
+  },
+  contextMenu: {
+    style: {
+      backdropFilter: 'blur(32px)',
+      borderRadius: '4px'
     }
   }
 } as TableStyles)

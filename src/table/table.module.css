@@ -8,19 +8,6 @@
   display: block;
 }
 
-/* .ExpandIcon {
-  display: flex;
-  color: var(--highlight-gray-foreground);
-  width: 24px;
-  height: 24px;
-  border-radius: env(--radius-4);
-  margin: 0 auto;
-
-  &[data-expanded] {
-    color: var(--global-foreground);
-  }
-} */
-
 .ExpandWrapper {
   overflow: hidden;
 }

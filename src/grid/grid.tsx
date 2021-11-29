@@ -16,7 +16,7 @@ export type GridProps = PropsWithClass & {
   rowMinHeight?: string;
 }
 
-export const Grid: React.FC<GridProps> = forwardRef<HTMLUListElement, GridProps>(({
+export const Grid = forwardRef<HTMLUListElement, GridProps>(({
   className,
   children,
   columns,
@@ -52,5 +52,5 @@ export const Grid: React.FC<GridProps> = forwardRef<HTMLUListElement, GridProps>
 })
 
 Grid.displayName = 'Grid'
-// @ts-expect-error
-Grid.Item = GridItem
+
+export const GridRoot = Object.assign(Grid, { Item: GridItem })

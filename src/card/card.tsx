@@ -15,6 +15,8 @@ StackProps,
   bordered?: boolean
   radius?: false | TokensTypes['radius'];
   dimmed?: 1 | 2 | 3;
+  vibrant?: boolean;
+  highlightOnHover?: boolean;
 }
 
 type PolymorphicCard = Polymorphic.ForwardRefComponent<'div', CardProps>;
@@ -34,6 +36,8 @@ export const Card = forwardRef(({
   rowGap = 24,
   verticalAlign = 'start',
   horizontalAlign = 'space-between',
+  vibrant = false,
+  highlightOnHover = false,
   wrap,
   style,
   ...props
@@ -50,6 +54,8 @@ export const Card = forwardRef(({
       style={{ ...dynamicStyle, ...style }}
       data-card-dimmed={dimmed}
       data-card-bordered={bordered}
+      data-card-vibrant={vibrant}
+      data-card-highlight-hover={highlightOnHover}
       {...props}
     >
       <Stack
@@ -64,9 +70,9 @@ export const Card = forwardRef(({
         {left && <div className={Left}>{left}</div>}
 
         {children && (
-          <Stack className={Content}>
+          <div className={Content}>
             {children}
-          </Stack>
+          </div>
         )}
 
         {right && (

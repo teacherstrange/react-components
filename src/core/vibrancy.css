@@ -1,0 +1,27 @@
+@define-mixin vibrancy {
+  backdrop-filter: saturate(180%) blur(62px);
+  background:
+    linear-gradient(
+      to bottom,
+      var(--global-vibrancy-background),
+      var(--global-vibrancy-background)
+    );
+}
+@define-mixin vibrancy-hover {
+  background:
+    linear-gradient(
+      to bottom,
+      var(--global-vibrancy-background-hover),
+      var(--global-vibrancy-background-hover)
+    );
+}
+@define-mixin vibrancy-disabled {
+  color: var(--global-disabled-foreground);
+  backdrop-filter: saturate(180%) blur(62px);
+  background:
+    linear-gradient(
+      to bottom,
+      var(--global-disabled-background),
+      var(--global-disabled-background)
+    );
+}

@@ -1,3 +1,5 @@
+@import '../core/vibrancy.css';
+
 .Select {
   appearance: none;
   position: relative;
@@ -33,6 +35,9 @@
 }
 
 .Field {
+
+  @mixin vibrancy;
+
   margin: 0;
   border: 0;
   text-overflow: ellipsis;
@@ -45,14 +50,7 @@
   inline-size: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  backdrop-filter: blur(32px);
   color: inherit;
-  background:
-    linear-gradient(
-      to bottom,
-      var(--global-vibrancy-background),
-      var(--global-vibrancy-background)
-    );
   block-size: var(--field-height);
   padding:
     0
@@ -61,9 +59,9 @@
     var(--field-padding);
 
   &:disabled {
-    color: var(--global-disabled-foreground);
-    background: var(--global-disabled-background);
-    backdrop-filter: blur(32px);
+
+    @mixin vibrancy-disabled;
+
     cursor: not-allowed;
   }
 
@@ -81,6 +79,7 @@
     overflow: auto;
 
     & option {
+      color: currentColor;
       padding: calc(var(--field-padding) / 2) var(--field-padding);
     }
 
@@ -91,6 +90,7 @@
     }
 
     & optgroup {
+      color: currentColor;
       margin: 0 0 1rem;
       font-family: inherit;
       font-size: inherit;
