@@ -1,31 +1,21 @@
 /* eslint-disable react/display-name */
 import React, {
-  useCallback,
   useEffect,
   useState,
   forwardRef,
-  useRef,
   ReactNode,
   Children,
-  cloneElement,
-  ButtonHTMLAttributes
+  cloneElement
 } from 'react'
-import {
-  useRovingTabIndex,
-  useFocusEffect,
-  RovingTabIndexProvider
-} from 'react-roving-tabindex'
 import clsx from 'clsx'
 import { useUIDSeed } from 'react-uid'
-import { IconNames } from '../icons/types'
-import { Stack, Icon } from '../'
-import { Tabs as TabsWrapper, useTabState, usePanelState } from './primitive-tab'
+import { TabItem } from './tab-item'
+import { TabList } from './tab-list'
+import { TabPanel } from './tab-panel'
+import { Tabs as TabsWrapper } from './primitive-tab'
 
 import {
-  Tab as TabClass,
-  TabList as TabListClass,
-  TabItem as TabItemClass,
-  TabPanel as TabPanelClass
+  Tab as TabClass
 } from './tab.module.css'
 
 /* -------------------------------------------------------------------------- */
@@ -107,130 +97,6 @@ const TabRoot: React.FC<TabProps> = forwardRef<HTMLDivElement, TabProps>(({
 })
 
 /* -------------------------------------------------------------------------- */
-/*                                  Tab.List                                  */
-/* -------------------------------------------------------------------------- */
-
-/**
- * Tab.List
- * Component
- */
-const TabList: React.FC<PropsWithClass> = forwardRef<HTMLDivElement, PropsWithClass>(({
-  children,
-  className,
-  ...props
-}, forwardedRef) => (
-  <div
-    ref={forwardedRef}
-    role="tablist"
-    tabIndex={-1}
-    className={clsx(TabListClass, className)}
-    {...props}
-  >
-    <RovingTabIndexProvider>
-      {children}
-    </RovingTabIndexProvider>
-  </div>
-))
-
-/* -------------------------------------------------------------------------- */
-/*                                  Tab.Panel                                 */
-/* -------------------------------------------------------------------------- */
-
-/**
- * Tab.Panel
- * Public api
- */
-export type TabPanelProps = PropsWithClass & {
-  label: ReactNode;
-  icon?: IconNames;
-}
-
-/**
- * Tab.Panel
- * Component
- */
-const TabPanel: React.FC<TabPanelProps> = forwardRef<HTMLDivElement, TabPanelProps>(({
-  children,
-  className,
-  ...props
-}, forwardedRef) => {
-  const isActive = usePanelState(children)
-  return isActive
-    ? (
-      <div
-        ref={forwardedRef}
-        tabIndex={0}
-        className={clsx(TabPanelClass, className)}
-        {...props}
-      >
-        {children}
-      </div>
-      )
-    : null
-})
-
-/* -------------------------------------------------------------------------- */
-/*                                  Tab.Item                                  */
-/* -------------------------------------------------------------------------- */
-
-/**
- * Tab.Item
- * Public api
- */
-export type TabItemProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  icon?: IconNames;
-}
-
-/**
- * Tab.Item
- * Component
- */
-const TabItem: React.FC<TabItemProps> = ({
-  children,
-  className,
-  icon,
-  ...props
-}) => {
-  const { onClick, isActive } = useTabState(children)
-  const internalRef = useRef<HTMLButtonElement>(null)
-  const [, focused, handleKeyDown, handleClick] = useRovingTabIndex(internalRef, false)
-
-  useFocusEffect(focused, internalRef)
-
-  const fireClick = useCallback(
-    () => {
-      onClick()
-      handleClick()
-    },
-    [handleClick, onClick]
-  )
-
-  return (
-    <Stack
-      as="button"
-      direction="row"
-      verticalAlign="center"
-      horizontalAlign="start"
-      fill={false}
-      columnGap={8}
-      role="tab"
-      ref={internalRef}
-      className={clsx(TabItemClass, className)}
-      aria-selected={isActive}
-      onClick={fireClick}
-      onKeyDown={handleKeyDown}
-      onFocus={fireClick}
-      type="button"
-      tabIndex={isActive ? 0 : -1}
-      {...props}
-    >
-      {icon && <Icon name={icon} dimension={16} />}
-      {children}
-    </Stack>
-  )
-}
-
-/* -------------------------------------------------------------------------- */
 /*                                   Export                                   */
 /* -------------------------------------------------------------------------- */
 
@@ -244,4 +110,3 @@ export const Tab = {
 Tab.Root.displayName = 'Tab.Root'
 Tab.List.displayName = 'Tab.List'
 Tab.Panel.displayName = 'Tab.Panel'
-Tab.Item.displayName = 'Tab.Item'
