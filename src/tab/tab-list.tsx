@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React, {
-  forwardRef
+  forwardRef, HTMLAttributes
 } from 'react'
 import {
   RovingTabIndexProvider
@@ -11,11 +11,12 @@ import {
   TabList as TabListClass
 } from './tab.module.css'
 
+export type TabListProps = HTMLAttributes<HTMLDivElement>
 /**
  * Tab.List
  * Component
  */
-export const TabList: React.FC<PropsWithClass> = forwardRef<HTMLDivElement, PropsWithClass>(({
+export const TabList = forwardRef<HTMLDivElement, TabListProps>(({
   children,
   className,
   ...props
@@ -32,3 +33,5 @@ export const TabList: React.FC<PropsWithClass> = forwardRef<HTMLDivElement, Prop
     </RovingTabIndexProvider>
   </div>
 ))
+
+TabList.displayName = 'Tab.List'

@@ -19,14 +19,14 @@ export default {
 const Template = (args) => {
   return (
     <>
-      <Tab.Root {...args}>
+      <Tab {...args}>
         <Tab.Panel label="Tab 1">Panel 1</Tab.Panel>
         <Tab.Panel label="Tab 2">Panel 2</Tab.Panel>
         <Tab.Panel label="Tab 3">Panel 3</Tab.Panel>
         <Tab.Panel label="Tab 4">Panel 4</Tab.Panel>
         <Tab.Panel label="Tab 5">Panel 5</Tab.Panel>
         <Tab.Panel label="Tab 6">Panel 6</Tab.Panel>
-      </Tab.Root>
+      </Tab>
     </>
   )
 }
@@ -37,7 +37,7 @@ export const InitialTab = () => {
   const state = useState(2)
 
   return (
-    <Tab.Root state={state}>
+    <Tab state={state}>
       <Tab.Panel label="Tab 1">Panel 1</Tab.Panel>
       <Tab.Panel label="Tab 2">Panel 2</Tab.Panel>
       <Tab.Panel label="Tab 3">Panel 3</Tab.Panel>
@@ -45,7 +45,7 @@ export const InitialTab = () => {
       <Tab.Panel label="Tab 5">Panel 5</Tab.Panel>
       <Tab.Panel label="Tab 6">Panel 6</Tab.Panel>
       <Tab.Panel label="Tab 7">Panel 7</Tab.Panel>
-    </Tab.Root>
+    </Tab>
   )
 }
 
@@ -54,7 +54,7 @@ export const ProgrammaticTab = () => {
   const [, setState] = state
 
   return (
-    <Tab.Root state={state}>
+    <Tab state={state}>
       <Tab.Panel label="Tab 1"><button type="button" onClick={() => setState(4)}>Go to 5</button></Tab.Panel>
       <Tab.Panel label="Tab 2">Panel 2</Tab.Panel>
       <Tab.Panel label="Tab 3">Panel 3</Tab.Panel>
@@ -62,7 +62,7 @@ export const ProgrammaticTab = () => {
       <Tab.Panel label="Tab 5">Panel 5</Tab.Panel>
       <Tab.Panel label="Tab 6">Panel 6</Tab.Panel>
       <Tab.Panel label="Tab 7">Panel 7</Tab.Panel>
-    </Tab.Root>
+    </Tab>
   )
 }
 
@@ -76,12 +76,12 @@ export const IconsTab = () => {
   const state = useState(0)
 
   return (
-    <Tab.Root state={state}>
+    <Tab state={state}>
       <Tab.Panel icon="circle-info" label="Tab 1">Panel 1</Tab.Panel>
       <Tab.Panel icon="check" label="Tab 2">Panel 2</Tab.Panel>
       <Tab.Panel icon="smile" label="Tab 3">Panel 3</Tab.Panel>
       <Tab.Panel icon="star" label="Tab 4">Panel 4</Tab.Panel>
-    </Tab.Root>
+    </Tab>
   )
 }
 
@@ -90,7 +90,7 @@ export const ConditionalTab = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   return (
-    <Tab.Root state={state}>
+    <Tab state={state}>
       <Tab.Panel label="Always visible">
         <Stack direction="column" verticalPadding={16} rowGap={8} inline>
           Always visible
@@ -98,6 +98,6 @@ export const ConditionalTab = () => {
         </Stack>
       </Tab.Panel>
       {isVisible && <Tab.Panel label="Visible conditionally">Panel 2</Tab.Panel>}
-    </Tab.Root>
+    </Tab>
   )
 }

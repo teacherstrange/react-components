@@ -24,7 +24,7 @@ export type TabPanelProps = PropsWithClass & {
  * Tab.Panel
  * Component
  */
-export const TabPanel: React.FC<TabPanelProps> = forwardRef<HTMLDivElement, TabPanelProps>(({
+export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(({
   children,
   className,
   ...props

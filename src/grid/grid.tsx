@@ -2,7 +2,7 @@ import React, { CSSProperties, ReactNode, forwardRef } from 'react'
 import clsx from 'clsx'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
-import { GridItem } from './grid-item'
+import { GridItem, GridItemProps } from './grid-item'
 import { Grid as GridClass } from './grid.module.css'
 
 export type GridProps = PropsWithClass & {
@@ -14,6 +14,10 @@ export type GridProps = PropsWithClass & {
   filling?: 'fit' | 'fill' | false;
   colMinWidth?: string;
   rowMinHeight?: string;
+}
+
+type GridComponent = React.ForwardRefExoticComponent<GridProps> & {
+  Item: React.ForwardRefExoticComponent<GridItemProps>;
 }
 
 export const Grid = forwardRef<HTMLUListElement, GridProps>(({
@@ -49,8 +53,8 @@ export const Grid = forwardRef<HTMLUListElement, GridProps>(({
       {children}
     </ul>
   )
-})
+}) as GridComponent
 
 Grid.displayName = 'Grid'
 
-export const GridRoot = Object.assign(Grid, { Item: GridItem })
+Grid.Item = GridItem

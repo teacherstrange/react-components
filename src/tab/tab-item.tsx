@@ -2,7 +2,8 @@
 import React, {
   useCallback,
   useRef,
-  ButtonHTMLAttributes
+  ButtonHTMLAttributes,
+  forwardRef
 } from 'react'
 import {
   useRovingTabIndex,
@@ -29,14 +30,14 @@ export type TabItemProps = ButtonHTMLAttributes<HTMLButtonElement> & {
  * Tab.Item
  * Component
  */
-export const TabItem: React.FC<TabItemProps> = ({
+export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(({
   children,
   className,
   icon,
   ...props
-}) => {
+}, forwardedRef) => {
   const { onClick, isActive } = useTabState(children)
-  const internalRef = useRef<HTMLButtonElement>(null)
+  const internalRef = useRef<any>(forwardedRef)
   const [, focused, handleKeyDown, handleClick] = useRovingTabIndex(internalRef, false)
 
   useFocusEffect(focused, internalRef)
@@ -72,6 +73,6 @@ export const TabItem: React.FC<TabItemProps> = ({
       {children}
     </Stack>
   )
-}
+})
 
 TabItem.displayName = 'Tab.Item'

@@ -10,9 +10,10 @@ import React, {
 import clsx from 'clsx'
 import { useUIDSeed } from 'react-uid'
 import { TabItem } from './tab-item'
-import { TabList } from './tab-list'
-import { TabPanel } from './tab-panel'
+import { TabList, TabListProps } from './tab-list'
+import { TabPanel, TabPanelProps } from './tab-panel'
 import { Tabs as TabsWrapper } from './primitive-tab'
+import { Polymorphic } from '../'
 
 import {
   Tab as TabClass
@@ -32,11 +33,17 @@ export type TabProps = PropsWithClass & {
   onChange?(index: number): void;
 }
 
+type TabComponent = React.ForwardRefExoticComponent<TabProps> & {
+  Panel: React.ForwardRefExoticComponent<TabPanelProps>;
+  Item: React.ForwardRefExoticComponent<Polymorphic.OwnProps<typeof TabItem>>;
+  List: React.ForwardRefExoticComponent<TabListProps>;
+}
+
 /**
  * Tab.Root
  * Component
  */
-const TabRoot: React.FC<TabProps> = forwardRef<HTMLDivElement, TabProps>(({
+export const Tab = forwardRef<HTMLDivElement, TabProps>(({
   children,
   className,
   state,
@@ -70,13 +77,13 @@ const TabRoot: React.FC<TabProps> = forwardRef<HTMLDivElement, TabProps>(({
          */}
         <TabList>
           {Children.map(renderedChildren, (child: any, index) => (
-            <Tab.Item
+            <TabItem
               id={seedID(`tab-item-${index}`)}
               aria-controls={seedID(`tab-panel-${index}`)}
               icon={child.props.icon}
             >
               {child.props.label}
-            </Tab.Item>
+            </TabItem>
           ))}
         </TabList>
 
@@ -94,19 +101,12 @@ const TabRoot: React.FC<TabProps> = forwardRef<HTMLDivElement, TabProps>(({
       </TabsWrapper>
     </div>
   )
-})
+}) as TabComponent
 
 /* -------------------------------------------------------------------------- */
 /*                                   Export                                   */
 /* -------------------------------------------------------------------------- */
 
-export const Tab = {
-  Root: TabRoot,
-  List: TabList,
-  Item: TabItem,
-  Panel: TabPanel
-}
-
-Tab.Root.displayName = 'Tab.Root'
-Tab.List.displayName = 'Tab.List'
-Tab.Panel.displayName = 'Tab.Panel'
+Tab.Panel = TabPanel
+Tab.Item = TabItem
+Tab.List = TabList
