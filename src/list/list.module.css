@@ -2,6 +2,13 @@
   --marker-size: env(--space-16);
   --marker-gap: env(--space-8);
 
+  &[data-list-no-marker='true'] {
+    --marker-size: 0;
+    --marker-gap: 0;
+
+    list-style: none;
+    padding: 0;
+  }
 
   &[data-list-ordered='false'] {
     padding: 0;

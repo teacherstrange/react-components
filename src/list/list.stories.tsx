@@ -4,6 +4,9 @@ import { List } from './list'
 export default {
   title: 'Components/Typography/List',
   component: List,
+  args: {
+    hideMarker: false
+  },
   argTypes: {
     dimension: {
       options: ['small', 'regular', 'big'],
