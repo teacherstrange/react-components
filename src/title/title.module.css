@@ -23,7 +23,7 @@
     }
 
     &[data-title-line-height='small'] {
-      line-height: 1;
+      line-height: 1.13;
     }
   }
 
