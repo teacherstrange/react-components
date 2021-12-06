@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, forwardRef } from 'react'
 import clsx from 'clsx'
 import { GridItem as GridItemClass } from './grid.module.css'
 
@@ -8,7 +8,7 @@ export type GridItemProps = PropsWithClass & {
   row?: string;
 }
 
-export const GridItem: React.FC<GridItemProps> = ({
+export const GridItem = forwardRef<HTMLLIElement, GridItemProps>(({
   children,
   style,
   className,
@@ -16,7 +16,7 @@ export const GridItem: React.FC<GridItemProps> = ({
   column,
   row,
   ...props
-}) => {
+}, forwardedRef) => {
   const dynamicStyle: CSSProperties = {
     '--column': column,
     '--row': row
@@ -24,6 +24,7 @@ export const GridItem: React.FC<GridItemProps> = ({
 
   return (
     <li
+      ref={forwardedRef}
       className={clsx(GridItemClass, className)}
       style={{ ...dynamicStyle, ...style }}
       data-grid-item-fullwidth={fullWidth}
@@ -32,4 +33,6 @@ export const GridItem: React.FC<GridItemProps> = ({
       {children}
     </li>
   )
-}
+})
+
+GridItem.displayName = 'Grid.Item'

@@ -5,14 +5,16 @@ import React, {
   Children,
   cloneElement,
   ReactElement,
-  useRef
+  useRef,
+  forwardRef,
+  ForwardRefExoticComponent
 } from 'react'
 import { useKey, useClickAway } from 'react-use'
 import { Dropdown as DropdownClass, PopUp } from './dropdown.module.css'
 import { useUIDSeed } from 'react-uid'
 import { useFocusWithin } from '@react-aria/interactions'
-import { DropdownMenu } from './dropdown-menu'
-import { DropdownItem, DropdownItemCheckbox } from './dropdown-item'
+import { DropdownMenu, DropdownMenuProps } from './dropdown-menu'
+import { DropdownItem, DropdownItemProps, DropdownItemCheckbox, DropdownItemCheckboxProps } from './dropdown-item'
 import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core'
 import { usePopperTooltip } from 'react-popper-tooltip'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -24,15 +26,21 @@ export type DropdownProps = PropsWithClass & {
   placement?: AutoPlacement | BasePlacement | VariationPlacement;
 }
 
-export const Dropdown = ({
+type DropdownComponent = ForwardRefExoticComponent<DropdownProps> & {
+  Menu: ForwardRefExoticComponent<DropdownMenuProps>;
+  Item: ForwardRefExoticComponent<DropdownItemProps>;
+  ItemCheckbox: ForwardRefExoticComponent<DropdownItemCheckboxProps>;
+}
+
+export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(({
   className,
   children,
   trigger,
   offset = 8,
   placement = 'auto-start'
-}: DropdownProps) => {
+}, forwardedRef) => {
   const seedID = useUIDSeed()
-  const popupRef = useRef(null)
+  const popupRef = useRef<any>(forwardedRef)
   const [isOpen, setIsOpen] = useState(false)
   const {
     getTooltipProps,
@@ -106,7 +114,9 @@ export const Dropdown = ({
       </AnimatePresence>
     </div>
   )
-}
+}) as DropdownComponent
+
+Dropdown.displayName = 'Dropdown'
 
 Dropdown.Menu = DropdownMenu
 Dropdown.Item = DropdownItem

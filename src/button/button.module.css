@@ -46,16 +46,16 @@
   /* Types */
 
   &[data-button-kind='primary'] {
-    background-color: var(--cta-default);
+    background: var(--cta-default);
     color: var(--cta-foreground);
 
     &:is(:active) {
-      background-color: var(--cta-dark);
+      background: var(--cta-dark);
     }
 
-    &[aria-pressed='true'],
-    &[aria-pressed='true']:active {
-      background-color: hsl(env(--color-red-50));
+    &:where([aria-pressed='true']),
+    &:where([aria-pressed='true']:active) {
+      background: hsl(env(--color-red-50));
       color: hsl(env(--color-support-white));
     }
   }
@@ -69,33 +69,36 @@
     &:is(:active) {
 
       @mixin vibrancy-hover;
+
+      color: var(--global-vibrancy-foreground);
     }
 
-    &[aria-pressed='true'],
-    &[aria-pressed='true']:active {
-      background-color: var(--dimmed-7);
+    &:where([aria-pressed='true']),
+    &:where([aria-pressed='true']:active) {
       color: var(--dimmed-0);
+      background: var(--dimmed-7);
     }
   }
 
   &[data-button-kind='flat'] {
-    color: var(--global-foreground);
+    color: var(--global-vibrancy-foreground);
 
     &:is(:active) {
 
       @mixin vibrancy-hover;
     }
 
-    &:is(:hover, :focus):not(:active) {
+    &:is(:hover, :focus) {
 
       @mixin vibrancy;
 
       color: var(--global-vibrancy-foreground);
     }
 
-    &[aria-pressed='true'],
-    &[aria-pressed='true']:active {
-      background-color: var(--global-vibrancy-background-hover);
+    &:where([aria-pressed='true']),
+    &:where([aria-pressed='true']:is(:active, :focus)) {
+      color: var(--dimmed-0);
+      background: var(--dimmed-7);
     }
   }
 

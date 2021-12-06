@@ -3,7 +3,7 @@ import { useUIDSeed } from 'react-uid'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import clsx from 'clsx'
 import { FocusOn } from 'react-focus-on'
-import { ModalContent } from './modal-content'
+import { ModalContent, ModalContentProps } from './modal-content'
 import { Modal as ModalClass, Backdrop, Container } from './modal.module.css'
 import { ModalContext } from './modal-context'
 import { Presence } from '../'
@@ -15,7 +15,7 @@ export type ModalProps = PropsWithChildren<PropsWithClass> & {
   onClose(): void;
 }
 
-const ModalElement: React.FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps>(({
+const ModalElement = forwardRef<HTMLDivElement, ModalProps>(({
   children,
   className,
   overlayColor = 'dark',
@@ -75,22 +75,25 @@ const ModalElement: React.FC<ModalProps> = forwardRef<HTMLDivElement, ModalProps
   )
 })
 
-export const Modal = ({
+type ModalComponent = React.ForwardRefExoticComponent<ModalProps> & {
+  Content: React.ForwardRefExoticComponent<ModalContentProps>;
+}
+
+export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
   visible,
   ...props
-}: ModalProps) => {
+}, forwardedRef) => {
   if (typeof visible === 'boolean') {
     return (
       <Presence exitBeforeEnter>
-        {visible ? <ModalElement {...props} /> : null}
+        {visible ? <ModalElement ref={forwardedRef} {...props} /> : null}
       </Presence>
     )
   }
-  return (<ModalElement {...props} />)
-}
+  return (<ModalElement ref={forwardedRef} {...props} />)
+}) as ModalComponent
 
-Modal.Root = ModalElement
 Modal.Content = ModalContent
 
 Modal.displayName = 'Modal'
-ModalElement.displayName = 'Modal.Element'
+ModalElement.displayName = 'Modal.Content'

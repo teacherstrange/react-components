@@ -43,6 +43,7 @@ export const ToggleButton = forwardRef(({
   dimension,
   kind,
   disabled,
+  iconColor,
   pressed = false,
   onClick,
   ...props

@@ -8,6 +8,7 @@ export type ListProps = PropsWithClass & {
   dimension?: 'small' | 'regular' | 'big';
   marker?: IconNames;
   markerColor?: string;
+  hideMarker?: boolean;
 }
 
 type PolymorphicList = Polymorphic.ForwardRefComponent<'ul', ListProps>;
@@ -20,6 +21,7 @@ export const List = forwardRef(({
   dimension = 'regular',
   className,
   markerColor,
+  hideMarker = false,
   ...props
 }, forwardedRef) => {
   const sizes = {
@@ -45,6 +47,7 @@ export const List = forwardRef(({
       className={clsx(ListClass, className)}
       data-list-size={dimension}
       data-list-ordered={!isUnordered}
+      data-list-no-marker={hideMarker}
       {...props}
     >
       {Children.map(children, (child: ReactElement) => (
