@@ -63,7 +63,7 @@
     "clsx": "1.1.1",
     "flat": "5.0.2",
     "framer-motion": "4.1.17",
-    "postcss": "8.4.1",
+    "postcss": "8.4.4",
     "react": ">=17.0.2",
     "react-data-table-component": "7.4.5",
     "react-dom": ">=17.0.2",
@@ -76,7 +76,7 @@
     "react-uid": "2.3.1",
     "react-use": "17.3.1",
     "style-dictionary": "3.0.3",
-    "type-fest": "2.6.0"
+    "type-fest": "2.8.0"
   },
   "peerDependencies": {
     "react": ">=17.0.2",
@@ -91,17 +91,17 @@
     "@semantic-release/github": "8.0.2",
     "@semantic-release/npm": "8.0.3",
     "@semantic-release/release-notes-generator": "10.0.3",
-    "@storybook/addon-actions": "6.3.12",
-    "@storybook/addon-essentials": "6.3.12",
-    "@storybook/addon-links": "6.3.12",
+    "@storybook/addon-actions": "6.4.8",
+    "@storybook/addon-essentials": "6.4.8",
+    "@storybook/addon-links": "6.4.8",
     "@storybook/addon-postcss": "2.0.0",
-    "@storybook/addons": "6.3.12",
-    "@storybook/react": "6.3.12",
-    "@storybook/theming": "6.3.12",
+    "@storybook/addons": "6.4.8",
+    "@storybook/react": "6.4.8",
+    "@storybook/theming": "6.4.8",
     "@types/flat": "5.0.2",
     "@types/react-dom": "17.0.11",
-    "@typescript-eslint/eslint-plugin": "5.4.0",
-    "@typescript-eslint/parser": "5.4.0",
+    "@typescript-eslint/eslint-plugin": "5.6.0",
+    "@typescript-eslint/parser": "5.6.0",
     "@wonderflow/config": "1.5.5",
     "babel-loader": "8.2.3",
     "commit-analyzer-fail-on-no-release": "1.0.0",
@@ -113,7 +113,7 @@
     "fs-extra": "10.0.0",
     "husky": "7.0.4",
     "is-ci": "3.0.1",
-    "nanospinner": "0.4.0",
+    "nanospinner": "0.5.0",
     "npm-run-all": "4.1.5",
     "picocolors": "1.0.0",
     "postcss-mixins": "8.1.0",
@@ -126,7 +126,7 @@
     "svgstore": "3.0.1",
     "typescript": "4.5.2",
     "typescript-plugin-css-modules": "3.4.0",
-    "yargs": "17.2.1"
+    "yargs": "17.3.0"
   },
   "resolutions": {
     "rc": "1.2.8"
