@@ -15,29 +15,33 @@ export const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(({
   className,
   children,
   ...props
-}, forwardedRef) => (
-  <Elevator resting={2}>
-    <Stack
-      as="ul"
-      ref={forwardedRef}
-      className={clsx(DropdownMenuClass, className)}
-      role="menu"
-      {...props}
-    >
-      <RovingTabIndexProvider options={{ direction: 'vertical', loopAround: true }}>
-        {Children.map(children, (child: ReactElement | JSX.Element, index) => (
-          <Stack as="li" role="none" verticalPadding={child.type?.displayName === NAME ? 8 : undefined}>
-            {cloneElement(
-              child,
-              {
-                autoFocus: index === 0 && true
-              }
-            )}
-          </Stack>
-        ))}
-      </RovingTabIndexProvider>
-    </Stack>
-  </Elevator>
-))
+}, forwardedRef) => {
+  const renderedChildren = Children.toArray(children).filter(Boolean)
+
+  return (
+    <Elevator resting={2}>
+      <Stack
+        as="ul"
+        ref={forwardedRef}
+        className={clsx(DropdownMenuClass, className)}
+        role="menu"
+        {...props}
+      >
+        <RovingTabIndexProvider options={{ direction: 'vertical', loopAround: true }}>
+          {Children.map(renderedChildren, (child: ReactElement | JSX.Element, index) => (
+            <Stack as="li" role="none" verticalPadding={child.type?.displayName === NAME ? 8 : undefined}>
+              {cloneElement(
+                child,
+                {
+                  autoFocus: index === 0 && true
+                }
+              )}
+            </Stack>
+          ))}
+        </RovingTabIndexProvider>
+      </Stack>
+    </Elevator>
+  )
+})
 
 DropdownMenu.displayName = 'Dropdown.Menu'

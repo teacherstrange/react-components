@@ -39,9 +39,11 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(({
   offset = 8,
   placement = 'auto-start'
 }, forwardedRef) => {
+  const renderedChildren = Children.toArray(children).filter(Boolean)
   const seedID = useUIDSeed()
   const popupRef = useRef<any>(forwardedRef)
   const [isOpen, setIsOpen] = useState(false)
+
   const {
     getTooltipProps,
     setTooltipRef,
@@ -101,7 +103,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(({
               transition={{ ease: 'easeOut', duration: 0.1 }}
             >
 
-              {Children.map(children, (child: ReactElement) => cloneElement(
+              {Children.map(renderedChildren, (child: ReactElement) => cloneElement(
                 child,
                 {
                   id: seedID('dropdown-menu'),
