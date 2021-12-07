@@ -5,6 +5,7 @@ import { Stack, Elevator } from '../'
 import clsx from 'clsx'
 
 import { DropdownMenu as DropdownMenuClass } from './dropdown-menu.module.css'
+import { NAME } from '../separator'
 
 export type DropdownMenuProps = PropsWithClass & {
   children: ReactNode;
@@ -19,21 +20,20 @@ export const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(({
     <Stack
       as="ul"
       ref={forwardedRef}
-      rowGap={8}
       className={clsx(DropdownMenuClass, className)}
       role="menu"
       {...props}
     >
       <RovingTabIndexProvider options={{ direction: 'vertical', loopAround: true }}>
-        {Children.map(children, (child: ReactElement, index) => (
-          <li role="none">
+        {Children.map(children, (child: ReactElement | JSX.Element, index) => (
+          <Stack as="li" role="none" verticalPadding={child.type?.displayName === NAME ? 8 : undefined}>
             {cloneElement(
               child,
               {
                 autoFocus: index === 0 && true
               }
             )}
-          </li>
+          </Stack>
         ))}
       </RovingTabIndexProvider>
     </Stack>
