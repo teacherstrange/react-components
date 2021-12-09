@@ -9,7 +9,6 @@ export type BaseFieldProps = InputHTMLAttributes<HTMLInputElement> & InputHTMLAt
 
 type PolymorphicBaseField = Polymorphic.ForwardRefComponent<'input', BaseFieldProps>;
 
-// eslint-disable-next-line react/display-name
 export const BaseField = forwardRef(({
   as: Wrapper = 'input',
   invalid,

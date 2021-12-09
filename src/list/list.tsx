@@ -13,7 +13,6 @@ export type ListProps = PropsWithClass & {
 
 type PolymorphicList = Polymorphic.ForwardRefComponent<'ul', ListProps>;
 
-// eslint-disable-next-line react/display-name
 export const List = forwardRef(({
   as: Wrapper = 'ul',
   children,

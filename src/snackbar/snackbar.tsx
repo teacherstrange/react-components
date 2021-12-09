@@ -16,7 +16,6 @@ export type SnackbarProps = {
 
 type PolymorphicSnackbar = Polymorphic.ForwardRefComponent<'div', SnackbarProps>;
 
-// eslint-disable-next-line react/display-name
 export const Snackbar = forwardRef(({
   children,
   className,

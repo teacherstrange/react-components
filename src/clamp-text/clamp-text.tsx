@@ -11,7 +11,6 @@ export type ClampTextProps = PropsWithClass & {
 
 type PolymorphicClampText = Polymorphic.ForwardRefComponent<'span', ClampTextProps>;
 
-// eslint-disable-next-line react/display-name
 export const ClampText = forwardRef(({
   className,
   children,

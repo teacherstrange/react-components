@@ -2,8 +2,6 @@ import React, { forwardRef, HTMLAttributes } from 'react'
 import clsx from 'clsx'
 import { Separator as SeparatorClass } from './separator.module.css'
 
-export const NAME = 'Separator'
-
 export const Separator = forwardRef<HTMLHRElement>(({
   className,
   ...props
@@ -17,4 +15,4 @@ export const Separator = forwardRef<HTMLHRElement>(({
   )
 })
 
-Separator.displayName = NAME
+Separator.displayName = 'Separator'

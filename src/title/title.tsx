@@ -13,7 +13,6 @@ export type TitleProps = {
 
 type PolymorphicTitle = Polymorphic.ForwardRefComponent<'span', TitleProps>;
 
-// eslint-disable-next-line react/display-name
 export const Title = forwardRef(({
   children,
   className,

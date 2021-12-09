@@ -37,7 +37,6 @@ export const Table = <T, >({
     dimension: 'small'
   }
 
-  // eslint-disable-next-line react/display-name
   const ExpandComponent = useMemo(() => ({ data: innerData }: { data?: any }) => (
     <div className={ExpandWrapper}>
       <div className={ExpandContent}>

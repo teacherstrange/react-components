@@ -13,7 +13,6 @@ type PolymorphicIconButton = Polymorphic.ForwardRefComponent<
   Polymorphic.OwnProps<typeof Button> & IconButtonProps
 >;
 
-// eslint-disable-next-line react/display-name
 export const IconButton = forwardRef(({
   className,
   icon,

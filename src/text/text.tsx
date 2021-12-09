@@ -16,7 +16,6 @@ export type TextProps = {
 
 type PolymorphicText = Polymorphic.ForwardRefComponent<'p', TextProps>;
 
-// eslint-disable-next-line react/display-name
 export const Text = forwardRef(({
   children,
   className,

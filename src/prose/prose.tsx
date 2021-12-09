@@ -7,7 +7,6 @@ export type ProseProps = {}
 
 type PolymorphicProse = Polymorphic.ForwardRefComponent<'div', ProseProps>;
 
-// eslint-disable-next-line react/display-name
 export const Prose = forwardRef(({
   children,
   className,

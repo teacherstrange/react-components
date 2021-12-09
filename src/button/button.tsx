@@ -20,7 +20,6 @@ export type ButtonProps = PropsWithClass & {
 
 type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonProps>;
 
-// eslint-disable-next-line react/display-name
 export const Button = forwardRef((
   {
     kind = 'primary',
@@ -106,5 +105,3 @@ export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({
     ))}
   </div>
 )
-
-Button.displayName = 'Button'
