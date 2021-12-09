@@ -17,7 +17,6 @@ type PolymorphicStarMeter = Polymorphic.ForwardRefComponent<
   Polymorphic.OwnProps<typeof Stack> & StarMeterProps
 >;
 
-// eslint-disable-next-line react/display-name
 export const StarMeter = forwardRef(({
   className,
   value = 0,

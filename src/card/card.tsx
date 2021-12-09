@@ -21,7 +21,6 @@ StackProps,
 
 type PolymorphicCard = Polymorphic.ForwardRefComponent<'div', CardProps>;
 
-// eslint-disable-next-line react/display-name
 export const Card = forwardRef(({
   as: Wrapper = 'div',
   children,

@@ -10,7 +10,6 @@ export type ContainerProps = {
 
 type PolymorphicContainer = Polymorphic.ForwardRefComponent<'div', ContainerProps>;
 
-// eslint-disable-next-line react/display-name
 export const Container = forwardRef(({
   children,
   className,

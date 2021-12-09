@@ -18,7 +18,6 @@ export type DropdownItemProps = PropsWithClass & {
 
 type PolymorphicDropdownItem = Polymorphic.ForwardRefComponent<'button', DropdownItemProps>;
 
-// eslint-disable-next-line react/display-name
 export const DropdownItem = forwardRef(({
   className,
   children,
@@ -108,7 +107,6 @@ type PolymorphicDropdownItemCheckbox = Polymorphic.ForwardRefComponent<
   Polymorphic.OwnProps<typeof DropdownItem> & DropdownItemCheckboxProps
 >;
 
-// eslint-disable-next-line react/display-name
 export const DropdownItemCheckbox = forwardRef(({
   children,
   checked,

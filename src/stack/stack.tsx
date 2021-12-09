@@ -20,7 +20,6 @@ export type StackProps = {
 
 type PolymorphicStack = Polymorphic.ForwardRefComponent<'div', StackProps>;
 
-// eslint-disable-next-line react/display-name
 export const Stack = forwardRef(({
   children,
   className,

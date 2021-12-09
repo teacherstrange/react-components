@@ -13,7 +13,6 @@ type PolymorphicSplitButton = Polymorphic.ForwardRefComponent<
   Polymorphic.OwnProps<typeof Button> & SplitButtonProps
 >;
 
-// eslint-disable-next-line react/display-name
 export const SplitButton = forwardRef(({
   className,
   label,

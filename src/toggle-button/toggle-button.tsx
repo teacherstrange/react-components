@@ -35,7 +35,6 @@ const scaleAnimation = {
   }
 }
 
-// eslint-disable-next-line react/display-name
 export const ToggleButton = forwardRef(({
   className,
   restingIcon,
