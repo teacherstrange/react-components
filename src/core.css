@@ -1,1 +1,5 @@
-@import './core/*.css';
+@import './core/basic.css';
+@import './core/elevations.css';
+@import './core/media.css';
+@import './core/typography.css';
+@import './core/vibrancy.css';
