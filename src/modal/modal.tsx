@@ -53,7 +53,7 @@ const ModalElement = forwardRef<HTMLDivElement, ModalProps>(({
                 transition={{ duration: 0.2 }}
               />
               <FocusOn
-                onClickOutside={() => closeOnClickOutside && ctx.onClose()}
+                onClickOutside={() => ctx.onClose()}
                 onEscapeKey={ctx.onClose}
               >
                 <m.div
