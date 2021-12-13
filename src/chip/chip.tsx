@@ -1,16 +1,16 @@
 import clsx from 'clsx'
-import React, { FC, forwardRef } from 'react'
+import React, { forwardRef, PropsWithChildren } from 'react'
 import { Icon, IconProps, Stack } from '../'
 import { Chip as ChipClass, Action } from './chip.module.css'
 
-export type ChipProps = PropsWithClass & {
+export type ChipProps = PropsWithChildren<PropsWithClass> & {
   dimension?: 'small' | 'regular' | 'big';
   color?: 'gray' | 'cyan' | 'green' | 'purple' | 'yellow' | 'red' | 'blue';
   interactive?: boolean;
   onDismissClick?(): void;
 }
 
-export const Chip: FC<ChipProps> = forwardRef<HTMLSpanElement, ChipProps>(({
+export const Chip = forwardRef<HTMLSpanElement, ChipProps>(({
   children,
   className,
   dimension = 'regular',

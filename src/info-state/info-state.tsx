@@ -1,9 +1,9 @@
-import React, { FC, forwardRef, ReactNode } from 'react'
+import React, { forwardRef, PropsWithChildren, ReactNode } from 'react'
 import { IconNames } from '../icons/types'
 import { Stack, StackProps, Icon, Title, Text } from '../'
 import { IconWrapper, Image } from './info-state.module.css'
 
-export type InfoStateProps = PropsWithClass & {
+export type InfoStateProps = PropsWithChildren<PropsWithClass> & {
   title: ReactNode;
   icon?: IconNames;
   image?: string;
@@ -12,7 +12,7 @@ export type InfoStateProps = PropsWithClass & {
   actions?: ReactNode;
 }
 
-export const InfoState: FC<InfoStateProps> = forwardRef<HTMLDivElement, InfoStateProps>(({
+export const InfoState = forwardRef<HTMLDivElement, InfoStateProps>(({
   className,
   children,
   title,

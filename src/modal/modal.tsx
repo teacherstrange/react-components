@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, PropsWithChildren } from 'react'
 import { useUIDSeed } from 'react-uid'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import clsx from 'clsx'
@@ -8,7 +8,7 @@ import { Modal as ModalClass, Backdrop, Container } from './modal.module.css'
 import { ModalContext } from './modal-context'
 import { Presence } from '../'
 
-export type ModalProps = PropsWithClass & {
+export type ModalProps = PropsWithChildren<PropsWithClass> & {
   visible?: boolean;
   overlayColor?: 'light' | 'dark' | 'auto';
   closeOnClickOutside?: boolean;
