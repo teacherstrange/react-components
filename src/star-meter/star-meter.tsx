@@ -5,7 +5,7 @@ import { Text, TextProps, Stack, Icon, Polymorphic } from '../'
 
 import { StarMeter as StarMeterClass, Gradient, Icon as IconClass } from './star-meter.module.css'
 
-export type StarMeterProps = PropsWithClass & {
+export type StarMeterProps = {
   value: number;
   starCount?: number;
   label?: ReactNode;
@@ -106,5 +106,3 @@ export const StarMeter = forwardRef(({
     </Stack>
   )
 }) as PolymorphicStarMeter
-
-StarMeter.displayName = 'StarMeter'

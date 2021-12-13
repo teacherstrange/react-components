@@ -1,17 +1,17 @@
-import React, { forwardRef, useCallback } from 'react'
+import React, { forwardRef, ProgressHTMLAttributes, useCallback } from 'react'
 import { Text } from '../'
 import clsx from 'clsx'
 
 import { LinearProgress as LinearProgressClass, Progress, Percentage } from './linear-progress.module.css'
 
-export type LinearProgressProps = PropsWithClass & {
+export type LinearProgressProps = ProgressHTMLAttributes<HTMLProgressElement> & {
   value?: number;
   max?: number;
   dimension?: 'regular' | 'big';
   showProgress?: boolean;
 }
 
-export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(({
+export const LinearProgress = forwardRef<HTMLProgressElement, LinearProgressProps>(({
   className,
   value,
   max = 100,
@@ -28,11 +28,11 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(({
 
   return (
     <div
-      ref={forwardedRef}
       className={clsx(LinearProgressClass, className)}
     >
       <progress
         role="progressbar"
+        ref={forwardedRef}
         className={Progress}
         data-progress-dimension={dimension}
         aria-valuemin={0}

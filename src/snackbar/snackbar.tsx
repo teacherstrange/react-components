@@ -61,5 +61,3 @@ export const Snackbar = forwardRef(({
     </Wrapper>
   )
 }) as PolymorphicSnackbar
-
-Snackbar.displayName = 'Snackbar'

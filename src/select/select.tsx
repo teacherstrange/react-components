@@ -25,7 +25,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
   dimension = 'regular',
   onChange,
   ...props
-}: SelectProps, forwardedRef) => {
+}, forwardedRef) => {
   const uid = useUIDSeed()
 
   const iconSizes = {
@@ -73,5 +73,3 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
     </Stack>
   )
 })
-
-Select.displayName = 'Select'

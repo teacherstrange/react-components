@@ -5,18 +5,13 @@ import React, {
   ButtonHTMLAttributes,
   forwardRef
 } from 'react'
-import {
-  useRovingTabIndex,
-  useFocusEffect
-} from 'react-roving-tabindex'
+import { useRovingTabIndex, useFocusEffect } from 'react-roving-tabindex'
 import clsx from 'clsx'
 import { IconNames } from '../icons/types'
 import { Stack, Icon } from '../'
 import { useTabState } from './primitive-tab'
 
-import {
-  TabItem as TabItemClass
-} from './tab.module.css'
+import { TabItem as TabItemClass } from './tab.module.css'
 
 /**
  * Tab.Item
@@ -74,5 +69,3 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(({
     </Stack>
   )
 })
-
-TabItem.displayName = 'Tab.Item'

@@ -14,7 +14,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
   dimension = 'regular',
   onChange,
   ...props
-}: RadioProps, forwardedRef) => {
+}, forwardedRef) => {
   return (
     <input
       type="radio"
@@ -28,5 +28,3 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
     />
   )
 })
-
-Radio.displayName = 'Radio'

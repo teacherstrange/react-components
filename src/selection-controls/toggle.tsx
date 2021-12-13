@@ -14,7 +14,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(({
   dimension = 'regular',
   onChange,
   ...props
-}: ToggleProps, forwardedRef) => {
+}, forwardedRef) => {
   return (
     <input
       type="checkbox"
@@ -28,5 +28,3 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(({
     />
   )
 })
-
-Toggle.displayName = 'Toggle'

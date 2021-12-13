@@ -2,10 +2,12 @@ import React, { forwardRef, HTMLAttributes } from 'react'
 import clsx from 'clsx'
 import { Separator as SeparatorClass } from './separator.module.css'
 
-export const Separator = forwardRef<HTMLHRElement>(({
+export type SeparatorProps = HTMLAttributes<HTMLHRElement>
+
+export const Separator = forwardRef<HTMLHRElement, SeparatorProps>(({
   className,
   ...props
-}: HTMLAttributes<HTMLHRElement>, forwardedRef) => {
+}, forwardedRef) => {
   return (
     <hr
       ref={forwardedRef}
@@ -14,5 +16,3 @@ export const Separator = forwardRef<HTMLHRElement>(({
     />
   )
 })
-
-Separator.displayName = 'Separator'
