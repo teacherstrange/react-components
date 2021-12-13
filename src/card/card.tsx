@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import { Card as CardClass, Left, Content, Right } from './card.module.css'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
-export type CardProps = PropsWithClass & Pick<
+export type CardProps = Pick<
 StackProps,
   'wrap' | 'columnGap' | 'rowGap' | 'verticalAlign' | 'horizontalAlign'> & {
   padding?: false | TokensTypes['space'];
