@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { Children, cloneElement, CSSProperties, ReactElement } from 'react'
+import React, { FC, Children, cloneElement, CSSProperties, ReactElement } from 'react'
 import MasonryLayout from 'react-masonry-css'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
@@ -17,7 +17,7 @@ export type MasonryProps = PropsWithClass & {
   };
 }
 
-export const Masonry: React.FC<MasonryProps> = ({
+export const Masonry: FC<MasonryProps> = ({
   className,
   children,
   columns = 3,

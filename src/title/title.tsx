@@ -45,5 +45,3 @@ export const Title = forwardRef(({
     </Wrapper>
   )
 }) as PolymorphicTitle
-
-Title.displayName = 'Title'

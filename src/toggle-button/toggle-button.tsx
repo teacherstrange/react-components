@@ -112,5 +112,3 @@ export const ToggleButton = forwardRef(({
     </IconButton>
   )
 }) as PolymorphicToggleButton
-
-ToggleButton.displayName = 'ToggleButton'
