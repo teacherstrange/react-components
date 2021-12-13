@@ -122,3 +122,5 @@ export const Textfield = forwardRef<PrimitiveInputType, TextfieldProps>(({
     </Stack>
   )
 })
+
+Textfield.displayName = 'Textfield'

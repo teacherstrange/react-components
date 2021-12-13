@@ -42,3 +42,5 @@ export const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(({
     </Elevator>
   )
 })
+
+DropdownMenu.displayName = 'Dropdown.Menu'

@@ -30,3 +30,5 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(({
     </RovingTabIndexProvider>
   </div>
 ))
+
+TabList.displayName = 'Tab.List'

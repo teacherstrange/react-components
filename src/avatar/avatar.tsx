@@ -48,3 +48,5 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(({
     </picture>
   )
 })
+
+Avatar.displayName = 'Avatar'

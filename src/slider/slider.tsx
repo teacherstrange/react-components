@@ -70,3 +70,5 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(({
     </Stack>
   )
 })
+
+Slider.displayName = 'Slider'

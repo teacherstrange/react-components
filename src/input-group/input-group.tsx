@@ -73,3 +73,5 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, InputGroupProps>(({
     </Stack>
   )
 })
+
+InputGroup.displayName = 'InputGroup'

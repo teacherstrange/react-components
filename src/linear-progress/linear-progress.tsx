@@ -59,3 +59,5 @@ export const LinearProgress = forwardRef<HTMLProgressElement, LinearProgressProp
     </div>
   )
 })
+
+LinearProgress.displayName = 'LinearProgress'

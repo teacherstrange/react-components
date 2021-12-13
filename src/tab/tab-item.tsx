@@ -69,3 +69,5 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(({
     </Stack>
   )
 })
+
+TabItem.displayName = 'Tab.Item'

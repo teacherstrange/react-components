@@ -73,3 +73,5 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
     </Stack>
   )
 })
+
+Select.displayName = 'Select'

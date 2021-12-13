@@ -98,6 +98,8 @@ export const DropdownItem = forwardRef(({
   )
 }) as PolymorphicDropdownItem
 
+DropdownItem.displayName = 'Dropdown.Item'
+
 export type DropdownItemCheckboxProps = DropdownItemProps & {
   checked?: boolean;
 }
@@ -114,3 +116,5 @@ export const DropdownItemCheckbox = forwardRef(({
 }, forwardedRef) =>
   <DropdownItem role="menuitemcheckbox" aria-checked={checked} ref={forwardedRef} {...props}>{children}</DropdownItem>
 ) as PolymorphicDropdownItemCheckbox
+
+DropdownItemCheckbox.displayName = 'Dropdown.ItemCheckbox'
