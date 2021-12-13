@@ -53,5 +53,3 @@ export const Chip: React.FC<ChipProps> = forwardRef<HTMLSpanElement, ChipProps>(
     </Stack>
   )
 })
-
-Chip.displayName = 'Chip'
