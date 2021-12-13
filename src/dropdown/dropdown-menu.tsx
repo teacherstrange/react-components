@@ -1,5 +1,5 @@
 
-import React, { Children, cloneElement, forwardRef, ReactElement, ReactChildren, HTMLAttributes } from 'react'
+import React, { Children, cloneElement, forwardRef, ReactElement, ReactNode, HTMLAttributes } from 'react'
 import { RovingTabIndexProvider } from 'react-roving-tabindex'
 import { Stack, Elevator } from '../'
 import clsx from 'clsx'
@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { DropdownMenu as DropdownMenuClass } from './dropdown-menu.module.css'
 
 export type DropdownMenuProps = HTMLAttributes<HTMLUListElement> & {
-  children: ReactChildren;
+  children: ReactNode;
 }
 
 export const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(({
