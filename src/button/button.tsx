@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { Children, cloneElement, forwardRef, MouseEvent, ReactElement, useCallback } from 'react'
+import React, { FC, Children, cloneElement, forwardRef, MouseEvent, ReactElement, useCallback } from 'react'
 import { IconNames } from '../icons/types'
 import { Icon, IconProps, Polymorphic, Spinner } from '../'
 import { Button as ButtonClass, SpinnerIndicator, ButtonsGroup as ButtonsGroupClass } from './button.module.css'
@@ -13,7 +13,7 @@ export type ButtonProps = PropsWithClass & {
   iconColor?: string;
   disabled?: boolean;
   type?: 'submit' | 'reset' | 'button';
-  loading?: boolean;
+  busy?: boolean;
   pressed?: boolean;
   onClick?(event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void;
 }
@@ -34,7 +34,7 @@ export const Button = forwardRef((
     type = 'button',
     pressed,
     onClick,
-    loading,
+    busy,
     as: Wrapper = 'button',
     ...props
   }, forwardedRef) => {
@@ -61,12 +61,10 @@ export const Button = forwardRef((
       data-button-dimension={dimension}
       data-button-kind={kind}
       data-button-fullwidth={fullWidth}
-      data-button-disabled={disabled}
-      data-button-is-loading={loading}
       aria-disabled={disabled}
-      aria-busy={loading}
+      aria-busy={busy}
       aria-pressed={Wrapper === 'button' ? pressed : undefined}
-      aria-live={loading ? 'polite' : undefined}
+      aria-live={busy ? 'polite' : undefined}
       onClick={handleClick()}
       {...props}
     >
@@ -77,8 +75,8 @@ export const Button = forwardRef((
           dimension={iconSize[dimension] as IconProps['dimension']}
         />
       )}
-      {children && <span>{children}</span>}
-      {loading && (
+      {(children && busy) ? <span>{children}</span> : children}
+      {busy && (
         <span className={SpinnerIndicator}>
           <Spinner dimension={dimension} />
         </span>
@@ -89,7 +87,7 @@ export const Button = forwardRef((
 
 export type ButtonsGroupProps = PropsWithClass & Pick<ButtonProps, 'dimension' | 'kind'>
 
-export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({
+export const ButtonsGroup: FC<ButtonsGroupProps> = ({
   children,
   className,
   kind,

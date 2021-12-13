@@ -112,15 +112,15 @@
     flex-direction: row-reverse;
   }
 
-  &[data-button-disabled='true'],
-  &[data-button-disabled='true']:is(:hover, :focus) {
+  &[aria-disabled='true'],
+  &[aria-disabled='true']:is(:hover, :focus) {
 
     @mixin vibrancy-disabled;
 
     cursor: not-allowed;
   }
 
-  &[data-button-is-loading='true'] > :not(.SpinnerIndicator) {
+  &[aria-busy='true'] > :not(.SpinnerIndicator) {
     visibility: hidden;
   }
 }
