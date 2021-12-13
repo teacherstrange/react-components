@@ -1,3 +1,5 @@
+@import '../core/media.css';
+
 .Title {
   &:is(.H1, .H2, .H3, .H4, .H5, .H6, .Display) {
     --lh: 0.3;
@@ -6,19 +8,15 @@
     line-height: env(--font-lh-small);
     color: var(--heading-foreground);
     min-block-size: 0.01vh;
-    font-size: var(--fluid-type-max);
+    font-size: var(--fs-min);
     max-inline-size: var(--maxW, initial);
     text-align: var(--tAlign);
     overflow-wrap: break-word;
 
-    &[data-title-is-fluid='true'] {
-      font-size:
-        clamp(
-          var(--fluid-type-min, env(--font-size-16)),
-          var(--fluid-type-factor, calc(0.6rem + 0.92vw)),
-          var(--fluid-type-max, 1rem)
-        );
+    @media (--from-small) {
+      font-size: var(--fs-max);
     }
+
 
     &[data-title-line-height='small'] {
       --lh: 1.33;
@@ -34,57 +32,50 @@
   }
 
   &:is(.H6) {
-    --fluid-type-min: env(--font-size-14);
-    --fluid-type-factor: calc(env(--font-size-16) + 0.44vw);
-    --fluid-type-max: env(--font-size-18);
+    --fs-min: env(--font-size-14);
+    --fs-max: env(--font-size-18);
 
     font-weight: 700;
   }
 
   &:is(.H5) {
-    --fluid-type-min: 1rem;
-    --fluid-type-factor: calc(0.76rem + 1.32vw);
-    --fluid-type-max: 1.33rem;
+    --fs-min: 1rem;
+    --fs-max: 1.33rem;
 
     font-weight: 700;
   }
 
   &:is(.H4) {
-    --fluid-type-min: 1.33rem;
-    --fluid-type-factor: calc(1.01rem + 1.76vw);
-    --fluid-type-max: 1.77rem;
+    --fs-min: 1.33rem;
+    --fs-max: 1.77rem;
 
     font-weight: 700;
   }
 
   &:is(.H3) {
-    --fluid-type-min: 1.77rem;
-    --fluid-type-factor: calc(1.35rem + 2.37vw);
-    --fluid-type-max: 2.37rem;
+    --fs-min: 1.77rem;
+    --fs-max: 2.37rem;
 
     font-weight: 800;
   }
 
   &:is(.H2) {
-    --fluid-type-min: 2.37rem;
-    --fluid-type-factor: calc(1.8rem + 3.17vw);
-    --fluid-type-max: 3.16rem;
+    --fs-min: 2.37rem;
+    --fs-max: 3.16rem;
 
     font-weight: 800;
   }
 
   &:is(.H1) {
-    --fluid-type-min: 3.16rem;
-    --fluid-type-factor: calc(2.23rem + 4.17vw);
-    --fluid-type-max: 4.2rem;
+    --fs-min: 3.16rem;
+    --fs-max: 4.2rem;
 
     font-weight: 800;
   }
 
   &.Display {
-    --fluid-type-min: 4.2rem;
-    --fluid-type-factor: calc(3.19rem + 5.66vw);
-    --fluid-type-max: 5.6rem;
+    --fs-min: 4.2rem;
+    --fs-max: 5.6rem;
 
     font-weight: 800;
   }

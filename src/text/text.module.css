@@ -1,17 +1,14 @@
+@import '../core/media.css';
+
 .Text {
   line-height: 1.5;
   min-block-size: 0.01vh;
-  font-size: var(--fluid-type-max);
+  font-size: var(--fs-min);
   max-inline-size: var(--maxW, initial);
   text-align: var(--tAlign);
 
-  &[data-text-is-fluid='true'] {
-    font-size:
-      clamp(
-        var(--fluid-type-min, env(--font-size-16)),
-        var(--fluid-type-factor, calc(0.6rem + 0.92vw)),
-        var(--fluid-type-max, 1rem)
-      );
+  @media (--from-small) {
+    font-size: var(--fs-max);
   }
 
   /* Colors */
@@ -52,29 +49,25 @@
   }
 
   &[data-text-size='16'] {
-    --fluid-type-min: env(--font-size-14);
-    --fluid-type-factor: calc(0.69rem + 0.44vw);
-    --fluid-type-max: env(--font-size-16);
+    --fs-min: env(--font-size-14);
+    --fs-max: env(--font-size-16);
 
     line-height: 1.2;
   }
 
   &[data-text-size='18'] {
-    --fluid-type-min: env(--font-size-16);
-    --fluid-type-factor: calc(0.79rem + 0.48vw);
-    --fluid-type-max: env(--font-size-18);
+    --fs-min: env(--font-size-16);
+    --fs-max: env(--font-size-18);
   }
 
   &[data-text-size='22'] {
-    --fluid-type-min: env(--font-size-18);
-    --fluid-type-factor: calc(0.84rem + 0.88vw);
-    --fluid-type-max: env(--font-size-22);
+    --fs-min: env(--font-size-18);
+    --fs-max: env(--font-size-22);
   }
 
   &[data-text-size='28'] {
-    --fluid-type-min: env(--font-size-22);
-    --fluid-type-factor: calc(0.98rem + 1.32vw);
-    --fluid-type-max: env(--font-size-28);
+    --fs-min: env(--font-size-22);
+    --fs-max: env(--font-size-28);
   }
 
   /* Weights */

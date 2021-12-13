@@ -43,7 +43,6 @@ Single.args = {
   as: 'span',
   lineHeight: 'small',
   level: '1',
-  fluid: true,
   maxWidth: 'auto',
   textAlign: 'center'
 }
