@@ -63,3 +63,5 @@ export const InfoState = forwardRef<HTMLDivElement, InfoStateProps>(({
     </Stack>
   )
 })
+
+InfoState.displayName = 'InfoState'

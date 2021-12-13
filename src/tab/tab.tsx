@@ -103,6 +103,8 @@ export const Tab = forwardRef<HTMLDivElement, TabProps>(({
   )
 }) as TabComponent
 
+Tab.displayName = 'Tab'
+
 /* -------------------------------------------------------------------------- */
 /*                                   Export                                   */
 /* -------------------------------------------------------------------------- */

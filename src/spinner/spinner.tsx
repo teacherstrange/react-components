@@ -64,3 +64,5 @@ export const Spinner = forwardRef<SVGSVGElement, SpinnerProps>(({
     </motion.svg>
   )
 })
+
+Spinner.displayName = 'Spinner'

@@ -33,3 +33,5 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(({
     </Elevator>
   )
 })
+
+ModalContent.displayName = 'Modal.Content'

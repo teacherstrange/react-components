@@ -53,3 +53,5 @@ export const Chip = forwardRef<HTMLSpanElement, ChipProps>(({
     </Stack>
   )
 })
+
+Chip.displayName = 'Chip'

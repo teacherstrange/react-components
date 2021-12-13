@@ -94,4 +94,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
   return (<ModalElement ref={forwardedRef} {...otherProps} />)
 }) as ModalComponent
 
+Modal.displayName = 'Modal'
+
 Modal.Content = ModalContent

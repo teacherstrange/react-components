@@ -16,3 +16,5 @@ export const Separator = forwardRef<HTMLHRElement, SeparatorProps>(({
     />
   )
 })
+
+Separator.displayName = 'Separator'
