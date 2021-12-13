@@ -51,5 +51,3 @@ export const Text = forwardRef(({
     </Wrapper>
   )
 }) as PolymorphicText
-
-Text.displayName = 'Text'

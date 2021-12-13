@@ -3,6 +3,8 @@ import { Polymorphic } from '../../'
 import { BaseField as BaseFieldClass } from './base-field.module.css'
 import clsx from 'clsx'
 
+export type PrimitiveInputType = HTMLInputElement | HTMLTextAreaElement
+
 export type BaseFieldProps = InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement> & {
   invalid?: boolean;
 }

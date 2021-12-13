@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { forwardRef } from 'react'
+import React, { FC, forwardRef } from 'react'
 import { Icon, IconProps, Stack } from '../'
 import { Chip as ChipClass, Action } from './chip.module.css'
 
@@ -10,7 +10,7 @@ export type ChipProps = PropsWithClass & {
   onDismissClick?(): void;
 }
 
-export const Chip: React.FC<ChipProps> = forwardRef<HTMLSpanElement, ChipProps>(({
+export const Chip: FC<ChipProps> = forwardRef<HTMLSpanElement, ChipProps>(({
   children,
   className,
   dimension = 'regular',

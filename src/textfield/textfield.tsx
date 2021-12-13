@@ -1,7 +1,7 @@
 import React, { ChangeEvent, forwardRef, Ref, useCallback, useState } from 'react'
 import { Text, Stack, Icon, IconProps, IconButton, IconButtonProps } from '../'
 import { IconNames } from '../icons/types'
-import { BaseField, BaseFieldProps } from './base-field'
+import { BaseField, BaseFieldProps, PrimitiveInputType } from './base-field'
 import clsx from 'clsx'
 import { useUIDSeed } from 'react-uid'
 import { Textfield as TextfieldClass, FieldContainer, InputField, Icon as IconClass, IconButton as IconButtonClass } from './textfield.module.css'
@@ -15,10 +15,10 @@ export type TextfieldProps = BaseFieldProps & {
   readOnly?: boolean;
   iconPosition?: 'left' | 'right';
   disabled?: boolean;
-  onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+  onChange?: (event: ChangeEvent<PrimitiveInputType>) => void
 }
 
-export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, TextfieldProps>(({
+export const Textfield = forwardRef<PrimitiveInputType, TextfieldProps>(({
   children,
   className,
   disabled = false,
@@ -122,5 +122,3 @@ export const Textfield = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
     </Stack>
   )
 })
-
-Textfield.displayName = 'Textfield'

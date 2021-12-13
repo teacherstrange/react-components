@@ -1,6 +1,4 @@
-import React, {
-  useMemo
-} from 'react'
+import React, { useMemo, FC } from 'react'
 import ReactDataTable, { TableProps as ReactTableProps } from 'react-data-table-component'
 import { Icon, SkeletonBlock, Checkbox } from '..'
 import { customStyle } from './theme'
@@ -9,7 +7,7 @@ import { IconNames } from '../icons/types'
 import clsx from 'clsx'
 
 export type TableProps<T> = ReactTableProps<T> & {
-  ExpandableRowsComponent?: React.FC<{data: T}>;
+  ExpandableRowsComponent?: FC<{data: T}>;
   collapsedRowIcon?: IconNames;
   expandedRowIcon?: IconNames;
   minRowHeight?: string;

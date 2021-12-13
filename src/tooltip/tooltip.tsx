@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, CSSProperties, ReactElement, ReactNode, useState } from 'react'
+import React, { FC, Children, cloneElement, CSSProperties, ReactElement, ReactNode, useState } from 'react'
 import { useUIDSeed } from 'react-uid'
 import { useKey } from 'react-use'
 import { Elevator } from '../'
@@ -18,7 +18,7 @@ export type TooltipProps = PropsWithClass & {
   interactive?: boolean;
 }
 
-export const Tooltip: React.FC<TooltipProps> = ({
+export const Tooltip: FC<TooltipProps> = ({
   children,
   trigger,
   placement = 'bottom-start',
