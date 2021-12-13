@@ -4,7 +4,7 @@ import { IconNames } from '../icons/types'
 import { Icon, IconProps, Polymorphic, Spinner } from '../'
 import { Button as ButtonClass, SpinnerIndicator, ButtonsGroup as ButtonsGroupClass } from './button.module.css'
 
-export type ButtonProps = PropsWithClass & {
+export type ButtonProps = {
   kind?: 'primary' | 'secondary' | 'flat';
   dimension?: 'regular' | 'small' | 'big';
   fullWidth?: boolean;
