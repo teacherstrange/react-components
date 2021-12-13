@@ -16,7 +16,7 @@ export const Container = forwardRef(({
   dimension = 'full',
   padding = true,
   as: Wrapper = 'div',
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   return (
     <Wrapper
@@ -24,7 +24,7 @@ export const Container = forwardRef(({
       className={clsx(ContainerClass, className)}
       data-container-dimension={dimension}
       data-container-padding={padding}
-      {...props}
+      {...otherProps}
     >
       {children}
     </Wrapper>

@@ -17,7 +17,7 @@ export const Chip: FC<ChipProps> = forwardRef<HTMLSpanElement, ChipProps>(({
   color = 'gray',
   interactive,
   onDismissClick,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const properties = {
     small: {
@@ -42,7 +42,7 @@ export const Chip: FC<ChipProps> = forwardRef<HTMLSpanElement, ChipProps>(({
       className={clsx(ChipClass, className)}
       verticalAlign="center"
       ref={forwardedRef}
-      {...props}
+      {...otherProps}
     >
       <b>{children}</b>
       {interactive && (

@@ -26,7 +26,7 @@ export const Snackbar = forwardRef(({
   dismissable,
   dismissLabel = 'Dismiss',
   onDismiss,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const defaultIcons = {
     info: 'circle-info',
@@ -42,7 +42,7 @@ export const Snackbar = forwardRef(({
       className={clsx(SnackbarClass, className)}
       data-snackbar-kind={kind}
       role="alert"
-      {...props}
+      {...otherProps}
     >
       <Stack verticalAlign="start" horizontalAlign="start" direction="row" columnGap={16} fill={false}>
         <Icon className={IconClass} name={icon || defaultIcons[kind] as IconNames} dimension={24} />

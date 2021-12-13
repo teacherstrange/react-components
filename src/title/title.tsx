@@ -23,7 +23,7 @@ export const Title = forwardRef(({
   textAlign = 'start',
   maxWidth,
   style,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const computedLevel = level.match(/\d/g) ? `H${level}` : level.charAt(0).toUpperCase() + level.slice(1)
 
@@ -39,7 +39,7 @@ export const Title = forwardRef(({
       data-title-is-fluid={fluid}
       className={clsx(styles.Title, styles[computedLevel], className)}
       style={{ ...dynamicStyle, ...style }}
-      {...props}
+      {...otherProps}
     >
       {children}
     </Wrapper>

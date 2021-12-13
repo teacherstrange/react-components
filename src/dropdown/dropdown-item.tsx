@@ -29,7 +29,7 @@ export const DropdownItem = forwardRef(({
   description,
   padding = true,
   disabled = false,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const itemRef = useRef<any>(forwardedRef)
   const [tabIndex, focused, handleKeyDown, handleClick] = useRovingTabIndex(itemRef, disabled)
@@ -84,7 +84,7 @@ export const DropdownItem = forwardRef(({
       aria-disabled={disabled}
       type={Wrapper === 'button' ? 'button' : undefined}
       data-dropdown-item-dimension={dimension}
-      {...props}
+      {...otherProps}
     >
       {description
         ? (
@@ -110,7 +110,7 @@ type PolymorphicDropdownItemCheckbox = Polymorphic.ForwardRefComponent<
 export const DropdownItemCheckbox = forwardRef(({
   children,
   checked,
-  ...props
+  ...otherProps
 }, forwardedRef) =>
-  <DropdownItem role="menuitemcheckbox" aria-checked={checked} ref={forwardedRef} {...props}>{children}</DropdownItem>
+  <DropdownItem role="menuitemcheckbox" aria-checked={checked} ref={forwardedRef} {...otherProps}>{children}</DropdownItem>
 ) as PolymorphicDropdownItemCheckbox

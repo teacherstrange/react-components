@@ -48,7 +48,7 @@ export const Tab = forwardRef<HTMLDivElement, TabProps>(({
   className,
   state,
   onChange,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const renderedChildren = Children.toArray(children).filter(Boolean)
 
@@ -67,7 +67,7 @@ export const Tab = forwardRef<HTMLDivElement, TabProps>(({
     <div
       ref={forwardedRef}
       className={clsx(TabClass, className)}
-      {...props}
+      {...otherProps}
     >
       <TabsWrapper state={tabState}>
 

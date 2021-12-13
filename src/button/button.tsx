@@ -36,7 +36,7 @@ export const Button = forwardRef((
     onClick,
     busy,
     as: Wrapper = 'button',
-    ...props
+    ...otherProps
   }, forwardedRef) => {
   const handleClick = useCallback(
     () => (event: any) => {
@@ -66,7 +66,7 @@ export const Button = forwardRef((
       aria-pressed={Wrapper === 'button' ? pressed : undefined}
       aria-live={busy ? 'polite' : undefined}
       onClick={handleClick()}
-      {...props}
+      {...otherProps}
     >
       {icon && (
         <Icon

@@ -39,7 +39,7 @@ export const Card = forwardRef(({
   highlightOnHover = false,
   wrap,
   style,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const dynamicStyle: CSSProperties = {
     '--padding': padding && tkns.space[padding],
@@ -55,7 +55,7 @@ export const Card = forwardRef(({
       data-card-bordered={bordered}
       data-card-vibrant={vibrant}
       data-card-highlight-hover={highlightOnHover}
-      {...props}
+      {...otherProps}
     >
       <Stack
         direction="row"

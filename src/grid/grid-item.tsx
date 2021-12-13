@@ -15,7 +15,7 @@ export const GridItem = forwardRef<HTMLLIElement, GridItemProps>(({
   fullWidth = false,
   column,
   row,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const dynamicStyle: CSSProperties = {
     '--column': column,
@@ -28,7 +28,7 @@ export const GridItem = forwardRef<HTMLLIElement, GridItemProps>(({
       className={clsx(GridItemClass, className)}
       style={{ ...dynamicStyle, ...style }}
       data-grid-item-fullwidth={fullWidth}
-      {...props}
+      {...otherProps}
     >
       {children}
     </li>

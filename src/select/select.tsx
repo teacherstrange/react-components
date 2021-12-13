@@ -24,7 +24,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
   kind = 'single',
   dimension = 'regular',
   onChange,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const uid = useUIDSeed()
 
@@ -57,7 +57,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(({
           multiple={kind === 'multiple'}
           onChange={onChange}
           ref={forwardedRef}
-          {...props}
+          {...otherProps}
         >
           {children}
         </select>

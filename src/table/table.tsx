@@ -28,7 +28,7 @@ export const Table = <T, >({
   collapsedRowIcon = 'chevron-right',
   expandedRowIcon = 'chevron-down',
   minRowHeight = '48px',
-  ...props
+  ...otherProps
 }: TableProps<T>) => {
   const selectProps = {
     indeterminate: (isIndeterminate: boolean) => isIndeterminate,
@@ -73,7 +73,7 @@ export const Table = <T, >({
           <Icon name="arrow-up" />
         </span>
         )}
-      {...props}
+      {...otherProps}
     />
   )
 }

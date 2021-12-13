@@ -15,7 +15,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
   dimension = 'regular',
   onChange,
   indeterminate,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   return (
     <input
@@ -27,7 +27,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
       onChange={onChange}
       className={clsx(CheckboxClass, className)}
       ref={forwardedRef}
-      {...props}
+      {...otherProps}
     />
   )
 })

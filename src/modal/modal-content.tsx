@@ -12,7 +12,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(({
   children,
   className,
   title,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const { onClose, titleId } = useModalContext()
 
@@ -22,7 +22,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(({
         className={clsx(Content, className)}
         ref={forwardedRef}
         data-theme="light"
-        {...props}
+        {...otherProps}
       >
         <Stack as="header" verticalAlign="center" fill={false} horizontalAlign="space-between" direction="row" className={Header}>
           <Title level="5" id={titleId}>{title}</Title>

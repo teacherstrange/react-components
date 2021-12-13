@@ -21,7 +21,7 @@ export const List = forwardRef(({
   className,
   markerColor,
   hideMarker = false,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const sizes = {
     small: {
@@ -47,7 +47,7 @@ export const List = forwardRef(({
       data-list-size={dimension}
       data-list-ordered={!isUnordered}
       data-list-no-marker={hideMarker}
-      {...props}
+      {...otherProps}
     >
       {Children.map(children, (child: ReactElement) => (
         <Text

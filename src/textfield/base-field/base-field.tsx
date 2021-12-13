@@ -15,14 +15,14 @@ export const BaseField = forwardRef(({
   as: Wrapper = 'input',
   invalid,
   className,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   return (
     <Wrapper
       ref={forwardedRef}
       data-basefield-invalid={invalid}
       className={clsx(BaseFieldClass, className)}
-      {...props}
+      {...otherProps}
     />
   )
 }) as PolymorphicBaseField

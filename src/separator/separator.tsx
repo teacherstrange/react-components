@@ -6,13 +6,13 @@ export type SeparatorProps = HTMLAttributes<HTMLHRElement>
 
 export const Separator = forwardRef<HTMLHRElement, SeparatorProps>(({
   className,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   return (
     <hr
       ref={forwardedRef}
       className={clsx(SeparatorClass, className)}
-      {...props}
+      {...otherProps}
     />
   )
 })

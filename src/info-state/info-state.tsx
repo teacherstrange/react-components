@@ -21,7 +21,7 @@ export const InfoState = forwardRef<HTMLDivElement, InfoStateProps>(({
   direction = 'column',
   iconColor = 'blue',
   actions,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const isHorizontal = direction === 'row'
 
@@ -36,7 +36,7 @@ export const InfoState = forwardRef<HTMLDivElement, InfoStateProps>(({
       verticalAlign={(isHorizontal && image) ? 'center' : 'start'}
       fill={false}
       wrap={!!image}
-      {...props}
+      {...otherProps}
     >
       {(!image && icon) && (
         <span data-info-state-icon-color={iconColor} className={IconWrapper}>

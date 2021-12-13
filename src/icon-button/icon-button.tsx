@@ -20,7 +20,7 @@ export const IconButton = forwardRef(({
   kind,
   disabled,
   busy,
-  ...props
+  ...otherProps
 }, forwardedRef) => (
   <Button
     ref={forwardedRef}
@@ -30,6 +30,6 @@ export const IconButton = forwardRef(({
     disabled={disabled}
     busy={busy}
     className={clsx(IconButtonClass, className)}
-    {...props}
+    {...otherProps}
   />
 )) as PolymorphicIconButton

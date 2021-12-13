@@ -30,11 +30,11 @@ export default {
   }
 }
 
-const DefaultTemplate = ({ dimension, iconPosition, onClick, padding, ...props }) => {
+const DefaultTemplate = ({ dimension, iconPosition, onClick, padding, ...otherProps }) => {
   const [checked, setChecked] = useState<boolean>(false)
 
   return (
-    <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
+    <Dropdown trigger={<Button>Open Dropdown</Button>} {...otherProps}>
       <Dropdown.Menu>
         <Dropdown.Item
           padding={padding}
@@ -85,16 +85,16 @@ Default.args = {
   iconPosition: 'left'
 }
 
-const CustomTemplate = ({ dimension, iconPosition, ...props }) => (
+const CustomTemplate = ({ dimension, iconPosition, ...otherProps }) => (
   <>
-    <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
+    <Dropdown trigger={<Button>Open Dropdown</Button>} {...otherProps}>
       <div style={{ background: 'var(--global-vibrancy-background)', backdropFilter: 'blur(10px)', border: '2px solid black', maxInlineSize: '30ch', padding: 24 }}>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
         Magni error unde sapiente beatae! Nostrum praesentium similique
         veniam non ut nulla, incidunt velit et, placeat cupiditate, aliquid saepe. Atque, provident perferendis?
       </div>
     </Dropdown>
-    <Dropdown trigger={<Button>Open Dropdown</Button>} {...props}>
+    <Dropdown trigger={<Button>Open Dropdown</Button>} {...otherProps}>
       <div style={{ background: 'var(--global-vibrancy-background)', backdropFilter: 'blur(10px)', border: '2px solid black', maxInlineSize: '30ch', padding: 24 }}>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
         Magni error unde sapiente beatae! Nostrum praesentium similique

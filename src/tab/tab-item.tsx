@@ -29,7 +29,7 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(({
   children,
   className,
   icon,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const { onClick, isActive } = useTabState(children)
   const internalRef = useRef<any>(forwardedRef)
@@ -62,7 +62,7 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(({
       onFocus={fireClick}
       type="button"
       tabIndex={isActive ? 0 : -1}
-      {...props}
+      {...otherProps}
     >
       {icon && <Icon name={icon} dimension={16} />}
       {children}

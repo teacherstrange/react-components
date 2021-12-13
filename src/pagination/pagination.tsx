@@ -21,7 +21,7 @@ export const Pagination = ({
   pageCount,
   pageRangeDisplayed = 3,
   marginPagesDisplayed = 1,
-  ...props
+  ...otherProps
 }: PaginationProps) => {
   const [computedPageCount, setComputedPageCount] = useState(0)
 
@@ -47,7 +47,7 @@ export const Pagination = ({
       pageRangeDisplayed={pageRangeDisplayed}
       pageCount={pageCount || computedPageCount}
       marginPagesDisplayed={marginPagesDisplayed}
-      {...props}
+      {...otherProps}
     />
   )
 }

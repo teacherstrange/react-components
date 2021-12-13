@@ -10,7 +10,7 @@ export type SkeletonBlockProps = SkeletonProps & {
 export const SkeletonBlock = ({
   className,
   borderRadius = 4,
-  ...props
+  ...otherProps
 }: SkeletonBlockProps) => {
   return (
     <Skeleton
@@ -18,7 +18,7 @@ export const SkeletonBlock = ({
       borderRadius={borderRadius}
       baseColor="var(--dimmed-1)"
       highlightColor="var(--dimmed-0)"
-      {...props}
+      {...otherProps}
     />
   )
 }

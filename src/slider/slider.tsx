@@ -27,7 +27,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(({
   showValues,
   iconMin,
   iconMax,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const [value, setValue] = useState<number>(defaultValue)
   const isSmall = dimension === 'small'
@@ -62,7 +62,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(({
         aria-valuenow={value}
         step={step}
         onInput={handleInput}
-        {...props}
+        {...otherProps}
       />
 
       {showValues && <Text as="span" size={isSmall ? 14 : 16} weight="bold" className={Value}>{max}</Text>}

@@ -28,7 +28,7 @@ export const Text = forwardRef(({
   as: Wrapper = 'p',
   fluid = true,
   style,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const dynamicStyle: CSSProperties = {
     '--maxW': maxWidth,
@@ -45,7 +45,7 @@ export const Text = forwardRef(({
       data-text-is-fluid={fluid}
       className={clsx(TextClass, className)}
       style={{ ...dynamicStyle, ...style }}
-      {...props}
+      {...otherProps}
     >
       {children}
     </Wrapper>
