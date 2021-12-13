@@ -7,7 +7,6 @@ export default {
   component: Text,
   args: {
     maxWidth: 'auto',
-    fluid: true,
     children: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores, tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!',
     textAlign: 'start'
   },
@@ -19,10 +18,6 @@ export default {
     dimmed: {
       options: [5, 6, 7],
       control: { type: 'select' }
-    },
-    fluid: {
-      options: [true, false],
-      control: { type: 'inline-radio' }
     },
     textAlign: {
       options: ['start', 'center', 'end'],
@@ -36,8 +31,7 @@ const Template = (args) => <Container dimension="medium"><Text {...args} /></Con
 export const Default = Template.bind({})
 export const Weight = Template.bind({})
 Weight.args = {
-  weight: 'bold',
-  fluid: true
+  weight: 'bold'
 }
 export const Align = Template.bind({})
 Align.args = {
