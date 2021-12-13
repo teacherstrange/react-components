@@ -11,7 +11,7 @@ export default {
   args: {
     bordered: false,
     vibrant: false,
-    hoverable: false
+    highlightOnHover: true
   },
   argTypes: {
     children: {
