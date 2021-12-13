@@ -16,14 +16,14 @@ export type TabListProps = HTMLAttributes<HTMLDivElement>
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(({
   children,
   className,
-  ...props
+  ...otherProps
 }, forwardedRef) => (
   <div
     ref={forwardedRef}
     role="tablist"
     tabIndex={-1}
     className={clsx(TabListClass, className)}
-    {...props}
+    {...otherProps}
   >
     <RovingTabIndexProvider>
       {children}

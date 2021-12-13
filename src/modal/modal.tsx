@@ -22,7 +22,7 @@ const ModalElement = forwardRef<HTMLDivElement, ModalProps>(({
   closeOnClickOutside = true,
   onClose,
   visible,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const seedID = useUIDSeed()
 
@@ -42,7 +42,7 @@ const ModalElement = forwardRef<HTMLDivElement, ModalProps>(({
               aria-labelledby={ctx.titleId}
               className={clsx(ModalClass, className)}
               ref={forwardedRef}
-              {...props}
+              {...otherProps}
             >
               <m.span
                 key={seedID('modal-backdrop')}
@@ -82,16 +82,16 @@ type ModalComponent = React.ForwardRefExoticComponent<ModalProps> & {
 
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
   visible,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   if (typeof visible === 'boolean') {
     return (
       <Presence exitBeforeEnter>
-        {visible ? <ModalElement ref={forwardedRef} {...props} /> : null}
+        {visible ? <ModalElement ref={forwardedRef} {...otherProps} /> : null}
       </Presence>
     )
   }
-  return (<ModalElement ref={forwardedRef} {...props} />)
+  return (<ModalElement ref={forwardedRef} {...otherProps} />)
 }) as ModalComponent
 
 Modal.Content = ModalContent

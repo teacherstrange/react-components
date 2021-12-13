@@ -19,7 +19,7 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, InputGroupProps>(({
   start,
   label,
   dimension = 'regular',
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const uid = useUIDSeed()
 
@@ -42,7 +42,7 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, InputGroupProps>(({
         className={clsx(InputGroupClass, className)}
         data-input-group-has-end={Boolean(end)}
         data-input-group-has-start={!!start}
-        {...props}
+        {...otherProps}
       >
         <div className={Start}>
           {Children.map(start, (child: ReactElement) => cloneElement(

@@ -31,7 +31,7 @@ export const Grid = forwardRef<HTMLUListElement, GridProps>(({
   filling = 'fill',
   colMinWidth = '10rem',
   rowMinHeight = '1fr',
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const computedStyle: CSSProperties = {
     '--rGap': rowGap && tksn.space[rowGap],
@@ -48,7 +48,7 @@ export const Grid = forwardRef<HTMLUListElement, GridProps>(({
       style={{ ...computedStyle, ...style }}
       data-grid-filling-type={filling}
       ref={forwardedRef}
-      {...props}
+      {...otherProps}
     >
       {children}
     </ul>

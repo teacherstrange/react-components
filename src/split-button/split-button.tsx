@@ -28,7 +28,7 @@ export const SplitButton = forwardRef(({
   onClick,
   pressed = false,
   iconPosition = 'left',
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const commonProps = {
     kind,
@@ -51,7 +51,7 @@ export const SplitButton = forwardRef(({
         iconPosition={iconPosition}
         ref={forwardedRef}
         {...commonProps}
-        {...props}
+        {...otherProps}
       >
         {label}
       </Button>

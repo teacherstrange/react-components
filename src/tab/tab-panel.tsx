@@ -27,7 +27,7 @@ export type TabPanelProps = PropsWithClass & {
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(({
   children,
   className,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const isActive = usePanelState(children)
   return isActive
@@ -36,7 +36,7 @@ export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(({
         ref={forwardedRef}
         tabIndex={0}
         className={clsx(TabPanelClass, className)}
-        {...props}
+        {...otherProps}
       >
         {children}
       </div>

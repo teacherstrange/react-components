@@ -35,7 +35,7 @@ export const Stack = forwardRef(({
   horizontalPadding = 0,
   verticalPadding = 0,
   style,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const alignmentTemplate = (prop: string) => {
     if (prop.includes('start') || prop.includes('end')) {
@@ -62,7 +62,7 @@ export const Stack = forwardRef(({
       data-stack-direction={direction}
       data-stack-fill={fill}
       className={clsx(StackClass, className)}
-      {...props}
+      {...otherProps}
     >
       {children}
     </Wrapper>

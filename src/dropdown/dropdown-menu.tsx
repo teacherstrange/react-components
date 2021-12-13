@@ -13,7 +13,7 @@ export type DropdownMenuProps = HTMLAttributes<HTMLUListElement> & {
 export const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(({
   className,
   children,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const renderedChildren = Children.toArray(children).filter(Boolean)
 
@@ -24,7 +24,7 @@ export const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(({
         ref={forwardedRef}
         className={clsx(DropdownMenuClass, className)}
         role="menu"
-        {...props}
+        {...otherProps}
       >
         <RovingTabIndexProvider options={{ direction: 'vertical', loopAround: true }}>
           {Children.map(renderedChildren, (child: ReactElement | JSX.Element, index) => (

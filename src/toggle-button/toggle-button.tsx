@@ -45,7 +45,7 @@ export const ToggleButton = forwardRef(({
   iconColor,
   pressed = false,
   onClick,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const [isPressed, setIsPressed] = useState<boolean>(pressed)
   const [firstRender, setFirstRender] = useState(true)
@@ -85,7 +85,7 @@ export const ToggleButton = forwardRef(({
       disabled={disabled}
       onClick={handleClick}
       className={clsx(ToggleButtonClass, className)}
-      {...props}
+      {...otherProps}
     >
       {isPressed && pressedIcon
         ? (

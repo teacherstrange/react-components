@@ -17,7 +17,7 @@ export const LinearProgress = forwardRef<HTMLProgressElement, LinearProgressProp
   max = 100,
   dimension = 'regular',
   showProgress,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const getPercentage = useCallback(
     () => value ? Math.round((100 * value) / max) : 0,
@@ -40,7 +40,7 @@ export const LinearProgress = forwardRef<HTMLProgressElement, LinearProgressProp
         aria-valuemax={max}
         value={value}
         max={max}
-        {...props}
+        {...otherProps}
       />
       {(showProgress) && (
         <Text

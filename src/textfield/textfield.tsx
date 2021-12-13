@@ -31,7 +31,7 @@ export const Textfield = forwardRef<PrimitiveInputType, TextfieldProps>(({
   dimension = 'regular',
   type,
   onChange,
-  ...props
+  ...otherProps
 }: TextfieldProps, forwardedRef) => {
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false)
   const uid = useUIDSeed()
@@ -86,7 +86,7 @@ export const Textfield = forwardRef<PrimitiveInputType, TextfieldProps>(({
               as="textarea"
               id={uid('field')}
               {...commonProps}
-              {...props}
+              {...otherProps}
             />
             )
           : (
@@ -96,7 +96,7 @@ export const Textfield = forwardRef<PrimitiveInputType, TextfieldProps>(({
               ref={forwardedRef as Ref<HTMLInputElement>}
               type={passwordVisible ? 'text' : type}
               {...commonProps}
-              {...props}
+              {...otherProps}
             />
             )
           }

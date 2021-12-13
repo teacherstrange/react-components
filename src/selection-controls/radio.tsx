@@ -13,7 +13,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
   disabled,
   dimension = 'regular',
   onChange,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   return (
     <input
@@ -24,7 +24,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
       onChange={onChange}
       className={clsx(RadioClass, className)}
       ref={forwardedRef}
-      {...props}
+      {...otherProps}
     />
   )
 })

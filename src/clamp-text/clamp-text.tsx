@@ -17,7 +17,7 @@ export const ClampText = forwardRef(({
   rows = 1,
   style,
   as: Wrapper = 'span',
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const dynamicStyle: CSSProperties = {
     '--r': rows
@@ -28,7 +28,7 @@ export const ClampText = forwardRef(({
       ref={forwardedRef}
       style={{ ...dynamicStyle, ...style }}
       className={clsx(ClampTextClass, className)}
-      {...props}
+      {...otherProps}
     >
       {children}
     </Wrapper>

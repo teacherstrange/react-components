@@ -11,13 +11,13 @@ export const Prose = forwardRef(({
   children,
   className,
   as: Wrapper = 'div',
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   return (
     <Wrapper
       ref={forwardedRef}
       className={clsx(ProseClass, className)}
-      {...props}
+      {...otherProps}
     >
       {children}
     </Wrapper>

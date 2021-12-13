@@ -29,7 +29,7 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
   iconPosition = 'left',
   expandable = true,
   style,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const [isOpen, setIsOpen] = useState(open)
 
@@ -83,7 +83,7 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
       aria-expanded={isOpen ? 'true' : 'false'}
       open={isOpen}
       ref={forwardedRef}
-      {...props}
+      {...otherProps}
     >
       <Text
         as="summary"

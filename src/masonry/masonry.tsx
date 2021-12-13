@@ -23,7 +23,7 @@ export const Masonry: FC<MasonryProps> = ({
   columns = 3,
   gutter = 16,
   style,
-  ...props
+  ...otherProps
 }) => {
   const breakpoints = {
     extraSmall: 480,
@@ -50,7 +50,7 @@ export const Masonry: FC<MasonryProps> = ({
       columnClassName={Column}
       breakpointCols={typeof columns === 'number' ? columns : computedColumns}
       style={{ ...dynamicStyle, ...style }}
-      {...props}
+      {...otherProps}
     >
       {Children.map(children, (child: ReactElement) => cloneElement(
         child,

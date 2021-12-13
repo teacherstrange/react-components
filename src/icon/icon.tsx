@@ -16,7 +16,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(({
   name,
   dimension = 16,
   fill,
-  ...props
+  ...otherProps
 }: IconProps, forwardedRef) => {
   const computedSize = dimension < 24 ? 16 : 24
 
@@ -28,7 +28,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(({
       fill={fill}
       className={className}
       ref={forwardedRef}
-      {...props}
+      {...otherProps}
     >
       <use href={`${sprite}#${computedSize}/${name}`} />
     </svg>

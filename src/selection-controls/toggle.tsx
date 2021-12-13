@@ -13,7 +13,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(({
   disabled,
   dimension = 'regular',
   onChange,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   return (
     <input
@@ -24,7 +24,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(({
       onChange={onChange}
       className={clsx(ToggleClass, className)}
       ref={forwardedRef}
-      {...props}
+      {...otherProps}
     />
   )
 })

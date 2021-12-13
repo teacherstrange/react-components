@@ -23,7 +23,7 @@ export const StarMeter = forwardRef(({
   starCount = 5,
   label,
   dimension = 'regular',
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const uid = useUIDSeed()
 
@@ -85,7 +85,7 @@ export const StarMeter = forwardRef(({
       aria-labelledby={uid('star-meter')}
       data-star-meter-dimension={dimension}
       ref={forwardedRef}
-      {...props}
+      {...otherProps}
     >
       <svg aria-hidden="true" className={Gradient} width="100" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <defs>

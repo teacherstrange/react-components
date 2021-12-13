@@ -16,7 +16,7 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
   dimension = 'regular',
   showProgress,
   style,
-  ...props
+  ...otherProps
 }, forwardedRef) => {
   const getPercentage = useCallback(
     () => value ? Math.round((100 * value) / max) : 0,
@@ -41,7 +41,7 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
       data-circular-progress-dimension={dimension}
       data-circular-progress-show-progress={showProgress}
       style={{ ...dynamicStyle, ...style }}
-      {...props}
+      {...otherProps}
     />
   )
 })
