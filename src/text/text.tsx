@@ -9,7 +9,6 @@ export type TextProps = {
   sentiment?: 'positive' | 'informative' | 'danger' | 'warning';
   dimmed?: 5 | 6 | 7;
   weight?: 'thin' | 'bold';
-  fluid?: boolean;
   maxWidth?: string;
   textAlign?: 'start' | 'center' | 'end';
 }
@@ -26,7 +25,6 @@ export const Text = forwardRef(({
   maxWidth,
   textAlign = 'start',
   as: Wrapper = 'p',
-  fluid = true,
   style,
   ...otherProps
 }, forwardedRef) => {
@@ -42,7 +40,6 @@ export const Text = forwardRef(({
       data-text-weight={weight}
       data-text-sentiment={sentiment}
       data-text-dimmed={dimmed}
-      data-text-is-fluid={fluid}
       className={clsx(TextClass, className)}
       style={{ ...dynamicStyle, ...style }}
       {...otherProps}
