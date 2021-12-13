@@ -23,5 +23,3 @@ export const Prose = forwardRef(({
     </Wrapper>
   )
 }) as PolymorphicProse
-
-Prose.displayName = 'Prose'

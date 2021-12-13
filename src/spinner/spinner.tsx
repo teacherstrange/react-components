@@ -1,4 +1,4 @@
-import React, { SVGAttributes } from 'react'
+import React, { forwardRef, SVGAttributes } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
@@ -7,12 +7,12 @@ export type SpinnerProps = SVGAttributes<SVGElement> & {
   color?: string;
 }
 
-export const Spinner = ({
+export const Spinner = forwardRef<SVGSVGElement, SpinnerProps>(({
   className,
   style,
   color,
   dimension = 'big'
-}: SpinnerProps) => {
+}, forwardedRef) => {
   const attributes = {
     small: {
       size: 14
@@ -27,6 +27,7 @@ export const Spinner = ({
 
   return (
     <motion.svg
+      ref={forwardedRef}
       className={clsx(className)}
       animate={{ rotate: '2turn' }}
       transition={{
@@ -62,4 +63,4 @@ export const Spinner = ({
       </g>
     </motion.svg>
   )
-}
+})

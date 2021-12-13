@@ -65,5 +65,3 @@ export const SplitButton = forwardRef(({
     </Stack>
   )
 }) as PolymorphicSplitButton
-
-SplitButton.displayName = 'SplitButton'

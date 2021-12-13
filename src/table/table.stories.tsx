@@ -110,9 +110,9 @@ const data = [
 
 const ExpndableComponent = ({ data }: Record<string, any>) => (
   <table width="100%">
-    <thead><tr>{Object.keys(data).map(key => <th style={{ textAlign: 'left' }}>{key}</th>)}</tr></thead>
+    <thead><tr>{Object.keys(data).map(key => <th key={key} style={{ textAlign: 'left' }}>{key}</th>)}</tr></thead>
     <tbody>
-      <tr>{Object.keys(data).map(key => <td>{data[key]}</td>)}</tr>
+      <tr>{Object.keys(data).map(key => <td key={key}>{data[key]}</td>)}</tr>
     </tbody>
   </table>
 )

@@ -1,10 +1,6 @@
 /* eslint-disable react/display-name */
-import React, {
-  forwardRef, HTMLAttributes
-} from 'react'
-import {
-  RovingTabIndexProvider
-} from 'react-roving-tabindex'
+import React, { forwardRef, HTMLAttributes } from 'react'
+import { RovingTabIndexProvider } from 'react-roving-tabindex'
 import clsx from 'clsx'
 
 import {
@@ -12,6 +8,7 @@ import {
 } from './tab.module.css'
 
 export type TabListProps = HTMLAttributes<HTMLDivElement>
+
 /**
  * Tab.List
  * Component
@@ -33,5 +30,3 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(({
     </RovingTabIndexProvider>
   </div>
 ))
-
-TabList.displayName = 'Tab.List'

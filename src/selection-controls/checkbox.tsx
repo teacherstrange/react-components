@@ -16,7 +16,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
   onChange,
   indeterminate,
   ...props
-}: CheckboxProps, forwardedRef) => {
+}, forwardedRef) => {
   return (
     <input
       type="checkbox"
@@ -31,5 +31,3 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
     />
   )
 })
-
-Checkbox.displayName = 'Checkbox'
