@@ -10,7 +10,7 @@ export default {
     children: 'Click me',
     fullWidth: false,
     disabled: false,
-    loading: false,
+    busy: false,
     pressed: false
   },
   argTypes: {
