@@ -12,7 +12,7 @@ export type InfoStateProps = PropsWithClass & {
   actions?: ReactNode;
 }
 
-export const InfoState: React.FC<InfoStateProps> = forwardRef<HTMLDivElement, InfoStateProps>(({
+export const InfoState = forwardRef<HTMLDivElement, InfoStateProps>(({
   className,
   children,
   title,
@@ -63,5 +63,3 @@ export const InfoState: React.FC<InfoStateProps> = forwardRef<HTMLDivElement, In
     </Stack>
   )
 })
-
-InfoState.displayName = 'InfoState'

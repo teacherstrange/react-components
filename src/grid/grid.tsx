@@ -55,6 +55,4 @@ export const Grid = forwardRef<HTMLUListElement, GridProps>(({
   )
 }) as GridComponent
 
-Grid.displayName = 'Grid'
-
 Grid.Item = GridItem

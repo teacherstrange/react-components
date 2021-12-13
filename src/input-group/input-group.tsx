@@ -28,6 +28,7 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, InputGroupProps>(({
       rowGap={4}
       horizontalAlign="stretch"
       verticalAlign="start"
+      fill={false}
     >
       {label && <Text as="label" size={dimension === 'small' ? 14 : 16} htmlFor={uid('field')}>{label}</Text>}
       <Stack
@@ -72,5 +73,3 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, InputGroupProps>(({
     </Stack>
   )
 })
-
-InputGroup.displayName = 'InputGroup'

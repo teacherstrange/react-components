@@ -4,7 +4,7 @@ import clsx from 'clsx'
 
 import { ClampText as ClampTextClass } from './clamp-text.module.css'
 
-export type ClampTextProps = PropsWithClass & {
+export type ClampTextProps = {
   children: ReactNode;
   rows?: number;
 }
@@ -34,5 +34,3 @@ export const ClampText = forwardRef(({
     </Wrapper>
   )
 }) as PolymorphicClampText
-
-ClampText.displayName = 'ClampText'

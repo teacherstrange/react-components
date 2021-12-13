@@ -7,17 +7,11 @@ import { InputGroup } from './input-group'
 
 export default {
   title: 'Components/Inputs/Input group',
-  component: InputGroup,
-  args: {
-
-  },
-  argTypes: {
-
-  }
+  component: InputGroup
 }
 
 const Default = (args) => (
-  <Stack inline rowGap={32}>
+  <Stack inline fill={false} horizontalAlign="start" rowGap={32}>
     <InputGroup
       input={<Textfield type="text" defaultValue="cicc" />}
       end={<Button>Confirm</Button>}

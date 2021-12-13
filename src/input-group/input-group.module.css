@@ -11,9 +11,6 @@
 }
 
 .InputField {
-  & input {
-    outline-offset: -3px;
-  }
 
   @nest .InputGroup[data-input-group-has-end='true'] & input {
     border-top-right-radius: 0;

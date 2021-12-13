@@ -5,7 +5,7 @@ import { IconNames } from '../icons/types'
 import { Tooltip, Stack, Icon, Polymorphic } from '../'
 import clsx from 'clsx'
 
-export type DropdownItemProps = PropsWithClass & {
+export type DropdownItemProps = {
   children: ReactNode;
   icon?: IconNames;
   dimension?: 'small' | 'regular'
@@ -114,6 +114,3 @@ export const DropdownItemCheckbox = forwardRef(({
 }, forwardedRef) =>
   <DropdownItem role="menuitemcheckbox" aria-checked={checked} ref={forwardedRef} {...props}>{children}</DropdownItem>
 ) as PolymorphicDropdownItemCheckbox
-
-DropdownItem.displayName = 'Dropdown.Item'
-DropdownItemCheckbox.displayName = 'Dropdown.ItemChecbox'

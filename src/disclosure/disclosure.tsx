@@ -108,5 +108,3 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
     </details>
   )
 })
-
-Disclosure.displayName = 'Disclosure'

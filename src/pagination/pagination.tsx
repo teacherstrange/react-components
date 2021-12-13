@@ -2,15 +2,13 @@ import clsx from 'clsx'
 import React, { useCallback, useEffect, useState } from 'react'
 import ReactPaginate, { ReactPaginateProps } from 'react-paginate'
 import { Icon } from '../'
-import { Except } from 'type-fest'
 
 import { Pagination as PaginationClass } from './pagination.module.css'
 
-export type PaginationProps = PropsWithClass & Except<ReactPaginateProps, 'pageCount' | 'pageRangeDisplayed' | 'marginPagesDisplayed'> & {
+export type PaginationProps = ReactPaginateProps & {
   itemsCount: number;
   itemsPerPage?: number;
   onPageClick?(offset: Record<string, number>): void;
-  pageCount?: ReactPaginateProps['pageCount'];
   pageRangeDisplayed?: ReactPaginateProps['pageRangeDisplayed'];
   marginPagesDisplayed?: ReactPaginateProps['marginPagesDisplayed'];
 }

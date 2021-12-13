@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { IconNames } from '../icons/types'
 import { Text, TextProps, Icon, IconProps, Polymorphic } from '../'
 
-export type ListProps = PropsWithClass & {
+export type ListProps = {
   dimension?: 'small' | 'regular' | 'big';
   marker?: IconNames;
   markerColor?: string;
@@ -68,5 +68,3 @@ export const List = forwardRef(({
     </Wrapper>
   )
 }) as PolymorphicList
-
-List.displayName = 'List'
