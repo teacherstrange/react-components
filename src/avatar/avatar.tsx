@@ -1,15 +1,13 @@
 import clsx from 'clsx'
-import React, { forwardRef, ImgHTMLAttributes } from 'react'
+import React, { forwardRef, ImgHTMLAttributes, VFC } from 'react'
 import { Avatar as AvatarClass, Placeholder } from './avatar.module.css'
-
-export const AVATAR_NAME = 'Avatar'
 
 export type AvatarProps = ImgHTMLAttributes<HTMLImageElement> & {
   src?: string;
   dimension?: 'small' | 'regular' | 'big';
 }
 
-export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(({
+export const Avatar: VFC = forwardRef<HTMLImageElement, AvatarProps>(({
   className,
   src,
   dimension = 'regular',
@@ -50,5 +48,3 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(({
     </picture>
   )
 })
-
-Avatar.displayName = AVATAR_NAME
