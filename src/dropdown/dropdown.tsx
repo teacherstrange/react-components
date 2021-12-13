@@ -118,8 +118,6 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(({
   )
 }) as DropdownComponent
 
-Dropdown.displayName = 'Dropdown'
-
 Dropdown.Menu = DropdownMenu
 Dropdown.Item = DropdownItem
 Dropdown.ItemCheckbox = DropdownItemCheckbox

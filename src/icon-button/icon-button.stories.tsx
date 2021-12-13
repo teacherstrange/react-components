@@ -8,7 +8,7 @@ export default {
     dimension: 'regular',
     kind: 'primary',
     icon: 'bell',
-    loading: false
+    busy: false
   },
   argTypes: {
     onClick: { action: 'clicked' },
@@ -16,7 +16,7 @@ export default {
       options: ['small', 'regular', 'big'],
       control: { type: 'radio' }
     },
-    loading: {
+    busy: {
       options: [true, false],
       control: { type: 'inline-radio' }
     },

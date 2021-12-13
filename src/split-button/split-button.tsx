@@ -21,7 +21,7 @@ export const SplitButton = forwardRef(({
   dimension,
   fullWidth,
   disabled,
-  loading,
+  busy,
   children,
   placement,
   dropdownOffset,
@@ -43,7 +43,7 @@ export const SplitButton = forwardRef(({
       inline={!fullWidth}
     >
       <Button
-        loading={loading}
+        busy={busy}
         disabled={disabled}
         fullWidth={fullWidth}
         onClick={onClick}
