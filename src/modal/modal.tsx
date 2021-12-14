@@ -1,6 +1,6 @@
 import React, { forwardRef, PropsWithChildren } from 'react'
 import { useUIDSeed } from 'react-uid'
-import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import { FocusOn } from 'react-focus-on'
 import { ModalContent, ModalContentProps } from './modal-content'
@@ -35,41 +35,39 @@ const ModalElement = forwardRef<HTMLDivElement, ModalProps>(({
     >
       <ModalContext.Consumer>
         {(ctx) => (
-          <LazyMotion features={domAnimation}>
-            <div
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby={ctx.titleId}
-              className={clsx(ModalClass, className)}
-              ref={forwardedRef}
-              {...otherProps}
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={ctx.titleId}
+            className={clsx(ModalClass, className)}
+            ref={forwardedRef}
+            {...otherProps}
+          >
+            <motion.span
+              key={seedID('modal-backdrop')}
+              className={Backdrop}
+              data-overlay-color={overlayColor}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.95 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+            <FocusOn
+              onClickOutside={() => ctx.onClose()}
+              onEscapeKey={ctx.onClose}
             >
-              <m.span
-                key={seedID('modal-backdrop')}
-                className={Backdrop}
-                data-overlay-color={overlayColor}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.95 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              />
-              <FocusOn
-                onClickOutside={() => ctx.onClose()}
-                onEscapeKey={ctx.onClose}
+              <motion.div
+                key={seedID('modal-container')}
+                className={Container}
+                initial={{ scale: 0.98, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.98, opacity: 0 }}
+                transition={{ ease: 'easeOut', duration: 0.1 }}
               >
-                <m.div
-                  key={seedID('modal-container')}
-                  className={Container}
-                  initial={{ scale: 0.98, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.98, opacity: 0 }}
-                  transition={{ ease: 'easeOut', duration: 0.1 }}
-                >
-                  {children}
-                </m.div>
-              </FocusOn>
-            </div>
-          </LazyMotion>
+                {children}
+              </motion.div>
+            </FocusOn>
+          </div>
         )}
       </ModalContext.Consumer>
     </ModalContext.Provider>
