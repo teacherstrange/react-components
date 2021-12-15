@@ -39,7 +39,11 @@ export const Default = () => (
   </Container>
 )
 
-const Template = (args) => <Container dimension="medium"><Title {...args}>Sample title</Title></Container>
+const Template = (args) => (
+  <Container dimension="medium">
+    <Title {...args}>Sample title</Title>
+  </Container>
+)
 
 export const Single = Template.bind({})
 Single.args = {
