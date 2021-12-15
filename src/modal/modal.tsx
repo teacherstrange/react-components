@@ -3,7 +3,7 @@ import { useUIDSeed } from 'react-uid'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import { FocusOn } from 'react-focus-on'
-import { ModalContent, ModalContentProps } from './modal-content'
+import { ModalContent, ModalContentProps } from './content/modal-content'
 import { Modal as ModalClass, Backdrop, Container } from './modal.module.css'
 import { ModalContext } from './modal-context'
 

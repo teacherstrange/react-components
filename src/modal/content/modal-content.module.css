@@ -1,4 +1,4 @@
-@import '../core/media.css';
+@import '../../core/media.css';
 
 .Content {
   background-color: var(--global-background);
