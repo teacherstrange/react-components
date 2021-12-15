@@ -3,7 +3,6 @@
 /* -------------------------------------------------------------------------- */
 
 export { UIDReset as IdProvider } from 'react-uid'
-export { AnimatePresence as Presence } from 'framer-motion'
 export * as Polymorphic from './polymorphic'
 
 /* -------------------------------------------------------------------------- */
@@ -28,7 +27,7 @@ export { InfoState, InfoStateProps } from './info-state'
 export { InputGroup, InputGroupProps } from './input-group'
 export { List, ListProps } from './list'
 export { SplitButton, SplitButtonProps } from './split-button'
-export { Modal, ModalProps, useModalContext } from './modal'
+export { Modal, ModalProps, useModalContext, ModalProvider } from './modal'
 export { LinearProgress, LinearProgressProps } from './linear-progress'
 export { OverlayContainer, OverlayContainerProps } from './overlay-container'
 export { Prose, ProseProps } from './prose'

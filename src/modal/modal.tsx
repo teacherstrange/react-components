@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import { FocusOn } from 'react-focus-on'
 import { ModalContent, ModalContentProps } from './content/modal-content'
 import { Modal as ModalClass, Backdrop, Container } from './modal.module.css'
-import { ModalContext } from './modal-context'
+import { ModalContext, ModalProvider } from './modal-context'
 
 export type ModalProps = PropsWithChildren<PropsWithClass> & {
   overlayColor?: 'light' | 'dark' | 'auto';
@@ -28,11 +28,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
   const seedID = useUIDSeed()
 
   return (
-    <ModalContext.Provider value={{
-      onClose,
-      titleId: seedID('modal-title')
-    }}
-    >
+    <ModalProvider onClose={onClose}>
       <ModalContext.Consumer>
         {(ctx) => (
           <div
@@ -53,7 +49,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
               transition={{ duration: 0.2 }}
             />
             <FocusOn
-              onClickOutside={() => ctx.onClose()}
+              onClickOutside={ctx.onClose}
               onEscapeKey={ctx.onClose}
             >
               <motion.div
@@ -70,7 +66,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
           </div>
         )}
       </ModalContext.Consumer>
-    </ModalContext.Provider>
+    </ModalProvider>
   )
 }) as ModalComponent
 

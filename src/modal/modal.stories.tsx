@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Modal } from './modal'
+import { useModalContext } from './modal-context'
 import { Button } from '../button'
 import { IconButton } from '../icon-button'
 import { Card } from '../card'
-import { OverlayContainer } from '../'
+import { OverlayContainer } from '../overlay-container'
 
 export default {
   title: 'Components/Dialogs/Modal',
@@ -14,38 +15,7 @@ export default {
   }
 }
 
-// const DefaultTemplate = (args) => {
-//   const [visible, setVisible] = useState(false)
-
-//   return (
-//     <>
-//       <Button onClick={() => setVisible(true)}>Show Modal</Button>
-//       <Modal
-//         key="default-modal"
-//         visible={visible}
-//         onClose={() => setVisible(false)}
-//         {...args}
-//       >
-//         <Modal.Content title="Modal title">
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde neque facilis temporibus corporis
-//           <img width="100%" height="auto" src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=cover&w=1600&q=80" />
-//         </Modal.Content>
-//       </Modal>
-//     </>
-//   )
-// }
-
-// export const Default = DefaultTemplate.bind({})
-
-const TemplateDynamic = (args) => {
+const ModalShell = ({ children, ...otherProps }) => {
   const [visible, setVisible] = useState(false)
 
   return (
@@ -53,47 +23,50 @@ const TemplateDynamic = (args) => {
       <Button onClick={() => setVisible(true)}>Show Modal</Button>
       <OverlayContainer>
         {visible && (
-          <Modal
-            key="dynamic-modal"
-            onClose={() => setVisible(false)}
-            {...args}
-          >
-            <Modal.Content title="Modal title">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus et magnam distinctio qui quod ducimus libero magni earum perspiciatis.
-              <img width="100%" height="auto" src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=cover&w=1600&q=80" />
-            </Modal.Content>
-          </Modal>
+        <Modal
+          key="dynamic-modal"
+          onClose={() => setVisible(false)}
+          {...otherProps}
+        >
+          {children}
+        </Modal>
         )}
       </OverlayContainer>
     </>
   )
 }
 
-export const Dynamic = TemplateDynamic.bind({})
+const DefaultTemplate = (args) => {
+  return (
+    <ModalShell {...args}>
+      <Modal.Content title="Modal title">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus et magnam distinctio qui quod ducimus libero magni earum perspiciatis.
+        <img width="100%" height="auto" src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=cover&w=1600&q=80" />
+      </Modal.Content>
+    </ModalShell>
+  )
+}
+
+export const Default = DefaultTemplate.bind({})
+
+const CustomContentModal = (...args) => {
+  const { onClose, titleId } = useModalContext()
+
+  return (
+    <Card>
+      {titleId}
+      <IconButton onClick={() => onClose()} icon="xmark" kind="flat" aria-label="Close modal" />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus et magnam distinctio qui quod ducimus libero magni earum perspiciatis.
+      <img width="100%" height="auto" src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=cover&w=1600&q=80" />
+    </Card>
+  )
+}
 
 const CustomTemplate = (args) => {
-  const [visible, setVisible] = useState(false)
-
   return (
-    <>
-      <Button onClick={() => setVisible(true)}>Show Modal</Button>
-      <OverlayContainer>
-        {visible && (
-          <Modal
-            key="dynamic-modal"
-            onClose={() => setVisible(false)}
-            {...args}
-          >
-            <Card>
-              <IconButton onClick={() => setVisible(false)} icon="xmark" kind="flat" aria-label="Close modal" />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus et magnam distinctio qui quod ducimus libero magni earum perspiciatis.
-              <img width="100%" height="auto" src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=cover&w=1600&q=80" />
-            </Card>
-          </Modal>
-        )}
-      </OverlayContainer>
-    </>
+    <ModalShell {...args}>
+      <CustomContentModal />
+    </ModalShell>
   )
 }
-
 export const Custom = CustomTemplate.bind({})
