@@ -6,7 +6,6 @@ import { FocusOn } from 'react-focus-on'
 import { ModalContent, ModalContentProps } from './modal-content'
 import { Modal as ModalClass, Backdrop, Container } from './modal.module.css'
 import { ModalContext } from './modal-context'
-import { Presence } from '../'
 
 export type ModalProps = PropsWithChildren<PropsWithClass> & {
   visible?: boolean;
@@ -15,7 +14,11 @@ export type ModalProps = PropsWithChildren<PropsWithClass> & {
   onClose(): void;
 }
 
-const ModalElement = forwardRef<HTMLDivElement, ModalProps>(({
+type ModalComponent = React.ForwardRefExoticComponent<ModalProps> & {
+  Content: React.ForwardRefExoticComponent<ModalContentProps>;
+}
+
+export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
   children,
   className,
   overlayColor = 'dark',
@@ -72,24 +75,6 @@ const ModalElement = forwardRef<HTMLDivElement, ModalProps>(({
       </ModalContext.Consumer>
     </ModalContext.Provider>
   )
-})
-
-type ModalComponent = React.ForwardRefExoticComponent<ModalProps> & {
-  Content: React.ForwardRefExoticComponent<ModalContentProps>;
-}
-
-export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
-  visible,
-  ...otherProps
-}, forwardedRef) => {
-  if (typeof visible === 'boolean') {
-    return (
-      <Presence exitBeforeEnter>
-        {visible ? <ModalElement ref={forwardedRef} {...otherProps} /> : null}
-      </Presence>
-    )
-  }
-  return (<ModalElement ref={forwardedRef} {...otherProps} />)
 }) as ModalComponent
 
 Modal.displayName = 'Modal'
