@@ -1,5 +1,8 @@
 module.exports = {
   stories: ["../src/**/*.stories.tsx"],
+  features: {
+    storyStoreV7: true,
+  },
   addons: [
     "@storybook/addon-actions",
     "@storybook/addon-links",
