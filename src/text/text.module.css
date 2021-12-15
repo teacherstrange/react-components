@@ -1,9 +1,6 @@
 @import '../core/media.css';
 
 .Text {
-  --fs-min: env(--font-size-16);
-  --fs-max: env(--font-size-18);
-
   line-height: 1.5;
   min-block-size: 0.01vh;
   font-size: var(--fs-max);
