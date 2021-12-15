@@ -8,7 +8,8 @@ export default {
   args: {
     maxWidth: 'auto',
     children: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius dolores, tempore quas labore officiis praesentium. Porro sed dolorem, numquam temporibus consequuntur quam doloremque ducimus error tempora illo aliquam nesciunt nostrum!',
-    textAlign: 'start'
+    textAlign: 'start',
+    responsive: true
   },
   argTypes: {
     sentiment: {

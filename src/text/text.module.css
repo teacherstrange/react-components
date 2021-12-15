@@ -1,15 +1,14 @@
 @import '../core/media.css';
 
 .Text {
+  --fs-min: env(--font-size-16);
+  --fs-max: env(--font-size-18);
+
   line-height: 1.5;
   min-block-size: 0.01vh;
-  font-size: var(--fs-min);
+  font-size: var(--fs-max);
   max-inline-size: var(--maxW, initial);
   text-align: var(--tAlign);
-
-  @media (--from-small) {
-    font-size: var(--fs-max);
-  }
 
   /* Colors */
 
@@ -45,14 +44,14 @@
 
   &[data-text-size='14'] {
     font-size: env(--font-size-14);
-    line-height: 1.2;
+    line-height: env(--font-lh-small);
   }
 
   &[data-text-size='16'] {
     --fs-min: env(--font-size-14);
     --fs-max: env(--font-size-16);
 
-    line-height: 1.2;
+    line-height: env(--font-lh-small);
   }
 
   &[data-text-size='18'] {
@@ -78,5 +77,14 @@
 
   &[data-text-weight='bold'] {
     font-weight: 600;
+  }
+
+  /* Responsiveness */
+  &[data-text-responsive='true'] {
+    font-size: var(--fs-min);
+
+    @media (--from-small) {
+      font-size: var(--fs-max);
+    }
   }
 }

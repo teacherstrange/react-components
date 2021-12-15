@@ -8,6 +8,9 @@ export default {
   parameters: {
     controls: { hideNoControlsWarning: true }
   },
+  args: {
+    responsive: true
+  },
   argTypes: {
     level: {
       options: ['1', '2', '3', '4', '5', '6'],

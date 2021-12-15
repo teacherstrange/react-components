@@ -11,6 +11,7 @@ export type TextProps = {
   weight?: 'thin' | 'bold';
   maxWidth?: string;
   textAlign?: 'start' | 'center' | 'end';
+  responsive?: boolean;
 }
 
 type PolymorphicText = Polymorphic.ForwardRefComponent<'p', TextProps>;
@@ -25,6 +26,7 @@ export const Text = forwardRef(({
   maxWidth,
   textAlign = 'start',
   as: Wrapper = 'p',
+  responsive = true,
   style,
   ...otherProps
 }, forwardedRef) => {
@@ -40,6 +42,7 @@ export const Text = forwardRef(({
       data-text-weight={weight}
       data-text-sentiment={sentiment}
       data-text-dimmed={dimmed}
+      data-text-responsive={responsive}
       className={clsx(TextClass, className)}
       style={{ ...dynamicStyle, ...style }}
       {...otherProps}

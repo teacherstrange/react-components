@@ -8,6 +8,7 @@ export type TitleProps = {
   lineHeight?: 'none' | 'small' | 'large';
   textAlign?: 'start' | 'center' | 'end';
   maxWidth?: string;
+  responsive?: boolean;
 }
 
 type PolymorphicTitle = Polymorphic.ForwardRefComponent<'span', TitleProps>;
@@ -20,6 +21,7 @@ export const Title = forwardRef(({
   level = '1',
   textAlign = 'start',
   maxWidth,
+  responsive = true,
   style,
   ...otherProps
 }, forwardedRef) => {
@@ -34,6 +36,7 @@ export const Title = forwardRef(({
     <Wrapper
       ref={forwardedRef}
       data-title-line-height={lineHeight}
+      data-title-responsive={responsive}
       className={clsx(styles.Title, styles[computedLevel], className)}
       style={{ ...dynamicStyle, ...style }}
       {...otherProps}
