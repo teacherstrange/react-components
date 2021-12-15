@@ -8,7 +8,6 @@ import { Modal as ModalClass, Backdrop, Container } from './modal.module.css'
 import { ModalContext } from './modal-context'
 
 export type ModalProps = PropsWithChildren<PropsWithClass> & {
-  visible?: boolean;
   overlayColor?: 'light' | 'dark' | 'auto';
   closeOnClickOutside?: boolean;
   onClose(): void;
@@ -24,7 +23,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
   overlayColor = 'dark',
   closeOnClickOutside = true,
   onClose,
-  visible,
   ...otherProps
 }, forwardedRef) => {
   const seedID = useUIDSeed()
@@ -32,7 +30,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
   return (
     <ModalContext.Provider value={{
       onClose,
-      visible,
       titleId: seedID('modal-title')
     }}
     >

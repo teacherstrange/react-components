@@ -24,7 +24,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(({
         data-theme="light"
         {...otherProps}
       >
-        <Stack as="header" verticalAlign="center" fill={false} horizontalAlign="space-between" direction="row" className={Header}>
+        <Stack verticalAlign="center" fill={false} horizontalAlign="space-between" direction="row" className={Header}>
           <Title level="5" id={titleId}>{title}</Title>
           {onClose && <IconButton onClick={onClose} className={CloseButton} icon="xmark" kind="flat" />}
         </Stack>

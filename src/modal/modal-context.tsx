@@ -1,9 +1,8 @@
 import { createContext, useContext } from 'react'
 import { ModalProps } from '../modal'
 
-type ModalContextProps = Pick<ModalProps, 'onClose' | 'visible'> & {
+type ModalContextProps = Pick<ModalProps, 'onClose'> & {
   titleId: string
-  setTitleId?(): void
 }
 
 export const ModalContext = createContext<ModalContextProps>({
