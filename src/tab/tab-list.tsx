@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import React, { forwardRef, HTMLAttributes } from 'react'
 import { RovingTabIndexProvider } from 'react-roving-tabindex'
 import clsx from 'clsx'
