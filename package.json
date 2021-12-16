@@ -102,7 +102,7 @@
     "@types/react-dom": "17.0.11",
     "@typescript-eslint/eslint-plugin": "5.7.0",
     "@typescript-eslint/parser": "5.7.0",
-    "@wonderflow/config": "2.0.1",
+    "@wonderflow/config": "3.0.2",
     "babel-loader": "8.2.3",
     "commit-analyzer-fail-on-no-release": "1.0.0",
     "commitizen": "4.2.4",
