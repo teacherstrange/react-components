@@ -6,12 +6,14 @@ import { useModalContext } from '../modal-context'
 
 export type ModalContentProps = PropsWithClass & {
   title: ReactNode;
+  theme?: 'dark' | 'light' | 'auto';
 }
 
 export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(({
   children,
   className,
   title,
+  theme = 'light',
   ...otherProps
 }, forwardedRef) => {
   const { onClose, titleId } = useModalContext()
@@ -21,7 +23,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(({
       <div
         className={clsx(Content, className)}
         ref={forwardedRef}
-        data-theme="light"
+        data-theme={theme}
         {...otherProps}
       >
         <Stack verticalAlign="center" fill={false} horizontalAlign="space-between" direction="row" className={Header}>

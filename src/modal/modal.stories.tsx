@@ -39,7 +39,7 @@ const ModalShell = ({ children, ...otherProps }) => {
 const DefaultTemplate = (args) => {
   return (
     <ModalShell {...args}>
-      <Modal.Content title="Modal title">
+      <Modal.Content title="Modal title" theme="auto">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus et magnam distinctio qui quod ducimus libero magni earum perspiciatis.
         <img width="100%" height="auto" src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=cover&w=1600&q=80" />
       </Modal.Content>

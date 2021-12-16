@@ -45,7 +45,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
               data-overlay-color={overlayColor}
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.95 }}
-              exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
             />
             <FocusOn
@@ -57,7 +56,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
                 className={Container}
                 initial={{ scale: 0.98, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.98, opacity: 0 }}
                 transition={{ ease: 'easeOut', duration: 0.1 }}
               >
                 {children}
