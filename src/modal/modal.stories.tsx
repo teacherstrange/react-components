@@ -21,17 +21,17 @@ const ModalShell = ({ children, ...otherProps }) => {
   return (
     <>
       <Button onClick={() => setVisible(true)}>Show Modal</Button>
-      <OverlayContainer>
-        {visible && (
-        <Modal
-          key="dynamic-modal"
-          onClose={() => setVisible(false)}
-          {...otherProps}
-        >
-          {children}
-        </Modal>
-        )}
-      </OverlayContainer>
+      {visible && (
+        <OverlayContainer>
+          <Modal
+            key="dynamic-modal"
+            onClose={() => setVisible(false)}
+            {...otherProps}
+          >
+            {children}
+          </Modal>
+        </OverlayContainer>
+      )}
     </>
   )
 }

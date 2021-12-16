@@ -1,10 +1,9 @@
-import { AnimatePresence } from 'framer-motion'
 import React, { ReactNode, useEffect } from 'react'
 import { ModalProvider } from '../modal'
 import { createPortal } from 'react-dom'
 
 export type OverlayContainerProps = {
-  children: ReactNode,
+  children: ReactNode
   root?: HTMLElement
 }
 
@@ -21,7 +20,7 @@ export const OverlayContainer: React.FC<OverlayContainerProps> = ({
   const content = (
     <ModalProvider>
       <div data-overlay-container>
-        <AnimatePresence>{children}</AnimatePresence>
+        {children}
       </div>
     </ModalProvider>
   )
