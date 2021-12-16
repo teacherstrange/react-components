@@ -1,4 +1,4 @@
-@import '../core/media.css';
+@import '../core/utils/media.css';
 
 .Text {
   line-height: 1.5;

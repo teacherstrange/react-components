@@ -14,7 +14,7 @@ export type IconTypes = '${jsonStructure.iconTypes.join('\' |\n\'')}';
 
 const run = () => {
   const spinner = createSpinner('Processing icons...').start()
-  const directories = dt(path.join('src', 'icons', 'svgs'))
+  const directories = dt(path.join('dist', 'icons', 'svgs'))
   fs.ensureDirSync('dist/icons')
 
   const jsonStructure = {
