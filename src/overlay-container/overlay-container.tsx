@@ -5,11 +5,13 @@ import { createPortal } from 'react-dom'
 export type OverlayContainerProps = {
   children: ReactNode
   root?: HTMLElement
+  index?: number;
 }
 
 export const OverlayContainer: React.FC<OverlayContainerProps> = ({
   children,
-  root = document.body
+  root = document.body,
+  index = 4
 }) => {
   useEffect(() => {
     if (root.closest('[data-overlay-container]')) {
@@ -19,7 +21,7 @@ export const OverlayContainer: React.FC<OverlayContainerProps> = ({
 
   const content = (
     <ModalProvider>
-      <div data-overlay-container>
+      <div data-overlay-container style={{ position: 'relative', zIndex: index }}>
         {children}
       </div>
     </ModalProvider>
