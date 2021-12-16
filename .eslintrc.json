@@ -1,5 +1,11 @@
 {
   "extends": "@wonderflow/eslint-config",
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"]
+  "plugins": ["@typescript-eslint"],
+  "overrides": [
+    {
+      "files": ["src/**/*.spec.{ts,tsx}"],
+      "extends": ["plugin:jest/recommended", "plugin:testing-library/react"]
+    }
+  ]
 }

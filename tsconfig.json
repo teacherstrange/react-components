@@ -38,5 +38,6 @@
     "types/*",
     "**/*.ts",
     "**/*.tsx",
+    "test/jest-setup.ts"
   ]
 }
