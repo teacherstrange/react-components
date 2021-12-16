@@ -54,8 +54,8 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
               <motion.div
                 key={seedID('modal-container')}
                 className={Container}
-                initial={{ scale: 0.98, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
+                initial={{ y: 20, scale: 0.98, opacity: 0 }}
+                animate={{ y: 0, scale: 1, opacity: 1 }}
                 transition={{ ease: 'easeOut', duration: 0.1 }}
               >
                 {children}
@@ -69,5 +69,4 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
 }) as ModalComponent
 
 Modal.displayName = 'Modal'
-
 Modal.Content = ModalContent
