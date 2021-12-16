@@ -1,4 +1,4 @@
-@import '../core/vibrancy.css';
+@import '../core/utils/vibrancy.css';
 
 :where(.Card) {
   background: var(--global-background);

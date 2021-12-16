@@ -1,4 +1,4 @@
-@import '../core/media.css';
+@import '../core/utils/media.css';
 
 .Container {
   padding: 0 env(--space-16);

@@ -1,4 +1,4 @@
-@import '../core/vibrancy.css';
+@import '../core/utils/vibrancy.css';
 
 .Checkbox {
   --w: 24px;

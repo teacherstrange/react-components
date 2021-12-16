@@ -22,6 +22,7 @@ module.exports = {
         },
       },
     },
+    "storybook-addon-turbo-build"
   ],
   typescript: {
     check: false,
