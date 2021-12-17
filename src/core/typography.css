@@ -1,7 +1,7 @@
 :where(p) {
   line-height: 1.5;
   min-block-size: 0.01vh;
-  font-size: 1rem;
+  font-size: env(--font-size-16);
 }
 
 small {
