@@ -33,7 +33,7 @@
     "last 2 Edge versions"
   ],
   "scripts": {
-    "start": "run-s build storybook",
+    "start": "run-s build:thems build:icons storybook",
     "storybook": "start-storybook --quiet -p 6006",
     "lint": "run-s lint:scripts && run-s lint:styles",
     "lint:scripts": "eslint \"src/**/*.{tsx,ts}\"",
