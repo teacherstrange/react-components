@@ -88,6 +88,7 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(({
       <Text
         as="summary"
         onClick={handleOpen()}
+        responsive={false}
         className={Summary}
         aria-expanded={isOpen}
         tabIndex={!expandable ? -1 : 0}
