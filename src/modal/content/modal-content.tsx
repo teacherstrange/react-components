@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { forwardRef, ReactNode } from 'react'
+import { forwardRef, ReactNode } from 'react'
 import { Content, Header, CloseButton } from './modal-content.module.css'
 import { Title, Elevator, IconButton, Stack } from '../../'
 import { useModalContext } from '../modal-context'

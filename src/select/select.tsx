@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, SelectHTMLAttributes, ReactNode } from 'react'
+import { ChangeEvent, forwardRef, SelectHTMLAttributes, ReactNode } from 'react'
 import { Text, Stack, Icon, IconProps } from '../'
 import { IconNames } from '../icons/types'
 import { Select as SelectClass, FieldContainer, Icon as IconClass, Field } from './select.module.css'

@@ -1,4 +1,4 @@
-import React, { FC, Fragment, Children, cloneElement, ReactElement } from 'react'
+import { FC, Fragment, Children, cloneElement, ReactElement } from 'react'
 
 export type ElevatorProps = {
   resting: 0 | 1 | 2 | 3 | 4;

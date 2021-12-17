@@ -1,4 +1,4 @@
-import React, { forwardRef, InputHTMLAttributes, useCallback, useState } from 'react'
+import { forwardRef, InputHTMLAttributes, useCallback, useState } from 'react'
 import { IconNames } from '../icons/types'
 import { Stack, Text, Icon } from '..'
 import { Slider as SliderClass, Input, Value } from './slider.module.css'

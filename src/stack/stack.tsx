@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef } from 'react'
+import { CSSProperties, forwardRef } from 'react'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import { Polymorphic } from '../'
 import { Stack as StackClass } from './stack.module.css'

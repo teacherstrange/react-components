@@ -1,4 +1,4 @@
-import React, { forwardRef, ProgressHTMLAttributes, useCallback } from 'react'
+import { forwardRef, ProgressHTMLAttributes, useCallback } from 'react'
 import { Text } from '../'
 import clsx from 'clsx'
 

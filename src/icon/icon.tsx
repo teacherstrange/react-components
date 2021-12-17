@@ -1,5 +1,5 @@
 import { IconNames } from '../icons/types'
-import React, {
+import {
   forwardRef,
   SVGAttributes
 } from 'react'

@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef } from 'react'
+import { CSSProperties, forwardRef } from 'react'
 import clsx from 'clsx'
 import { GridItem as GridItemClass } from './grid.module.css'
 

@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import ReactPaginate, { ReactPaginateProps } from 'react-paginate'
 import { Icon } from '../'
 

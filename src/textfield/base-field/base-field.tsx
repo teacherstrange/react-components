@@ -1,4 +1,4 @@
-import React, { forwardRef, InputHTMLAttributes } from 'react'
+import { forwardRef, InputHTMLAttributes } from 'react'
 import { Polymorphic } from '../../'
 import { BaseField as BaseFieldClass } from './base-field.module.css'
 import clsx from 'clsx'

@@ -1,4 +1,4 @@
-import React, { forwardRef, SVGAttributes } from 'react'
+import { forwardRef, SVGAttributes } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 

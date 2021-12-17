@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Tab } from './tab'
 import { Button } from '../button'
 import { Stack } from '../stack'

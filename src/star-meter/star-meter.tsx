@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react'
+import { forwardRef, ReactNode } from 'react'
 import clsx from 'clsx'
 import { useUIDSeed } from 'react-uid'
 import { Text, TextProps, Stack, Icon, Polymorphic } from '../'

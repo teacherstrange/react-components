@@ -1,4 +1,4 @@
-import React, { forwardRef, PropsWithChildren, ReactNode } from 'react'
+import { forwardRef, PropsWithChildren, ReactNode } from 'react'
 import { IconNames } from '../icons/types'
 import { Stack, StackProps, Icon, Title, Text } from '../'
 import { IconWrapper, Image } from './info-state.module.css'

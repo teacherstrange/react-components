@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { IconButton as IconButtonClass } from './icon-button.module.css'
 import { Button, ButtonProps, Polymorphic } from '../'
 import clsx from 'clsx'

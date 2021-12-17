@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactNode, forwardRef } from 'react'
+import { CSSProperties, ReactNode, forwardRef } from 'react'
 import clsx from 'clsx'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'

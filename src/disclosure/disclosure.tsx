@@ -1,4 +1,4 @@
-import React, {
+import {
   CSSProperties,
   DetailsHTMLAttributes, forwardRef,
   ReactNode, useCallback, useState

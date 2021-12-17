@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useState } from 'react'
+import { forwardRef, useCallback, useEffect, useState } from 'react'
 import { ToggleButton as ToggleButtonClass } from './toggle-button.module.css'
 import { IconButton, IconButtonProps, Polymorphic, Icon, IconProps } from '../'
 import clsx from 'clsx'

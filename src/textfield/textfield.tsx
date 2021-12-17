@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, Ref, useCallback, useState } from 'react'
+import { ChangeEvent, forwardRef, Ref, useCallback, useState } from 'react'
 import { Text, Stack, Icon, IconProps, IconButton, IconButtonProps } from '../'
 import { IconNames } from '../icons/types'
 import { BaseField, BaseFieldProps, PrimitiveInputType } from './base-field'

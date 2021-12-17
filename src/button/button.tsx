@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { FC, Children, cloneElement, forwardRef, MouseEvent, ReactElement, useCallback } from 'react'
+import { FC, Children, cloneElement, forwardRef, MouseEvent, ReactElement, useCallback } from 'react'
 import { IconNames } from '../icons/types'
 import { Icon, IconProps, Polymorphic, Spinner } from '../'
 import { Button as ButtonClass, SpinnerIndicator, ButtonsGroup as ButtonsGroupClass } from './button.module.css'

@@ -1,4 +1,4 @@
-import React, { Children, forwardRef, ReactElement, useMemo } from 'react'
+import { Children, forwardRef, ReactElement, useMemo } from 'react'
 import { List as ListClass, Marker } from './list.module.css'
 import clsx from 'clsx'
 import { IconNames } from '../icons/types'

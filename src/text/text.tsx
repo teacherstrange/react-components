@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef } from 'react'
+import { CSSProperties, forwardRef } from 'react'
 import { Polymorphic } from '../'
 import { Text as TextClass } from './text.module.css'
 import clsx from 'clsx'

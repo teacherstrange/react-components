@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, forwardRef, useRef, useMemo } from 'react'
+import { ReactNode, useCallback, forwardRef, useRef, useMemo } from 'react'
 import { useRovingTabIndex, useFocusEffect } from 'react-roving-tabindex'
 import { DropdownItem as DropdownItemClass, Icon as IconClass } from './dropdown-item.module.css'
 import { IconNames } from '../icons/types'

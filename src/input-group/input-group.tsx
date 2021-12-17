@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { Children, cloneElement, forwardRef, ReactElement, ReactNode } from 'react'
+import { Children, cloneElement, forwardRef, ReactElement, ReactNode } from 'react'
 import { Stack, Text } from '../'
 import { useUIDSeed } from 'react-uid'
 import { End, InputField, Start, InputGroup as InputGroupClass } from './input-group.module.css'

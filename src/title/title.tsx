@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef } from 'react'
+import { CSSProperties, forwardRef } from 'react'
 import { Polymorphic } from '../'
 import * as styles from './title.module.css'
 import clsx from 'clsx'

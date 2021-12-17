@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { ChangeEvent, forwardRef, InputHTMLAttributes } from 'react'
+import { ChangeEvent, forwardRef, InputHTMLAttributes } from 'react'
 import { Toggle as ToggleClass } from './selection-controls.module.css'
 
 export type ToggleProps = InputHTMLAttributes<HTMLInputElement> & {

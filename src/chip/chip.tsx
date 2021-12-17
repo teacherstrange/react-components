@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { forwardRef, PropsWithChildren } from 'react'
+import { forwardRef, PropsWithChildren } from 'react'
 import { Icon, IconProps, Stack } from '../'
 import { Chip as ChipClass, Action } from './chip.module.css'
 

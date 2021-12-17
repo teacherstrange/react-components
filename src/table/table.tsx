@@ -1,4 +1,4 @@
-import React, { useMemo, FC } from 'react'
+import { useMemo, FC } from 'react'
 import ReactDataTable, { TableProps as ReactTableProps } from 'react-data-table-component'
 import { Icon, SkeletonBlock, Checkbox } from '..'
 import { customStyle } from './theme'

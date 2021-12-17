@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef, ReactNode } from 'react'
+import { CSSProperties, forwardRef, ReactNode } from 'react'
 import { Polymorphic } from '../'
 import clsx from 'clsx'
 

@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef, useCallback } from 'react'
+import { CSSProperties, forwardRef, useCallback } from 'react'
 import clsx from 'clsx'
 import { CircularProgress as CircularProgressClass } from './circular-progress.module.css'
 

@@ -1,4 +1,4 @@
-import React, { forwardRef, PropsWithChildren } from 'react'
+import { forwardRef, PropsWithChildren } from 'react'
 import { useUIDSeed } from 'react-uid'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
