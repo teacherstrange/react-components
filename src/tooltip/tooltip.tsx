@@ -15,6 +15,7 @@ export type TooltipProps = PropsWithClass & {
   delay?: number;
   maxWidth?: string;
   fill?: boolean;
+  interactive?: boolean;
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -25,6 +26,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   style,
   maxWidth = '40ch',
   fill = false,
+  interactive = false,
   delay = 500
 }) => {
   const seedID = useUIDSeed()
@@ -40,10 +42,11 @@ export const Tooltip: React.FC<TooltipProps> = ({
     visible
   } = usePopperTooltip({
     delayShow: delay,
-    delayHide: 200,
+    delayHide: 300,
     trigger: ['hover', 'focus'],
     visible: show || controlledVisible,
     closeOnTriggerHidden: true,
+    interactive: interactive,
     onVisibleChange: setControlledVisible,
     placement: placement,
     offset: [0, 16]

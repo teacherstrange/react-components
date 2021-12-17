@@ -3,7 +3,7 @@ import { Tooltip } from './tooltip'
 import { Button } from '../button'
 
 export default {
-  title: 'Components/Widgets/Tooltip',
+  title: 'Components/Dialogs/Tooltip',
   component: Tooltip,
   argTypes: {
   }
