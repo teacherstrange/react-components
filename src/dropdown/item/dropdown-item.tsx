@@ -1,18 +1,49 @@
 import { ReactNode, useCallback, forwardRef, useRef, useMemo } from 'react'
 import { useRovingTabIndex, useFocusEffect } from 'react-roving-tabindex'
 import { DropdownItem as DropdownItemClass, Icon as IconClass } from './dropdown-item.module.css'
-import { IconNames } from '../icons/types'
-import { Tooltip, Stack, Icon, Polymorphic } from '../'
+import { IconNames } from '../../icons/types'
+import { Tooltip, Stack, Icon, Polymorphic } from '../..'
 import clsx from 'clsx'
 
 export type DropdownItemProps = {
+  /**
+   * Content to display in the dropdown item.
+   */
   children: ReactNode;
+  /**
+   * Whether the dropdown item should have an icon
+   */
   icon?: IconNames;
-  dimension?: 'small' | 'regular'
-  onClick?(): void;
+  /**
+   * Set the position of the icon. Used only when icon is defined.
+   */
   iconPosition?: 'left' | 'right';
+  /**
+   * Set the size of the menu item.
+   * Font size and icon style will be adjusted to match the size.
+   */
+  dimension?: 'small' | 'regular'
+  /**
+   * Callback function to be called when the menu item is pressed.
+   */
+  onClick?(): void;
+  /**
+   * Add an extra description to the dropdown item.
+   * This uses the `<Tooltip>` component internally.
+   */
   description?: ReactNode;
+  /**
+   * Set disabled state. The item is not interactive and grayed out.
+   */
   disabled?: boolean;
+  /**
+   * Add or remove the padding from the dropdown item.
+   * This space is used to keep the content aligned across items with or without icons.
+   * We suggest to not remove the padding if you have items with icons in the same menu to
+   * keep a good readability.
+   *
+   * Read more: https://design.wonderflow.ai/design/recipes/dropdown/#items-with-icons
+   */
   padding?: boolean;
 }
 
@@ -99,22 +130,3 @@ export const DropdownItem = forwardRef(({
 }) as PolymorphicDropdownItem
 
 DropdownItem.displayName = 'Dropdown.Item'
-
-export type DropdownItemCheckboxProps = DropdownItemProps & {
-  checked?: boolean;
-}
-
-type PolymorphicDropdownItemCheckbox = Polymorphic.ForwardRefComponent<
-  Polymorphic.IntrinsicElement<typeof DropdownItem>,
-  Polymorphic.OwnProps<typeof DropdownItem> & DropdownItemCheckboxProps
->;
-
-export const DropdownItemCheckbox = forwardRef(({
-  children,
-  checked,
-  ...props
-}, forwardedRef) =>
-  <DropdownItem role="menuitemcheckbox" aria-checked={checked} ref={forwardedRef} {...props}>{children}</DropdownItem>
-) as PolymorphicDropdownItemCheckbox
-
-DropdownItemCheckbox.displayName = 'Dropdown.ItemCheckbox'

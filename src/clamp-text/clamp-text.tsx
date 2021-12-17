@@ -5,7 +5,13 @@ import clsx from 'clsx'
 import { ClampText as ClampTextClass } from './clamp-text.module.css'
 
 export type ClampTextProps = {
+  /**
+   * The text content to be displayed and clamped
+   */
   children: ReactNode;
+  /**
+   * Define how many lines the text should be clamped to.
+   */
   rows?: number;
 }
 

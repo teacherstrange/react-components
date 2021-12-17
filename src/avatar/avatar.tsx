@@ -3,7 +3,13 @@ import { forwardRef, ImgHTMLAttributes } from 'react'
 import { Avatar as AvatarClass, Placeholder } from './avatar.module.css'
 
 export type AvatarProps = ImgHTMLAttributes<HTMLImageElement> & {
+  /**
+   * The source of the image to use as avatar
+   */
   src?: string;
+  /**
+   * Define the size of the avatar
+   */
   dimension?: 'small' | 'regular' | 'big';
 }
 

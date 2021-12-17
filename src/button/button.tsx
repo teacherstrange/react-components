@@ -5,16 +5,51 @@ import { Icon, IconProps, Polymorphic, Spinner } from '../'
 import { Button as ButtonClass, SpinnerIndicator, ButtonsGroup as ButtonsGroupClass } from './button.module.css'
 
 export type ButtonProps = {
+  /**
+   * Set the style of the button.
+   * When disabled the style is overwritten.
+   */
   kind?: 'primary' | 'secondary' | 'flat';
+  /**
+   * Set the size of the button.
+   */
   dimension?: 'regular' | 'small' | 'big';
+  /**
+   * Make the button full width, filling the available space.
+   */
   fullWidth?: boolean;
+  /**
+   * Define the icon to use.
+   */
   icon?: IconNames;
+  /**
+   * Set the position of the icon. Used only when icon is defined.
+   */
   iconPosition?: 'left' | 'right';
+  /**
+   * Override the color of the icon. Used only when icon is defined.
+   */
   iconColor?: string;
+  /**
+   * Set disabled state. The button is not interactive and grayed out.
+   */
   disabled?: boolean;
+  /**
+   * Pass the HTML attribute `type` to the button.
+   * If not specified, the type is always 'button' when rendered as `<button>.
+   */
   type?: 'submit' | 'reset' | 'button';
+  /**
+   * Set the loading state and show a spinner.
+   */
   busy?: boolean;
+  /**
+   * Set the pressed state and add required aria attributes.
+   */
   pressed?: boolean;
+  /**
+   * Callback function to be called when the button is pressed.
+   */
   onClick?(event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void;
 }
 

@@ -50,7 +50,7 @@ const DefaultTemplate = ({ dimension, iconPosition, onClick, padding, ...otherPr
           padding={padding}
           onClick={() => setChecked(val => !val)}
           checked={checked}
-          icon={checked && 'check'}
+          icon={checked ? 'check' : undefined}
           iconPosition={iconPosition}
           dimension={dimension}
         >

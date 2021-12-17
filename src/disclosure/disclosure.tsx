@@ -9,12 +9,38 @@ import { Text, TextProps, Icon } from '../'
 import { motion } from 'framer-motion'
 
 export type DisclosureProps = DetailsHTMLAttributes<HTMLDetailsElement> & {
+  /**
+   * Set the initial state of the disclosure.
+   */
   open?: boolean;
+  /**
+   * Define the text to be displayed as the summary of the disclosure.
+   * This should generally be a short sentenc and related to the content
+   */
   summary: ReactNode;
+  /**
+   * Remove or add a padding to align the content with the icon indicator.
+   * This is useful when the content inside starts with text and you want to align it
+   * summary to improve readability.
+   */
   padding?: boolean;
+  /**
+   * Set the max height of the content after which the scrollbar will appear.
+   */
   contentMaxHeight?: string;
+  /**
+   * Set the dimension of the summary toggle
+   */
   dimension?: 'small' | 'regular' | 'big';
+  /**
+   * Set the position of the icon indicator. The content padding is automatically
+   * applied based on the icon position.
+   */
   iconPosition?: 'left' | 'right';
+  /**
+   * Set or disable the interactivity of the summary toggle.
+   * Eg. If `open` is set to `true` the content can't be toggled.
+   */
   expandable?: boolean;
 }
 

@@ -2,17 +2,47 @@ import { CSSProperties, ReactNode, forwardRef } from 'react'
 import clsx from 'clsx'
 import tksn from '@wonderflow/tokens/platforms/web/tokens.json'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
-import { GridItem, GridItemProps } from './grid-item'
+import { GridItem, GridItemProps } from './item/grid-item'
 import { Grid as GridClass } from './grid.module.css'
 
 export type GridProps = PropsWithClass & {
+  /**
+   * The children to be rendered in the grid.
+   * Even though this component doesn't block you to use any elements as children,
+   * it's recommended to use only `<Grid.Item>` component to generate the grid items.
+   */
   children: ReactNode;
+  /**
+   * Specify how many columns the grid should have.
+   */
   columns?: number;
+  /**
+   * Specify how many rows the grid should have.
+   */
   rows?: number;
+  /**
+   * Add a gap between rows.
+   */
   rowGap?: 0 | TokensTypes['space'];
+  /**
+   * Add a gap between columns.
+   */
   columnGap?: 0 | TokensTypes['space'];
+  /**
+   * Set the columns repeating behaviour.
+   * This refers to the CSS function `repeat()`, which can use both `auto-fit`
+   * and `auto-fill` parameters.
+   *
+   * Read more: https://developer.mozilla.org/en-US/docs/Web/CSS/repeat
+   */
   filling?: 'fit' | 'fill' | false;
+  /**
+   * Set the minimum columns width
+   */
   colMinWidth?: string;
+  /**
+   * Set the minimum rows height
+   */
   rowMinHeight?: string;
 }
 
@@ -56,5 +86,4 @@ export const Grid = forwardRef<HTMLUListElement, GridProps>(({
 }) as GridComponent
 
 Grid.displayName = 'Grid'
-
 Grid.Item = GridItem

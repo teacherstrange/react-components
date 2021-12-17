@@ -13,16 +13,31 @@ import { useKey, useClickAway } from 'react-use'
 import { Dropdown as DropdownClass, PopUp } from './dropdown.module.css'
 import { useUIDSeed } from 'react-uid'
 import { useFocusWithin } from '@react-aria/interactions'
-import { DropdownMenu, DropdownMenuProps } from './dropdown-menu'
-import { DropdownItem, DropdownItemProps, DropdownItemCheckbox, DropdownItemCheckboxProps } from './dropdown-item'
+import { DropdownMenu, DropdownMenuProps } from './menu/dropdown-menu'
+import { DropdownItem, DropdownItemProps } from './item/dropdown-item'
+import { DropdownItemCheckbox, DropdownItemCheckboxProps } from './item-checkbox/dropdown-item-checkbox'
 import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core'
 import { usePopperTooltip } from 'react-popper-tooltip'
 import { AnimatePresence, motion } from 'framer-motion'
 
 export type DropdownProps = PropsWithClass & {
+  /**
+   * The content of the dropdown to display when the dropdown is open.
+   */
   children: ReactNode;
+  /**
+   * The element to use as the trigger for the dropdown.
+   */
   trigger: ReactNode;
+  /**
+   * The distance from the trigger to the dropdown.
+   */
   offset?: number,
+  /**
+   * The placement of the dropdown. This is automatically handled based on
+   * scroll and viewport edges. By default the dropdown is anchored at
+   * the beginning of the trigger.
+   */
   placement?: AutoPlacement | BasePlacement | VariationPlacement;
 }
 

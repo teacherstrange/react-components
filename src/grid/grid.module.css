@@ -18,12 +18,3 @@
   }
 }
 
-.GridItem {
-  grid-column: var(--column);
-  grid-row: var(--row);
-  display: block;
-
-  &[data-grid-item-fullwidth='true'] {
-    grid-column: 1 / -1;
-  }
-}

@@ -4,7 +4,13 @@ import { Container as ContainerClass } from './container.module.css'
 import clsx from 'clsx'
 
 export type ContainerProps = {
+  /**
+   * Set the horizontal max-width of the container.
+   */
   dimension?: 'full' | 'medium' | 'large';
+  /**
+   * Set or remove the container's predefined horizontal padding.
+   */
   padding?: boolean;
 }
 

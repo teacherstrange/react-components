@@ -4,9 +4,21 @@ import { Icon, IconProps, Stack } from '../'
 import { Chip as ChipClass, Action } from './chip.module.css'
 
 export type ChipProps = PropsWithChildren<PropsWithClass> & {
+  /**
+   * Set the dimension of the component.
+   */
   dimension?: 'small' | 'regular' | 'big';
+  /**
+   * Set a color from one of the provided values.
+   */
   color?: 'gray' | 'cyan' | 'green' | 'purple' | 'yellow' | 'red' | 'blue';
+  /**
+   * Make the chip dismissable. When `true` adds a close button on the side.
+   */
   interactive?: boolean;
+  /**
+   * Callback function to be called when the dismiss button is pressed.
+   */
   onDismissClick?(): void;
 }
 

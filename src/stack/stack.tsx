@@ -6,15 +6,48 @@ import clsx from 'clsx'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 export type StackProps = {
+  /**
+   * Add a gap between rows.
+   */
   rowGap?: 0 | TokensTypes['space'];
+  /**
+   * Add a gap between columns.
+   */
   columnGap?: 0 | TokensTypes['space'];
+  /**
+   * Display the element as inline-flex
+   */
   inline?: boolean;
+  /**
+   * Wrap children whene there is no space for them.
+   */
   wrap?: boolean;
+  /**
+   * Make the children grow to fill the available space instead
+   * of being sized based on their content.
+   */
   fill?: boolean;
+  /**
+   * Place the content vertically centered instead of
+   * growing to fill the available space.
+   */
   verticalAlign?: string;
+  /**
+   * Place the content horizontally centered instead of
+   * growing to fill the available space.
+   */
   horizontalAlign?: string;
+  /**
+   * Set the horizontal padding (left/right)
+   */
   horizontalPadding?: TokensTypes['space'];
+  /**
+   * Set the vertical padding (top/bottom)
+   */
   verticalPadding?: TokensTypes['space'];
+  /**
+   * Renderes children as rows or columns
+   */
   direction?: 'row' | 'column';
 }
 

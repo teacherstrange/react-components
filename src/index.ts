@@ -40,7 +40,7 @@ export { Disclosure } from './disclosure'
 export type { DisclosureProps } from './disclosure'
 
 export { Dropdown } from './dropdown'
-export type { DropdownProps } from './dropdown'
+export type { DropdownProps, DropdownItemProps, DropdownItemCheckboxProps } from './dropdown'
 
 export { Elevator } from './elevator'
 export type { ElevatorProps } from './elevator'

@@ -8,14 +8,39 @@ import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 export type CardProps = Pick<
 StackProps,
-  'wrap' | 'columnGap' | 'rowGap' | 'verticalAlign' | 'horizontalAlign'> & {
+  'wrap' | 'columnGap' | 'rowGap' | 'verticalAlign' | 'horizontalAlign'>
+  & {
+  /**
+   * Set the padding on each side of the card.
+   */
   padding?: false | TokensTypes['space'];
+  /**
+   * Content rendered inside the card on the left side, before children.
+   */
   left?: ReactNode;
+  /**
+   * Content rendered inside the card on the right side, after children.
+   */
   right?: ReactNode;
+  /**
+   * Add a border to the card to increase its visual weight and contrast.
+   */
   bordered?: boolean
+  /**
+   * Define the edge radius of the card.
+   */
   radius?: false | TokensTypes['radius'];
+  /**
+   * Change the background color of the card.
+   */
   dimmed?: 1 | 2 | 3;
+  /**
+   * Make the card vibrant. Add tranlucent background.
+   */
   vibrant?: boolean;
+  /**
+   * Make the card vibrant. Add tranlucent background.
+   */
   highlightOnHover?: boolean;
 }
 
