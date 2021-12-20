@@ -1,14 +1,16 @@
 import clsx from 'clsx'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ReactPaginate, { ReactPaginateProps } from 'react-paginate'
+import { Except } from 'type-fest'
 import { Icon } from '../'
 
 import { Pagination as PaginationClass } from './pagination.module.css'
 
-export type PaginationProps = ReactPaginateProps & {
+export type PaginationProps = Except<ReactPaginateProps, 'pageCount'> & {
   itemsCount: number;
   itemsPerPage?: number;
-  onPageClick?(offset: Record<string, number>): void;
+  pageCount?: number;
+  onPageClick?(data: Record<string, number>): void;
   pageRangeDisplayed?: ReactPaginateProps['pageRangeDisplayed'];
   marginPagesDisplayed?: ReactPaginateProps['marginPagesDisplayed'];
 }
@@ -29,13 +31,10 @@ export const Pagination = ({
     itemsCount && setComputedPageCount(Math.ceil(itemsCount / itemsPerPage))
   }, [itemsCount, itemsPerPage])
 
-  const handlePageClick = useCallback(
-    (event: Record<string, any>) => {
-      const newOffset = (event.selected * itemsPerPage) % itemsCount
-      onPageClick && onPageClick({ ...event, offset: newOffset })
-    },
-    [itemsPerPage, onPageClick, itemsCount]
-  )
+  const handlePageClick = (event: Record<string, any>) => {
+    const newOffset = (event.selected * itemsPerPage) % itemsCount
+    onPageClick && onPageClick({ ...event, offset: newOffset })
+  }
 
   return (
     <ReactPaginate

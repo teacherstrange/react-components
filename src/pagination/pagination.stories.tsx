@@ -420,8 +420,8 @@ export const Default = ({
     setCurrentItems(items.slice(itemOffset, endOffset))
   }, [itemOffset, items, itemsPerPage])
 
-  const handlePageClick = (event) => {
-    setItemOffset(event.offset)
+  const handlePageClick = (data) => {
+    setItemOffset(data.offset)
   }
 
   return (
@@ -433,8 +433,7 @@ export const Default = ({
       ))}
       <Pagination
         itemsCount={items.length}
-        onPageClick={(offset) => handlePageClick(offset)}
-        {...args}
+        onPageClick={(data) => handlePageClick(data)}
       />
     </>
   )
