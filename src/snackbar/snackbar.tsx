@@ -5,12 +5,38 @@ import { IconNames } from '../icons/types'
 import { Title, Stack, Icon, Polymorphic, Button } from '../'
 
 export type SnackbarProps = {
-  icon?: IconNames;
-  title?: string;
+  /**
+   * The message to display. Describes the action that the snackbar takes
+   * or the feedback that the user has received.
+   */
   children: ReactNode;
+  /**
+   * Set the icon to be displaye alongside the title.
+   * This icon have to enforce the message in a not misleading way.
+   */
+  icon?: IconNames;
+  /**
+   * Set the title of the snackbar. This must concisely describe the message.
+   */
+  title?: string;
+  /**
+   * Set the color and the sentiment of the snackbar.
+   * This affects the the color of all the elements inside and should be defined
+   * according to the message.
+   */
   kind?: 'info' | 'warning' | 'neutral' | 'positive' | 'danger';
+  /**
+   * Define if the snackbar can be dismissed by user interaction.
+   * If `true` a button will be displayed.
+   */
   dismissable?: boolean;
+  /**
+   * Set the label of the dismiss button.
+   */
   dismissLabel?: string;
+  /**
+   * Callback function to be called when the dismiss button is clicked.
+   */
   onDismiss?(): void;
 }
 

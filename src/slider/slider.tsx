@@ -5,14 +5,45 @@ import { Slider as SliderClass, Input, Value } from './slider.module.css'
 import clsx from 'clsx'
 
 export type SliderProps = InputHTMLAttributes<HTMLInputElement> & {
+  /**
+   * Set the minimum value of the slider. This value must be lower than `max`.
+   */
   min?: number;
+  /**
+   * Set the maximum value of the slider. This value must be higher than `min`.
+   */
   max?: number;
+  /**
+   * Set the step value of the slider.
+   * This allows the user to select a value in increments of `step`.
+   */
   step?: number;
+  /**
+   * Callback function to be called when the value is changed.
+   * A parameter `number` is passed to get the new value.
+   */
   onInput?(value: number): void;
+  /**
+   * Set the initial value of the slider.
+   */
   defaultValue?: number;
+  /**
+   * Show or hide the `max` value and the current value.
+   */
   showValues?: boolean;
+  /**
+   * Add an icon representing the minimum value.
+   * This is only available when `showValues` is `false`.
+   */
   iconMin?: IconNames;
+  /**
+   * Add an icon representing the maximum value.
+   * This is only available when `showValues` is `false`.
+   */
   iconMax?: IconNames;
+  /**
+   * Set the size of the slider.
+   */
   dimension?: 'small' | 'regular';
 }
 

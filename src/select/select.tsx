@@ -6,12 +6,33 @@ import clsx from 'clsx'
 import { useUIDSeed } from 'react-uid'
 
 export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
+  /**
+   * Pass the children `option` elements. This is required.
+   */
   children: ReactNode;
+  /**
+   * Change the default icon displayed on the side of the select.
+   */
   icon?: IconNames;
+  /**
+   * Set the accessible label for the select.
+   */
   label?: ReactNode;
+  /**
+   * Set how many options can be selected at once.
+   */
   kind?: 'single' | 'multiple';
+  /**
+   * Set the size of the select. This affects alsosize and style of the icon.
+   */
   dimension?: 'regular' | 'small' | 'big';
+  /**
+   * Set disabled state. The select is not interactive and grayed out.
+   */
   disabled?: boolean;
+  /**
+   * Callback function to be called when a new value is selected.
+   */
   onChange?(event: ChangeEvent<HTMLSelectElement>): void
 }
 

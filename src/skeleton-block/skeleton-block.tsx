@@ -3,6 +3,10 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 
 export type SkeletonBlockProps = SkeletonProps & {
+  /**
+   * Set the edge radius of each skeleton block.
+   * This value must be one of the available `radius` tokens
+   */
   borderRadius?: TokensTypes['radius']
 }
 

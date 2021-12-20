@@ -3,8 +3,18 @@ import { ChangeEvent, forwardRef, InputHTMLAttributes } from 'react'
 import { Toggle as ToggleClass } from './selection-controls.module.css'
 
 export type ToggleProps = InputHTMLAttributes<HTMLInputElement> & {
+  /**
+   * Set disabled state. The component is not interactive and grayed out.
+   */
   disabled?: boolean;
+  /**
+   * Set the size of the toggle.
+   */
   dimension?: 'regular' | 'small',
+  /**
+   * Callback function to be called when is toggled.
+   * A parameter `ChangeEvent<HTMLInputElement>` is passed with the event details
+   */
   onChange?(event: ChangeEvent<HTMLInputElement>): void;
 }
 
