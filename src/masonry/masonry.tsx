@@ -6,7 +6,31 @@ import { TokensTypes } from '@wonderflow/tokens/platforms/web/types'
 import { Masonry as MasonryClass, Column } from './masonry.module.css'
 
 export type MasonryProps = PropsWithClass & {
+  /**
+   * Set the space between items. This is applied on both vertical
+   * and horizontal axis.
+   */
   gutter?: 0 | TokensTypes['space'];
+  /**
+   * Set the breakpoints for the masonry layout. You can pass a fixed number
+   * or an object map.
+   *
+   * The object map is used to change the number of the columns based on
+   * the specified breakpoint. When passing an object, you must specify the
+   * default key, other breakpoints are optional.
+   *
+   * Example:
+   * ```js
+   *{
+   *  default: 6,
+   *  extraLarge: 5,
+   *  large: 4,
+   *  medium: 3,
+   *  small: 2,
+   *  extraSmall: 1
+   *}
+   * ```
+   */
   columns?: number | {
     default: number,
     extraSmall?: number,

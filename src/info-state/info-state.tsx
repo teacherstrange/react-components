@@ -4,11 +4,33 @@ import { Stack, StackProps, Icon, Title, Text } from '../'
 import { IconWrapper, Image } from './info-state.module.css'
 
 export type InfoStateProps = PropsWithChildren<PropsWithClass> & {
-  title: ReactNode;
-  icon?: IconNames;
-  image?: string;
+  /**
+   * Set the main tagline of the info state. This should be catchy and short
+   * as much as possible.
+   */
+  title: ReactNode
+  /**
+   * The icon to display. This is used to enforce the message of the info state.
+   * This is not displayed if `image` is set.
+   */
+  icon?: IconNames
+  /**
+   * Set the icon color. Please use the correct color based on the type of the message.
+   * Eg. Don't use `green` for negative informations.
+   */
+  iconColor?: 'gray' | 'cyan' | 'green' | 'purple' | 'yellow' | 'red' | 'blue'
+  /**
+   * An image may be used instead of an icon. The image is centered and scaled.
+   */
+  image?: string
+  /**
+   * Set the direction of the content (column or row).
+   */
   direction?: StackProps['direction'];
-  iconColor?: 'gray' | 'cyan' | 'green' | 'purple' | 'yellow' | 'red' | 'blue';
+  /**
+   * Pass the suplementary actions to the info state. Even if you can pass
+   * as many elements as you want, we suggest to add no more than two actions.
+   */
   actions?: ReactNode;
 }
 

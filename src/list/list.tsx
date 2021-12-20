@@ -5,9 +5,22 @@ import { IconNames } from '../icons/types'
 import { Text, TextProps, Icon, IconProps, Polymorphic } from '../'
 
 export type ListProps = {
+  /**
+   * Set the dimension of the items in the list. This affects also the marker size.
+   */
   dimension?: 'small' | 'regular' | 'big';
+  /**
+   * Set the marker style. You can use any icon from the iconography as marker
+   * by passing its name.
+   */
   marker?: IconNames;
+  /**
+   * Set the color of the marker.
+   */
   markerColor?: string;
+  /**
+   * Set to show or hide the marker indicator beside each item in the list.
+   */
   hideMarker?: boolean;
 }
 

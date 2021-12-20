@@ -8,8 +8,21 @@ import { Modal as ModalClass, Backdrop, Container } from './modal.module.css'
 import { ModalContext, ModalProvider } from './modal-context'
 
 export type ModalProps = PropsWithChildren<PropsWithClass> & {
+  /**
+   * Set the overlay style. This is used to obscure the page content
+   * behind the modal while it is open. If set to `auto`, the overlay
+   * color is determined by the global active theme (light or dark).
+   */
   overlayColor?: 'light' | 'dark' | 'auto';
+  /**
+   * This enable the modal to be closed by clicking on the overlay.
+   * Even if this can be set to `false` we strongly recommend to leave
+   * it to `true` as it ensures the accessibility of the modal.
+   */
   closeOnClickOutside?: boolean;
+  /**
+   * The callback function that is called when the modal is closed.
+   */
   onClose(): void;
 }
 

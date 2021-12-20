@@ -3,8 +3,20 @@ import { ModalProvider } from '../modal'
 import { createPortal } from 'react-dom'
 
 export type OverlayContainerProps = {
+  /**
+   * The children to render inside the overlay container. This content
+   * will be rendered in a React `portal`, which means that it will be
+   * rendered outside of the DOM hierarchy of the parent component.
+   */
   children: ReactNode
+  /**
+   * Set the root element to render the overlay container into.
+   */
   root?: HTMLElement
+  /**
+   * Set the css `z-index` of the overlay container. This must be used only
+   * if necessary.
+   */
   index?: number;
 }
 

@@ -5,7 +5,15 @@ import { Title, Elevator, IconButton, Stack } from '../../'
 import { useModalContext } from '../modal-context'
 
 export type ModalContentProps = PropsWithClass & {
+  /**
+   * Set the accessible title of the modal. This is used by screen readers to
+   * announce the title of the modal when opened.
+   */
   title: ReactNode;
+  /**
+   * Set the theme of the content card. To ensure contrast with the default overlay color (dark),
+   * this is set to `light` by default.
+   */
   theme?: 'dark' | 'light' | 'auto';
 }
 

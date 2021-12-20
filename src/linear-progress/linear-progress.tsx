@@ -5,9 +5,24 @@ import clsx from 'clsx'
 import { LinearProgress as LinearProgressClass, Progress, Percentage } from './linear-progress.module.css'
 
 export type LinearProgressProps = ProgressHTMLAttributes<HTMLProgressElement> & {
+  /**
+   * Set the current progress of the progress bar.
+   * This value should be between 0 and 'max'. The percentage is
+   * automatically computed.
+   */
   value?: number;
+  /**
+   * Set the max value of the progress bar. This determines the
+   * computed percentage.
+   */
   max?: number;
+  /**
+   * Set the dimension of the progress bar.
+   */
   dimension?: 'regular' | 'big';
+  /**
+   * Show or hide the progress value.
+   */
   showProgress?: boolean;
 }
 

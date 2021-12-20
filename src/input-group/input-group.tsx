@@ -5,10 +5,25 @@ import { useUIDSeed } from 'react-uid'
 import { End, InputField, Start, InputGroup as InputGroupClass } from './input-group.module.css'
 
 export type InputGroupProps = PropsWithClass & {
+  /**
+   * Pas the input element to decorate
+   */
   input: ReactNode;
+  /**
+   * Add a decoration element before the input.
+   */
   end?: ReactNode;
+  /**
+   * Add a decoration element after the input.
+   */
   start?: ReactNode;
+  /**
+   * Add an accessible label to the componsed input group
+   */
   label?: ReactNode;
+  /**
+   * Pass the dimension down to the imput element.
+   */
   dimension?: 'small' | 'big' | 'regular';
 }
 
