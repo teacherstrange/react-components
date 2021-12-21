@@ -9,7 +9,7 @@ import {
   forwardRef,
   ForwardRefExoticComponent
 } from 'react'
-import { useKey, useClickAway } from 'react-use'
+import { useKeyPress, useClickAway } from 'ahooks'
 import { Dropdown as DropdownClass, PopUp } from './dropdown.module.css'
 import { useUIDSeed } from 'react-uid'
 import { useFocusWithin } from '@react-aria/interactions'
@@ -80,9 +80,9 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(({
     closeOnOutsideClick: false
   })
 
-  useClickAway(popupRef, () => {
+  useClickAway(() => {
     setIsOpen(false)
-  })
+  }, popupRef)
 
   const { focusWithinProps } = useFocusWithin({
     onFocusWithin: () => null,
@@ -90,7 +90,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(({
     onFocusWithinChange: () => null
   })
 
-  useKey('Escape', () => setIsOpen(false))
+  useKeyPress('esc', () => setIsOpen(false))
 
   return (
     <div

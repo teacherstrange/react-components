@@ -1,6 +1,6 @@
 import { FC, Children, cloneElement, CSSProperties, ReactElement, ReactNode, useState } from 'react'
 import { useUIDSeed } from 'react-uid'
-import { useKey } from 'react-use'
+import { useKeyPress } from 'ahooks'
 import { Elevator } from '../'
 import { useFocusWithin } from '@react-aria/interactions'
 import { Tooltip as TooltipClass, Arrow, Trigger } from './tooltip.module.css'
@@ -58,7 +58,7 @@ export const Tooltip: FC<TooltipProps> = ({
   const seedID = useUIDSeed()
   const [controlledVisible, setControlledVisible] = useState(false)
 
-  useKey('Escape', () => setControlledVisible(false))
+  useKeyPress('esc', () => setControlledVisible(false))
 
   const {
     getArrowProps,
