@@ -10,7 +10,8 @@ export default {
   args: {
     dimension: 'regular',
     iconPosition: 'left',
-    padding: true
+    padding: true,
+    placement: 'auto-start'
   },
   argTypes: {
     onClick: {

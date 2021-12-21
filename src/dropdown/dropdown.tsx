@@ -114,7 +114,8 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(({
             {...getTooltipProps({ className: PopUp })}
           >
             <motion.div
-              animate={visible ? { y: 5, opacity: 1 } : { y: 0, opacity: 0 }}
+              style={{ y: -5 }}
+              animate={visible ? { y: 0, opacity: 1 } : { opacity: 0 }}
               transition={{ ease: 'easeOut', duration: 0.1 }}
             >
 
