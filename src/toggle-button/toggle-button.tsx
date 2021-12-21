@@ -6,8 +6,18 @@ import { Except } from 'type-fest'
 import { motion } from 'framer-motion'
 
 export type ToggleButtonProps = Except<IconButtonProps, 'icon'> & {
+  /**
+   * Set the icon to show when the button is resting.
+   */
   restingIcon: IconButtonProps['icon'];
+  /**
+   * Set the icon to show when the button is pressed/active.
+   */
   pressedIcon?: IconButtonProps['icon'];
+  /**
+   * Set the pressed state of the button. If `pressedIcon` is set,
+   * the icon will be shown instead of the resting icon.
+   */
   pressed?: boolean;
 }
 

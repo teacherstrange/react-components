@@ -8,13 +8,40 @@ import { AutoPlacement, BasePlacement, VariationPlacement } from '@popperjs/core
 import { usePopperTooltip } from 'react-popper-tooltip'
 
 export type TooltipProps = PropsWithClass & {
+  /**
+   * Pass the content of the tooltip. It can be any valid React node.
+   */
   children: ReactNode;
+  /**
+   * Set the element that will be used as the trigger of the tooltip.
+   */
   trigger: ReactNode;
+  /**
+   * The placement of the tooltip. This is automatically handled based on
+   * scroll and viewport edges.
+   *
+   * The first key refers to the X axis, the second key refers to the Y axis.
+   * Eg: `auto-start` means the dropdown will be placed automatically on left or right
+   * based on the available space, and anchored at the top (start) of the trigger.
+   */
   placement?: AutoPlacement | BasePlacement | VariationPlacement;
+  /**
+   * Set if the tooltip should be shown or hidden.
+   */
   show?: boolean;
+  /**
+   * Define a delay time before the tooltip is shown.
+   */
   delay?: number;
+  /**
+   * Set the max width of the tooltip. This prevents the tooltip content
+   * from filling the whole screen.
+   */
   maxWidth?: string;
-  fill?: boolean;
+  /**
+   * Make the tooltip interactive.
+   * This will allow the user to interact with the tooltip content.
+   */
   interactive?: boolean;
 }
 
@@ -25,7 +52,6 @@ export const Tooltip: FC<TooltipProps> = ({
   show,
   style,
   maxWidth = '40ch',
-  fill = false,
   interactive = false,
   delay = 500
 }) => {
@@ -69,7 +95,7 @@ export const Tooltip: FC<TooltipProps> = ({
   }
 
   return (
-    <div data-tooltip-fill={fill} className={Trigger} {...focusWithinProps} style={{ ...style }}>
+    <div className={Trigger} {...focusWithinProps} style={{ ...style }}>
       {Children.map(trigger, (child: ReactElement) => cloneElement(
         child,
         {

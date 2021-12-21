@@ -4,10 +4,30 @@ import * as styles from './title.module.css'
 import clsx from 'clsx'
 
 export type TitleProps = {
+  /**
+   * Set the level of the title. This property only
+   * affects the visual appearance of the title and not the
+   * semantic meaning of the title, which you can define
+   * by using the `as` property.
+   */
   level?: '1' | '2' | '3' | '4' | '5' | '6' | 'display';
+  /**
+   * Set the text line-height of the title. This uses
+   * the predefined tokens from the typography system.
+   */
   lineHeight?: 'none' | 'small' | 'large';
+  /**
+   * Set the text alignment of the title based on the text direction.
+   */
   textAlign?: 'start' | 'center' | 'end';
+  /**
+   * Set the maximum width of the text after which it will wrap.
+   */
   maxWidth?: string;
+  /**
+   * Enable or disable the responsiveness of the text. If disabled,
+   * the text will be always the same size across all breakpoints.
+   */
   responsive?: boolean;
 }
 

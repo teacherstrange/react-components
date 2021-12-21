@@ -3,7 +3,13 @@ import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 export type SpinnerProps = SVGAttributes<SVGElement> & {
+  /**
+   * Set the size of the spinner
+   */
   dimension?: 'small' | 'regular' | 'big';
+  /**
+   * Override the color of the spinner
+   */
   color?: string;
 }
 

@@ -17,11 +17,7 @@
 }
 
 .Trigger {
-  display: inline-flex;
-
-  &[data-tooltip-fill='true'] {
-    display: flex;
-  }
+  display: contents;
 }
 
 
