@@ -59,7 +59,7 @@
     "build:light": "node src/themes/index.js --name light",
     "build:dark": "node src/themes/index.js --name dark",
     "build:icons": "run-s copy:icons optimize:svg generate:sprites",
-    "build": "run-s build:components build:components:nocomments && run-p build:icons copy:css build:themes build:css:components build:css:core",
+    "build": "run-s build:icons build:components build:components:nocomments copy:css build:themes build:css:components build:css:core",
     "postbuild": "run-s prepare:package"
   },
   "dependencies": {
