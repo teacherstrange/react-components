@@ -3,12 +3,21 @@ import { Polymorphic } from '../../'
 import { BaseField as BaseFieldClass } from './base-field.module.css'
 import clsx from 'clsx'
 
+/**
+ * @internal
+ */
 export type PrimitiveInputType = HTMLInputElement | HTMLTextAreaElement
 
+/**
+ * @internal
+ */
 export type BaseFieldProps = InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement> & {
   invalid?: boolean;
 }
 
+/**
+ * @internal
+ */
 type PolymorphicBaseField = Polymorphic.ForwardRefComponent<'input', BaseFieldProps>;
 
 export const BaseField = forwardRef(({

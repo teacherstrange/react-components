@@ -9,7 +9,7 @@
     "sourceMap": false,
     "allowJs": false,
     "jsx": "react-jsx",
-    "removeComments": true,
+    "removeComments": false,
     "declaration": true,
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,

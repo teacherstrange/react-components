@@ -4,7 +4,7 @@ This progect is based on Node and NPM. Make sure to have the required Node and N
 
 ## Requirements
 
-- Node 16.8+
+- Node 14+
 - npm 7+
 
 ## Installing dependencies

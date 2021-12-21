@@ -17,6 +17,9 @@ import { TabItem as TabItemClass } from './tab.module.css'
  * Public api
  */
 export type TabItemProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  /**
+   * An optional icon to show beside the tab label.
+   */
   icon?: IconNames;
 }
 

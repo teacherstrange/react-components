@@ -7,14 +7,49 @@ import { useUIDSeed } from 'react-uid'
 import { Textfield as TextfieldClass, FieldContainer, InputField, Icon as IconClass, IconButton as IconButtonClass } from './textfield.module.css'
 
 export type TextfieldProps = BaseFieldProps & {
+  /**
+   * Set the icon to show on the left or right side of the input.
+   */
   icon?: IconNames;
+  /**
+   * Set in which side of the field the icon should be displayed.
+   */
+   iconPosition?: 'left' | 'right';
+  /**
+   * Define the accessible label of the input. While this is not
+   * mandatory, an input should always have a label. If not using this property
+   * you can bind a custom label to the input by using an id.
+   */
   label?: string;
+  /**
+   * Set the input type. The value can be anything that
+   * is supported by the HTML input element.
+   *
+   * Read more: https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types
+   */
   type?: string;
+  /**
+   * Set the input to be a textarea instead of a single line field.
+   * This property completely changes the rendered element from an input to a textarea.
+   */
   textarea?: boolean;
+  /**
+   * Set the size of the field
+   */
   dimension?: 'regular' | 'small' | 'big';
+  /**
+   * Set the field into a readonly state. When readonly, the field value
+   * cannot be edited but it can still be selected and copied.
+   */
   readOnly?: boolean;
-  iconPosition?: 'left' | 'right';
+  /**
+   * Set the field into a disabled state. When disabled, the field value cannot be
+   * edited, selected or copied, but it can still be focused and navigated by AT.
+   */
   disabled?: boolean;
+  /**
+   * The callback function that is called when the input value changes.
+   */
   onChange?: (event: ChangeEvent<PrimitiveInputType>) => void
 }
 

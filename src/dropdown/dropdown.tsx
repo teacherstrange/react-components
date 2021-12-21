@@ -37,6 +37,10 @@ export type DropdownProps = PropsWithClass & {
    * The placement of the dropdown. This is automatically handled based on
    * scroll and viewport edges. By default the dropdown is anchored at
    * the beginning of the trigger.
+   *
+   * The first key refers to the X axis, the second key refers to the Y axis.
+   * Eg: `auto-start` means the dropdown will be placed automatically on left or right
+   * based on the available space, and anchored at the top (start) of the trigger.
    */
   placement?: AutoPlacement | BasePlacement | VariationPlacement;
 }

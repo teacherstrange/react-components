@@ -19,8 +19,7 @@ export type MasonryProps = PropsWithClass & {
    * the specified breakpoint. When passing an object, you must specify the
    * default key, other breakpoints are optional.
    *
-   * Example:
-   * ```js
+   * @example
    *{
    *  default: 6,
    *  extraLarge: 5,
@@ -29,7 +28,6 @@ export type MasonryProps = PropsWithClass & {
    *  small: 2,
    *  extraSmall: 1
    *}
-   * ```
    */
   columns?: number | {
     default: number,

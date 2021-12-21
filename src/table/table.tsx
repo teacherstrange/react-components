@@ -7,9 +7,22 @@ import { IconNames } from '../icons/types'
 import clsx from 'clsx'
 
 export type TableProps<T> = ReactTableProps<T> & {
+  /**
+   * A react component that add additional content when the row is expanded.
+   * By passing this prop, the row will be expandable.
+   */
   ExpandableRowsComponent?: FC<{data: T}>;
+  /**
+   * Set the icon to use when the expandable rows are collapsed.
+   */
   collapsedRowIcon?: IconNames;
+  /**
+   * Set the icon to use when the expandable rows are expanded.
+   */
   expandedRowIcon?: IconNames;
+  /**
+   * Set minimum height for each row.
+   */
   minRowHeight?: string;
 }
 

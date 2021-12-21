@@ -51,6 +51,7 @@
     "prepare:themes": "node src/themes/combine.js",
     "prepare:package": "copyfiles package.json dist",
     "build:components": "tsc",
+    "build:components:nocomments": "tsc -p ./tsconfig.nocomments.json",
     "build:css:core": "postcss dist/core/*.css dist/*.css --replace",
     "build:css:components": "postcss dist/**/*.module.css dist/**/**/*.module.css --replace",
     "build:css": "run-s build:csscore build:csscomponents",
@@ -58,7 +59,7 @@
     "build:light": "node src/themes/index.js --name light",
     "build:dark": "node src/themes/index.js --name dark",
     "build:icons": "run-s copy:icons optimize:svg generate:sprites",
-    "build": "run-s build:icons build:components copy:css build:themes build:css:components build:css:core",
+    "build": "run-s build:components build:components:nocomments && run-p build:icons copy:css build:themes build:css:components build:css:core",
     "postbuild": "run-s prepare:package"
   },
   "dependencies": {

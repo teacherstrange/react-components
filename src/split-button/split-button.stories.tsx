@@ -11,7 +11,9 @@ export default {
     label: 'Click me',
     fullWidth: false,
     disabled: false,
-    loading: false
+    loading: false,
+    placement: 'auto-start',
+    offset: 8
   },
   argTypes: {
     onClick: {

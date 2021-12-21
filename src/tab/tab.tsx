@@ -27,8 +27,17 @@ import {
  * Public api
  */
 export type TabProps = PropsWithClass & {
+  /**
+   * Pass the children Tab.Panel components.
+   */
   children: ReactNode;
+  /**
+   * Set the index of the tab to be selected.
+   */
   state?: [number, React.Dispatch<React.SetStateAction<number>>];
+  /**
+   * Callback function called when the selected tab changes.
+   */
   onChange?(index: number): void;
 }
 

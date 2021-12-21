@@ -5,7 +5,8 @@ export default {
   title: 'Components/Widgets/Star meter',
   component: StarMeter,
   args: {
-    dimension: 'regular'
+    dimension: 'regular',
+    value: 3.76
   },
   argTypes: {
     dimension: {

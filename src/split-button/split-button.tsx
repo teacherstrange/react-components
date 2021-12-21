@@ -3,9 +3,11 @@ import { forwardRef } from 'react'
 import { Button, Dropdown, DropdownProps, Stack, Polymorphic } from '..'
 import { SplitButton as SplitButtonClass } from './split-button.module.css'
 
-export type SplitButtonProps = Pick<DropdownProps, 'placement'> & {
+export type SplitButtonProps = Pick<DropdownProps, 'placement' | 'offset'> & {
+  /**
+   * Set the label of the action associated to the dropdown.
+   */
   label: string;
-  dropdownOffset?: DropdownProps['offset'];
 }
 
 type PolymorphicSplitButton = Polymorphic.ForwardRefComponent<
@@ -24,7 +26,7 @@ export const SplitButton = forwardRef(({
   busy,
   children,
   placement,
-  dropdownOffset,
+  offset,
   onClick,
   pressed = false,
   iconPosition = 'left',
@@ -57,7 +59,7 @@ export const SplitButton = forwardRef(({
       </Button>
       <Dropdown
         placement={placement}
-        offset={dropdownOffset}
+        offset={offset}
         trigger={<Button icon={icon} {...commonProps} />}
       >
         {children}

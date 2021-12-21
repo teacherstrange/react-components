@@ -6,9 +6,30 @@ import { Text, TextProps, Stack, Icon, Polymorphic } from '../'
 import { StarMeter as StarMeterClass, Gradient, Icon as IconClass } from './star-meter.module.css'
 
 export type StarMeterProps = {
+  /**
+   * Set the value of the star meter.
+   * This value must be between `0` and `starCount`.
+   *
+   * This data is used to calculate the number of filled stars
+   * based on predefined thresholds of the fraction.
+   *
+   * @example
+   * fraction < `0.25` = rounded to 0 (empty star)
+   * fraction >= `0.75` = rounded to 1 (filled star)
+   * fraction >= `0.25` and < 0.75 = rounded to 0.5 (half star)
+   */
   value: number;
+  /**
+   * Set the number of stars to use as maximum.
+   */
   starCount?: number;
+  /**
+   * Set a custom label instead of the current value.
+   */
   label?: ReactNode;
+  /**
+   * Set the size of the star meter.
+   */
   dimension?: 'small' | 'regular' | 'big';
 }
 
@@ -55,15 +76,16 @@ export const StarMeter = forwardRef(({
   }
 
   const starType = (maxStars: number, value: number) => {
+    const roundedValue = roundValue(value)
     return new Array(maxStars).fill(0).map((_, index) => {
       const starIndex = index + 1
       let fillType = 'var(--star-dimmed-color)'
 
-      if (value >= starIndex) {
+      if (roundedValue >= starIndex) {
         fillType = 'var(--star-color)'
       }
 
-      if (value < starIndex && value > starIndex - 1) {
+      if (roundedValue < starIndex && roundedValue > starIndex - 1) {
         fillType = 'url(#HalfStar)'
       }
 
@@ -98,7 +120,7 @@ export const StarMeter = forwardRef(({
         </defs>
       </svg>
       <Stack direction="row" columnGap={2}>
-        {starType(starCount, roundValue(value))}
+        {starType(starCount, value)}
       </Stack>
       <Text dimmed={6} id={uid('star-meter')} size={labelSize[dimension] as TextProps['size']} weight="bold">
         {label || value.toString()}

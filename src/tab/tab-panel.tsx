@@ -15,7 +15,14 @@ import {
  * Public api
  */
 export type TabPanelProps = PropsWithClass & {
+  /**
+   * Set the tab panel name and accessible label
+   */
   label: ReactNode;
+  /**
+   * Add an additional icon to the tab panel label, enforcing
+   * the meaning of the name and context.
+   */
   icon?: IconNames;
 }
 
