@@ -43,6 +43,10 @@ export type TooltipProps = PropsWithClass & {
    * This will allow the user to interact with the tooltip content.
    */
   interactive?: boolean;
+  /**
+   * Set the trigger container to behave like inline or block element
+   */
+  fill?: boolean;
 }
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -52,6 +56,7 @@ export const Tooltip: FC<TooltipProps> = ({
   show,
   style,
   maxWidth = '40ch',
+  fill = false,
   interactive = false,
   delay = 500
 }) => {
@@ -95,7 +100,7 @@ export const Tooltip: FC<TooltipProps> = ({
   }
 
   return (
-    <div className={Trigger} {...focusWithinProps} style={{ ...style }}>
+    <div data-tooltip-fill={fill} className={Trigger} {...focusWithinProps} style={{ ...style }}>
       {Children.map(trigger, (child: ReactElement) => cloneElement(
         child,
         {
