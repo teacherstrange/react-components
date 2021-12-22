@@ -5,6 +5,7 @@ import { Button } from '../button'
 import { IconButton } from '../icon-button'
 import { Card } from '../card'
 import { OverlayContainer } from '../overlay-container'
+import { AnimatePresence } from 'framer-motion'
 
 export default {
   title: 'Components/Dialogs/Modal',
@@ -21,7 +22,8 @@ const ModalShell = ({ children, ...otherProps }) => {
   return (
     <>
       <Button onClick={() => setVisible(true)}>Show Modal</Button>
-      {visible && (
+      <AnimatePresence>
+        {visible && (
         <OverlayContainer>
           <Modal
             key="dynamic-modal"
@@ -31,7 +33,8 @@ const ModalShell = ({ children, ...otherProps }) => {
             {children}
           </Modal>
         </OverlayContainer>
-      )}
+        )}
+      </AnimatePresence>
     </>
   )
 }

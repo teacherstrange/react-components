@@ -12,7 +12,7 @@ import {
 import { useKeyPress, useClickAway } from 'ahooks'
 import { Dropdown as DropdownClass, PopUp } from './dropdown.module.css'
 import { useUIDSeed } from 'react-uid'
-import { useFocusWithin } from '@react-aria/interactions'
+import { useFocusWithin } from '../hooks'
 import { DropdownMenu, DropdownMenuProps } from './menu/dropdown-menu'
 import { DropdownItem, DropdownItemProps } from './item/dropdown-item'
 import { DropdownItemCheckbox, DropdownItemCheckboxProps } from './item-checkbox/dropdown-item-checkbox'

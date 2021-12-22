@@ -70,6 +70,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
                 initial={{ y: 20, scale: 0.98, opacity: 0 }}
                 animate={{ y: 0, scale: 1, opacity: 1 }}
                 transition={{ ease: 'easeOut', duration: 0.1 }}
+                exit={{ y: 20, scale: 0.98, opacity: 0 }}
               >
                 {children}
               </motion.div>
