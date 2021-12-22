@@ -1,5 +1,4 @@
 import { forwardRef, PropsWithChildren } from 'react'
-import { useUIDSeed } from 'react-uid'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import { FocusOn } from 'react-focus-on'
@@ -26,7 +25,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
   closeOnClickOutside = true,
   ...otherProps
 }, forwardedRef) => {
-  const seedID = useUIDSeed()
   const { titleId, onClose } = useOverlayContext()
 
   return (
@@ -43,7 +41,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(({
         onEscapeKey={onClose}
       >
         <motion.div
-          key={seedID('modal-container')}
           initial={{ scale: 0.98, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ ease: 'easeOut', duration: 0.1 }}
