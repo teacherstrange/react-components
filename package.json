@@ -35,6 +35,7 @@
   "scripts": {
     "start": "run-s build:themes build:icons storybook",
     "storybook": "start-storybook --quiet -p 6006",
+    "commit": "cz",
     "lint": "run-s lint:scripts && run-s lint:styles",
     "lint:scripts": "eslint \"src/**/*.{tsx,ts}\"",
     "lint:styles": "stylelint src/**/*.css",
@@ -139,5 +140,38 @@
   },
   "resolutions": {
     "rc": "1.2.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branches": [
+      "main",
+      {
+        "name": "beta",
+        "channel": "beta",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "commit-analyzer-fail-on-no-release",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "dist"
+        }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "npx replace-json-property package.json version ${nextRelease.version}"
+        }
+      ],
+      "@semantic-release/git"
+    ]
   }
 }
