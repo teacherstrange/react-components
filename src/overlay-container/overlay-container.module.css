@@ -5,6 +5,16 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.Backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: var(--dimmed-0);
 
   &[data-overlay-color='light'] {
     background-color: hsl(env(--color-primary-0));
@@ -12,9 +22,5 @@
 
   &[data-overlay-color='dark'] {
     background-color: hsl(env(--color-primary-90));
-  }
-
-  &[data-overlay-obfuscate='true'] {
-    background-color: var(--dimmed-0);
   }
 }

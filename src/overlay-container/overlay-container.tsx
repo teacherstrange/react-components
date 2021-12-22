@@ -3,7 +3,7 @@ import { ReactNode, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { useUIDSeed } from 'react-uid'
 import { OverlayProvider } from './overlay-context'
-import { OverlayContainer as OverlayContainerClass } from './overlay-container.module.css'
+import { OverlayContainer as OverlayContainerClass, Backdrop } from './overlay-container.module.css'
 
 export type OverlayContainerProps = {
   /**
@@ -40,7 +40,7 @@ export type OverlayContainerProps = {
 export const OverlayContainer: React.FC<OverlayContainerProps> = ({
   children,
   root = document.body,
-  overlayColor = 'auto',
+  overlayColor = 'dark',
   index = 4,
   obfuscate = true,
   onClose
@@ -55,22 +55,26 @@ export const OverlayContainer: React.FC<OverlayContainerProps> = ({
 
   const content = (
     <OverlayProvider onClose={onClose}>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {children && (
-          <motion.div
-            key={seedID('modal-backdrop')}
+          <div
             data-overlay-container
             className={OverlayContainerClass}
-            data-overlay-color={overlayColor}
-            data-overlay-obfuscate={obfuscate}
             style={{ zIndex: index }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.95 }}
-            transition={{ duration: 0.2 }}
-            exit={{ opacity: 0 }}
           >
+            {obfuscate && (
+              <motion.span
+                key={seedID('modal-backdrop')}
+                className={Backdrop}
+                data-overlay-color={overlayColor}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.95 }}
+                transition={{ duration: 0.2 }}
+                exit={{ opacity: 0 }}
+              />
+            )}
             {children}
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </OverlayProvider>
