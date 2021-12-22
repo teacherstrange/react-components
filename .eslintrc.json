@@ -1,5 +1,5 @@
 {
-  "extends": "@wonderflow/eslint-config",
+  "extends": ["@wonderflow/eslint-config", "plugin:storybook/recommended"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"]
 }
