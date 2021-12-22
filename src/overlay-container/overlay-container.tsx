@@ -22,8 +22,8 @@ export type OverlayContainerProps = {
    */
   index?: number;
   /**
-   * Set the overlay style. This is used to obscure the page content
-   * behind the content of the overlay, while it is open. If set to `auto`, the overlay
+   * Set the overlay style. This is used to obscure the content
+   * behind the overlay if `obfuscate` is `true`. If set to `auto`, the overlay
    * color is determined by the global active theme (light or dark).
    */
   overlayColor?: 'light' | 'dark' | 'auto';
