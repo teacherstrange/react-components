@@ -1,6 +1,9 @@
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ReactNode, useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import { useUIDSeed } from 'react-uid'
+import { OverlayProvider } from './overlay-context'
+import { Backdrop } from './overlay-container.module.css'
 
 export type OverlayContainerProps = {
   /**
@@ -18,13 +21,27 @@ export type OverlayContainerProps = {
    * if necessary.
    */
   index?: number;
+  /**
+   * Set the overlay style. This is used to obscure the page content
+   * behind the content of the overlay, while it is open. If set to `auto`, the overlay
+   * color is determined by the global active theme (light or dark).
+   */
+  overlayColor?: 'light' | 'dark' | 'auto';
+  /**
+   * The callback function that is called when the overlay is closed.
+   */
+  onClose?(): void;
 }
 
 export const OverlayContainer: React.FC<OverlayContainerProps> = ({
   children,
   root = document.body,
-  index = 4
+  overlayColor = 'dark',
+  index = 4,
+  onClose
 }) => {
+  const seedID = useUIDSeed()
+
   useEffect(() => {
     if (root.closest('[data-overlay-container]')) {
       throw new Error('An OverlayContainer must not be inside another container. Please change the root prop.')
@@ -32,11 +49,25 @@ export const OverlayContainer: React.FC<OverlayContainerProps> = ({
   }, [root])
 
   const content = (
-    <div data-overlay-container style={{ position: 'relative', zIndex: index }}>
+    <OverlayProvider onClose={onClose}>
       <AnimatePresence>
-        {children}
+        {children && (
+          <>
+            <motion.span
+              key={seedID('modal-backdrop')}
+              className={Backdrop}
+              data-overlay-color={overlayColor}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.95 }}
+              transition={{ duration: 0.2 }}
+            />
+            <div data-overlay-container style={{ position: 'relative', zIndex: index }}>
+              {children}
+            </div>
+          </>
+        )}
       </AnimatePresence>
-    </div>
+    </OverlayProvider>
   )
   return createPortal(content, root)
 }
