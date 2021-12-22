@@ -63,13 +63,13 @@ export type { ListProps } from './list'
 export { SplitButton } from './split-button'
 export type { SplitButtonProps } from './split-button'
 
-export { Modal, useModalContext, ModalProvider } from './modal'
+export { Modal } from './modal'
 export type { ModalProps } from './modal'
 
 export { LinearProgress } from './linear-progress'
 export type { LinearProgressProps } from './linear-progress'
 
-export { OverlayContainer } from './overlay-container'
+export { OverlayContainer, useOverlayContext, OverlayProvider } from './overlay-container'
 export type { OverlayContainerProps } from './overlay-container'
 
 export { Prose } from './prose'

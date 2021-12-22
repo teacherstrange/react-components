@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { forwardRef, ReactNode } from 'react'
 import { Content, Header, CloseButton } from './modal-content.module.css'
 import { Title, Elevator, IconButton, Stack } from '../../'
-import { useModalContext } from '../modal-context'
+import { useOverlayContext } from '../../overlay-container'
 
 export type ModalContentProps = PropsWithClass & {
   /**
@@ -24,7 +24,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(({
   theme = 'light',
   ...otherProps
 }, forwardedRef) => {
-  const { onClose, titleId } = useModalContext()
+  const { onClose, titleId } = useOverlayContext()
 
   return (
     <Elevator resting={4}>
