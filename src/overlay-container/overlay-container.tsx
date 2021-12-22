@@ -3,7 +3,7 @@ import { ReactNode, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { useUIDSeed } from 'react-uid'
 import { OverlayProvider } from './overlay-context'
-import { Backdrop } from './overlay-container.module.css'
+import { OverlayContainer as OverlayContainerClass, Backdrop } from './overlay-container.module.css'
 
 export type OverlayContainerProps = {
   /**
@@ -52,7 +52,7 @@ export const OverlayContainer: React.FC<OverlayContainerProps> = ({
     <OverlayProvider onClose={onClose}>
       <AnimatePresence>
         {children && (
-          <>
+          <div data-overlay-container className={OverlayContainerClass} style={{ zIndex: index }}>
             <motion.span
               key={seedID('modal-backdrop')}
               className={Backdrop}
@@ -60,11 +60,10 @@ export const OverlayContainer: React.FC<OverlayContainerProps> = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.95 }}
               transition={{ duration: 0.2 }}
+              exit={{ opacity: 0 }}
             />
-            <div data-overlay-container style={{ position: 'relative', zIndex: index }}>
-              {children}
-            </div>
-          </>
+            {children}
+          </div>
         )}
       </AnimatePresence>
     </OverlayProvider>

@@ -19,14 +19,12 @@
   }
 
   &[data-card-vibrant='true'] {
-
-    @mixin vibrancy;
+    background-color: var(--global-vibrancy-background);
   }
 
   &[data-card-highlight-hover='true'][data-card-vibrant='true']:hover,
   &[data-card-highlight-hover='true'][data-card-vibrant='true']:focus-visible {
-
-    @mixin vibrancy-hover;
+    background-color: var(--global-vibrancy-background-hover);
   }
 
   &[data-card-bordered='true'] {

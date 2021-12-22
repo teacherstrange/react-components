@@ -64,12 +64,11 @@
 
     @mixin vibrancy;
 
+    background-color: var(--global-vibrancy-background);
     color: var(--global-vibrancy-foreground);
 
     &:not([aria-pressed='true'], [aria-disabled='true']):is(:active) {
-
-      @mixin vibrancy-hover;
-
+      background-color: var(--global-vibrancy-background-hover);
       color: var(--global-vibrancy-foreground);
     }
 
@@ -84,14 +83,14 @@
     color: var(--global-vibrancy-foreground);
 
     &:not([aria-pressed='true'], [aria-disabled='true']):is(:active) {
-
-      @mixin vibrancy-hover;
+      background-color: var(--global-vibrancy-background-hover);
     }
 
     &:is(:hover, :focus) {
 
       @mixin vibrancy;
 
+      background-color: var(--global-vibrancy-background);
       color: var(--global-vibrancy-foreground);
     }
 
@@ -114,9 +113,8 @@
 
   &[aria-disabled='true'],
   &[aria-disabled='true']:is(:hover, :focus, :active) {
-
-    @mixin vibrancy-disabled;
-
+    color: var(--global-disabled-foreground);
+    background-color: var(--global-global-disabled-background);
     cursor: not-allowed;
   }
 

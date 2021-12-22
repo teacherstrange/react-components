@@ -1,3 +1,7 @@
+.OverlayContainer {
+  position: relative;
+}
+
 .Backdrop {
   display: block;
   position: fixed;
@@ -5,7 +9,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
   background-color: var(--dimmed-0);
 
   &[data-overlay-color='light'] {

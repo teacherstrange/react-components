@@ -39,11 +39,15 @@
   }
 
   &:disabled {
-
-    @mixin vibrancy-disabled;
-
     cursor: not-allowed;
     border-color: transparent;
+    color: var(--global-disabled-foreground);
+    background:
+      linear-gradient(
+        to bottom,
+        var(--global-disabled-background),
+        var(--global-disabled-background)
+      );
 
     &::placeholder {
       color: var(--dimmed-6);

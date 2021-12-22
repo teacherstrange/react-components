@@ -14,6 +14,7 @@
   color: var(--global-background);
   border-radius: env(--radius-4);
   position: relative;
+  background-color: var(--global-vibrancy-background);
 
   &::after {
     content: '';
@@ -42,9 +43,8 @@
   }
 
   &:disabled {
-
-    @mixin vibrancy-disabled;
-
+    color: var(--global-disabled-foreground);
+    background-color: var(--global-disabled-background);
     cursor: not-allowed;
   }
 
