@@ -3,7 +3,6 @@ import { Modal } from './modal'
 import { useOverlayContext, OverlayContainer } from '../overlay-container'
 import { Button } from '../button'
 import { IconButton } from '../icon-button'
-import { Card } from '../card'
 import { Title } from '../title'
 import { Stack } from '../stack'
 
@@ -22,7 +21,7 @@ const ModalShell = ({ children, ...otherProps }) => {
   return (
     <>
       <Button onClick={() => setVisible(true)}>Show Modal</Button>
-      <OverlayContainer onClose={() => setVisible(false)}>
+      <OverlayContainer obfuscate onClose={() => setVisible(false)}>
         {visible && (
           <Modal
             key="dynamic-modal"
@@ -53,14 +52,14 @@ const CustomContentModal = (...args) => {
   const { onClose, titleId } = useOverlayContext()
 
   return (
-    <Card>
+    <Stack verticalAlign="center">
       <Stack direction="row" fill={false} verticalAlign="center" horizontalAlign="space-between">
         <Title level="5" id={titleId}>{titleId}</Title>
         <IconButton onClick={() => onClose()} icon="xmark" kind="flat" aria-label="Close modal" />
       </Stack>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus et magnam distinctio qui quod ducimus libero magni earum perspiciatis.
       <img width="100%" height="auto" src="https://images.unsplash.com/photo-1579332649290-10b7da0cd111?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=cover&w=1600&q=80" />
-    </Card>
+    </Stack>
   )
 }
 

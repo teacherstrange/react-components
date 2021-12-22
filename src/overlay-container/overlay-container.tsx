@@ -3,7 +3,7 @@ import { ReactNode, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { useUIDSeed } from 'react-uid'
 import { OverlayProvider } from './overlay-context'
-import { OverlayContainer as OverlayContainerClass, Backdrop } from './overlay-container.module.css'
+import { OverlayContainer as OverlayContainerClass } from './overlay-container.module.css'
 
 export type OverlayContainerProps = {
   /**
@@ -31,13 +31,18 @@ export type OverlayContainerProps = {
    * The callback function that is called when the overlay is closed.
    */
   onClose?(): void;
+  /**
+   * Set the overlay to be obscuring the page content behind it.
+   */
+  obfuscate?: boolean;
 }
 
 export const OverlayContainer: React.FC<OverlayContainerProps> = ({
   children,
   root = document.body,
-  overlayColor = 'dark',
+  overlayColor = 'auto',
   index = 4,
+  obfuscate = true,
   onClose
 }) => {
   const seedID = useUIDSeed()
@@ -52,18 +57,20 @@ export const OverlayContainer: React.FC<OverlayContainerProps> = ({
     <OverlayProvider onClose={onClose}>
       <AnimatePresence>
         {children && (
-          <div data-overlay-container className={OverlayContainerClass} style={{ zIndex: index }}>
-            <motion.span
-              key={seedID('modal-backdrop')}
-              className={Backdrop}
-              data-overlay-color={overlayColor}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.95 }}
-              transition={{ duration: 0.2 }}
-              exit={{ opacity: 0 }}
-            />
+          <motion.div
+            key={seedID('modal-backdrop')}
+            data-overlay-container
+            className={OverlayContainerClass}
+            data-overlay-color={overlayColor}
+            data-overlay-obfuscate={obfuscate}
+            style={{ zIndex: index }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.95 }}
+            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0 }}
+          >
             {children}
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </OverlayProvider>
